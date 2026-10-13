@@ -9,11 +9,10 @@ individual source headers. Bundled libretro-common files carry their own
 permissive license notices. H1-FC redistributions must preserve these notices
 and provide the corresponding source, including the H1 patches/build scripts.
 
-Recreate the dependency without following a moving branch:
+Initialize the pinned dependency from the repository root:
 
 ```powershell
-git clone https://github.com/libretro/libretro-fceumm.git h1-fc/third_party/fceumm
-git -C h1-fc/third_party/fceumm checkout --detach ac0d00a7fc01166f84c7bac01d1084ebfd2b865e
+git submodule update --init third_party/fceumm
 ```
 
 `tools/prepare_core.py` verifies the revision and clean checkout, copies it to
