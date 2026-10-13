@@ -1,0 +1,7 @@
+{
+  "url": "https://raw.githubusercontent.com/mhughson/mbh-firstnes/master/promotion/itch_emulator/roms/from_below_2020_09_16_v_1_0_0.nes",
+  "file": "build\\game-fixtures\\from-below\\from_below_2020_09_16_v_1_0_0.nes",
+  "bytes": 40976,
+  "sha256": "1a3ac4faf4b35640505344059ae5d91dae07cd47e1fb4d9d2a33c76391f1c555",
+  "header": "4e45531a020100000000000000000000"
+}

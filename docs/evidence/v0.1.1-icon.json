@@ -1,0 +1,81 @@
+{
+  "ok": true,
+  "source": {
+    "file": "assets\\fc-icon.png",
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "transparent_pixels": 48519,
+    "opaque_pixels": 56,
+    "sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031"
+  },
+  "bda": {
+    "file": "dist\\H1FC.bda",
+    "sha256": "5ce6893eac746c86e4ffbfd5c7bc243d6dbc71699fa8cc9526e0e045efb25d58",
+    "bytes": 953352
+  },
+  "resources": [
+    {
+      "index": 0,
+      "size": [
+        45,
+        45
+      ],
+      "bits": 24,
+      "supports_alpha": true,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent_pixels": 29,
+      "opaque_pixels": 90
+    },
+    {
+      "index": 1,
+      "size": [
+        57,
+        57
+      ],
+      "bits": 24,
+      "supports_alpha": true,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent_pixels": 49,
+      "opaque_pixels": 116
+    },
+    {
+      "index": 2,
+      "size": [
+        49,
+        60
+      ],
+      "bits": 16,
+      "supports_alpha": false,
+      "note": "RGB565 has no alpha; SDK composites source transparency on black"
+    },
+    {
+      "index": 3,
+      "size": [
+        49,
+        60
+      ],
+      "bits": 16,
+      "supports_alpha": false,
+      "note": "RGB565 has no alpha; SDK composites source transparency on black"
+    }
+  ]
+}

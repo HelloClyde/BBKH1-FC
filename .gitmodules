@@ -1,0 +1,6 @@
+[submodule "third_party/fceumm"]
+	path = third_party/fceumm
+	url = https://github.com/libretro/libretro-fceumm.git
+[submodule "sdk"]
+	path = sdk
+	url = https://github.com/MrDefinition1999/bbk-h1-bda-sdk.git

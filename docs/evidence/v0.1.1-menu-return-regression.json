@@ -1,0 +1,12 @@
+{
+  "positive": "Full platform suite passes with release gate",
+  "negative_returncode": 3221226505,
+  "negative_stderr": "Assertion failed: !aliases.mask && !aliases.pause_requested, file tests\\platform_test.c, line 156",
+  "cases": [
+    "Confirm held after menu is not Start or A",
+    "Enter/Z/P held after menu is ignored until release",
+    "Fresh confirm and enter retain distinct actions",
+    "Touch resume suppresses preexisting held controls",
+    "Fresh direction+A remains simultaneous"
+  ]
+}

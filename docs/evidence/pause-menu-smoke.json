@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "kind": "Actual MIPS BDA, mocked H1 service tables",
+  "sha256": "3c99ca3e1c36804c0e6dc681ffdcff3caaeec58d3ebf780eb3c9519b9b8619cb",
+  "seconds": [
+    6.38,
+    4.28
+  ],
+  "state_slots_restored": 3,
+  "state_bytes": [
+    22002,
+    22002,
+    22002
+  ],
+  "paused_cpu_ram_stable": true,
+  "mutated_cpu_ram_restored": true,
+  "invalid_state_preserved": true,
+  "empty_state_safe": true,
+  "pcm_device_reused": true,
+  "pause_menu_exit": true,
+  "video_frames": 13
+}

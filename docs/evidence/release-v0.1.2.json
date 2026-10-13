@@ -1,0 +1,39 @@
+{
+  "version": "0.1.2",
+  "bda_sha256": "4deadc5370616567191f3e90fa174feb88f69890e11a3c812a8b4af8bbce5634",
+  "payload_sha256": "78c69e1a9c882fbd1fb2938c100f111fb63e51c50dc34dbd490d371268f988a1",
+  "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+  "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+  "full_firmware_tested": true,
+  "hardware_tested": false,
+  "checks": {
+    "launch": true,
+    "about_author": true,
+    "about_return": true,
+    "cancel_to_desktop": true,
+    "clean_exit": true,
+    "gameplay_resumes": true
+  },
+  "environment": "Full H1 V1.41 firmware / QEMU bbkh1 with private NAND copies",
+  "screenshots": {
+    "docs/evidence/v0.1.2-about-key.png": "b88afadc8093756ae31adb91e74eea73c08448b98cfdae1a5bc2bdf266a3ab09",
+    "docs/evidence/v0.1.2-about.png": "b88afadc8093756ae31adb91e74eea73c08448b98cfdae1a5bc2bdf266a3ab09",
+    "docs/evidence/v0.1.2-cancel-desktop.png": "5b1c3b8653b4ed482485333a523344eaab47e7132539ef4797308e0a68af4161",
+    "docs/evidence/v0.1.2-desktop.png": "913928e0636a5d70688de3aae148b6ec2a74d98bc9af3aef8e03a5730e8f6d0d",
+    "docs/evidence/v0.1.2-empty-picker.png": "e1b5059bcd8584f20c9bca98ad34ba79d3d7c425b48349404f343c05bc8bcdc5",
+    "docs/evidence/v0.1.2-gameplay.png": "632c17e6becdbc951ab97a571f4137842cb6cbe443739a2bd5f4892701c083d2",
+    "docs/evidence/v0.1.2-pause.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355"
+  },
+  "evidence_sha256": {
+    "docs/evidence/v0.1.2-from-below.json": "88d8ac0bbd884e1f7625709493d842ae0fa7b80e0c33917112ebb6a500fa5678",
+    "docs/evidence/v0.1.2-from-below.log": "168572e37e074472a1b931c2967951c2cae6d7a266099c83879409cc49397d71",
+    "docs/evidence/v0.1.2-menu-smoke.json": "df28fd660a48f81910cfa0aa9dab99680d7b3ff1b3ca8ab9900ca9c9303f6a62",
+    "docs/evidence/v0.1.2-pause-menu-smoke.json": "0d8fd9babd1b35372034166506821c0d2af159e81520afeb3637d23abb54f5a7",
+    "docs/evidence/v0.1.2-selector-cancel-native.json": "32041106cbb96265e8ccdc675bf506da4b2f78601a6b195f688979dde8cb98ca",
+    "docs/evidence/v0.1.2-selector-cancel-native.log": "75eaeafcfbd1a14c3414a570455e1061a7b38bccdb425fdb9917266a9f85b03d"
+  },
+  "limitations": [
+    "No physical H1 verification.",
+    "From Below is author-released homebrew; this is not a full compatibility or long-term test."
+  ]
+}

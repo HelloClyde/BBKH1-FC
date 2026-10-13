@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "version": "0.1.2",
+  "bda_sha256": "4deadc5370616567191f3e90fa174feb88f69890e11a3c812a8b4af8bbce5634",
+  "environment": "Full H1 V1.41 firmware in QEMU bbkh1",
+  "physical_device_tested": false,
+  "fc_folder_initially_empty": true,
+  "rom_selected": false,
+  "core_initialized": false,
+  "audio_opened": false,
+  "cancel_key": "Escape (native key 24)",
+  "cancel_attempts": 2,
+  "desktop_body_matches_before": {
+    "1": true,
+    "2": true
+  },
+  "desktop_relaunch_verified": true,
+  "selector_cancel_restore": 1,
+  "app_end_result": 0,
+  "qemu_returncode": 0,
+  "screenshots": {
+    "desktop-after-1.png": "6da6e6d5a65a19f5fa6bf753498f67475e29dd657a99e9851f4b6f46e13790a4",
+    "desktop-after-2.png": "5b1c3b8653b4ed482485333a523344eaab47e7132539ef4797308e0a68af4161",
+    "desktop-before.png": "913928e0636a5d70688de3aae148b6ec2a74d98bc9af3aef8e03a5730e8f6d0d",
+    "empty-picker-1.png": "e1b5059bcd8584f20c9bca98ad34ba79d3d7c425b48349404f343c05bc8bcdc5",
+    "empty-picker-2.png": "e1b5059bcd8584f20c9bca98ad34ba79d3d7c425b48349404f343c05bc8bcdc5"
+  }
+}

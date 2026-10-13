@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "environment": "full H1 V1.41 firmware in QEMU bbkh1, 64 MiB",
+  "physical_device_tested": false,
+  "original_dump_modified": false,
+  "bda_sha256": "3c99ca3e1c36804c0e6dc681ffdcff3caaeec58d3ebf780eb3c9519b9b8619cb",
+  "kernel_sha256": "d05786e442f9aad62a8d0a0cb4f6d786bdc7c2fa353a7a2b152c9ed9f01b40ef",
+  "rom": "original redistributable H1TEST.nes, NROM mapper 0, 24,592 bytes",
+  "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f",
+  "a_pressed_rgb": [
+    248,
+    252,
+    248
+  ],
+  "a_released_rgb": [
+    72,
+    160,
+    248
+  ],
+  "audio": {
+    "sequence": 1921,
+    "packets": 1921,
+    "frames": 1282837,
+    "sample_rate": 32000,
+    "queued_packets": 256,
+    "diagnostics": {
+      "sample_rate": 32000,
+      "tx_fifo_level": 31,
+      "rx_fifo_level": 0,
+      "flags": 25,
+      "aicfr": 7985,
+      "aiccr": 608258,
+      "cdccr1": 50339840,
+      "cdccr2": 1539,
+      "tx_dma_samples": 1262765,
+      "rx_dma_samples": 0,
+      "output_frames": 1263362,
+      "input_frames": 0,
+      "underruns": 628,
+      "overruns": 0,
+      "dma_completions": 1262,
+      "dma_rearms": 1262,
+      "last_rearm_gap_ns": 82500,
+      "max_rearm_gap_ns": 55463600,
+      "total_rearm_gap_ns": 541616500,
+      "last_gap_underruns": 0,
+      "total_gap_underruns": 0,
+      "last_dma_units": 1000,
+      "completion_fifo_level": 31,
+      "rearm_fifo_level": 30
+    }
+  },
+  "app_audio_at_close": {
+    "batches": 2376,
+    "submitted": 3,
+    "nonzero": 1263135,
+    "dropped": 0,
+    "failures": 0,
+    "underruns": 2
+  },
+  "video_frames": 2376,
+  "video_errors": 0,
+  "sram": {
+    "slot_bytes": 8220,
+    "payload_bytes": 8192,
+    "header_crc_ok": true,
+    "payload_crc_ok": true,
+    "first_six_bytes": "5a1144421e00"
+  },
+  "ftl_torn_records": 0,
+  "app_end_result": 0,
+  "qemu_returncode": 0,
+  "screenshots": {
+    "native-menu.png": "1b43e0d53de28c36c16a330e53cdb9649c3d2bb29fa13a6597d3b6c609d99b0a",
+    "native-picker.png": "fe4570794ad299231ebc475aa667094688413aeb7055d6bd603289d277aad0fb",
+    "native-gameplay.png": "d6cb6bda52c98f29035b0742c1303032ab91946e45eb90166b0b913d88768b84",
+    "native-a-pressed.png": "c13bb7652add98e07fb43fb13fedb50335555c321c6e868be560daa5ba58e7d6",
+    "native-a-released.png": "d6cb6bda52c98f29035b0742c1303032ab91946e45eb90166b0b913d88768b84",
+    "native-returned-picker.png": "fe4570794ad299231ebc475aa667094688413aeb7055d6bd603289d277aad0fb",
+    "native-exit-desktop.png": "6c86ed69a3d5da3e1807f581459f951326c9ed6446d92502964fcf346f6d3322"
+  },
+  "limitations": [
+    "QEMU results do not establish physical-device speed or long-term stability",
+    "Audio output was observed; underrun counters are retained, not treated as zero"
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "ok": true,
+  "kind": "Actual test-20 MIPS BDA with mocked H1 firmware",
+  "bda_sha256": "1296995c7b374e3b8543e7c1467489c236b86e56a4e04be1aada4d5bf8644714",
+  "cases": {
+    "ntsc-skip0": {
+      "seconds": 6.34,
+      "display_frames": 20,
+      "core_frames": 20,
+      "cpu_frame_counter": 16,
+      "frame_us": 16639,
+      "sample_rate": 32000,
+      "audio_nonzero_samples": 8795,
+      "audio_dropped": 0,
+      "audio_failures": 0,
+      "mock_audio_underruns": 0,
+      "pcm": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14713
+      },
+      "battery_restored": false,
+      "save_prefix": "5a1110421e000000",
+      "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+      "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f"
+    },
+    "ntsc-skip1": {
+      "seconds": 5.61,
+      "display_frames": 10,
+      "core_frames": 20,
+      "cpu_frame_counter": 16,
+      "frame_us": 16639,
+      "sample_rate": 32000,
+      "audio_nonzero_samples": 8795,
+      "audio_dropped": 0,
+      "audio_failures": 0,
+      "mock_audio_underruns": 0,
+      "pcm": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14713
+      },
+      "battery_restored": false,
+      "save_prefix": "5a1110421e000000",
+      "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+      "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f"
+    },
+    "ntsc-skip2": {
+      "seconds": 5.42,
+      "display_frames": 7,
+      "core_frames": 20,
+      "cpu_frame_counter": 16,
+      "frame_us": 16639,
+      "sample_rate": 32000,
+      "audio_nonzero_samples": 8795,
+      "audio_dropped": 0,
+      "audio_failures": 0,
+      "mock_audio_underruns": 0,
+      "pcm": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14713
+      },
+      "battery_restored": false,
+      "save_prefix": "5a1110421e000000",
+      "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+      "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f"
+    },
+    "ntsc-skip2-restored": {
+      "seconds": 5.47,
+      "display_frames": 7,
+      "core_frames": 20,
+      "cpu_frame_counter": 16,
+      "frame_us": 16639,
+      "sample_rate": 32000,
+      "audio_nonzero_samples": 8795,
+      "audio_dropped": 0,
+      "audio_failures": 0,
+      "mock_audio_underruns": 0,
+      "pcm": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14713
+      },
+      "battery_restored": true,
+      "save_prefix": "5a1110421ec00000",
+      "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+      "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f"
+    },
+    "pal-skip0": {
+      "seconds": 5.86,
+      "display_frames": 20,
+      "core_frames": 20,
+      "cpu_frame_counter": 16,
+      "frame_us": 19997,
+      "sample_rate": 32000,
+      "audio_nonzero_samples": 10602,
+      "audio_dropped": 0,
+      "audio_failures": 0,
+      "mock_audio_underruns": 0,
+      "pcm": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14728
+      },
+      "battery_restored": false,
+      "save_prefix": "5a1110421e000000",
+      "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+      "rom_sha256": "b1c78585b38a1cf8883078a0abf438ef57b91fe84d795f071054972303615628"
+    },
+    "pal-skip1": {
+      "seconds": 5.61,
+      "display_frames": 10,
+      "core_frames": 20,
+      "cpu_frame_counter": 16,
+      "frame_us": 19997,
+      "sample_rate": 32000,
+      "audio_nonzero_samples": 10602,
+      "audio_dropped": 0,
+      "audio_failures": 0,
+      "mock_audio_underruns": 0,
+      "pcm": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14728
+      },
+      "battery_restored": false,
+      "save_prefix": "5a1110421e000000",
+      "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+      "rom_sha256": "b1c78585b38a1cf8883078a0abf438ef57b91fe84d795f071054972303615628"
+    },
+    "pal-skip2": {
+      "seconds": 5.53,
+      "display_frames": 7,
+      "core_frames": 20,
+      "cpu_frame_counter": 16,
+      "frame_us": 19997,
+      "sample_rate": 32000,
+      "audio_nonzero_samples": 10602,
+      "audio_dropped": 0,
+      "audio_failures": 0,
+      "mock_audio_underruns": 0,
+      "pcm": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14728
+      },
+      "battery_restored": false,
+      "save_prefix": "5a1110421e000000",
+      "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+      "rom_sha256": "b1c78585b38a1cf8883078a0abf438ef57b91fe84d795f071054972303615628"
+    },
+    "pal-skip2-restored": {
+      "seconds": 5.34,
+      "display_frames": 7,
+      "core_frames": 20,
+      "cpu_frame_counter": 16,
+      "frame_us": 19997,
+      "sample_rate": 32000,
+      "audio_nonzero_samples": 10602,
+      "audio_dropped": 0,
+      "audio_failures": 0,
+      "mock_audio_underruns": 0,
+      "pcm": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14731
+      },
+      "battery_restored": true,
+      "save_prefix": "5a1110421ec00000",
+      "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+      "rom_sha256": "b1c78585b38a1cf8883078a0abf438ef57b91fe84d795f071054972303615628"
+    }
+  },
+  "assertions": [
+    "NES 2.0 PAL header selects approximately 50 Hz core timing",
+    "NTSC remains approximately 60.1 Hz",
+    "Skip 0/1/2 displays exactly 20/10/7 of 20 core frames",
+    "Every skipped output frame still runs CPU and generates APU audio",
+    "Final CPU-written battery RAM is identical across skip levels",
+    "Battery save is restored on relaunch with skip 2 in both regions",
+    "Settings are loaded through CRC-checked per-ROM config slots",
+    "MIPS ABI and guest resource cleanup"
+  ],
+  "limitation": "Timing values are core declarations. Mock execution does not measure physical H1 speed or audio quality. Skipping omits output conversion/display; the PPU still executes."
+}

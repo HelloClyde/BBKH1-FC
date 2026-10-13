@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "game": "From Below 1.0 (Classic)",
+  "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+  "physical_device_tested": false,
+  "original_dump_modified": false,
+  "bda_sha256": "4deadc5370616567191f3e90fa174feb88f69890e11a3c812a8b4af8bbce5634",
+  "kernel_sha256": "d05786e442f9aad62a8d0a0cb4f6d786bdc7c2fa353a7a2b152c9ed9f01b40ef",
+  "rom_sha256": "1a3ac4faf4b35640505344059ae5d91dae07cd47e1fb4d9d2a33c76391f1c555",
+  "rom_bytes": 40976,
+  "mapper": 0,
+  "video_frames": 1476,
+  "video_errors": 0,
+  "audio": {
+    "sample_rate": 32000,
+    "packets": 145,
+    "frames": 96503,
+    "seconds": 3.01571875,
+    "min": -16323,
+    "max": 14394,
+    "nonzero_samples": 192830
+  },
+  "resumed_audio": {
+    "sample_rate": 32000,
+    "packets": 97,
+    "frames": 64697,
+    "seconds": 2.02178125,
+    "min": -15874,
+    "max": 14574,
+    "nonzero_samples": 129324
+  },
+  "resumed_gameplay_changed": true,
+  "paused_display_stable": true,
+  "app_end_result": 0,
+  "qemu_returncode": 0,
+  "screenshots": {
+    "assets/screenshots/about-key-v0.1.2.png": "b88afadc8093756ae31adb91e74eea73c08448b98cfdae1a5bc2bdf266a3ab09",
+    "assets/screenshots/about-v0.1.2.png": "b88afadc8093756ae31adb91e74eea73c08448b98cfdae1a5bc2bdf266a3ab09",
+    "assets/screenshots/desktop-v0.1.2.png": "913928e0636a5d70688de3aae148b6ec2a74d98bc9af3aef8e03a5730e8f6d0d",
+    "assets/screenshots/exit-v0.1.2.png": "a68d1807f019801a4a9e36bbe2cae1d5032acb1ced0e71549f9bd4852afbd9f3",
+    "assets/screenshots/gameplay-v0.1.2.png": "632c17e6becdbc951ab97a571f4137842cb6cbe443739a2bd5f4892701c083d2",
+    "assets/screenshots/pause-v0.1.2.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355"
+  },
+  "limitations": [
+    "Game-specific title/level/action results require visual inspection of screenshots",
+    "Full firmware emulation does not establish physical-device performance"
+  ],
+  "visually_verified": [
+    "Classic gameplay",
+    "Move left",
+    "A rotation",
+    "Up hard drop",
+    "About author HelloClyde and version 0.1.2",
+    "Touch and keyboard about paths show identical screen",
+    "Resume bright gameplay and block continues falling",
+    "Return to native desktop"
+  ],
+  "about_touch_key_identical": true
+}

@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "kind": "Actual MIPS H1FC BDA with mocked H1 firmware",
+  "bda_sha256": "5ce6893eac746c86e4ffbfd5c7bc243d6dbc71699fa8cc9526e0e045efb25d58",
+  "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f",
+  "menu": true,
+  "quick": true,
+  "cases": {
+    "pressed": {
+      "seconds": 4.11,
+      "frames": 11,
+      "colors": [
+        4226,
+        65535,
+        53508,
+        20201
+      ],
+      "audio": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14713
+      }
+    },
+    "restored": {
+      "seconds": 4.19,
+      "frames": 11,
+      "colors": [
+        4226,
+        19743,
+        53508,
+        20201
+      ]
+    },
+    "selector-cancel": {
+      "seconds": 1.3,
+      "frames": 0
+    }
+  },
+  "assertions": [
+    "MIPS ABI and resource cleanup",
+    "256x240 background and aspect scaling",
+    "A press and release",
+    "APU pulse PCM",
+    "8 KiB battery save with CRC",
+    "battery RAM restored across launches",
+    "native selector and cancel"
+  ],
+  "limitation": "Does not establish physical H1 frame rate, audio quality, or firmware compatibility."
+}

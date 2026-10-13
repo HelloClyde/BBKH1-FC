@@ -1,0 +1,16 @@
+/build/
+/dist/
+/.tools/
+/*.log
+__pycache__/
+*.pyc
+*.nes
+*.s0
+*.s1
+*.sav
+*.raw
+*.img
+*.wav
+*.bda
+*.elf
+*.map

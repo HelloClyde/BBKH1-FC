@@ -1,0 +1,115 @@
+name: Build and release H1 FC
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: true
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Check tag version
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python tools/verify_release.py --check-tag "$env:RELEASE_TAG"
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Install pinned dependencies and GNU MIPS toolchain
+        run: |
+          python -m pip install -r requirements.txt
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tools/install_toolchain.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Build and package
+        run: |
+          python tools/build.py --toolchain .tools/toolchain/bin
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tools/package.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tools/verify_release.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Execute actual release MIPS code with H1 service mocks
+        run: |
+          python tests/mips_smoke.py --bda dist/H1FC.bda --menu
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/pause_menu_smoke.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/check_icon.py --zip dist/H1FC-install.zip --output build/verification/icon-verification.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Check reproducible BDA and installer
+        run: |
+          $firstBda = (Get-FileHash dist/H1FC.bda -Algorithm SHA256).Hash
+          $firstZip = (Get-FileHash dist/H1FC-install.zip -Algorithm SHA256).Hash
+          python tools/build.py --toolchain .tools/toolchain/bin
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tools/package.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          if ((Get-FileHash dist/H1FC.bda -Algorithm SHA256).Hash -ne $firstBda) { throw 'BDA is not reproducible' }
+          if ((Get-FileHash dist/H1FC-install.zip -Algorithm SHA256).Hash -ne $firstZip) { throw 'Install ZIP is not reproducible' }
+      - name: Package installer, complete source and checksums
+        env:
+          BUILD_REF: ${{ github.ref }}
+          BUILD_REF_NAME: ${{ github.ref_name }}
+        run: |
+          if ($env:BUILD_REF.StartsWith('refs/tags/')) {
+            python tools/package_release.py --tag "$env:BUILD_REF_NAME"
+          } else {
+            python tools/package_release.py
+          }
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: H1-FC-release
+          path: dist/release/*
+          archive: true
+          if-no-files-found: error
+          retention-days: 14
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: H1-FC-mips-tests
+          path: build/verification/*
+          archive: true
+          if-no-files-found: warn
+          retention-days: 14
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: H1-FC-release
+          path: dist/release
+          digest-mismatch: error
+      - name: Verify downloaded files and publish prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+          RELEASE_COMMIT: ${{ github.sha }}
+        run: |
+          python tools/package_release.py --verify --tag "$RELEASE_TAG" --commit "$RELEASE_COMMIT"
+          gh release create "$RELEASE_TAG" dist/release/* --verify-tag --prerelease --title "H1 FC $RELEASE_TAG" --notes-file dist/release/RELEASE-NOTES.md

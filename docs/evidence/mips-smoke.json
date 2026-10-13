@@ -1,0 +1,102 @@
+{
+  "ok": true,
+  "kind": "Actual MIPS H1FC BDA with mocked H1 firmware",
+  "bda_sha256": "1296995c7b374e3b8543e7c1467489c236b86e56a4e04be1aada4d5bf8644714",
+  "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f",
+  "menu": false,
+  "quick": false,
+  "cases": {
+    "pressed": {
+      "seconds": 6.06,
+      "frames": 20,
+      "colors": [
+        4226,
+        65535,
+        53508,
+        20201
+      ],
+      "audio": {
+        "submissions": 1,
+        "samples": 8192,
+        "peak_to_peak": 14713
+      }
+    },
+    "restored": {
+      "seconds": 6.17,
+      "frames": 20,
+      "colors": [
+        4226,
+        19743,
+        53508,
+        20201
+      ]
+    },
+    "selector-cancel": {
+      "seconds": 1.14,
+      "frames": 0
+    },
+    "chinese-path": {
+      "seconds": 5.86,
+      "frames": 20
+    },
+    "no-battery": {
+      "seconds": 6.38,
+      "frames": 20
+    },
+    "changed-cartridge": {
+      "seconds": 6.12,
+      "frames": 20,
+      "existing_slots_preserved": true
+    },
+    "corrupt-save": {
+      "seconds": 5.7,
+      "frames": 20,
+      "existing_slots_preserved": true
+    },
+    "bad-magic": {
+      "seconds": 1.12,
+      "frames": 0,
+      "dialogs": [
+        "ROM load failed. Check file and free memory."
+      ]
+    },
+    "short-header": {
+      "seconds": 1.19,
+      "frames": 0,
+      "dialogs": [
+        "ROM load failed. Check file and free memory."
+      ]
+    },
+    "truncated": {
+      "seconds": 1.16,
+      "frames": 0,
+      "dialogs": [
+        "ROM load failed. Check file and free memory."
+      ]
+    },
+    "huge-nes2-size": {
+      "seconds": 1.14,
+      "frames": 0,
+      "dialogs": [
+        "ROM load failed. Check file and free memory."
+      ]
+    },
+    "unsupported-mapper": {
+      "seconds": 1.28,
+      "frames": 0,
+      "dialogs": [
+        "ROM load failed. Check file and free memory."
+      ]
+    }
+  },
+  "assertions": [
+    "MIPS ABI and resource cleanup",
+    "256x240 background and aspect scaling",
+    "A press and release",
+    "APU pulse PCM",
+    "8 KiB battery save with CRC",
+    "battery RAM restored across launches",
+    "native selector and cancel"
+  ],
+  "limitation": "Does not establish physical H1 frame rate, audio quality, or firmware compatibility."
+}
