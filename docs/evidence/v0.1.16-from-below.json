@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "game": "From Below 1.0 Classic",
+  "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+  "physical_device_tested": false,
+  "original_dump_modified": false,
+  "bda_sha256": "24247f8b5a7c36ee4f8954a0ff003e31124272af5f16937fc56ae2c25bc363ed",
+  "kernel_sha256": "d05786e442f9aad62a8d0a0cb4f6d786bdc7c2fa353a7a2b152c9ed9f01b40ef",
+  "rom_sha256": "1a3ac4faf4b35640505344059ae5d91dae07cd47e1fb4d9d2a33c76391f1c555",
+  "rom_bytes": 40976,
+  "mapper": 0,
+  "video_frames": 848,
+  "video_errors": 0,
+  "audio": {
+    "sample_rate": 32000,
+    "packets": 144,
+    "frames": 96396,
+    "seconds": 3.012375,
+    "min": -16354,
+    "max": 12278,
+    "nonzero_samples": 192660
+  },
+  "resumed_audio": {
+    "sample_rate": 32000,
+    "packets": 96,
+    "frames": 64454,
+    "seconds": 2.0141875,
+    "min": -19676,
+    "max": 15673,
+    "nonzero_samples": 128850
+  },
+  "resumed_gameplay_changed": true,
+  "paused_display_stable": true,
+  "app_end_result": 0,
+  "qemu_returncode": 0,
+  "exit_protocol": "p-menu-escape-return-confirm-exit",
+  "screenshots": {
+    "docs/evidence/v0.1.16-desktop.png": "c057b6433234e953429e65261b7d05a3cb1ebf2b41bc9d8c3ce44ba150d61374",
+    "docs/evidence/v0.1.16-picker.png": "d5d07d173d189af0da4a00b23b782b2848eea2c7035f2dea2496266bc81e691b",
+    "docs/evidence/v0.1.16-from-below-title.png": "d33c1b3d7e43120a64d10ec0f9a6eef904062a776a76fde5d7eb8e8798a58bfc",
+    "docs/evidence/v0.1.16-gameplay.png": "8f3d7e87bddc84fd8131f82c6cabd351b903fbc8da44cbaa918d244111bc5535",
+    "docs/evidence/v0.1.16-moved-left.png": "51cff9821678c62e161ad42b6a1795bc8f077b1a49c25357ff9373c4226d544d",
+    "docs/evidence/v0.1.16-rotated.png": "103afffc52dde63bcfbb54524e8e7af62f29d239bb0a6c2cb554f42f5fda5b1e",
+    "docs/evidence/v0.1.16-hard-dropped.png": "36175543c8b4804659f73539f18cb92bd0431148ba2edf49063c06c9918fe829",
+    "docs/evidence/v0.1.16-pause.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+    "docs/evidence/v0.1.16-pause-stable.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+    "docs/evidence/v0.1.16-about-touch.png": "87b1139207d49712c7bff433d93505a209eb78af0f47c64cc71cb543ac2da5c3",
+    "docs/evidence/v0.1.16-about-key.png": "87b1139207d49712c7bff433d93505a209eb78af0f47c64cc71cb543ac2da5c3",
+    "docs/evidence/v0.1.16-resumed.png": "56b63e9b82a2346c601a90681a58847dd7706fe2f854ef555c495dd4fc852885",
+    "docs/evidence/v0.1.16-resumed-later.png": "2462b0150f206b6cb45f05d9525b36a84bb2de3425b5cbf3dd1b8b81bc525d06",
+    "docs/evidence/v0.1.16-exit-desktop.png": "6ee0ece2cec126ac899587957269b4141ea7a6872fd34c06f067aac5fdac915b"
+  },
+  "limitations": [
+    "Full firmware emulation establishes these functional checks, not physical-device performance or all-game compatibility.",
+    "Audio captures contain nonzero PCM before and after pause; this does not establish long-duration audio quality."
+  ],
+  "source_report_sha256": "f68e43d385602e4b78c5e33e522fdb5e924c80f95a5b4a83c281dd3346873b59",
+  "visual_inspection": {
+    "performed": true,
+    "observations": [
+      "Desktop NES icon and native ROM selector are visible.",
+      "From Below Classic title, active playfield, left movement, rotation and hard drop are visible.",
+      "Pause menu is visible and remains unchanged during pause; resumed playfield changes.",
+      "Touch and key About views both show NES v0.1.16 and author HelloClyde; returning to the menu and gameplay succeeds.",
+      "Confirmed exit returns to the native desktop."
+    ]
+  },
+  "checks_from_log": {
+    "profile_disabled": true,
+    "default_skip_1": true,
+    "native_compiled_0": true,
+    "native_ops_0": true,
+    "underruns_0": true,
+    "audio_dropped_0": true,
+    "audio_failures_0": true
+  }
+}

@@ -1,7 +1,12 @@
 #ifndef H1_DIAGNOSTICS_H
 #define H1_DIAGNOSTICS_H
 #include <stddef.h>
+#if H1_DIAGNOSTIC
+#define H1_LOG_PATH "A:\\FC\\nesdiag.log"
+int h1_diag_active(void);
+#else
 #define H1_LOG_PATH "A:\\FC\\h1fc.log"
+#endif
 int h1_diag_init(void);
 void h1_diag(const char *format, ...);
 /* Only batch already-collected RAM statistics, never around hardware calls. */

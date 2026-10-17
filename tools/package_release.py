@@ -9,7 +9,8 @@ import shutil
 import subprocess
 import zipfile
 
-from verify_release import DEPENDENCIES, ROOT, check_tag, require, sha256, verify as verify_build, version
+from verify_release import (DEPENDENCIES, ROOT, check_tag, require, require_default_build,
+                            sha256, verify as verify_build, version)
 
 INSTALL_BDA = "应用/程序/H1FC.bda"
 FORBIDDEN_SUFFIXES = {
@@ -145,8 +146,7 @@ def verify_assets(output: Path, tag: str | None = None, expected_commit: str | N
     require(metadata == record["build"], "Release metadata mismatch")
     require(metadata["sha256"] == entries["H1FC.bda"] and metadata["version"] == release_version,
             "Release BDA identity mismatch")
-    require(not metadata["test_frames"] and not metadata["benchmark"] and not metadata["verbose_log"] and
-            not metadata["profile"], "Release contains a diagnostic build")
+    require_default_build(metadata)
     if record["firmware_evidence_verified"]:
         require(record["runtime_evidence"]["bda_sha256"] == entries["H1FC.bda"], "Runtime evidence BDA mismatch")
     for name, hash_key in (("menu-smoke.json", "bda_sha256"), ("pause-menu-smoke.json", "sha256")):

@@ -14,3 +14,23 @@ __pycache__/
 *.bda
 *.elf
 *.map
+
+# Local, fixed-device RAM experiments and their legacy evidence tools.
+# Keep these files locally; they are not inputs to a clean release build.
+/tests/hardware_clock/
+/tools/install_hardware_probe.ps1
+/tools/profile_ram_decode.py
+/tools/profile_snapshot_decode.py
+/tools/profile_snapshot_findings.py
+/tools/storage_timing_decode.py
+/tests/diagnostic_app_smoke.py
+/tests/diagnostic_firmware.py
+/tests/hardware_probe_test.py
+
+# Independent FCEU320 comparison; not part of the released FCEUmm application.
+/src/compat/fceu320_compare/
+/tools/build_fceu320_compare.py
+/tools/generate_fceu320_palette.py
+/tools/prepare_fceu320_opll.py
+/tests/fceu320_compare.py
+/tests/fceu320_app_benchmark.py

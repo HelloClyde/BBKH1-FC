@@ -1,0 +1,1046 @@
+{
+  "ok": true,
+  "version": "0.1.9",
+  "backend": "MIPS32_BANK_V5",
+  "scope": "Complete actual release BDA from startup through 1800 frames and explicit menu exit; identical mocked firmware clocks and input",
+  "scenario": {
+    "schema": 1,
+    "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+    "frames": 1800,
+    "settings": {
+      "scale": 1,
+      "skip": 0,
+      "sound": 1,
+      "volume": 100,
+      "save": "new, empty initial filesystem"
+    },
+    "events": [
+      {
+        "frame": 301,
+        "key": 25,
+        "down": true
+      },
+      {
+        "frame": 305,
+        "key": 25,
+        "down": false
+      },
+      {
+        "frame": 421,
+        "key": 25,
+        "down": true
+      },
+      {
+        "frame": 425,
+        "key": 25,
+        "down": false
+      },
+      {
+        "frame": 541,
+        "key": 25,
+        "down": true
+      },
+      {
+        "frame": 545,
+        "key": 25,
+        "down": false
+      },
+      {
+        "frame": 721,
+        "key": 16,
+        "down": true
+      },
+      {
+        "frame": 725,
+        "key": 16,
+        "down": false
+      },
+      {
+        "frame": 841,
+        "key": 16,
+        "down": true
+      },
+      {
+        "frame": 845,
+        "key": 16,
+        "down": false
+      },
+      {
+        "frame": 1201,
+        "key": 16,
+        "down": true
+      },
+      {
+        "frame": 1205,
+        "key": 16,
+        "down": false
+      },
+      {
+        "frame": 1321,
+        "key": 16,
+        "down": true
+      },
+      {
+        "frame": 1325,
+        "key": 16,
+        "down": false
+      },
+      {
+        "frame": 1501,
+        "key": 16,
+        "down": true
+      },
+      {
+        "frame": 1505,
+        "key": 16,
+        "down": false
+      },
+      {
+        "frame": 1621,
+        "key": 16,
+        "down": true
+      },
+      {
+        "frame": 1625,
+        "key": 16,
+        "down": false
+      }
+    ],
+    "cost_census": false,
+    "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+    "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+    "state_observation": "Read-only SFORMAT tables, without save callbacks",
+    "render_policy": "Allow audio catch-up skips; require exact baseline render/catch-up counts"
+  },
+  "matrix": {
+    "old_1m": {
+      "bda_sha256": "8037e35ab543be51005d06fb8e548ac6e61317e23c893d24b811dfb786827ca4",
+      "elf_sha256": "3991ddd4a61feced79b1bc58fcb45e0813f0288ea836215f899ebd49a3366396",
+      "block_instructions": 6086409214,
+      "startup_instructions": 47655095,
+      "teardown_instructions": 6312558,
+      "rendered_frames": 1740,
+      "audio_catchup_frames": 91,
+      "pcm_frames": 660352,
+      "core_pcm": "86eaed09a695c047d2a10a9db398a6cfce45b7f2f0971a6e57de5f715659761a",
+      "screen": "279923f2d8953c91db2673f9cce570ff15a2dbbc3e5c6ef8676ab50fb4125926",
+      "gameplay_submitted_ring_pcm": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8",
+      "gameplay_observed_ring_pcm": "cd1e6a6170e5589950e5ed7113c52daed9b9d71b05cb205baadb9e1f1b8d8fb1",
+      "save_payloads": {
+        "A:\\FC\\BENCH.nes.s0": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+        "A:\\FC\\BENCH.nes.s1": "e7912bc7bea3e9e76c3d44f4396581000d21e1dbcd8e4e6665c3f3f5c852f148"
+      },
+      "total_reduction_vs_old_1m_percent": 0.0,
+      "jit": {
+        "compiled": 8482,
+        "hits": 2226079,
+        "misses": 13223,
+        "native_ops": 11756495,
+        "deopts": 19,
+        "rejected": 4741,
+        "invalidations": 14,
+        "max_words": 1214
+      },
+      "cache": {
+        "used_bytes": 844256,
+        "wraps": 13
+      },
+      "bank": {},
+      "segments": {
+        "first_600_frames": {
+          "start_frame": 1,
+          "end_frame": 600,
+          "block_instructions": 1925260963,
+          "reduction_vs_old_1m_percent": 0.0
+        },
+        "new_game_and_map": {
+          "start_frame": 601,
+          "end_frame": 1500,
+          "block_instructions": 3049666071,
+          "reduction_vs_old_1m_percent": 0.0
+        },
+        "city_and_commands": {
+          "start_frame": 1501,
+          "end_frame": 1800,
+          "block_instructions": 1057514527,
+          "reduction_vs_old_1m_percent": 0.0
+        }
+      }
+    },
+    "old_4m": {
+      "bda_sha256": "52b54ffbf4c7f3fc9da5cf590c12f255c75b9607f1714ab634c78dc912fb647f",
+      "elf_sha256": "ff293e3a63c5fdeb7a8e58ce8a4871259a573b09cefe9e352d579fbde583b29d",
+      "block_instructions": 6031107644,
+      "startup_instructions": 47655095,
+      "teardown_instructions": 6311890,
+      "rendered_frames": 1740,
+      "audio_catchup_frames": 91,
+      "pcm_frames": 660352,
+      "core_pcm": "86eaed09a695c047d2a10a9db398a6cfce45b7f2f0971a6e57de5f715659761a",
+      "screen": "279923f2d8953c91db2673f9cce570ff15a2dbbc3e5c6ef8676ab50fb4125926",
+      "gameplay_submitted_ring_pcm": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8",
+      "gameplay_observed_ring_pcm": "cd1e6a6170e5589950e5ed7113c52daed9b9d71b05cb205baadb9e1f1b8d8fb1",
+      "save_payloads": {
+        "A:\\FC\\BENCH.nes.s0": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+        "A:\\FC\\BENCH.nes.s1": "e7912bc7bea3e9e76c3d44f4396581000d21e1dbcd8e4e6665c3f3f5c852f148"
+      },
+      "total_reduction_vs_old_1m_percent": 0.9086074901568431,
+      "jit": {
+        "compiled": 3666,
+        "hits": 2244728,
+        "misses": 5881,
+        "native_ops": 11823030,
+        "deopts": 27,
+        "rejected": 2215,
+        "invalidations": 2,
+        "max_words": 1214
+      },
+      "cache": {
+        "used_bytes": 1984480,
+        "wraps": 1
+      },
+      "bank": {},
+      "segments": {
+        "first_600_frames": {
+          "start_frame": 1,
+          "end_frame": 600,
+          "block_instructions": 1923038036,
+          "reduction_vs_old_1m_percent": 0.11546107476962941
+        },
+        "new_game_and_map": {
+          "start_frame": 601,
+          "end_frame": 1500,
+          "block_instructions": 3014971975,
+          "reduction_vs_old_1m_percent": 1.1376358982353674
+        },
+        "city_and_commands": {
+          "start_frame": 1501,
+          "end_frame": 1800,
+          "block_instructions": 1039130648,
+          "reduction_vs_old_1m_percent": 1.7384043935691484
+        }
+      }
+    },
+    "bank_1m": {
+      "bda_sha256": "8a70c292e6cfa32ba3d18fafb55b0a8c188aa0f452d59104bb211704cf828bb9",
+      "elf_sha256": "13e0cb804f06afb7c6e96056f53fa611b93f2819e9fa94efb848303a2392dd3e",
+      "block_instructions": 6050471772,
+      "startup_instructions": 47729986,
+      "teardown_instructions": 6319903,
+      "rendered_frames": 1740,
+      "audio_catchup_frames": 91,
+      "pcm_frames": 660352,
+      "core_pcm": "86eaed09a695c047d2a10a9db398a6cfce45b7f2f0971a6e57de5f715659761a",
+      "screen": "279923f2d8953c91db2673f9cce570ff15a2dbbc3e5c6ef8676ab50fb4125926",
+      "gameplay_submitted_ring_pcm": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8",
+      "gameplay_observed_ring_pcm": "cd1e6a6170e5589950e5ed7113c52daed9b9d71b05cb205baadb9e1f1b8d8fb1",
+      "save_payloads": {
+        "A:\\FC\\BENCH.nes.s0": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+        "A:\\FC\\BENCH.nes.s1": "e7912bc7bea3e9e76c3d44f4396581000d21e1dbcd8e4e6665c3f3f5c852f148"
+      },
+      "total_reduction_vs_old_1m_percent": 0.5904539234288797,
+      "jit": {
+        "compiled": 4692,
+        "hits": 2250602,
+        "misses": 6942,
+        "native_ops": 11826621,
+        "deopts": 0,
+        "rejected": 2250,
+        "invalidations": 8,
+        "max_words": 1214
+      },
+      "cache": {
+        "used_bytes": 820832,
+        "wraps": 7
+      },
+      "bank": {
+        "lookups": 27238,
+        "hits": 14054,
+        "misses": 13184,
+        "stores": 14376,
+        "evictions": 0,
+        "native_reuse": 5019,
+        "reject_reuse": 8438,
+        "epoch_misses": 12862
+      },
+      "segments": {
+        "first_600_frames": {
+          "start_frame": 1,
+          "end_frame": 600,
+          "block_instructions": 1926695410,
+          "reduction_vs_old_1m_percent": -0.07450662676735664
+        },
+        "new_game_and_map": {
+          "start_frame": 601,
+          "end_frame": 1500,
+          "block_instructions": 3024685128,
+          "reduction_vs_old_1m_percent": 0.8191369946221272
+        },
+        "city_and_commands": {
+          "start_frame": 1501,
+          "end_frame": 1800,
+          "block_instructions": 1045041345,
+          "reduction_vs_old_1m_percent": 1.1794809131733142
+        }
+      }
+    },
+    "bank_4m": {
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "elf_sha256": "c73fcd7690744581e00bb1532d0981012d28150fed99c2ea796a486bc59a8b09",
+      "block_instructions": 6014018734,
+      "startup_instructions": 47729986,
+      "teardown_instructions": 6319402,
+      "rendered_frames": 1740,
+      "audio_catchup_frames": 91,
+      "pcm_frames": 660352,
+      "core_pcm": "86eaed09a695c047d2a10a9db398a6cfce45b7f2f0971a6e57de5f715659761a",
+      "screen": "279923f2d8953c91db2673f9cce570ff15a2dbbc3e5c6ef8676ab50fb4125926",
+      "gameplay_submitted_ring_pcm": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8",
+      "gameplay_observed_ring_pcm": "cd1e6a6170e5589950e5ed7113c52daed9b9d71b05cb205baadb9e1f1b8d8fb1",
+      "save_payloads": {
+        "A:\\FC\\BENCH.nes.s0": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+        "A:\\FC\\BENCH.nes.s1": "e7912bc7bea3e9e76c3d44f4396581000d21e1dbcd8e4e6665c3f3f5c852f148"
+      },
+      "total_reduction_vs_old_1m_percent": 1.1893791142647325,
+      "jit": {
+        "compiled": 1592,
+        "hits": 2262282,
+        "misses": 2228,
+        "native_ops": 11868722,
+        "deopts": 0,
+        "rejected": 636,
+        "invalidations": 1,
+        "max_words": 1214
+      },
+      "cache": {
+        "used_bytes": 2802784,
+        "wraps": 0
+      },
+      "bank": {
+        "lookups": 18949,
+        "hits": 14079,
+        "misses": 4870,
+        "stores": 14384,
+        "evictions": 0,
+        "native_reuse": 5111,
+        "reject_reuse": 8722,
+        "epoch_misses": 4565
+      },
+      "segments": {
+        "first_600_frames": {
+          "start_frame": 1,
+          "end_frame": 600,
+          "block_instructions": 1924295073,
+          "reduction_vs_old_1m_percent": 0.05016930268481046
+        },
+        "new_game_and_map": {
+          "start_frame": 601,
+          "end_frame": 1500,
+          "block_instructions": 3002646836,
+          "reduction_vs_old_1m_percent": 1.5417830642875052
+        },
+        "city_and_commands": {
+          "start_frame": 1501,
+          "end_frame": 1800,
+          "block_instructions": 1033027437,
+          "reduction_vs_old_1m_percent": 2.3155322574590076
+        }
+      }
+    }
+  },
+  "selected_code_cache_mib": 4,
+  "memory": {
+    "code_bytes": 4194304,
+    "l1_bytes": 1048576,
+    "bank_bytes": 165888,
+    "allocation_including_alignment_bytes": 5408799
+  },
+  "comparison": {
+    "policy": "strict",
+    "all_four_equal": [
+      "every-frame LCD",
+      "CPU/PPU state",
+      "read-only declared core state",
+      "source PCM",
+      "gameplay submitted and observed playback ring bytes",
+      "persisted save payloads",
+      "rendered frames",
+      "audio catch-up frames"
+    ]
+  },
+  "regressions": {
+    "bank-v019-jit_smoke.json": {
+      "ok": true,
+      "cases": 2809,
+      "checks": [
+        "exact CPU/RAM/cycle/timestamp differential",
+        "both branch outcomes and page crossing",
+        "zero-page index wrapping",
+        "later opcode/operand mutation",
+        "PRG page remapping",
+        "mapper hook changes operand page after opcode fetch",
+        "writable PRG and encrypted opcode fallback",
+        "IRQ/NMI entry and CLI delay",
+        "state restore invalidation",
+        "arena reclamation and epoch invalidation",
+        "overclock specialization invalidation",
+        "reset invalidates cache metadata",
+        "allocation failure interpreter fallback",
+        "unload frees cache"
+      ],
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "report_sha256": "878629a40b6534c0d58a8ccbec12ae0077a969522b4da1db5ebe3a3bd989df42",
+      "local_report": "build/verification/bank-v019-jit_smoke.json"
+    },
+    "bank-v019-jit_event_smoke.json": {
+      "ok": true,
+      "cases": 232,
+      "checks": [
+        "APU frame and DMC deadlines before/at/after instruction boundary",
+        "independent interpreter scheduler deadlines and pending cycle carry",
+        "DMC DMA combined with frame or bit events",
+        "Namco IRQ disabled, threshold, overflow and branch cycle carry",
+        "both native branch targets; target operand mutation; restored chain epoch",
+        "masked IRQ native chains and temporary IRQ clearing",
+        "long 16-op native chains crossing the 15-bit packet boundary",
+        "exact CPU/RAM/timestamps and full serialized state"
+      ],
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "report_sha256": "d9ee47d9367947643e94162cf2cac7270c4a48b73c764a4fc0bf5a13b5318eb9",
+      "local_report": "build/verification/bank-v019-jit_event_smoke.json"
+    },
+    "bank-v019-jit_addressing_smoke.json": {
+      "ok": true,
+      "cases": 451,
+      "checks": [
+        "ADC/SBC carry/overflow/decimal-bit preservation",
+        "zero-page index wrapping",
+        "indexed dummy reads at xxFF/FFFF carries",
+        "exact callback-visible CPU/DB/PC/tcount and bus ordering",
+        "IO callback resident-state spill/reload and block termination",
+        "mapper IO remaps next opcode before dispatch",
+        "handler mutation after partial block execution",
+        "RAM mirrors and INC/DEC wrap",
+        "indirect JMP pointer-page wrap",
+        "indirect JMP directly chains to a warm block in another bank"
+      ],
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "report_sha256": "7fd005bf3cb85361b193aca75aac8ea4a8f4f1ffdfdbc00429a21a3eb9d8b56b",
+      "local_report": "build/verification/bank-v019-jit_addressing_smoke.json"
+    },
+    "bank-v019-jit_run_smoke.json": {
+      "ok": true,
+      "cases": 782,
+      "checks": [
+        "exact CPU including PC, DB, previous P; RAM; timestamps; full serialized state",
+        "count budget before/at/after instruction boundaries and final overshoot",
+        "APU/DMC deadlines at every region position, pending DMA and incoming carry",
+        "CLI/SEI, pending IRQ/NMI/NMI2/TEMP, and internal branch entry split",
+        "PPU status read region barrier and later read-handler mutation",
+        "Namco enable/threshold/overflow; overclock and timestamp wrap",
+        "both aggregate admission and one-instruction native fallback executed"
+      ],
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "report_sha256": "044da9aa83399c472317bcc6c491572047864b35ec697783137d543ec41994fe",
+      "local_report": "build/verification/bank-v019-jit_run_smoke.json"
+    },
+    "bank-v019-run-state.json": {
+      "ok": true,
+      "cases": 144,
+      "checks": [
+        "native return packet and complete CPU/RAM/serialized state",
+        "X.PC and previous P before dispatcher restoration",
+        "negative/zero budgets, exact boundaries and partial run exits",
+        "all admitted pure operand families; incoming cycle carry"
+      ],
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "report_sha256": "8a3301c5237599c11f819c30f7cdc5a7200dfe0e38e01b5a127e262236c38e76",
+      "local_report": "build/verification/bank-v019-run-state.json"
+    },
+    "bank-v019-dmc.json": {
+      "ok": true,
+      "limitation": "Block instruction entries and host timings are not physical H1 frame rates.",
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "report_sha256": "acdcc4c983591624204c990db7e4e3abf5b807a4fe325212bd1948f2630fe32d",
+      "local_report": "build/verification/bank-v019-dmc.json"
+    },
+    "bank-v019-dmc-irq.json": {
+      "ok": true,
+      "limitation": "Block instruction entries and host timings are not physical H1 frame rates.",
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "report_sha256": "3540281f8b33e01dbc4fed0370b0a4c2c5852b83d0ae48372f14af7c240d440b",
+      "local_report": "build/verification/bank-v019-dmc-irq.json"
+    },
+    "bank-v019-save-audio.json": {
+      "ok": true,
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "limitation": "Storage is deliberately silent. This does not remove IO latency or establish physical-device performance.",
+      "report_sha256": "db8ffb7d62bb4f9d97c691ed2c61fc2e3e851f55911dd1a1efff6b66bad307b3",
+      "local_report": "build/verification/bank-v019-save-audio.json"
+    },
+    "bank-v019-audio.json": {
+      "ok": true,
+      "cases": {
+        "22050": {
+          "exact_samples": 11145,
+          "submissions": 2,
+          "low_water_and_recovery": true,
+          "unread_pcm_preserved": true,
+          "continuous_underrun_recovery": true,
+          "recovery_silence_samples": 512,
+          "storage_cancel_and_refill": true
+        },
+        "32000": {
+          "exact_samples": 7680,
+          "submissions": 2,
+          "low_water_and_recovery": true,
+          "unread_pcm_preserved": true,
+          "continuous_underrun_recovery": true,
+          "recovery_silence_samples": 512,
+          "storage_cancel_and_refill": true
+        },
+        "48000": {
+          "exact_samples": 5120,
+          "submissions": 2,
+          "low_water_and_recovery": true,
+          "unread_pcm_preserved": true,
+          "continuous_underrun_recovery": true,
+          "recovery_silence_samples": 512,
+          "storage_cancel_and_refill": true
+        },
+        "slow_display": {
+          "core_audio_frames": 20,
+          "display_frames": 14,
+          "catchup_frames": 10,
+          "configured_skip_preserved": true,
+          "bda_sha256": "b73ebd999f9f0b8c40d4212e9cb91550721d61a5c4c56023266daf40f5623e41"
+        }
+      },
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "report_sha256": "ee0490fe927fe5be9bc05afe895f7b156dfe47542177d5faa63f219019d168ea",
+      "local_report": "build/verification/bank-v019-audio.json"
+    },
+    "jit-bank-v019-1m.json": {
+      "ok": true,
+      "cases": 930,
+      "frames": [
+        {
+          "mapper": 0,
+          "frames": 16,
+          "pcm_bytes": 23476,
+          "pcm_sha256": "a75bf0d5e5c5dca136a92eeac466d08b5131c5a0ff2af5b864b0079025b2f7cc",
+          "native_block_entries": 1309371,
+          "checks": [
+            "Every frame: exact serialized state, video and nonzero source PCM vs interpreter"
+          ]
+        },
+        {
+          "mapper": 19,
+          "frames": 16,
+          "pcm_bytes": 23476,
+          "pcm_sha256": "a75bf0d5e5c5dca136a92eeac466d08b5131c5a0ff2af5b864b0079025b2f7cc",
+          "native_block_entries": 1386246,
+          "checks": [
+            "Every frame: exact serialized state, video and nonzero source PCM vs interpreter"
+          ]
+        }
+      ],
+      "boundaries": [
+        {
+          "mapper": 0,
+          "cases": 465,
+          "cache_bytes": 1048576,
+          "checks": [
+            "A/B/A same PC and first opcode, different operands: exact native pointer reused",
+            "Same physical bank at different CPU addresses retains PC and branch semantics",
+            "Later operand mutation cannot be resurrected after a bank round trip",
+            "Native chain page miss preserves both banks and executes equivalent state",
+            "Chained stale target evicts the target owner without poisoning source/L2",
+            "Read-handler guard and rejected versions survive bank swaps without stale resurrection",
+            "Overclock specialization changes deopt once and preserve interpreter timing",
+            "ROM/RAM transitions run interpreter while writable and revalidate changed bytes",
+            "Cold heat progresses across swaps; rejected bank does not repeatedly compile",
+            "Six colliding versions overflow a four-way L2 set; eviction safely reheats exact code",
+            "CPU reset and 32-bit epoch wrap prohibit revival of old native code",
+            "Actual arena reclaim invalidates L1/L2 before overwritten native bytes can execute",
+            "Close/reopen and failed allocation fall back safely; fresh open recompiles"
+          ],
+          "native_block_entries": 3308,
+          "bank_counters_before_reopen": {
+            "lookup": 245,
+            "hit": 188,
+            "miss": 57,
+            "store": 212,
+            "eviction": 2,
+            "native_reuse": 68,
+            "reject_reuse": 60,
+            "epoch_miss": 33
+          },
+          "jit_counters_before_reopen": {
+            "compiled": 41,
+            "hit": 128,
+            "miss": 46,
+            "native_ops": 220,
+            "deopt": 5,
+            "reject": 5,
+            "invalidations": 15,
+            "max_words": 450
+          }
+        },
+        {
+          "mapper": 19,
+          "cases": 465,
+          "cache_bytes": 1048576,
+          "checks": [
+            "A/B/A same PC and first opcode, different operands: exact native pointer reused",
+            "Same physical bank at different CPU addresses retains PC and branch semantics",
+            "Later operand mutation cannot be resurrected after a bank round trip",
+            "Native chain page miss preserves both banks and executes equivalent state",
+            "Chained stale target evicts the target owner without poisoning source/L2",
+            "Read-handler guard and rejected versions survive bank swaps without stale resurrection",
+            "Overclock specialization changes deopt once and preserve interpreter timing",
+            "ROM/RAM transitions run interpreter while writable and revalidate changed bytes",
+            "Cold heat progresses across swaps; rejected bank does not repeatedly compile",
+            "Six colliding versions overflow a four-way L2 set; eviction safely reheats exact code",
+            "CPU reset and 32-bit epoch wrap prohibit revival of old native code",
+            "Actual arena reclaim invalidates L1/L2 before overwritten native bytes can execute",
+            "Close/reopen and failed allocation fall back safely; fresh open recompiles"
+          ],
+          "native_block_entries": 3577,
+          "bank_counters_before_reopen": {
+            "lookup": 245,
+            "hit": 188,
+            "miss": 57,
+            "store": 212,
+            "eviction": 2,
+            "native_reuse": 68,
+            "reject_reuse": 60,
+            "epoch_miss": 33
+          },
+          "jit_counters_before_reopen": {
+            "compiled": 41,
+            "hit": 128,
+            "miss": 46,
+            "native_ops": 220,
+            "deopt": 5,
+            "reject": 5,
+            "invalidations": 15,
+            "max_words": 516
+          }
+        }
+      ],
+      "bda_sha256": "e89a48ae17ab037f64985d5f6148fbc0990c716d2d574bd3dfb3bc46931ae382",
+      "report_sha256": "a8440d8bfdebb3796759b5aafde7cf471f39361631fb93f21a0a8dcbf6e73193",
+      "local_report": "build/verification/jit-bank-v019-1m.json"
+    },
+    "jit-bank-v019-4m.json": {
+      "ok": true,
+      "cases": 930,
+      "frames": [
+        {
+          "mapper": 0,
+          "frames": 16,
+          "pcm_bytes": 23476,
+          "pcm_sha256": "a75bf0d5e5c5dca136a92eeac466d08b5131c5a0ff2af5b864b0079025b2f7cc",
+          "native_block_entries": 1309371,
+          "checks": [
+            "Every frame: exact serialized state, video and nonzero source PCM vs interpreter"
+          ]
+        },
+        {
+          "mapper": 19,
+          "frames": 16,
+          "pcm_bytes": 23476,
+          "pcm_sha256": "a75bf0d5e5c5dca136a92eeac466d08b5131c5a0ff2af5b864b0079025b2f7cc",
+          "native_block_entries": 1386246,
+          "checks": [
+            "Every frame: exact serialized state, video and nonzero source PCM vs interpreter"
+          ]
+        }
+      ],
+      "boundaries": [
+        {
+          "mapper": 0,
+          "cases": 465,
+          "cache_bytes": 4194304,
+          "checks": [
+            "A/B/A same PC and first opcode, different operands: exact native pointer reused",
+            "Same physical bank at different CPU addresses retains PC and branch semantics",
+            "Later operand mutation cannot be resurrected after a bank round trip",
+            "Native chain page miss preserves both banks and executes equivalent state",
+            "Chained stale target evicts the target owner without poisoning source/L2",
+            "Read-handler guard and rejected versions survive bank swaps without stale resurrection",
+            "Overclock specialization changes deopt once and preserve interpreter timing",
+            "ROM/RAM transitions run interpreter while writable and revalidate changed bytes",
+            "Cold heat progresses across swaps; rejected bank does not repeatedly compile",
+            "Six colliding versions overflow a four-way L2 set; eviction safely reheats exact code",
+            "CPU reset and 32-bit epoch wrap prohibit revival of old native code",
+            "Actual arena reclaim invalidates L1/L2 before overwritten native bytes can execute",
+            "Close/reopen and failed allocation fall back safely; fresh open recompiles"
+          ],
+          "native_block_entries": 3308,
+          "bank_counters_before_reopen": {
+            "lookup": 245,
+            "hit": 188,
+            "miss": 57,
+            "store": 212,
+            "eviction": 2,
+            "native_reuse": 68,
+            "reject_reuse": 60,
+            "epoch_miss": 33
+          },
+          "jit_counters_before_reopen": {
+            "compiled": 41,
+            "hit": 128,
+            "miss": 46,
+            "native_ops": 220,
+            "deopt": 5,
+            "reject": 5,
+            "invalidations": 15,
+            "max_words": 450
+          }
+        },
+        {
+          "mapper": 19,
+          "cases": 465,
+          "cache_bytes": 4194304,
+          "checks": [
+            "A/B/A same PC and first opcode, different operands: exact native pointer reused",
+            "Same physical bank at different CPU addresses retains PC and branch semantics",
+            "Later operand mutation cannot be resurrected after a bank round trip",
+            "Native chain page miss preserves both banks and executes equivalent state",
+            "Chained stale target evicts the target owner without poisoning source/L2",
+            "Read-handler guard and rejected versions survive bank swaps without stale resurrection",
+            "Overclock specialization changes deopt once and preserve interpreter timing",
+            "ROM/RAM transitions run interpreter while writable and revalidate changed bytes",
+            "Cold heat progresses across swaps; rejected bank does not repeatedly compile",
+            "Six colliding versions overflow a four-way L2 set; eviction safely reheats exact code",
+            "CPU reset and 32-bit epoch wrap prohibit revival of old native code",
+            "Actual arena reclaim invalidates L1/L2 before overwritten native bytes can execute",
+            "Close/reopen and failed allocation fall back safely; fresh open recompiles"
+          ],
+          "native_block_entries": 3577,
+          "bank_counters_before_reopen": {
+            "lookup": 245,
+            "hit": 188,
+            "miss": 57,
+            "store": 212,
+            "eviction": 2,
+            "native_reuse": 68,
+            "reject_reuse": 60,
+            "epoch_miss": 33
+          },
+          "jit_counters_before_reopen": {
+            "compiled": 41,
+            "hit": 128,
+            "miss": 46,
+            "native_ops": 220,
+            "deopt": 5,
+            "reject": 5,
+            "invalidations": 15,
+            "max_words": 516
+          }
+        }
+      ],
+      "bda_sha256": "ed7cb599f63dc5cb376508996066da174ee994985eb180522c35618fe5e2b198",
+      "report_sha256": "990af63927dbcec3793534735fadb968dc679f247036f623739be8928b22a453",
+      "local_report": "build/verification/jit-bank-v019-4m.json"
+    },
+    "exit-key-smoke.json": {
+      "ok": true,
+      "cases": {
+        "game-and-menu": {
+          "seconds": 9.14,
+          "frames": 49,
+          "rom_b_observations": [
+            [
+              24,
+              "pressed",
+              165
+            ],
+            [
+              24,
+              "repeat",
+              165
+            ],
+            [
+              24,
+              "released",
+              17
+            ],
+            [
+              41,
+              "pressed",
+              165
+            ],
+            [
+              41,
+              "repeat",
+              165
+            ],
+            [
+              41,
+              "released",
+              17
+            ]
+          ]
+        },
+        "v1-migration": {
+          "seconds": 4.19,
+          "frames": 10
+        },
+        "v2-migration": {
+          "seconds": 4.31,
+          "frames": 10
+        },
+        "v3-migration-reload": {
+          "seconds": 4.48,
+          "frames": 10
+        },
+        "v3-custom": {
+          "seconds": 4.42,
+          "frames": 10
+        },
+        "capture-and-cancel": {
+          "seconds": 4.88,
+          "frames": 11
+        }
+      },
+      "assertions": [
+        "Escape and Back deliver held/repeated/released B to the original ROM",
+        "Game Escape and Back never pause or exit",
+        "P opens pause and ignores held-key repeats",
+        "Escape and Back return from menus without leaking B",
+        "Explicit Exit saves and releases all resources",
+        "Legacy v1/v2 config migration preserves other mappings and options",
+        "v3 reload preserves custom Escape/Back mappings",
+        "Capture accepts Escape and Back; P cancels without binding"
+      ],
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "limitation": "Mocked services do not establish physical H1 timing or audio quality.",
+      "report_sha256": "c7ad3be1cf5ad11a1d1f83837ff7b4467b2f1a8956c1528848699c362bbee101",
+      "local_report": "build/verification/exit-key-smoke.json"
+    },
+    "menu-smoke.json": {
+      "ok": true,
+      "cases": {
+        "pressed": {
+          "seconds": 3.44,
+          "frames": 11,
+          "colors": [
+            4226,
+            65535,
+            53508,
+            20201
+          ],
+          "audio": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14661
+          }
+        },
+        "restored": {
+          "seconds": 3.41,
+          "frames": 11,
+          "colors": [
+            4226,
+            19743,
+            53508,
+            20201
+          ]
+        },
+        "selector-cancel": {
+          "seconds": 1.48,
+          "frames": 0
+        },
+        "chinese-path": {
+          "seconds": 5.25,
+          "frames": 21
+        },
+        "no-battery": {
+          "seconds": 3.5,
+          "frames": 11
+        },
+        "changed-cartridge": {
+          "seconds": 3.62,
+          "frames": 11,
+          "existing_slots_preserved": true
+        },
+        "corrupt-save": {
+          "seconds": 3.34,
+          "frames": 11,
+          "existing_slots_preserved": true
+        },
+        "bad-magic": {
+          "seconds": 1.55,
+          "frames": 0,
+          "dialogs": [
+            "ROM load failed. Check file and free memory."
+          ]
+        },
+        "short-header": {
+          "seconds": 1.67,
+          "frames": 0,
+          "dialogs": [
+            "ROM load failed. Check file and free memory."
+          ]
+        },
+        "truncated": {
+          "seconds": 1.56,
+          "frames": 0,
+          "dialogs": [
+            "ROM load failed. Check file and free memory."
+          ]
+        },
+        "huge-nes2-size": {
+          "seconds": 1.61,
+          "frames": 0,
+          "dialogs": [
+            "ROM load failed. Check file and free memory."
+          ]
+        },
+        "unsupported-mapper": {
+          "seconds": 1.66,
+          "frames": 0,
+          "dialogs": [
+            "ROM load failed. Check file and free memory."
+          ]
+        }
+      },
+      "assertions": [
+        "MIPS ABI and resource cleanup",
+        "256x240 background and aspect scaling",
+        "A press and release",
+        "APU pulse PCM",
+        "8 KiB battery save with CRC",
+        "battery RAM restored across launches",
+        "native selector and cancel"
+      ],
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "limitation": "Does not establish physical H1 frame rate, audio quality, or firmware compatibility.",
+      "report_sha256": "aa968d734b438a8aea2712ef6d4f265a41e46efd8e3530ead9a3300046f91e8a",
+      "local_report": "build/verification/menu-smoke.json"
+    },
+    "pause-menu-smoke.json": {
+      "ok": true,
+      "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "report_sha256": "3cc12a9a0dc19a3528e195bce2a0e6e88946db0878bd335310510bdf2baf1d3d",
+      "local_report": "build/verification/pause-menu-smoke.json"
+    }
+  },
+  "firmware": {
+    "ok": true,
+    "game": "San Guo Zhi II Chinese - v0.1.9 normal 4MiB bank cache",
+    "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+    "physical_device_tested": false,
+    "original_dump_modified": false,
+    "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+    "kernel_sha256": "d05786e442f9aad62a8d0a0cb4f6d786bdc7c2fa353a7a2b152c9ed9f01b40ef",
+    "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+    "rom_bytes": 524304,
+    "mapper": 19,
+    "video_frames": 823,
+    "video_errors": 0,
+    "audio": {
+      "sample_rate": 32000,
+      "packets": 145,
+      "frames": 96655,
+      "seconds": 3.02046875,
+      "min": -32383,
+      "max": 19090,
+      "nonzero_samples": 193276
+    },
+    "resumed_audio": {
+      "sample_rate": 32000,
+      "packets": 95,
+      "frames": 64378,
+      "seconds": 2.0118125,
+      "min": -32383,
+      "max": 19533,
+      "nonzero_samples": 128734
+    },
+    "resumed_gameplay_changed": null,
+    "paused_display_stable": true,
+    "app_end_result": 0,
+    "qemu_returncode": 0,
+    "exit_protocol": "p-menu-escape-return-confirm-exit",
+    "screenshots": {
+      "about-key.png": "b208dc3f88f04761389d2b44c848f1e904566b20fe0cbd40fe74ed6483bd1946",
+      "about-touch.png": "b208dc3f88f04761389d2b44c848f1e904566b20fe0cbd40fe74ed6483bd1946",
+      "exit-desktop.png": "9f128393858dabbcdd270ef1b9bedc25330a9a1af2ed8714027b7914da460948",
+      "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+      "level-after.png": "eee90f1adc4621073ee417a9e6c3f5f7c509d465a25094e966d9e9faab3fd52a",
+      "level-before.png": "eee90f1adc4621073ee417a9e6c3f5f7c509d465a25094e966d9e9faab3fd52a",
+      "menu.png": "c057b6433234e953429e65261b7d05a3cb1ebf2b41bc9d8c3ce44ba150d61374",
+      "pause-stable.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+      "pause.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+      "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+      "resume-check.png": "5f7280deed13b0e147a31cbecc6ae6fa7e591702db8da10b0af1e03633794475",
+      "resumed.png": "e7851947d3a7edd327bf01398c3d76c150bdd9d4e749a198682015cfb5645d10",
+      "right-and-a.png": "eee90f1adc4621073ee417a9e6c3f5f7c509d465a25094e966d9e9faab3fd52a",
+      "title.png": "eee90f1adc4621073ee417a9e6c3f5f7c509d465a25094e966d9e9faab3fd52a"
+    },
+    "limitations": [
+      "Game-specific title/level/action results require visual inspection of screenshots",
+      "Full firmware emulation does not establish physical-device performance"
+    ]
+  },
+  "firmware_visual_review": {
+    "bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+    "reviewed": true,
+    "screenshots_reviewed": [
+      "about-key.png",
+      "resumed.png",
+      "exit-desktop.png",
+      "pause.png"
+    ],
+    "observations": [
+      "About shows NES, v0.1.9 and HelloClyde without clipping.",
+      "The pause menu is legible, with Continue, bindings, save/load, display, audio, change game, exit and About.",
+      "Returning from the pause menu displays the San Guo Zhi II title.",
+      "Explicit menu exit returns to the H1 desktop with NES label and transparent icon corners."
+    ],
+    "jit_allocation": {
+      "ready": true,
+      "allocation_bytes": 5408799,
+      "code_bytes": 4194304,
+      "entry_bytes": 1048576,
+      "bank_bytes": 165888,
+      "bank_slots": 8192
+    },
+    "gameplay_audio_seconds": 3.02046875,
+    "resumed_audio_seconds": 2.0118125,
+    "audio_nonzero_verified": true,
+    "audio_failures": 0,
+    "audio_underruns": 0,
+    "video_errors": 0,
+    "exit_save_status": 1,
+    "owned_processes_stopped": {
+      "frontend_pid": 76872,
+      "qemu_pid": 69480
+    },
+    "cleanup_ports": {
+      "8865": "not listening",
+      "8866": "not listening"
+    },
+    "failures": [],
+    "physical_device_tested": false,
+    "limitations": [
+      "Firmware emulation does not establish physical H1 frame rate or audio stability.",
+      "This smoke test covers the title, pause/about/return and explicit exit, not the city performance benchmark.",
+      "No periodic storage checkpoint occurred in this short smoke; exit save succeeded."
+    ]
+  },
+  "profile_build": {
+    "bda_sha256": "7ae1b0ef97ac7391f24a172d8d20ab5b5fdfde734c132989e5e9d9d11c99a204",
+    "code_cache_mib": 4,
+    "validation": "built; this matrix and full firmware run use profile=0"
+  },
+  "limitations": [
+    "MIPS instruction counts are not physical H1 clock cycles or FPS.",
+    "Mock audio playback advances by timer calls, not emulated instruction cost; no-underrun does not establish physical audio smoothness.",
+    "City flow covers a new campaign, map, Bingzhou and city commands; no battle.",
+    "Bank counters describe reuse, not global JIT instruction coverage.",
+    "Private ROM, firmware, screenshot and audio data remain local and are excluded from packages."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "version": "0.1.16",
+  "bda_sha256": "24247f8b5a7c36ee4f8954a0ff003e31124272af5f16937fc56ae2c25bc363ed",
+  "environment": "Full H1 V1.41 firmware in QEMU bbkh1",
+  "physical_device_tested": false,
+  "fc_folder_initially_empty": true,
+  "rom_selected": false,
+  "core_initialized": false,
+  "audio_opened": false,
+  "cancel_key": "Escape (native key 24)",
+  "cancel_attempts": 2,
+  "desktop_body_matches_before": {
+    "1": true,
+    "2": true
+  },
+  "desktop_relaunch_verified": true,
+  "selector_cancel_restore": 1,
+  "app_end_result": 0,
+  "qemu_returncode": 0,
+  "screenshots": {
+    "docs/evidence/v0.1.16-cancel-desktop-before.png": "c057b6433234e953429e65261b7d05a3cb1ebf2b41bc9d8c3ce44ba150d61374",
+    "docs/evidence/v0.1.16-empty-picker-1.png": "e1b5059bcd8584f20c9bca98ad34ba79d3d7c425b48349404f343c05bc8bcdc5",
+    "docs/evidence/v0.1.16-empty-picker-2.png": "e1b5059bcd8584f20c9bca98ad34ba79d3d7c425b48349404f343c05bc8bcdc5",
+    "docs/evidence/v0.1.16-cancel-desktop-1.png": "3f38cea2a782e742647854cc7dde5a026c34eb7c2fe1c059dc6770a72604bd9f",
+    "docs/evidence/v0.1.16-cancel-desktop-2.png": "d3456b0bb3d3d6261c80b599d4deeba25f8ab0ace8d028b6fa5a53e7f1a3e22f"
+  },
+  "source_report_sha256": "90b7e4173e7b123e3ce3590ce1dc6fbd3ee171b8a048376cc660df2309826101",
+  "visual_inspection": {
+    "performed": true,
+    "observations": [
+      "Both selectors contain no ROMs.",
+      "Each cancellation returns to the NES native desktop; body pixels match the pre-launch desktop in both attempts."
+    ]
+  },
+  "log_scope": "Application overwrites h1fc.log on launch; the attached log is from the second attempt. Both attempts are separately covered by screenshots and desktop pixel assertions."
+}

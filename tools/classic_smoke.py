@@ -104,11 +104,17 @@ def main():
     parser.add_argument("--start-count", type=int, default=1)
     parser.add_argument("--title-wait", type=float, default=5)
     parser.add_argument("--level-wait", type=float, default=4)
+    parser.add_argument("--audio-seconds", type=float, default=3,
+                        help="Duration of the gameplay PCM capture (3..60 seconds)")
     parser.add_argument("--manual-gameplay", action="store_true",
                         help="Wait up to ten minutes at title for local API gameplay; create evidence/gameplay-complete.json to continue")
     parser.add_argument("--from-below", action="store_true", help="Select Classic and exercise From Below 1.0 controls")
     parser.add_argument("--about", action="store_true", help="Capture touch and keyboard entry/return from About")
+    parser.add_argument("--legacy-direct-exit", action="store_true",
+                        help="Replay historical builds where gameplay Escape exited directly")
     args = parser.parse_args()
+    if not 3 <= args.audio_seconds <= 60:
+        parser.error("--audio-seconds must be 3..60")
     work = args.work_dir.resolve()
     assert work.is_relative_to((ROOT / "build").resolve()), "Work directory must be inside h1-fc/build"
     assert args.port not in (8793, 8794) and args.gdb_port not in (8793, 8794)
@@ -209,8 +215,10 @@ def main():
                 api(server, "/api/key", {"code": 35, "down": False})
                 time.sleep(.5)
                 capture(server, out / "level-after.png")
-            audio = record_audio(args.port, out / "game-audio.wav", args.emulator)
+            audio = record_audio(args.port, out / "game-audio.wav", args.emulator, args.audio_seconds)
             before_pause = api(server, "/api/status")
+            # P opens the application menu. Escape is available to the game
+            # during gameplay and serves as Return only inside this menu.
             press_key(server, 31)
             time.sleep(2)
             capture(server, out / "pause.png")
@@ -230,7 +238,22 @@ def main():
                 press_key(server, 39)
                 time.sleep(.2)
                 press_key(server, 35)
-            press_key(server, 39)
+            press_key(server, 39 if args.legacy_direct_exit else 24)
+            # Under host load, a fixed-duration synthetic key press can be
+            # missed by the emulated GUI. Observe the pause header before
+            # recording audio; retry Escape while the root menu is visible.
+            pause_header=Image.open(out / "pause.png").convert("RGB").crop((0,0,480,50))
+            for attempt in range(4):
+                time.sleep(.5)
+                capture(server, out / "resume-check.png")
+                current_header=Image.open(out / "resume-check.png").convert("RGB").crop((0,0,480,50))
+                if ImageChops.difference(pause_header,current_header).getbbox() is not None:
+                    break
+                if attempt==3:raise AssertionError("Return/Continue did not leave the emulator pause menu")
+                if args.legacy_direct_exit:
+                    tap(server,120,76)
+                else:
+                    press_key(server,24)
             time.sleep(2)
             capture(server, out / "resumed.png")
             resumed_audio = record_audio(args.port, out / "resumed-audio.wav", args.emulator, 2)
@@ -246,7 +269,16 @@ def main():
                 resumed_gameplay_changed = ImageChops.difference(first, later).getbbox() is not None
                 assert resumed_gameplay_changed, "From Below stayed frozen after leaving the emulator pause menu"
             resumed = api(server, "/api/status")
-            press_key(server, 24)
+            press_key(server, 24 if args.legacy_direct_exit else 31)
+            if not args.legacy_direct_exit:
+                time.sleep(1)
+                capture(server, out / "exit-menu.png")
+                exit_header = Image.open(out / "exit-menu.png").convert("RGB").crop((0, 0, 480, 50))
+                assert ImageChops.difference(pause_header, exit_header).getbbox() is None, \
+                    "Gameplay P did not open the pause menu"
+                # Root cursor 0 -> Up (-2 modulo 9) -> Exit, cursor 7.
+                press_key(server, 37)
+                press_key(server, 39)
             time.sleep(4)
             capture(server, out / "exit-desktop.png")
             (out / "interaction.json").write_text(json.dumps({"audio": audio, "resumed_audio": resumed_audio,
@@ -271,6 +303,8 @@ def main():
     stops = re.findall(r"STOP video=(\d+) errors=(\d+)", text)
     assert stops and int(stops[-1][0]) > 0 and int(stops[-1][1]) == 0
     assert "PAUSE_MENU_BEGIN" in text and "PAUSE_MENU_END action=0" in text
+    if not args.legacy_direct_exit:
+        assert "PAUSE_MENU_END action=2" in text, "Exit menu selection did not complete"
     assert "APP_END result=0" in text
     stopped = json.loads((out / "stopped-status.json").read_text(encoding="utf-8"))
     assert stopped["running"] is False and stopped["returncode"] == 0
@@ -283,6 +317,7 @@ def main():
         "audio": audio, "resumed_audio": resumed_audio,
         "resumed_gameplay_changed": resumed_gameplay_changed,
         "paused_display_stable": True, "app_end_result": 0, "qemu_returncode": 0,
+        "exit_protocol": "legacy-direct" if args.legacy_direct_exit else "p-menu-escape-return-confirm-exit",
         "screenshots": {p.name: sha(p) for p in out.glob("*.png")},
         "limitations": ["Game-specific title/level/action results require visual inspection of screenshots",
                         "Full firmware emulation does not establish physical-device performance"]}

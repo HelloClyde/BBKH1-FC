@@ -1,0 +1,2172 @@
+{
+  "ok": false,
+  "all_checks_passed": false,
+  "ordinary_release_ok": true,
+  "profile_game_lifecycle_ok": true,
+  "profile_timing_ok": false,
+  "profile_install_package_released": false,
+  "version": "0.1.14",
+  "product": "NES",
+  "author": "HelloClyde",
+  "date": "2026-10-16",
+  "physical_device_tested": false,
+  "artifacts": {
+    "normal": {
+      "title": "NES",
+      "version": "0.1.14",
+      "sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+      "size": 1136248,
+      "payload_sha256": "d09197de39bccfa22a3bdbe7bfa570414bdac58b8dbb9a7633e7cf4deef05ff6",
+      "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+      "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+      "core": "FCEUmm",
+      "entry_va": "0x83c00020",
+      "formats": [
+        "nes"
+      ],
+      "audio": "H1 native PCM 32000 Hz mono",
+      "log_path": "A:\\FC\\h1fc.log",
+      "test_frames": 0,
+      "benchmark": false,
+      "verbose_log": false,
+      "profile": false,
+      "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+      "build_time": "2026-10-13 00:00:00",
+      "optimization": "O2",
+      "lto": false,
+      "jit": true,
+      "experimental": true,
+      "jit_backend": "MIPS32_EVENT_V6",
+      "jit_cache_mib": 8,
+      "icon": "assets/fc-icon.png",
+      "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031"
+    },
+    "profile": {
+      "title": "NES",
+      "version": "0.1.14",
+      "sha256": "936776f33bc778b060624b1d4dc2fd2552e953a93fd599b54041f58661e4e2e6",
+      "size": 1155512,
+      "payload_sha256": "4723fcea37265204e8bcf34e478f0878a72db460e2c0c44f78d694105863dfa7",
+      "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+      "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+      "core": "FCEUmm",
+      "entry_va": "0x83c00020",
+      "formats": [
+        "nes"
+      ],
+      "audio": "H1 native PCM 32000 Hz mono",
+      "log_path": "A:\\FC\\h1fc.log",
+      "test_frames": 0,
+      "benchmark": false,
+      "verbose_log": false,
+      "profile": true,
+      "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+      "build_time": "2026-10-13 00:00:00",
+      "optimization": "O2",
+      "lto": false,
+      "jit": true,
+      "experimental": true,
+      "jit_backend": "MIPS32_EVENT_V6",
+      "jit_cache_mib": 8,
+      "icon": "assets/fc-icon.png",
+      "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031",
+      "profile_layout": "core_detail_v1"
+    }
+  },
+  "baseline_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+  "default_frameskip": 1,
+  "existing_valid_configuration_preserved": true,
+  "jit_code_cache_bytes": 8388608,
+  "static_bss_added_bytes": 0,
+  "static_data_added_bytes": 8,
+  "text_added_bytes": 2624,
+  "jit_cache_used_bytes": {
+    "before": 5326688,
+    "after": 5906368,
+    "wraps_before": 0,
+    "wraps_after": 0
+  },
+  "jit_native_calls": {
+    "before": 2055560,
+    "after": 2056040
+  },
+  "source_snapshot": {
+    "path": "build/v0114-final/source-snapshot.json",
+    "sha256": "db0668303b8e652e6cd88e0227b4d74d6d2a5e6892cd15508b0dc7b5cb078be7",
+    "files": 166
+  },
+  "same_settings_complete_application": [
+    {
+      "ok": true,
+      "candidate_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+      "skip": 1,
+      "total_before": 4066529729,
+      "total_after": 3873307353,
+      "total_reduction_percent": 4.751529900840423,
+      "city_before": 692412446,
+      "city_after": 661217984,
+      "city_reduction_percent": 4.505185049778837,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0114-final-city-skip1.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "comparison_identity": {
+        "schema": 1,
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "frames": 1800,
+        "settings": {
+          "scale": 1,
+          "skip": 1,
+          "sound": 1,
+          "volume": 100,
+          "save": "new, empty initial filesystem"
+        },
+        "events": [
+          {
+            "frame": 301,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 305,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 421,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 425,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 541,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 545,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 721,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 725,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 841,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 845,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1201,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1205,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1321,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1325,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1501,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1505,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1621,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1625,
+            "key": 16,
+            "down": false
+          }
+        ],
+        "cost_census": false,
+        "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+        "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+        "state_observation": "Read-only SFORMAT tables, without save callbacks",
+        "render_policy": "Allow audio catch-up skips; require exact baseline render/catch-up counts",
+        "initial_config": "CRC-protected version-2 ROM config, loaded by unmodified application"
+      },
+      "report_sha256": "ea097fc9e572f73ac608ecb38113c8630275079bf1c88d05dacd75f6c1d221fc",
+      "pcm_frames": 660352,
+      "rendered_frames": 886,
+      "audio_catchup_frames": 91
+    },
+    {
+      "ok": true,
+      "candidate_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+      "skip": 0,
+      "total_before": 4754409888,
+      "total_after": 4561187512,
+      "total_reduction_percent": 4.064066425734303,
+      "city_before": 813815892,
+      "city_after": 782621430,
+      "city_reduction_percent": 3.8331104499984336,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0114-final-city-skip0.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "comparison_identity": {
+        "schema": 1,
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "frames": 1800,
+        "settings": {
+          "scale": 1,
+          "skip": 0,
+          "sound": 1,
+          "volume": 100,
+          "save": "new, empty initial filesystem"
+        },
+        "events": [
+          {
+            "frame": 301,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 305,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 421,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 425,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 541,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 545,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 721,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 725,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 841,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 845,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1201,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1205,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1321,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1325,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1501,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1505,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1621,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1625,
+            "key": 16,
+            "down": false
+          }
+        ],
+        "cost_census": false,
+        "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+        "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+        "state_observation": "Read-only SFORMAT tables, without save callbacks",
+        "render_policy": "Allow audio catch-up skips; require exact baseline render/catch-up counts",
+        "initial_config": "CRC-protected version-2 ROM config, loaded by unmodified application"
+      },
+      "report_sha256": "40025e8d1294a7a420a9770966ed8fb1b0b2679caf5b3aeebb68b7c8d5a80790",
+      "pcm_frames": 660352,
+      "rendered_frames": 1740,
+      "audio_catchup_frames": 91
+    }
+  ],
+  "independent_trials": [
+    {
+      "ok": true,
+      "candidate_sha256": "b4e716b8d7ca57edaa9a94481ca2272007e34e809a5e17bd05d35ba67f97ac75",
+      "skip": 1,
+      "total_before": 4066529729,
+      "total_after": 4069353673,
+      "total_reduction_percent": -0.06944358428910835,
+      "city_before": 692412446,
+      "city_after": 692773256,
+      "city_reduction_percent": -0.05210911532345097,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0114-jit-trace-city-skip1.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "candidate": "jit-trace",
+      "decision": "rejected: increased full application cost"
+    },
+    {
+      "ok": true,
+      "candidate_sha256": "69900efd9690cbbe9ca91f1fb39a265b014bba037cef00f6086b253bde921e77",
+      "skip": 1,
+      "total_before": 4066529729,
+      "total_after": 4065352733,
+      "total_reduction_percent": 0.02894349921030992,
+      "city_before": 692412446,
+      "city_after": 691903445,
+      "city_reduction_percent": 0.07351124361505423,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0114-jit-forward-city-skip1.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "candidate": "jit-forward",
+      "decision": "rejected: too little benefit for complexity"
+    },
+    {
+      "ok": true,
+      "candidate_sha256": "6b5652c3f914fefbd91827944eb643329a8f1f82116c37da063dcf193ff263b5",
+      "skip": 1,
+      "total_before": 4066529729,
+      "total_after": 4067850628,
+      "total_reduction_percent": -0.032482216730889135,
+      "city_before": 692412446,
+      "city_after": 692563738,
+      "city_reduction_percent": -0.02184998274856742,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0114-jit-empty-city-skip1.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "candidate": "jit-empty",
+      "decision": "rejected: increased full application cost"
+    },
+    {
+      "ok": true,
+      "candidate_sha256": "87a3c8fbb807b6f51ad4dd2d203fb885ade61febab2e72c3f2410ad28b33242f",
+      "skip": 1,
+      "total_before": 4066529729,
+      "total_after": 4015119898,
+      "total_reduction_percent": 1.2642187424175555,
+      "city_before": 692412446,
+      "city_after": 685228686,
+      "city_reduction_percent": 1.037497237592977,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0114-jit-branch-tail-v4-city-skip1.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "candidate": "jit-branch-tail-v4",
+      "decision": "selected"
+    },
+    {
+      "ok": true,
+      "candidate_sha256": "3abeecf8b104b469b748cde8569ed292b5ceba4fd91746ec3d0376a1586397bc",
+      "skip": 1,
+      "total_before": 4066529729,
+      "total_after": 3924717184,
+      "total_reduction_percent": 3.4873111584228678,
+      "city_before": 692412446,
+      "city_after": 668401744,
+      "city_reduction_percent": 3.46768781218586,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0114-ppu-oam-city-skip1.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "candidate": "ppu-oam",
+      "decision": "selected"
+    },
+    {
+      "ok": true,
+      "candidate_sha256": "09f25f7c6ca75cb4b71dd9c5150f47155876fc7d086df80b138f06a5b4f95421",
+      "skip": 1,
+      "total_before": 4066529729,
+      "total_after": 4074168224,
+      "total_reduction_percent": -0.18783816937393283,
+      "city_before": 692412446,
+      "city_after": 693362972,
+      "city_reduction_percent": -0.13727742843028246,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0114-ppu-color-city-skip1.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "candidate": "ppu-color",
+      "decision": "rejected: increased full application cost"
+    }
+  ],
+  "cpu_qa": {
+    "report": "build/verification/v0114-final-cpu-qa-manifest.json",
+    "sha256": "0228aebb44f05b026ce28c9bb5b4ac975fe7ffe724ca8dda5515127ccfb7c33f",
+    "data": {
+      "bda": "build/v0114-final/build/release-jit/H1FC.bda",
+      "bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+      "elf": "build/v0114-final/build/release-jit/H1FC.elf",
+      "elf_sha256": "f8db4f97994ccfb56987e49b4229c3845cd1974ecc0034701b7c0bf9f3f47924",
+      "plans": [
+        {
+          "name": "opcodes",
+          "script_sha256": "484432c3f8840629a8d6c355de52aefd9c12242dbc7b698cb1b2396b1f5d9304",
+          "argv": [
+            "python",
+            "tests/jit_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-opcodes.json",
+            "--baseline-bda",
+            "build/fceu320-control-interpreter/build/release/H1FC.bda",
+            "--baseline-elf",
+            "build/fceu320-control-interpreter/build/release/H1FC.elf"
+          ],
+          "report": "build/verification/v0114-final-opcodes.json",
+          "baseline_bda_sha256": "7659244bacd98529916d940a0839b2f529042ffa5d13efe94fd38d1922b752c1",
+          "reference_kind": "independent interpreter"
+        },
+        {
+          "name": "short-slices",
+          "script_sha256": "03b6bebfc7976ab15d28126d1eeeab87af20d06aa72c2cc6a4a7895cdbcabd14",
+          "argv": [
+            "python",
+            "tests/jit_short_slice_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-short-slices.json",
+            "--baseline-bda",
+            "build/v0114-baseline/build/release-jit/H1FC.bda",
+            "--baseline-elf",
+            "build/v0114-baseline/build/release-jit/H1FC.elf"
+          ],
+          "report": "build/verification/v0114-final-short-slices.json",
+          "baseline_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+          "reference_kind": "frozen ordinary JIT"
+        },
+        {
+          "name": "subroutine",
+          "script_sha256": "0e9c77cb53b18d1c6d8f0be845cd8c051240301ec0c03b7924b526582ddacb3a",
+          "argv": [
+            "python",
+            "tests/jit_subroutine_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-subroutine.json",
+            "--baseline-bda",
+            "build/fceu320-control-interpreter/build/release/H1FC.bda",
+            "--baseline-elf",
+            "build/fceu320-control-interpreter/build/release/H1FC.elf"
+          ],
+          "report": "build/verification/v0114-final-subroutine.json",
+          "baseline_bda_sha256": "7659244bacd98529916d940a0839b2f529042ffa5d13efe94fd38d1922b752c1",
+          "reference_kind": "independent interpreter"
+        },
+        {
+          "name": "events",
+          "script_sha256": "eab90de04601384cf07218766fdba9f624bd1b8147d68e7790b2501d1e526d3e",
+          "argv": [
+            "python",
+            "tests/jit_event_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-events.json",
+            "--baseline-bda",
+            "build/fceu320-control-interpreter/build/release/H1FC.bda",
+            "--baseline-elf",
+            "build/fceu320-control-interpreter/build/release/H1FC.elf"
+          ],
+          "report": "build/verification/v0114-final-events.json",
+          "baseline_bda_sha256": "7659244bacd98529916d940a0839b2f529042ffa5d13efe94fd38d1922b752c1",
+          "reference_kind": "independent interpreter"
+        },
+        {
+          "name": "branch-tail",
+          "script_sha256": "ab706e71c9711f89b03e9123fbeb7bdefcd6518777e18de21f2957bcc3820469",
+          "argv": [
+            "python",
+            "tests/jit_trace_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-branch-tail.json",
+            "--baseline-bda",
+            "build/fceu320-control-interpreter/build/release/H1FC.bda",
+            "--baseline-elf",
+            "build/fceu320-control-interpreter/build/release/H1FC.elf"
+          ],
+          "report": "build/verification/v0114-final-branch-tail.json",
+          "baseline_bda_sha256": "7659244bacd98529916d940a0839b2f529042ffa5d13efe94fd38d1922b752c1",
+          "reference_kind": "independent interpreter"
+        },
+        {
+          "name": "random-cfg",
+          "script_sha256": "6aabd3d57e9b4aed9fa75b91f834effce26df5c5fd8403249c646c02d029285c",
+          "argv": [
+            "python",
+            "tests/jit_trace_random.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-random-cfg.json",
+            "--baseline-bda",
+            "build/fceu320-control-interpreter/build/release/H1FC.bda",
+            "--baseline-elf",
+            "build/fceu320-control-interpreter/build/release/H1FC.elf",
+            "--terminal-blocks"
+          ],
+          "report": "build/verification/v0114-final-random-cfg.json",
+          "baseline_bda_sha256": "7659244bacd98529916d940a0839b2f529042ffa5d13efe94fd38d1922b752c1",
+          "reference_kind": "independent interpreter"
+        },
+        {
+          "name": "contract",
+          "script_sha256": "1d4de14f0a96629f9a41cb1ba2bd9444d6b9e92af2f1ecda0c16836e5c69401e",
+          "argv": [
+            "python",
+            "tests/jit_contract_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-contract.json"
+          ],
+          "report": "build/verification/v0114-final-contract.json",
+          "baseline_bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "reference_kind": "same artifact public JIT-close interpreter"
+        },
+        {
+          "name": "combined-clock",
+          "script_sha256": "f0fafa38b2abacf67d3b3be5abf4971b85ce8b1c65c31954b617264f2969bb84",
+          "argv": [
+            "python",
+            "tests/jit_combined_clock_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-combined-clock.json"
+          ],
+          "report": "build/verification/v0114-final-combined-clock.json",
+          "baseline_bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "reference_kind": "same artifact public JIT-close interpreter"
+        },
+        {
+          "name": "ppu-contract",
+          "script_sha256": "e90f9049f814855c8dc3d29411f127682416ef3fd4961b8ba3f752fbb8e73442",
+          "argv": [
+            "python",
+            "tests/jit_ppu_contract_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-ppu-contract.json"
+          ],
+          "report": "build/verification/v0114-final-ppu-contract.json",
+          "baseline_bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "reference_kind": "same artifact public JIT-close interpreter"
+        },
+        {
+          "name": "nested-contract",
+          "script_sha256": "37dde499cbe0675a98bddc08f582bf80c88bafb5386313dc3ed0d96d148e666e",
+          "argv": [
+            "python",
+            "tests/jit_nested_contract_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-nested-contract.json"
+          ],
+          "report": "build/verification/v0114-final-nested-contract.json",
+          "baseline_bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "reference_kind": "same artifact public JIT-close interpreter"
+        },
+        {
+          "name": "arena-nested",
+          "script_sha256": "7bbc5e9c80a43f459ff45093fb2f98788a0c6fa10ff0893152512635b19d1119",
+          "argv": [
+            "python",
+            "tests/jit_arena_nested_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-arena-nested.json",
+            "--cache-mib",
+            "8"
+          ],
+          "report": "build/verification/v0114-final-arena-nested.json",
+          "baseline_bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "reference_kind": "same artifact public JIT-close interpreter"
+        },
+        {
+          "name": "bank-cache",
+          "script_sha256": "09dba286e899971595fec4c01f5f0ccdff2439e7ae44036fa6ed988e91ad5f56",
+          "argv": [
+            "python",
+            "tests/jit_bank_cache_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--output",
+            "build/verification/v0114-final-bank-cache.json",
+            "--expect-cache-mib",
+            "8",
+            "--frames",
+            "16"
+          ],
+          "report": "build/verification/v0114-final-bank-cache.json",
+          "baseline_bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "reference_kind": "same artifact public JIT-close interpreter"
+        }
+      ],
+      "executed": true,
+      "results": [
+        {
+          "name": "short-slices",
+          "exit_code": 0,
+          "elapsed_s": 138.578,
+          "log": "build/verification/v0114-final-short-slices.txt",
+          "report": "build/verification/v0114-final-short-slices.json",
+          "ok": true,
+          "cases": 964,
+          "report_sha256": "eac17241ce51c886cb3b9459ccd6ce7c9eb80da1acf18d856f9b988982ff8866"
+        },
+        {
+          "name": "opcodes",
+          "exit_code": 0,
+          "elapsed_s": 220.734,
+          "log": "build/verification/v0114-final-opcodes.txt",
+          "report": "build/verification/v0114-final-opcodes.json",
+          "ok": true,
+          "cases": 4833,
+          "report_sha256": "69ad896a53c4592121ae40cb60877172a7dda1eb4922c874b77733ef92e5f64d"
+        },
+        {
+          "name": "events",
+          "exit_code": 0,
+          "elapsed_s": 29.312,
+          "log": "build/verification/v0114-final-events.txt",
+          "report": "build/verification/v0114-final-events.json",
+          "ok": true,
+          "cases": 232,
+          "report_sha256": "b2061e318560bae8b0f87ed580e02fb9fae2dec162d1d41d97fed0e062df04d5"
+        },
+        {
+          "name": "subroutine",
+          "exit_code": 0,
+          "elapsed_s": 151.469,
+          "log": "build/verification/v0114-final-subroutine.txt",
+          "report": "build/verification/v0114-final-subroutine.json",
+          "ok": true,
+          "cases": 1260,
+          "report_sha256": "01f47a6323da1a94543f7f0324d16f5f68bd15e83adf5f47ee946b35bcb20049"
+        },
+        {
+          "name": "random-cfg",
+          "exit_code": 0,
+          "elapsed_s": 87.422,
+          "log": "build/verification/v0114-final-random-cfg.txt",
+          "report": "build/verification/v0114-final-random-cfg.json",
+          "ok": true,
+          "cases": 864,
+          "report_sha256": "a957eed82bcea818ecb6caa0fa589a4bdeca95fa200e055312107e932355a27c"
+        },
+        {
+          "name": "branch-tail",
+          "exit_code": 0,
+          "elapsed_s": 157.281,
+          "log": "build/verification/v0114-final-branch-tail.txt",
+          "report": "build/verification/v0114-final-branch-tail.json",
+          "ok": true,
+          "cases": 1374,
+          "report_sha256": "01c7be17465b9a4054e457a979492058db6db8b7c5ab6f56df93509de696b1d2"
+        },
+        {
+          "name": "contract",
+          "exit_code": 0,
+          "elapsed_s": 57.469,
+          "log": "build/verification/v0114-final-contract.txt",
+          "report": "build/verification/v0114-final-contract.json",
+          "ok": true,
+          "cases": null,
+          "report_sha256": "62201ded0e57cfb8012397853f2bdfa10a5684cbe655f66afaa428905556836d"
+        },
+        {
+          "name": "combined-clock",
+          "exit_code": 0,
+          "elapsed_s": 36.906,
+          "log": "build/verification/v0114-final-combined-clock.txt",
+          "report": "build/verification/v0114-final-combined-clock.json",
+          "ok": true,
+          "cases": 155,
+          "report_sha256": "0f334d40f22ec391f23115dc7465da54e0caa437520764e80ec99629fbf7202c"
+        },
+        {
+          "name": "nested-contract",
+          "exit_code": 0,
+          "elapsed_s": 21.532,
+          "log": "build/verification/v0114-final-nested-contract.txt",
+          "report": "build/verification/v0114-final-nested-contract.json",
+          "ok": true,
+          "cases": null,
+          "report_sha256": "d3c425bdb887f40ea41b8a8bdd7beca8945c772fb53b6701b7f6348e1b733136"
+        },
+        {
+          "name": "arena-nested",
+          "exit_code": 0,
+          "elapsed_s": 13.141,
+          "log": "build/verification/v0114-final-arena-nested.txt",
+          "report": "build/verification/v0114-final-arena-nested.json",
+          "ok": true,
+          "cases": 6,
+          "report_sha256": "7f746ec0dcfdc3384bdea25b70f4e7a23b59323fe096a5eabf9924824a7aaf3a"
+        },
+        {
+          "name": "ppu-contract",
+          "exit_code": 0,
+          "elapsed_s": 52.328,
+          "log": "build/verification/v0114-final-ppu-contract.txt",
+          "report": "build/verification/v0114-final-ppu-contract.json",
+          "ok": true,
+          "cases": null,
+          "report_sha256": "35882c294b25f610f7b0520b4d89948d47d0f778518cd12313e9a7c17a59538c"
+        },
+        {
+          "name": "bank-cache",
+          "exit_code": 0,
+          "elapsed_s": 118.515,
+          "log": "build/verification/v0114-final-bank-cache.txt",
+          "report": "build/verification/v0114-final-bank-cache.json",
+          "ok": true,
+          "cases": 932,
+          "report_sha256": "54a62a86d9613b6d4a2220e57c368f10396e8926c5ce61c419e602ffd0a614fc"
+        }
+      ],
+      "ok": true
+    }
+  },
+  "ppu_profile_qa": {
+    "report": "build/verification/v0114-final-ppu-profile-summary.json",
+    "sha256": "a1aadd422611a7f2df3c7a49f80c267b47e9c3e6a482ef6c0b11dfe69a69a17f",
+    "data": {
+      "ok": true,
+      "inputs": {
+        "bda": {
+          "path": "build/v0114-final/build/release-jit/H1FC.bda",
+          "sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235"
+        },
+        "elf": {
+          "path": "build/v0114-final/build/release-jit/H1FC.elf",
+          "sha256": "f8db4f97994ccfb56987e49b4229c3845cd1974ecc0034701b7c0bf9f3f47924"
+        },
+        "profile_bda": {
+          "path": "build/v0114-final/build/release-profile-jit/H1FC.bda",
+          "sha256": "936776f33bc778b060624b1d4dc2fd2552e953a93fd599b54041f58661e4e2e6"
+        },
+        "profile_elf": {
+          "path": "build/v0114-final/build/release-profile-jit/H1FC.elf",
+          "sha256": "c0f7d82320d6b0f3a6be5aa3ec14cc34883fac99ff36479f056e2e3bd7ed3b1b"
+        },
+        "baseline_H1FC.bda": {
+          "path": "build/v0114-baseline/build/release-jit/H1FC.bda",
+          "sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c"
+        },
+        "baseline_H1FC.elf": {
+          "path": "build/v0114-baseline/build/release-jit/H1FC.elf",
+          "sha256": "da455eec29a5c6ae20974310a78b4d90d7c1f23795ccb2f6fd3fd910a879a591"
+        },
+        "prepared_ppu.c": {
+          "path": "build/v0114-final/build/release-jit/fceumm-h1/src/ppu.c",
+          "sha256": "31331be06acc490eb2c9aba13162ab6a9f91afa6fd0da1fc7aff3e154f655a4e"
+        },
+        "prepared_state.c": {
+          "path": "build/v0114-final/build/release-jit/fceumm-h1/src/state.c",
+          "sha256": "e4e53b23d049776a7ea87b63b42fd7678f4948f65066efdf096d1e2de089f395"
+        },
+        "rom": {
+          "path": "build/audio-baseline/sgz2-cn.nes",
+          "sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117"
+        }
+      },
+      "tests": [
+        {
+          "name": "ppu-interval",
+          "command": [
+            "python",
+            "tests/ppu_oam_interval.py",
+            "--baseline-bda",
+            "build/v0114-baseline/build/release-jit/H1FC.bda",
+            "--baseline-elf",
+            "build/v0114-baseline/build/release-jit/H1FC.elf",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--output",
+            "build/verification/v0114-final-ppu-interval.json"
+          ],
+          "log": "build/v0114-final-ppu-interval.log",
+          "exit_code": 0,
+          "ok": true,
+          "report": "build/verification/v0114-final-ppu-interval.json",
+          "report_sha256": "235999f87518fb926c6cde2b73c71215c8962ce6b0e87e379636e39052611b0e"
+        },
+        {
+          "name": "ppu-restore",
+          "command": [
+            "python",
+            "tests/ppu_cache_restore.py",
+            "--baseline-bda",
+            "build/v0114-baseline/build/release-jit/H1FC.bda",
+            "--baseline-elf",
+            "build/v0114-baseline/build/release-jit/H1FC.elf",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--output",
+            "build/verification/v0114-final-ppu-restore.json"
+          ],
+          "log": "build/v0114-final-ppu-restore.log",
+          "exit_code": 0,
+          "ok": true,
+          "report": "build/verification/v0114-final-ppu-restore.json",
+          "report_sha256": "54e912284afc14b6cf889742eebd40d4cf5858b30319e4468ed3948faebefbc7"
+        },
+        {
+          "name": "ppu-dynamic",
+          "command": [
+            "python",
+            "tests/ppu_dynamic_oam.py",
+            "--baseline-bda",
+            "build/v0114-baseline/build/release-jit/H1FC.bda",
+            "--baseline-elf",
+            "build/v0114-baseline/build/release-jit/H1FC.elf",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--frames",
+            "32",
+            "--output",
+            "build/verification/v0114-final-ppu-dynamic.json"
+          ],
+          "log": "build/v0114-final-ppu-dynamic.log",
+          "exit_code": 0,
+          "ok": true,
+          "report": "build/verification/v0114-final-ppu-dynamic.json",
+          "report_sha256": "a2da2371bc10c0851182f346ed04afda297d0d16dc68a63368dc2921b86dc728"
+        },
+        {
+          "name": "ppu-fetch-index",
+          "command": [
+            "python",
+            "tests/ppu_sprite_fetch_index.py",
+            "--baseline",
+            "third_party\\fceumm",
+            "--prepared",
+            "build/v0114-final/build/release-jit/fceumm-h1",
+            "--output",
+            "build/verification/v0114-final-ppu-fetch-index"
+          ],
+          "log": "build/v0114-final-ppu-fetch-index.log",
+          "exit_code": 0,
+          "ok": true,
+          "report": "build/verification/v0114-final-ppu-fetch-index/result.json",
+          "report_sha256": "ef56eaec48e5a060be68640a8f37d31e703cd5eb2a5680de585aa4de8d07bacd"
+        },
+        {
+          "name": "profile-detail",
+          "command": [
+            "python",
+            "tests/profile_detail_mips.py",
+            "--baseline-bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--baseline-elf",
+            "build/v0114-final/build/release-jit/H1FC.elf",
+            "--bda",
+            "build/v0114-final/build/release-profile-jit/H1FC.bda",
+            "--elf",
+            "build/v0114-final/build/release-profile-jit/H1FC.elf",
+            "--nm",
+            ".tools/toolchain/bin/mipsel-none-elf-nm.exe",
+            "--rom",
+            "build/audio-baseline/sgz2-cn.nes",
+            "--output",
+            "build/verification/v0114-final-profile-detail.json"
+          ],
+          "log": "build/v0114-final-profile-detail.log",
+          "exit_code": 0,
+          "ok": true,
+          "report": "build/verification/v0114-final-profile-detail.json",
+          "report_sha256": "2c327dcc68c91236f764d9cfae7f77164f0f22d76bcbc6f43999f67911c99b65"
+        },
+        {
+          "name": "defaults",
+          "command": [
+            "python",
+            "tests/default_skip_smoke.py",
+            "--bda",
+            "build/v0114-final/build/release-jit/H1FC.bda",
+            "--output",
+            "build/verification/v0114-final-defaults.json"
+          ],
+          "log": "build/v0114-final-defaults.log",
+          "exit_code": 0,
+          "ok": true,
+          "report": "build/verification/v0114-final-defaults.json",
+          "report_sha256": "e95db0078f04d6068ac592e9f6edb5e3e880a9e547b1d606e99e3a77e0440307"
+        }
+      ],
+      "limitation": "Actual MIPS semantic/accounting QA; synthetic profile ticks and host instruction counts are not physical H1 timing."
+    }
+  },
+  "dynamic_oam": {
+    "report": "build/verification/v0114-final-ppu-dynamic.json",
+    "sha256": "a2da2371bc10c0851182f346ed04afda297d0d16dc68a63368dc2921b86dc728",
+    "data": {
+      "ok": true,
+      "rom_sha256": "72d0a271912f87b7a2df18ced6f5a388ec31a7319c105b644bfbfd99c3857b7c",
+      "frames": 32,
+      "baseline": {
+        "bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "seconds_host": 17.07900000002701,
+        "frames": [
+          {
+            "frame": 1,
+            "pcm": "ad0bf5709cffb3acb2891388e5d7b989edd80e906189743556353456d58a13c0",
+            "pcm_frames": 366,
+            "video": "d0ab94283cec58d389b105e8ac9350c6329a5ac4eb3353b086679db6677c73b3",
+            "state": "e6b2c27e2fcfd66ac05a7105a6f1cb528ddffe7b85965e2ca399e8b0e07c282d",
+            "game_state": "ffcf4c40f321b55cad6ced045c91cdc4b130f0b1f27ba510e9884f1ffd4067c8",
+            "save_probe_status": 0,
+            "block_instructions": 1386945
+          },
+          {
+            "frame": 2,
+            "pcm": "bed95ae176cbd1efa4cfc7f400fc1eb294bc107dabf29d77e8174471a789cca2",
+            "pcm_frames": 367,
+            "video": "d0ab94283cec58d389b105e8ac9350c6329a5ac4eb3353b086679db6677c73b3",
+            "state": "c39a1651a50e4d90cfdcb53efec4ea4f6053503a0b6c36c853e729507bba4063",
+            "game_state": "70aec2bf1d4aea8e47be4ada8ea3a761ccc10eda3b02cbd678423a2b9c70c2ec",
+            "save_probe_status": 0,
+            "block_instructions": 1371800
+          },
+          {
+            "frame": 3,
+            "pcm": "bed95ae176cbd1efa4cfc7f400fc1eb294bc107dabf29d77e8174471a789cca2",
+            "pcm_frames": 367,
+            "video": "d0ab94283cec58d389b105e8ac9350c6329a5ac4eb3353b086679db6677c73b3",
+            "state": "e309b5ce72db2a9b0f0351a9db72d1f3250cdceacf080be92fe11b59ca9bd4b9",
+            "game_state": "e035bf7877ecf066b14324fe7491597199381b9dcd7ab8d544e34f1caacd5625",
+            "save_probe_status": 0,
+            "block_instructions": 2180950
+          },
+          {
+            "frame": 4,
+            "pcm": "8a2a1cbad6b8cdceb2297343340b0e05cf8a3f696344de4a1594147b70cee70b",
+            "pcm_frames": 367,
+            "video": "8d8494868899a7398d910832e30bc78b5f8b5e2fa86b59101eefb4f57a63b785",
+            "state": "ae56ee3f0f694fa3e964de69cd3bc51b41756e565e70c5488f159af0f3e64dc1",
+            "game_state": "43e78a2827630ea83c5ad34833088343739fbd0e6c69756f6cbdc8bdc0e1bdd4",
+            "save_probe_status": 0,
+            "block_instructions": 3096964
+          },
+          {
+            "frame": 5,
+            "pcm": "a3ed5fdddab731a7c3845a436fc8a8f701476031cc9bec5cd0df8d790d1041c2",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "f0ca82e89678fd86aa7f02580ac8cfd85385d0a2fd983f42893327cd82a53435",
+            "game_state": "676565e6cf8633c09421ab1b4068a0e63058ea10d55ac53b88827b0bb5958eb2",
+            "save_probe_status": 0,
+            "block_instructions": 3102767
+          },
+          {
+            "frame": 6,
+            "pcm": "13b93f439a7b85a3f4fa323c87249315e5fa2bf9f1ce901a96bc4a8c53f9e1d6",
+            "pcm_frames": 367,
+            "video": "e3cbfd020ba646fd0305149a8d539ff0e41456f6d2e90cf7f3be6e81ae1dac2c",
+            "state": "70ff543dce7da5b72d5c3ec482e7ff4d1938d65578a1247c741cf19cda3ee087",
+            "game_state": "8a26c4b53aa2907c9907a5ae7f5d643b690c05060d22a83f1639ab5b56c1fb8d",
+            "save_probe_status": 0,
+            "block_instructions": 3093050
+          },
+          {
+            "frame": 7,
+            "pcm": "2d518c02e3749fe911b93974f4418fcb9ff3b7ac43460550ac5c2cfd56bbd2a1",
+            "pcm_frames": 367,
+            "video": "891087cd27f832906f6ebb6511992e7f75e263a192a9962953c0abfed76235fa",
+            "state": "596d2eba92b671292f9d44f447580f066044886dd38bee9c336980e3d5565883",
+            "game_state": "f42ad67b8700a231443997a69c5a7465791a7321327e42a32fb22cc79038afa3",
+            "save_probe_status": 0,
+            "block_instructions": 3094282
+          },
+          {
+            "frame": 8,
+            "pcm": "631a933a223e791fd65e54c2ce717713f8303a15ced6c2b693c139e93bed6c5a",
+            "pcm_frames": 367,
+            "video": "031df6216ec993b2155f693f45dcd193f6ed5e483f3d9fd1e74b3e1b2219fcd3",
+            "state": "ab46391fd84dc4e7f0b5c7b387e3cb81ee8963344939785c5ab37840d72d267b",
+            "game_state": "fd59f127f27faf9dfc8ded62e90b0845bef44b0abffae0c985c0bf40016ecb66",
+            "save_probe_status": 0,
+            "block_instructions": 3094519
+          },
+          {
+            "frame": 9,
+            "pcm": "03cfce4baf17696769b2ef0c2708d62318e3b6e3edcf449481487f338d1444bb",
+            "pcm_frames": 366,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "cecf48a60ecf49b293e1665ad931177602218cdd75e080165e71c7e119577418",
+            "game_state": "c85b37d5fa9c8f269e3dab469efa206d58d6f128cb8647c0b81bd445fb9bc19a",
+            "save_probe_status": 0,
+            "block_instructions": 3092404
+          },
+          {
+            "frame": 10,
+            "pcm": "846f91b3e110db805b45fbef36474836ed885f07dbf50b87d56a837791eaf50c",
+            "pcm_frames": 367,
+            "video": "891087cd27f832906f6ebb6511992e7f75e263a192a9962953c0abfed76235fa",
+            "state": "26764d38dd1a75464dcfdd151322d3aed1e7e996f091281d08f47f9c037ec4ea",
+            "game_state": "f7db67e977eda0315f6a1a771b869664d2b9bbf8693d173c1c8ef59b3435f888",
+            "save_probe_status": 0,
+            "block_instructions": 3094191
+          },
+          {
+            "frame": 11,
+            "pcm": "22a2231b7b7e8eaf313e25007fd9009a22bb2e039c571e93b8b1a80ca418a85c",
+            "pcm_frames": 367,
+            "video": "031df6216ec993b2155f693f45dcd193f6ed5e483f3d9fd1e74b3e1b2219fcd3",
+            "state": "f72deb6512e886685e0f855e5e4a863f652c0d12818668ee9e26c84fb2b22034",
+            "game_state": "aa496aaae21141e06705a7c63261bf21d0ebb652a5f50e8a5533ee357b0f94b0",
+            "save_probe_status": 0,
+            "block_instructions": 3091552
+          },
+          {
+            "frame": 12,
+            "pcm": "1a2cb0339f126927cc491d41901990df3b3fedb8d753cd8e9ac5a24cee2aa05f",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "21abdc021df49e93a9051ff69d41168fb968ac5dd1daf30fa1654115d5859e43",
+            "game_state": "5eb38659edb388b1637a5e8056a92dec1fefeaf90dfbd1fcb2b7a8b2b0799a12",
+            "save_probe_status": 0,
+            "block_instructions": 3088084
+          },
+          {
+            "frame": 13,
+            "pcm": "fec7771895cdf7611df25be09ecf9fb1f66d41d6ad5eaa54a7af33025c298539",
+            "pcm_frames": 367,
+            "video": "e3cbfd020ba646fd0305149a8d539ff0e41456f6d2e90cf7f3be6e81ae1dac2c",
+            "state": "06bae8958d9825a9454974187ec929557d8c565cbc2379defd8bb87a9264991f",
+            "game_state": "3c21847f44edb96211181ad42cb186d8574d851e96c8232982e00a507b6d7b76",
+            "save_probe_status": 0,
+            "block_instructions": 3091905
+          },
+          {
+            "frame": 14,
+            "pcm": "b9841db222d20676636eea481f9ac7315f71c8d4776bfaa274e30dce0723de1f",
+            "pcm_frames": 367,
+            "video": "891087cd27f832906f6ebb6511992e7f75e263a192a9962953c0abfed76235fa",
+            "state": "d37417758e0a79dd9caff938004ccb4647e2282cdb9c8614276cb14d3f0d5b1f",
+            "game_state": "cf35e32843c21ead192cbd791c2c64eb525d0a9f6a92ba141fac1f194a994372",
+            "save_probe_status": 0,
+            "block_instructions": 3093661
+          },
+          {
+            "frame": 15,
+            "pcm": "8a02482163011b19ea6b36e249b69482253a199acdcbc745b1de4b1201962535",
+            "pcm_frames": 367,
+            "video": "031df6216ec993b2155f693f45dcd193f6ed5e483f3d9fd1e74b3e1b2219fcd3",
+            "state": "983f5c539f5de76a190555ee3bd638eff7babb92362637c782f078527a7a121e",
+            "game_state": "833fc86bbf77cb740bd42f400800b4f067fe1b3dce5c6ad9703e530281c22408",
+            "save_probe_status": 0,
+            "block_instructions": 3093275
+          },
+          {
+            "frame": 16,
+            "pcm": "32f8624c6fee21c3a33e8c671793c2eb6d69972e92df8873b75d1a0f1ff10147",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "48d807f16832b39d15848552f098558c3505f1dc6f922b8ef70157cd2d073a7e",
+            "game_state": "031d99c714c4bf2dd9c583380089fcf052825ced8397b144ce45ae8db2e09c7a",
+            "save_probe_status": 0,
+            "block_instructions": 3092856
+          },
+          {
+            "frame": 17,
+            "pcm": "744aa3848a8970cd462b512c5cb9bf5863e94a4a32da570badf478f460c5d74f",
+            "pcm_frames": 366,
+            "video": "e3cbfd020ba646fd0305149a8d539ff0e41456f6d2e90cf7f3be6e81ae1dac2c",
+            "state": "e7dc58e906e0bbf2fdc1c4275fb0d587f9a422ceeeadcef5a6a03e787b7fd012",
+            "game_state": "ba1dd7f441d64049cb78077a98926f5c833e7fba68c400b407c7199b27c5ef61",
+            "save_probe_status": 0,
+            "block_instructions": 3093534
+          },
+          {
+            "frame": 18,
+            "pcm": "c3634c307ca8b51eabe5b496623f1a0fd713dd55d19b5d3a38096898ce7ebcde",
+            "pcm_frames": 367,
+            "video": "891087cd27f832906f6ebb6511992e7f75e263a192a9962953c0abfed76235fa",
+            "state": "83308cb8294ab92edb596c0d242d97d7af22559a58120f2d6977749ea011583f",
+            "game_state": "7924d3fcbc6ef8e8863fc1f88f60ed4652d135066818273609fdba94bb517454",
+            "save_probe_status": 0,
+            "block_instructions": 3093725
+          },
+          {
+            "frame": 19,
+            "pcm": "b68da8b381266f59cd0668dd9d9cc2d607d4f8f1d67b4943b26aff7dd78ebb40",
+            "pcm_frames": 367,
+            "video": "031df6216ec993b2155f693f45dcd193f6ed5e483f3d9fd1e74b3e1b2219fcd3",
+            "state": "d4c00504cda9ba1464dcf176142993ea23ce7b48b69692444fdbd6770f049342",
+            "game_state": "2585025c64bc6b2c6a827cb0af33ede189c8b7729c92e6f2a483c9caadbd5a60",
+            "save_probe_status": 0,
+            "block_instructions": 3091367
+          },
+          {
+            "frame": 20,
+            "pcm": "6957abe43f6511650c9fa4fe2e945b3998aaeaec70558cf66825610a3bfe1d72",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "7e92d06cdd9ca567b2e254ce72823f33dac47b32905e9f9a7182ea591f4abf26",
+            "game_state": "5e29848e1ecc4b1a42b4fcce3224f880bf5a5fa54993194dcb1cb8945d6a095b",
+            "save_probe_status": 0,
+            "block_instructions": 3089442
+          },
+          {
+            "frame": 21,
+            "pcm": "39bc2eebc1d4680af114eaa632778f7d0c387fabb1c39d0422a2440e855389e7",
+            "pcm_frames": 367,
+            "video": "5a85aebfcf5bb3e09180e6603f64416a8a92357d7c5587b73382f4045c09ca25",
+            "state": "5608ba30cb1b2fbb762be70521555a1f274cee68b828515142af6c9d6d7f7a2c",
+            "game_state": "3c6c2caac9892ed4fdb6f0d14a45a4325656283e5c78acd8001c3dece4796c3a",
+            "save_probe_status": 0,
+            "block_instructions": 3093806
+          },
+          {
+            "frame": 22,
+            "pcm": "5fe75d275dc74b3badaefecbd9ae2840aa8e27e74338d44af65b04dfd37238ff",
+            "pcm_frames": 367,
+            "video": "dabe94293a7e7987e5b2612105a09ad3ce3960595521b475b13789eb2308d3b2",
+            "state": "bb8cecc0eebf8b642cc32021e9d422a8f50cacbcf33cd54eb3b652fd9e2d8b47",
+            "game_state": "e0104038091f0cb8fc7ec2f68ffe8f7a414ebf2b734f874c752027171d815475",
+            "save_probe_status": 0,
+            "block_instructions": 3095293
+          },
+          {
+            "frame": 23,
+            "pcm": "600f22e7b1cf8d60416e11117c657f65374c8b7ec38684e3a642a76211a54802",
+            "pcm_frames": 367,
+            "video": "53085b0844a4ffbe880c620acd2653d0a226b6fbea0301ea9991d21643fa1b95",
+            "state": "9f863b5f88ed4a45adb656e0741d83eb52116c7e05470d28a1ed74dbe23acc1a",
+            "game_state": "51600ce1406cb5fd34d78fbbda902bb705c0b360ec792496161a2e657bfe8ae9",
+            "save_probe_status": 0,
+            "block_instructions": 3093004
+          },
+          {
+            "frame": 24,
+            "pcm": "ed9c5331cf79007d68ae68af27ff18fbcf77dc055ab09b60c2c01223cc3a2f65",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "679d5678357c2e6c0b61afdfdbf17bce2ae81c5f10df6e85648b6f7286c774c8",
+            "game_state": "c5a00cc6534e6bfb5ddfbd6fb108bde18993114d5f2d9b9d911bfe43438e0f7c",
+            "save_probe_status": 0,
+            "block_instructions": 3092239
+          },
+          {
+            "frame": 25,
+            "pcm": "2a1486526c9d3fc32bd6811580c5aad44651655e8b2789c440ca640cf1218ea7",
+            "pcm_frames": 366,
+            "video": "c3220e576114bcb7554a169ee6762d26e31e0506f3ef435ecb038225832d7d42",
+            "state": "8f290e861522ad0b8966df794c45d720c4e7c0b2dcbb499a4f667b0e3f3f3bd2",
+            "game_state": "e47ab1f0c0fddfd1ee3bd0693b80e73fac7b4a8808bdfd15f0b3bff854299b39",
+            "save_probe_status": 0,
+            "block_instructions": 3091341
+          },
+          {
+            "frame": 26,
+            "pcm": "0549ff44f312105ae8fcd79994431f7e75ce92cbc4912043a4816b5919d14aa4",
+            "pcm_frames": 367,
+            "video": "d0b71a7412699de4ca68028e4aa2de0cee96c43332a3fb6765193ca78fadf92a",
+            "state": "3a6a293fc5d1d96e91464645abe26b2c6b9bc97c1268a8fae20a3b590202e771",
+            "game_state": "5c94288f85a140d665ae10920b057f61a62e4d458bed7899d32a3808c62c82b9",
+            "save_probe_status": 0,
+            "block_instructions": 3093150
+          },
+          {
+            "frame": 27,
+            "pcm": "1694ad3e6e35384ca351f99fd7642a5750e18bf1799838f9e5ef66fe8a532559",
+            "pcm_frames": 367,
+            "video": "05e940b7528967fb12b8ac64e76ce11419a835448c7b3e8b569695f5e89bd4cf",
+            "state": "992275d55c2ec9945e5666ff1300bd7776e3200228ee5d6dead7cc10be744e1d",
+            "game_state": "e99a3dac6f8756b5e5609ca36a46bb2b94e22379036c04c45398539b546b6bf1",
+            "save_probe_status": 0,
+            "block_instructions": 3090565
+          },
+          {
+            "frame": 28,
+            "pcm": "6d8538a10e09e5a9796f6d173b23e85762c897966aea68f7567949ec3a693b34",
+            "pcm_frames": 367,
+            "video": "f7a5e01ac78078301f97dc28534b173ff56c322870e3643098aa12f4530e4049",
+            "state": "ff4173ca5d4ea4f45dff112206f8fb3659f39abfa53b586f5ad1c8b9291d7bfd",
+            "game_state": "a8d3aaa621a5d6ac45d1614be61266b9c0cea3b34ea0378e574a95f022e4f10e",
+            "save_probe_status": 0,
+            "block_instructions": 3090611
+          },
+          {
+            "frame": 29,
+            "pcm": "b83da690e53e971301e60e2f17ce977bb546f1a24cf449072733aa9b90735c37",
+            "pcm_frames": 367,
+            "video": "aa77e4fd93ebab893f940650d26c644a266eeb512856dd1192053fbcd936835b",
+            "state": "48482a2eef744bc04b801c2d47febe91dca59b05a9c0d318edff198153b34075",
+            "game_state": "af9b46b047be5aa61ce2b9b551482350134d34f287884f7eea9f3c3e71b057f3",
+            "save_probe_status": 0,
+            "block_instructions": 3093269
+          },
+          {
+            "frame": 30,
+            "pcm": "36d1c4d99948da0900a7f6821fc2eaa57b647b173d42e3eadaed0908ff0250bb",
+            "pcm_frames": 367,
+            "video": "adb42cf23ab51798b49147202e2324a9345c6d62691c64476edaadcdd8501390",
+            "state": "e445b227478376d2ecbbfd406b2b96c173d39809fb9a467f5d6d7ecad8a12e25",
+            "game_state": "354c1b69970f6d3269a3f0f405d76181493475f2d5d0017e2c0611cda33ccc85",
+            "save_probe_status": 0,
+            "block_instructions": 3097570
+          },
+          {
+            "frame": 31,
+            "pcm": "512457d2478e78174382aef9da236ab749bd972da9fc02f3bdcb294451f58f7d",
+            "pcm_frames": 367,
+            "video": "6d67ceff144f835affbe01b88ad680971359d23dd523c0a1c965c72cb690aa8d",
+            "state": "cbafa2db1546a93e363856917d4abb6fbaeb0c19dedcbf271e968e1f9daad303",
+            "game_state": "93dd364d22028cc50cb992ddcd251a2b0c4f7f4cba8b469556371c9023c433b4",
+            "save_probe_status": 0,
+            "block_instructions": 3094390
+          },
+          {
+            "frame": 32,
+            "pcm": "2b90948f7bd770344c237729e4e079fded1507573ec8ba33bfec77254b06dcd8",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "035b2620396030f705220a42d8507e736a3cc7d34c24fe057b001cbc1813e507",
+            "game_state": "a867d771677f0e10be4b22db926260a2550bdf7e363473eb0ba25ee0c6ffb83d",
+            "save_probe_status": 0,
+            "block_instructions": 3091302
+          }
+        ],
+        "sample_rate": 22050.0,
+        "frame_rate": 60.099826520671044,
+        "block_instructions": 94643813,
+        "jit_stats": {
+          "compiled": 11,
+          "hits": 73597,
+          "misses": 15,
+          "native_ops": 340068,
+          "deopts": 0,
+          "rejected": 4,
+          "invalidations": 1,
+          "max_words": 699
+        },
+        "native_block_entries": 3202224,
+        "native_chain_transitions": 57097,
+        "jit_schedule": {
+          "full_runs": 61343,
+          "cpu_prefixes": 45,
+          "event_prefixes": 309,
+          "contract_reuse": 128512
+        }
+      },
+      "current": {
+        "bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+        "seconds_host": 16.93799999996554,
+        "frames": [
+          {
+            "frame": 1,
+            "pcm": "ad0bf5709cffb3acb2891388e5d7b989edd80e906189743556353456d58a13c0",
+            "pcm_frames": 366,
+            "video": "d0ab94283cec58d389b105e8ac9350c6329a5ac4eb3353b086679db6677c73b3",
+            "state": "e6b2c27e2fcfd66ac05a7105a6f1cb528ddffe7b85965e2ca399e8b0e07c282d",
+            "game_state": "ffcf4c40f321b55cad6ced045c91cdc4b130f0b1f27ba510e9884f1ffd4067c8",
+            "save_probe_status": 0,
+            "block_instructions": 1387194
+          },
+          {
+            "frame": 2,
+            "pcm": "bed95ae176cbd1efa4cfc7f400fc1eb294bc107dabf29d77e8174471a789cca2",
+            "pcm_frames": 367,
+            "video": "d0ab94283cec58d389b105e8ac9350c6329a5ac4eb3353b086679db6677c73b3",
+            "state": "c39a1651a50e4d90cfdcb53efec4ea4f6053503a0b6c36c853e729507bba4063",
+            "game_state": "70aec2bf1d4aea8e47be4ada8ea3a761ccc10eda3b02cbd678423a2b9c70c2ec",
+            "save_probe_status": 0,
+            "block_instructions": 1371804
+          },
+          {
+            "frame": 3,
+            "pcm": "bed95ae176cbd1efa4cfc7f400fc1eb294bc107dabf29d77e8174471a789cca2",
+            "pcm_frames": 367,
+            "video": "d0ab94283cec58d389b105e8ac9350c6329a5ac4eb3353b086679db6677c73b3",
+            "state": "e309b5ce72db2a9b0f0351a9db72d1f3250cdceacf080be92fe11b59ca9bd4b9",
+            "game_state": "e035bf7877ecf066b14324fe7491597199381b9dcd7ab8d544e34f1caacd5625",
+            "save_probe_status": 0,
+            "block_instructions": 2181189
+          },
+          {
+            "frame": 4,
+            "pcm": "8a2a1cbad6b8cdceb2297343340b0e05cf8a3f696344de4a1594147b70cee70b",
+            "pcm_frames": 367,
+            "video": "8d8494868899a7398d910832e30bc78b5f8b5e2fa86b59101eefb4f57a63b785",
+            "state": "ae56ee3f0f694fa3e964de69cd3bc51b41756e565e70c5488f159af0f3e64dc1",
+            "game_state": "43e78a2827630ea83c5ad34833088343739fbd0e6c69756f6cbdc8bdc0e1bdd4",
+            "save_probe_status": 0,
+            "block_instructions": 3093351
+          },
+          {
+            "frame": 5,
+            "pcm": "a3ed5fdddab731a7c3845a436fc8a8f701476031cc9bec5cd0df8d790d1041c2",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "f0ca82e89678fd86aa7f02580ac8cfd85385d0a2fd983f42893327cd82a53435",
+            "game_state": "676565e6cf8633c09421ab1b4068a0e63058ea10d55ac53b88827b0bb5958eb2",
+            "save_probe_status": 0,
+            "block_instructions": 3038821
+          },
+          {
+            "frame": 6,
+            "pcm": "13b93f439a7b85a3f4fa323c87249315e5fa2bf9f1ce901a96bc4a8c53f9e1d6",
+            "pcm_frames": 367,
+            "video": "e3cbfd020ba646fd0305149a8d539ff0e41456f6d2e90cf7f3be6e81ae1dac2c",
+            "state": "70ff543dce7da5b72d5c3ec482e7ff4d1938d65578a1247c741cf19cda3ee087",
+            "game_state": "8a26c4b53aa2907c9907a5ae7f5d643b690c05060d22a83f1639ab5b56c1fb8d",
+            "save_probe_status": 0,
+            "block_instructions": 3029819
+          },
+          {
+            "frame": 7,
+            "pcm": "2d518c02e3749fe911b93974f4418fcb9ff3b7ac43460550ac5c2cfd56bbd2a1",
+            "pcm_frames": 367,
+            "video": "891087cd27f832906f6ebb6511992e7f75e263a192a9962953c0abfed76235fa",
+            "state": "596d2eba92b671292f9d44f447580f066044886dd38bee9c336980e3d5565883",
+            "game_state": "f42ad67b8700a231443997a69c5a7465791a7321327e42a32fb22cc79038afa3",
+            "save_probe_status": 0,
+            "block_instructions": 3032336
+          },
+          {
+            "frame": 8,
+            "pcm": "631a933a223e791fd65e54c2ce717713f8303a15ced6c2b693c139e93bed6c5a",
+            "pcm_frames": 367,
+            "video": "031df6216ec993b2155f693f45dcd193f6ed5e483f3d9fd1e74b3e1b2219fcd3",
+            "state": "ab46391fd84dc4e7f0b5c7b387e3cb81ee8963344939785c5ab37840d72d267b",
+            "game_state": "fd59f127f27faf9dfc8ded62e90b0845bef44b0abffae0c985c0bf40016ecb66",
+            "save_probe_status": 0,
+            "block_instructions": 3033043
+          },
+          {
+            "frame": 9,
+            "pcm": "03cfce4baf17696769b2ef0c2708d62318e3b6e3edcf449481487f338d1444bb",
+            "pcm_frames": 366,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "cecf48a60ecf49b293e1665ad931177602218cdd75e080165e71c7e119577418",
+            "game_state": "c85b37d5fa9c8f269e3dab469efa206d58d6f128cb8647c0b81bd445fb9bc19a",
+            "save_probe_status": 0,
+            "block_instructions": 3029732
+          },
+          {
+            "frame": 10,
+            "pcm": "846f91b3e110db805b45fbef36474836ed885f07dbf50b87d56a837791eaf50c",
+            "pcm_frames": 367,
+            "video": "891087cd27f832906f6ebb6511992e7f75e263a192a9962953c0abfed76235fa",
+            "state": "26764d38dd1a75464dcfdd151322d3aed1e7e996f091281d08f47f9c037ec4ea",
+            "game_state": "f7db67e977eda0315f6a1a771b869664d2b9bbf8693d173c1c8ef59b3435f888",
+            "save_probe_status": 0,
+            "block_instructions": 3031561
+          },
+          {
+            "frame": 11,
+            "pcm": "22a2231b7b7e8eaf313e25007fd9009a22bb2e039c571e93b8b1a80ca418a85c",
+            "pcm_frames": 367,
+            "video": "031df6216ec993b2155f693f45dcd193f6ed5e483f3d9fd1e74b3e1b2219fcd3",
+            "state": "f72deb6512e886685e0f855e5e4a863f652c0d12818668ee9e26c84fb2b22034",
+            "game_state": "aa496aaae21141e06705a7c63261bf21d0ebb652a5f50e8a5533ee357b0f94b0",
+            "save_probe_status": 0,
+            "block_instructions": 3028466
+          },
+          {
+            "frame": 12,
+            "pcm": "1a2cb0339f126927cc491d41901990df3b3fedb8d753cd8e9ac5a24cee2aa05f",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "21abdc021df49e93a9051ff69d41168fb968ac5dd1daf30fa1654115d5859e43",
+            "game_state": "5eb38659edb388b1637a5e8056a92dec1fefeaf90dfbd1fcb2b7a8b2b0799a12",
+            "save_probe_status": 0,
+            "block_instructions": 3024454
+          },
+          {
+            "frame": 13,
+            "pcm": "fec7771895cdf7611df25be09ecf9fb1f66d41d6ad5eaa54a7af33025c298539",
+            "pcm_frames": 367,
+            "video": "e3cbfd020ba646fd0305149a8d539ff0e41456f6d2e90cf7f3be6e81ae1dac2c",
+            "state": "06bae8958d9825a9454974187ec929557d8c565cbc2379defd8bb87a9264991f",
+            "game_state": "3c21847f44edb96211181ad42cb186d8574d851e96c8232982e00a507b6d7b76",
+            "save_probe_status": 0,
+            "block_instructions": 3029013
+          },
+          {
+            "frame": 14,
+            "pcm": "b9841db222d20676636eea481f9ac7315f71c8d4776bfaa274e30dce0723de1f",
+            "pcm_frames": 367,
+            "video": "891087cd27f832906f6ebb6511992e7f75e263a192a9962953c0abfed76235fa",
+            "state": "d37417758e0a79dd9caff938004ccb4647e2282cdb9c8614276cb14d3f0d5b1f",
+            "game_state": "cf35e32843c21ead192cbd791c2c64eb525d0a9f6a92ba141fac1f194a994372",
+            "save_probe_status": 0,
+            "block_instructions": 3032018
+          },
+          {
+            "frame": 15,
+            "pcm": "8a02482163011b19ea6b36e249b69482253a199acdcbc745b1de4b1201962535",
+            "pcm_frames": 367,
+            "video": "031df6216ec993b2155f693f45dcd193f6ed5e483f3d9fd1e74b3e1b2219fcd3",
+            "state": "983f5c539f5de76a190555ee3bd638eff7babb92362637c782f078527a7a121e",
+            "game_state": "833fc86bbf77cb740bd42f400800b4f067fe1b3dce5c6ad9703e530281c22408",
+            "save_probe_status": 0,
+            "block_instructions": 3032010
+          },
+          {
+            "frame": 16,
+            "pcm": "32f8624c6fee21c3a33e8c671793c2eb6d69972e92df8873b75d1a0f1ff10147",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "48d807f16832b39d15848552f098558c3505f1dc6f922b8ef70157cd2d073a7e",
+            "game_state": "031d99c714c4bf2dd9c583380089fcf052825ced8397b144ce45ae8db2e09c7a",
+            "save_probe_status": 0,
+            "block_instructions": 3030651
+          },
+          {
+            "frame": 17,
+            "pcm": "744aa3848a8970cd462b512c5cb9bf5863e94a4a32da570badf478f460c5d74f",
+            "pcm_frames": 366,
+            "video": "e3cbfd020ba646fd0305149a8d539ff0e41456f6d2e90cf7f3be6e81ae1dac2c",
+            "state": "e7dc58e906e0bbf2fdc1c4275fb0d587f9a422ceeeadcef5a6a03e787b7fd012",
+            "game_state": "ba1dd7f441d64049cb78077a98926f5c833e7fba68c400b407c7199b27c5ef61",
+            "save_probe_status": 0,
+            "block_instructions": 3030646
+          },
+          {
+            "frame": 18,
+            "pcm": "c3634c307ca8b51eabe5b496623f1a0fd713dd55d19b5d3a38096898ce7ebcde",
+            "pcm_frames": 367,
+            "video": "891087cd27f832906f6ebb6511992e7f75e263a192a9962953c0abfed76235fa",
+            "state": "83308cb8294ab92edb596c0d242d97d7af22559a58120f2d6977749ea011583f",
+            "game_state": "7924d3fcbc6ef8e8863fc1f88f60ed4652d135066818273609fdba94bb517454",
+            "save_probe_status": 0,
+            "block_instructions": 3030631
+          },
+          {
+            "frame": 19,
+            "pcm": "b68da8b381266f59cd0668dd9d9cc2d607d4f8f1d67b4943b26aff7dd78ebb40",
+            "pcm_frames": 367,
+            "video": "031df6216ec993b2155f693f45dcd193f6ed5e483f3d9fd1e74b3e1b2219fcd3",
+            "state": "d4c00504cda9ba1464dcf176142993ea23ce7b48b69692444fdbd6770f049342",
+            "game_state": "2585025c64bc6b2c6a827cb0af33ede189c8b7729c92e6f2a483c9caadbd5a60",
+            "save_probe_status": 0,
+            "block_instructions": 3027840
+          },
+          {
+            "frame": 20,
+            "pcm": "6957abe43f6511650c9fa4fe2e945b3998aaeaec70558cf66825610a3bfe1d72",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "7e92d06cdd9ca567b2e254ce72823f33dac47b32905e9f9a7182ea591f4abf26",
+            "game_state": "5e29848e1ecc4b1a42b4fcce3224f880bf5a5fa54993194dcb1cb8945d6a095b",
+            "save_probe_status": 0,
+            "block_instructions": 3025678
+          },
+          {
+            "frame": 21,
+            "pcm": "39bc2eebc1d4680af114eaa632778f7d0c387fabb1c39d0422a2440e855389e7",
+            "pcm_frames": 367,
+            "video": "5a85aebfcf5bb3e09180e6603f64416a8a92357d7c5587b73382f4045c09ca25",
+            "state": "5608ba30cb1b2fbb762be70521555a1f274cee68b828515142af6c9d6d7f7a2c",
+            "game_state": "3c6c2caac9892ed4fdb6f0d14a45a4325656283e5c78acd8001c3dece4796c3a",
+            "save_probe_status": 0,
+            "block_instructions": 3032416
+          },
+          {
+            "frame": 22,
+            "pcm": "5fe75d275dc74b3badaefecbd9ae2840aa8e27e74338d44af65b04dfd37238ff",
+            "pcm_frames": 367,
+            "video": "dabe94293a7e7987e5b2612105a09ad3ce3960595521b475b13789eb2308d3b2",
+            "state": "bb8cecc0eebf8b642cc32021e9d422a8f50cacbcf33cd54eb3b652fd9e2d8b47",
+            "game_state": "e0104038091f0cb8fc7ec2f68ffe8f7a414ebf2b734f874c752027171d815475",
+            "save_probe_status": 0,
+            "block_instructions": 3033642
+          },
+          {
+            "frame": 23,
+            "pcm": "600f22e7b1cf8d60416e11117c657f65374c8b7ec38684e3a642a76211a54802",
+            "pcm_frames": 367,
+            "video": "53085b0844a4ffbe880c620acd2653d0a226b6fbea0301ea9991d21643fa1b95",
+            "state": "9f863b5f88ed4a45adb656e0741d83eb52116c7e05470d28a1ed74dbe23acc1a",
+            "game_state": "51600ce1406cb5fd34d78fbbda902bb705c0b360ec792496161a2e657bfe8ae9",
+            "save_probe_status": 0,
+            "block_instructions": 3031263
+          },
+          {
+            "frame": 24,
+            "pcm": "ed9c5331cf79007d68ae68af27ff18fbcf77dc055ab09b60c2c01223cc3a2f65",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "679d5678357c2e6c0b61afdfdbf17bce2ae81c5f10df6e85648b6f7286c774c8",
+            "game_state": "c5a00cc6534e6bfb5ddfbd6fb108bde18993114d5f2d9b9d911bfe43438e0f7c",
+            "save_probe_status": 0,
+            "block_instructions": 3029565
+          },
+          {
+            "frame": 25,
+            "pcm": "2a1486526c9d3fc32bd6811580c5aad44651655e8b2789c440ca640cf1218ea7",
+            "pcm_frames": 366,
+            "video": "c3220e576114bcb7554a169ee6762d26e31e0506f3ef435ecb038225832d7d42",
+            "state": "8f290e861522ad0b8966df794c45d720c4e7c0b2dcbb499a4f667b0e3f3f3bd2",
+            "game_state": "e47ab1f0c0fddfd1ee3bd0693b80e73fac7b4a8808bdfd15f0b3bff854299b39",
+            "save_probe_status": 0,
+            "block_instructions": 3028145
+          },
+          {
+            "frame": 26,
+            "pcm": "0549ff44f312105ae8fcd79994431f7e75ce92cbc4912043a4816b5919d14aa4",
+            "pcm_frames": 367,
+            "video": "d0b71a7412699de4ca68028e4aa2de0cee96c43332a3fb6765193ca78fadf92a",
+            "state": "3a6a293fc5d1d96e91464645abe26b2c6b9bc97c1268a8fae20a3b590202e771",
+            "game_state": "5c94288f85a140d665ae10920b057f61a62e4d458bed7899d32a3808c62c82b9",
+            "save_probe_status": 0,
+            "block_instructions": 3029505
+          },
+          {
+            "frame": 27,
+            "pcm": "1694ad3e6e35384ca351f99fd7642a5750e18bf1799838f9e5ef66fe8a532559",
+            "pcm_frames": 367,
+            "video": "05e940b7528967fb12b8ac64e76ce11419a835448c7b3e8b569695f5e89bd4cf",
+            "state": "992275d55c2ec9945e5666ff1300bd7776e3200228ee5d6dead7cc10be744e1d",
+            "game_state": "e99a3dac6f8756b5e5609ca36a46bb2b94e22379036c04c45398539b546b6bf1",
+            "save_probe_status": 0,
+            "block_instructions": 3027089
+          },
+          {
+            "frame": 28,
+            "pcm": "6d8538a10e09e5a9796f6d173b23e85762c897966aea68f7567949ec3a693b34",
+            "pcm_frames": 367,
+            "video": "f7a5e01ac78078301f97dc28534b173ff56c322870e3643098aa12f4530e4049",
+            "state": "ff4173ca5d4ea4f45dff112206f8fb3659f39abfa53b586f5ad1c8b9291d7bfd",
+            "game_state": "a8d3aaa621a5d6ac45d1614be61266b9c0cea3b34ea0378e574a95f022e4f10e",
+            "save_probe_status": 0,
+            "block_instructions": 3027920
+          },
+          {
+            "frame": 29,
+            "pcm": "b83da690e53e971301e60e2f17ce977bb546f1a24cf449072733aa9b90735c37",
+            "pcm_frames": 367,
+            "video": "aa77e4fd93ebab893f940650d26c644a266eeb512856dd1192053fbcd936835b",
+            "state": "48482a2eef744bc04b801c2d47febe91dca59b05a9c0d318edff198153b34075",
+            "game_state": "af9b46b047be5aa61ce2b9b551482350134d34f287884f7eea9f3c3e71b057f3",
+            "save_probe_status": 0,
+            "block_instructions": 3031687
+          },
+          {
+            "frame": 30,
+            "pcm": "36d1c4d99948da0900a7f6821fc2eaa57b647b173d42e3eadaed0908ff0250bb",
+            "pcm_frames": 367,
+            "video": "adb42cf23ab51798b49147202e2324a9345c6d62691c64476edaadcdd8501390",
+            "state": "e445b227478376d2ecbbfd406b2b96c173d39809fb9a467f5d6d7ecad8a12e25",
+            "game_state": "354c1b69970f6d3269a3f0f405d76181493475f2d5d0017e2c0611cda33ccc85",
+            "save_probe_status": 0,
+            "block_instructions": 3035191
+          },
+          {
+            "frame": 31,
+            "pcm": "512457d2478e78174382aef9da236ab749bd972da9fc02f3bdcb294451f58f7d",
+            "pcm_frames": 367,
+            "video": "6d67ceff144f835affbe01b88ad680971359d23dd523c0a1c965c72cb690aa8d",
+            "state": "cbafa2db1546a93e363856917d4abb6fbaeb0c19dedcbf271e968e1f9daad303",
+            "game_state": "93dd364d22028cc50cb992ddcd251a2b0c4f7f4cba8b469556371c9023c433b4",
+            "save_probe_status": 0,
+            "block_instructions": 3031701
+          },
+          {
+            "frame": 32,
+            "pcm": "2b90948f7bd770344c237729e4e079fded1507573ec8ba33bfec77254b06dcd8",
+            "pcm_frames": 367,
+            "video": "18685e1783bc3ef2178f13c96a81d2b4c3fc9e3f33cc73c3345bd1b317ec07c2",
+            "state": "035b2620396030f705220a42d8507e736a3cc7d34c24fe057b001cbc1813e507",
+            "game_state": "a867d771677f0e10be4b22db926260a2550bdf7e363473eb0ba25ee0c6ffb83d",
+            "save_probe_status": 0,
+            "block_instructions": 3028608
+          }
+        ],
+        "sample_rate": 22050.0,
+        "frame_rate": 60.099826520671044,
+        "block_instructions": 92886989,
+        "jit_stats": {
+          "compiled": 11,
+          "hits": 73847,
+          "misses": 15,
+          "native_ops": 339780,
+          "deopts": 0,
+          "rejected": 4,
+          "invalidations": 1,
+          "max_words": 846
+        },
+        "native_block_entries": 2982249,
+        "native_chain_transitions": 56837,
+        "jit_schedule": {
+          "full_runs": 62558,
+          "cpu_prefixes": 3187,
+          "event_prefixes": 634,
+          "contract_reuse": 128502
+        }
+      },
+      "steady_frames": [
+        9,
+        32
+      ],
+      "steady_baseline": 74222536,
+      "steady_current": 72719432,
+      "steady_ratio": 0.9797486844157414,
+      "scope": "Test-owned ROM writes OAM continuously; all MIPS core bytes unchanged; full state/PCM/video exact",
+      "limitation": "Adversarial regression fixture, not SGZ2 performance evidence or physical H1 cycle measurement."
+    }
+  },
+  "firmware": [
+    {
+      "variant": "normal",
+      "first": {
+        "report": "build/v0114-firmware-normal/evidence/classic-smoke.json",
+        "sha256": "d0bb62a7a5861fbe76e60a4deb9c71487b257e61e3d69a2b76234b635519a866",
+        "data": {
+          "ok": true,
+          "game": "SGZ2-CN NES v0.1.14 normal",
+          "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+          "physical_device_tested": false,
+          "original_dump_modified": false,
+          "bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "kernel_sha256": "d05786e442f9aad62a8d0a0cb4f6d786bdc7c2fa353a7a2b152c9ed9f01b40ef",
+          "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+          "rom_bytes": 524304,
+          "mapper": 19,
+          "video_frames": 492,
+          "video_errors": 0,
+          "audio": {
+            "sample_rate": 32000,
+            "packets": 144,
+            "frames": 96051,
+            "seconds": 3.00159375,
+            "min": -32383,
+            "max": 19507,
+            "nonzero_samples": 192086
+          },
+          "resumed_audio": {
+            "sample_rate": 32000,
+            "packets": 96,
+            "frames": 64225,
+            "seconds": 2.00703125,
+            "min": -32383,
+            "max": 19467,
+            "nonzero_samples": 128432
+          },
+          "resumed_gameplay_changed": null,
+          "paused_display_stable": true,
+          "app_end_result": 0,
+          "qemu_returncode": 0,
+          "exit_protocol": "p-menu-escape-return-confirm-exit",
+          "screenshots": {
+            "about-key.png": "ddbb1801c78ff1142487ba19f79e07f1589d158b07858977e74ed5ce03e5fde3",
+            "about-touch.png": "ddbb1801c78ff1142487ba19f79e07f1589d158b07858977e74ed5ce03e5fde3",
+            "exit-desktop.png": "dd55d427dce2b056303436890ff09ddbc82d5e49240444a764198785aa1ec43d",
+            "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+            "level-after.png": "fd076afd3a91847c895541fdf1e8632822033fc6b73f805f797811f52d7c67ae",
+            "level-before.png": "fd076afd3a91847c895541fdf1e8632822033fc6b73f805f797811f52d7c67ae",
+            "menu.png": "c057b6433234e953429e65261b7d05a3cb1ebf2b41bc9d8c3ce44ba150d61374",
+            "pause-stable.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+            "pause.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+            "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+            "resume-check.png": "fd076afd3a91847c895541fdf1e8632822033fc6b73f805f797811f52d7c67ae",
+            "resumed.png": "fd076afd3a91847c895541fdf1e8632822033fc6b73f805f797811f52d7c67ae",
+            "right-and-a.png": "fd076afd3a91847c895541fdf1e8632822033fc6b73f805f797811f52d7c67ae",
+            "title.png": "368f0bd5f443bfecd4e9d585d3fbf8900a2535a5074fc1c893f15413cd0b8292"
+          },
+          "limitations": [
+            "Game-specific title/level/action results require visual inspection of screenshots",
+            "Full firmware emulation does not establish physical-device performance"
+          ]
+        }
+      },
+      "restart": {
+        "report": "build/v0114-firmware-normal/restart-evidence/restart-smoke.json",
+        "sha256": "544cceb52a36260d28fa2fc4343a72dcbd18d8ae6dfdbcbfd0e9b840f6501439",
+        "data": {
+          "ok": true,
+          "bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "same_private_nand": true,
+          "physical_device_tested": false,
+          "save_loaded": true,
+          "save_on_exit": true,
+          "app_end_result": 0,
+          "audio": {
+            "sample_rate": 32000,
+            "packets": 145,
+            "frames": 96243,
+            "seconds": 3.00759375,
+            "min": -32383,
+            "max": 19090,
+            "nonzero_samples": 192436
+          },
+          "save_load_lines": [
+            "000034 SAVE_LOAD_BEGIN ptr=0x8255c7c8 bytes=8320",
+            "000035 SAVE_LOAD_END status=1 slot=0 generation=1"
+          ],
+          "screenshots": {
+            "exit-desktop.png": "6ee0ece2cec126ac899587957269b4141ea7a6872fd34c06f067aac5fdac915b",
+            "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+            "menu.png": "c057b6433234e953429e65261b7d05a3cb1ebf2b41bc9d8c3ce44ba150d61374",
+            "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+            "reloaded-game.png": "eee90f1adc4621073ee417a9e6c3f5f7c509d465a25094e966d9e9faab3fd52a"
+          }
+        }
+      },
+      "source_dump": {
+        "report": "build/v0114-firmware-normal/original-dump-integrity.json",
+        "sha256": "19b0b663a7e98532e7defe4603e9b0fa6022454b6428902960b2fd23b6dd86e3",
+        "data": {
+          "ok": true,
+          "files": 494,
+          "bytes": 941764502,
+          "original_dump_unchanged": true,
+          "frontend_sha256": "38da879afc84fe6f53d2a911aaa36d024b919130cc54b9d58de88fba0a8c7155"
+        }
+      },
+      "logs": [
+        {
+          "path": "build/v0114-firmware-normal/evidence/h1fc.log",
+          "sha256": "6863f5cab503e25ca756155ed42b17e64e46714110cb8627b888e962b1ee7136",
+          "video_frames": 492,
+          "video_errors": 0,
+          "audio_underruns": 0,
+          "save_loaded": false,
+          "app_end_result": 0,
+          "diagnostics": []
+        },
+        {
+          "path": "build/v0114-firmware-normal/restart-evidence/h1fc.log",
+          "sha256": "614bf9dfb72d816bd2c5017666051df944e778de91396d7455e397481ec31925",
+          "video_frames": 246,
+          "video_errors": 0,
+          "audio_underruns": 0,
+          "save_loaded": true,
+          "app_end_result": 0,
+          "diagnostics": []
+        }
+      ]
+    },
+    {
+      "variant": "profile",
+      "first": {
+        "report": "build/v0114-firmware-profile/evidence/classic-smoke.json",
+        "sha256": "e2d2ac09552c03b5c81a0dc066a949b9c6594734f6a7973d5c319d64a4c2e218",
+        "data": {
+          "ok": true,
+          "game": "SGZ2-CN NES v0.1.14 profile",
+          "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+          "physical_device_tested": false,
+          "original_dump_modified": false,
+          "bda_sha256": "936776f33bc778b060624b1d4dc2fd2552e953a93fd599b54041f58661e4e2e6",
+          "kernel_sha256": "d05786e442f9aad62a8d0a0cb4f6d786bdc7c2fa353a7a2b152c9ed9f01b40ef",
+          "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+          "rom_bytes": 524304,
+          "mapper": 19,
+          "video_frames": 361,
+          "video_errors": 0,
+          "audio": {
+            "sample_rate": 32000,
+            "packets": 145,
+            "frames": 96601,
+            "seconds": 3.01878125,
+            "min": -32383,
+            "max": 19184,
+            "nonzero_samples": 193180
+          },
+          "resumed_audio": {
+            "sample_rate": 32000,
+            "packets": 97,
+            "frames": 64863,
+            "seconds": 2.02696875,
+            "min": -32383,
+            "max": 19036,
+            "nonzero_samples": 129714
+          },
+          "resumed_gameplay_changed": null,
+          "paused_display_stable": true,
+          "app_end_result": 0,
+          "qemu_returncode": 0,
+          "exit_protocol": "p-menu-escape-return-confirm-exit",
+          "screenshots": {
+            "about-key.png": "ddbb1801c78ff1142487ba19f79e07f1589d158b07858977e74ed5ce03e5fde3",
+            "about-touch.png": "ddbb1801c78ff1142487ba19f79e07f1589d158b07858977e74ed5ce03e5fde3",
+            "exit-desktop.png": "2ccfc8031e36d19df28df465fb3e57cbe115a6bc65e8da1d43bba0247f966cb0",
+            "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+            "level-after.png": "5f7280deed13b0e147a31cbecc6ae6fa7e591702db8da10b0af1e03633794475",
+            "level-before.png": "eee90f1adc4621073ee417a9e6c3f5f7c509d465a25094e966d9e9faab3fd52a",
+            "menu.png": "3f38cea2a782e742647854cc7dde5a026c34eb7c2fe1c059dc6770a72604bd9f",
+            "pause-stable.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+            "pause.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+            "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+            "resume-check.png": "e7851947d3a7edd327bf01398c3d76c150bdd9d4e749a198682015cfb5645d10",
+            "resumed.png": "5f7280deed13b0e147a31cbecc6ae6fa7e591702db8da10b0af1e03633794475",
+            "right-and-a.png": "39b774d5c5a6663d62639ca4be686e2e327c8a16837026c787a7140334a15a25",
+            "title.png": "e33eb6ebd3d8d99fb9026777222d6a132df749724316e8107c78782a5347a607"
+          },
+          "limitations": [
+            "Game-specific title/level/action results require visual inspection of screenshots",
+            "Full firmware emulation does not establish physical-device performance"
+          ]
+        }
+      },
+      "restart": {
+        "report": "build/v0114-firmware-profile/restart-evidence/restart-smoke.json",
+        "sha256": "eb41fa2b23a1a3fafdffcf218da989afec5708c2b002fbf91baea2ce4006b816",
+        "data": {
+          "ok": true,
+          "bda_sha256": "936776f33bc778b060624b1d4dc2fd2552e953a93fd599b54041f58661e4e2e6",
+          "same_private_nand": true,
+          "physical_device_tested": false,
+          "save_loaded": true,
+          "save_on_exit": true,
+          "app_end_result": 0,
+          "audio": {
+            "sample_rate": 32000,
+            "packets": 144,
+            "frames": 96230,
+            "seconds": 3.0071875,
+            "min": -16375,
+            "max": 6500,
+            "nonzero_samples": 192170
+          },
+          "save_load_lines": [
+            "000034 SAVE_LOAD_BEGIN ptr=0x8255c7c8 bytes=8320",
+            "000035 SAVE_LOAD_END status=1 slot=0 generation=1"
+          ],
+          "screenshots": {
+            "exit-desktop.png": "dd55d427dce2b056303436890ff09ddbc82d5e49240444a764198785aa1ec43d",
+            "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+            "menu.png": "3f38cea2a782e742647854cc7dde5a026c34eb7c2fe1c059dc6770a72604bd9f",
+            "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+            "reloaded-game.png": "368f0bd5f443bfecd4e9d585d3fbf8900a2535a5074fc1c893f15413cd0b8292"
+          }
+        }
+      },
+      "source_dump": {
+        "report": "build/v0114-firmware-profile/original-dump-integrity.json",
+        "sha256": "19b0b663a7e98532e7defe4603e9b0fa6022454b6428902960b2fd23b6dd86e3",
+        "data": {
+          "ok": true,
+          "files": 494,
+          "bytes": 941764502,
+          "original_dump_unchanged": true,
+          "frontend_sha256": "38da879afc84fe6f53d2a911aaa36d024b919130cc54b9d58de88fba0a8c7155"
+        }
+      },
+      "logs": [
+        {
+          "path": "build/v0114-firmware-profile/evidence/h1fc.log",
+          "sha256": "f4d9c44a1dc4efcb278919a675a146c42b4d90a15774defe8b87bbd45a0dadaf",
+          "video_frames": 361,
+          "video_errors": 0,
+          "audio_underruns": 1,
+          "save_loaded": false,
+          "app_end_result": 0,
+          "diagnostics": [
+            "000040 PROFILE_CLOCK_PROBE phase=align rtc_start=1199176231 rtc_end=1199176232 counter_start=3439 counter_end=8773 counter_delta=5334 raw_ticks=6 iterations=124309 outcome=RTC_edge",
+            "000041 PROFILE_CLOCK_PROBE phase=measure rtc_start=1199176232 rtc_end=1199176233 counter_start=8775 counter_end=41541 counter_delta=32766 raw_ticks=40 iterations=781541 outcome=RTC_edge",
+            "000042 PROFILE_CLOCK source=TCU5_RTC hz=32768 observed_hz=32766 calibration_RTC_seconds=1 resolution_us=31 ready=1",
+            "000043 PROFILE_TCU_READS stage=calibrated fault=0 retries=41 backwards=0 wraps=0 deferred=0 terminal=0 period=65536 previous=41541 total=41541 max_delta=3439 bad_a=38266 bad_b=38268 bad_previous=38264",
+            "000064 PROFILE_TCU_READS stage=pause fault=0 retries=1233 backwards=2290 wraps=5 deferred=2286 terminal=0 period=65536 previous=12452 total=340132 max_delta=3787 bad_a=12344 bad_b=12347 bad_previous=12341",
+            "000066 PROFILE_RTC_RUN reason=pause frames=621 displayed=210 interval_frames=620 rtc_start=1199176234 rtc_end=1199176244 seconds=10 resolution_seconds=1 valid=1",
+            "000068 PROFILE_LAYOUT revision=core_detail_v1 period=31 modes=5 cycle_frames=155 sampled_cost_only=1 inclusive_not_additive=1 inclusive_detail_scopes_only=1",
+            "000240 PROFILE_CLOCK source=TCU5_RTC hz=32768 resolution_us=31 ready=1 reused=1",
+            "000243 PROFILE_TCU_READS stage=pause fault=0 retries=642 backwards=340 wraps=2 deferred=339 terminal=0 period=65536 previous=30096 total=161168 max_delta=288 bad_a=29854 bad_b=29856 bad_previous=29850",
+            "000245 PROFILE_RTC_RUN reason=pause frames=302 displayed=151 interval_frames=301 rtc_start=1199176251 rtc_end=1199176256 seconds=5 resolution_seconds=1 valid=1",
+            "000247 PROFILE_LAYOUT revision=core_detail_v1 period=31 modes=5 cycle_frames=155 sampled_cost_only=1 inclusive_not_additive=1 inclusive_detail_scopes_only=1",
+            "000391 PROFILE_TCU_READS stage=exit fault=0 retries=642 backwards=340 wraps=2 deferred=339 terminal=0 period=65536 previous=30096 total=161168 max_delta=288 bad_a=29854 bad_b=29856 bad_previous=29850",
+            "000393 PROFILE_RTC_RUN reason=exit frames=302 displayed=151 interval_frames=301 rtc_start=1199176251 rtc_end=1199176256 seconds=5 resolution_seconds=1 valid=1",
+            "000395 PROFILE_LAYOUT revision=core_detail_v1 period=31 modes=5 cycle_frames=155 sampled_cost_only=1 inclusive_not_additive=1 inclusive_detail_scopes_only=1"
+          ]
+        },
+        {
+          "path": "build/v0114-firmware-profile/restart-evidence/h1fc.log",
+          "sha256": "e17d40f5976e9d00087191900974ce5ce4f1f833b3ffd24a81f4d8b98bb35380",
+          "video_frames": 124,
+          "video_errors": 0,
+          "audio_underruns": 1,
+          "save_loaded": true,
+          "app_end_result": 0,
+          "diagnostics": [
+            "000040 PROFILE_CLOCK_PROBE phase=align rtc_start=1199176262 rtc_end=1199176263 counter_start=3410 counter_end=20408 counter_delta=16998 raw_ticks=20 iterations=418169 outcome=RTC_edge",
+            "000041 PROFILE_CLOCK_PROBE phase=measure rtc_start=1199176263 rtc_end=1199176264 counter_start=20410 counter_end=53176 counter_delta=32766 raw_ticks=40 iterations=791900 outcome=RTC_edge",
+            "000042 PROFILE_CLOCK source=TCU5_RTC hz=32768 observed_hz=32766 calibration_RTC_seconds=1 resolution_us=31 ready=1",
+            "000043 PROFILE_TCU_READS stage=calibrated fault=0 retries=38 backwards=0 wraps=0 deferred=0 terminal=0 period=65536 previous=53176 total=53176 max_delta=3410 bad_a=52431 bad_b=52433 bad_previous=52431",
+            "000064 PROFILE_TCU_READS stage=pause fault=2 retries=163 backwards=1 wraps=0 deferred=0 terminal=0 period=65536 previous=65464 total=65464 max_delta=3848 bad_a=65464 bad_b=14 bad_previous=65464",
+            "000066 PROFILE_RTC_RUN reason=pause frames=364 displayed=124 interval_frames=363 rtc_start=1199176265 rtc_end=1199176271 seconds=6 resolution_seconds=1 valid=1",
+            "000068 PROFILE_LAYOUT revision=core_detail_v1 period=31 modes=5 cycle_frames=155 sampled_cost_only=1 inclusive_not_additive=1 inclusive_detail_scopes_only=1",
+            "000169 PROFILE_TCU_READS stage=exit fault=2 retries=163 backwards=1 wraps=0 deferred=0 terminal=0 period=65536 previous=65464 total=65464 max_delta=3848 bad_a=65464 bad_b=14 bad_previous=65464",
+            "000171 PROFILE_RTC_RUN reason=exit frames=364 displayed=124 interval_frames=363 rtc_start=1199176265 rtc_end=1199176271 seconds=6 resolution_seconds=1 valid=1",
+            "000173 PROFILE_LAYOUT revision=core_detail_v1 period=31 modes=5 cycle_frames=155 sampled_cost_only=1 inclusive_not_additive=1 inclusive_detail_scopes_only=1"
+          ]
+        }
+      ]
+    }
+  ],
+  "profile_firmware_timing": [
+    {
+      "log": "build/v0114-firmware-profile/evidence/h1fc.log",
+      "ok": true,
+      "tcu_faults": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "rtc_valid": [
+        1,
+        1,
+        1
+      ],
+      "modes": [
+        "coarse",
+        "control",
+        "cpu",
+        "light",
+        "ppu",
+        "sound"
+      ],
+      "rule": "TCU fault must remain zero, RTC valid, and all five detail modes present; otherwise detail timing is invalid."
+    },
+    {
+      "log": "build/v0114-firmware-profile/restart-evidence/h1fc.log",
+      "ok": false,
+      "tcu_faults": [
+        0,
+        2,
+        2
+      ],
+      "rtc_valid": [
+        1,
+        1
+      ],
+      "modes": [
+        "coarse",
+        "control",
+        "cpu",
+        "light",
+        "ppu"
+      ],
+      "rule": "TCU fault must remain zero, RTC valid, and all five detail modes present; otherwise detail timing is invalid."
+    }
+  ],
+  "profile_clock_boundary": {
+    "report": "build/verification/v0114-profile-wrap-replay/report.json",
+    "sha256": "3e107fa40da7bbb7bc3b83a8f73dea9c88556aaa91eec8421ad06ff4e3b3fad5",
+    "data": {
+      "ok": true,
+      "header_sha256": {
+        "baseline": "7b9bc03383375ae8255bde4a79f5a1b6dff25cfe2db841140bac9356577b29d6",
+        "final": "7b9bc03383375ae8255bde4a79f5a1b6dff25cfe2db841140bac9356577b29d6"
+      },
+      "results": {
+        "baseline": {
+          "pc_fault": 2,
+          "previous": 65464,
+          "total": 65464,
+          "bad_a": 65464,
+          "bad_b": 14,
+          "backwards": 1,
+          "deferred": 0,
+          "reads": 6,
+          "writes": 0,
+          "later_flag_does_not_resume": true
+        },
+        "final": {
+          "pc_fault": 2,
+          "previous": 65464,
+          "total": 65464,
+          "bad_a": 65464,
+          "bad_b": 14,
+          "backwards": 1,
+          "deferred": 0,
+          "reads": 6,
+          "writes": 0,
+          "later_flag_does_not_resume": true
+        }
+      },
+      "retained_failure_log": "build/v0114-firmware-profile/restart-evidence/h1fc.log",
+      "retained_failure_log_sha256": "e17d40f5976e9d00087191900974ce5ce4f1f833b3ffd24a81f4d8b98bb35380",
+      "conclusion": "The unchanged 0.1.13 and final 0.1.14 reader both deterministically reject this input with fault 2, freezing timestamps. It is pre-existing rejection policy exposed by this run.",
+      "threshold": {
+        "previous": 65464,
+        "near_full_minimum": 65471,
+        "difference_below_threshold": 7,
+        "value": 14,
+        "full_flag": 0
+      },
+      "limitation": "A mock replay proves reader policy only. The physical/firmware/emulator cause of the absent FULL flag remains unconfirmed. No BDA, source, firmware, NAND or failure evidence was changed; no rerun selected for PASS."
+    }
+  },
+  "reproducibility": {
+    "report": "build/verification/v0114-reproducible-bda.json",
+    "sha256": "547cdd7da7e21ab7935eed87e9f62f35358edaa3b0b22626d6f71610f09c4147",
+    "data": {
+      "ok": true,
+      "independent_output_tree": "build/v0114-repro-final",
+      "builds": [
+        {
+          "variant": "release-jit",
+          "sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "bytes": 1136248,
+          "identical": true
+        },
+        {
+          "variant": "release-profile-jit",
+          "sha256": "936776f33bc778b060624b1d4dc2fd2552e953a93fd599b54041f58661e4e2e6",
+          "bytes": 1155512,
+          "identical": true
+        }
+      ]
+    }
+  },
+  "canonical_build": {
+    "report": "build/verification/v0114-canonical-bda.json",
+    "sha256": "cfd47eddb427747d94cb5e565d66b0f4d394306232853309cf0a7b8ac6542ad1",
+    "data": {
+      "ok": true,
+      "builds": [
+        {
+          "variant": "release-jit",
+          "sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+          "identical": true
+        },
+        {
+          "variant": "release-profile-jit",
+          "sha256": "936776f33bc778b060624b1d4dc2fd2552e953a93fd599b54041f58661e4e2e6",
+          "identical": true
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Executed MIPS instructions are not physical H1 cycles, FPS or measured reduction in audio underruns.",
+    "The full-application city comparison executes the ordinary BDA with simulated firmware services; separate full firmware checks cover title/menu/audio/save/exit.",
+    "JIT dispatch/native call count is essentially unchanged; savings come from less repeated per-region scheduling.",
+    "The OAM-only dynamic stress candidate regressed 0.3538%; the final combined artifact improved 2.0251% in that synthetic fixture, not a claim about every game.",
+    "Commercial ROM, firmware, NAND and recorded audio remain local and are excluded from installation packages."
+  ],
+  "_publication_paths": {
+    "note": "Historical evidence; local checkout paths were made repository-relative, the external toolchain path is represented by .tools/toolchain, and the host interpreter by python. Device A: paths, results and artifact hashes are unchanged. Raw private evidence remains local and is not distributed.",
+    "private_original_sha256": "f5193be846b72e266e37f3cf3e0559f9751c2973ae0404d767f200d8229969e7"
+  }
+}

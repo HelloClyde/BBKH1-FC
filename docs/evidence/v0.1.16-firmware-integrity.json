@@ -1,0 +1,46 @@
+{
+  "version": "0.1.16",
+  "bda_sha256": "24247f8b5a7c36ee4f8954a0ff003e31124272af5f16937fc56ae2c25bc363ed",
+  "payload_sha256": "ef4a464c70899068fa098c0875f9362f53df6253445e286f6872c9ca5b43eee8",
+  "environment": "Full H1 V1.41 firmware in an isolated QEMU bbkh1 image for each run",
+  "physical_device_accessed": false,
+  "original_dump_modified": false,
+  "source_file_count": 494,
+  "source_total_bytes": 941764502,
+  "source_manifest_sha256": "556be62fc726a69f192371640355790c12551f6b1728b777ae116ead4379983a",
+  "runs": [
+    {
+      "ok": true,
+      "version": "0.1.16",
+      "kind": "game",
+      "returncode": 0,
+      "source_dump_unchanged": true,
+      "dump_file_count": 494,
+      "dump_total_bytes": 941764502,
+      "bda_sha256": "24247f8b5a7c36ee4f8954a0ff003e31124272af5f16937fc56ae2c25bc363ed",
+      "before_manifest_sha256": "556be62fc726a69f192371640355790c12551f6b1728b777ae116ead4379983a",
+      "after_manifest_sha256": "556be62fc726a69f192371640355790c12551f6b1728b777ae116ead4379983a"
+    },
+    {
+      "ok": true,
+      "version": "0.1.16",
+      "kind": "cancel",
+      "returncode": 0,
+      "source_dump_unchanged": true,
+      "dump_file_count": 494,
+      "dump_total_bytes": 941764502,
+      "bda_sha256": "24247f8b5a7c36ee4f8954a0ff003e31124272af5f16937fc56ae2c25bc363ed",
+      "before_manifest_sha256": "556be62fc726a69f192371640355790c12551f6b1728b777ae116ead4379983a",
+      "after_manifest_sha256": "556be62fc726a69f192371640355790c12551f6b1728b777ae116ead4379983a"
+    }
+  ],
+  "source_integrity_reports_sha256": [
+    "84c716c16c59003a423113aa5edd74f797abab3d7e78484aa0e1e2464eb4627d",
+    "c8039c5ee3a443a09e05c05250d8ed68a9f1a31f14820f0871ae7e74e2c36b2e"
+  ],
+  "notes": [
+    "Each test used a fresh private image and frontend copy; the original firmware files were read only.",
+    "The restricted initial image-build attempt failed before firmware execution; it is excluded from passing test results and also left the source manifest unchanged.",
+    "No firmware image, ROM, WAV capture, memory dump or private save is included in public evidence."
+  ]
+}

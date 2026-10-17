@@ -1,0 +1,1011 @@
+{
+  "schema": 1,
+  "version": "0.1.6",
+  "backend": "MIPS32_RUN_V4",
+  "regular_build": {
+    "title": "H1 NES Emulator",
+    "version": "0.1.6",
+    "sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+    "size": 1057256,
+    "payload_sha256": "000f0d4d00aca2dc20b188e8c89cc2c834b3bb11df5e9d4f1d39189ed364fc14",
+    "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+    "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+    "core": "FCEUmm",
+    "entry_va": "0x83c00020",
+    "formats": [
+      "nes"
+    ],
+    "audio": "H1 native PCM 32000 Hz mono",
+    "test_frames": 0,
+    "benchmark": false,
+    "verbose_log": false,
+    "profile": false,
+    "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+    "build_time": "2026-10-13 00:00:00",
+    "optimization": "O2",
+    "lto": false,
+    "jit": true,
+    "experimental": true,
+    "jit_backend": "MIPS32_RUN_V4",
+    "jit_cache_mib": 1,
+    "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031"
+  },
+  "profile_build": {
+    "title": "H1 NES Emulator",
+    "version": "0.1.6",
+    "sha256": "09ff2cf078b9d08989ba101f2a2db1f7154c3b994f4b0c20e1969556fb5dab55",
+    "size": 1067304,
+    "payload_sha256": "3652e572192ce824aec6abc90850afacbb74f80b41a669b36dc9e0a21fed9ab4",
+    "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+    "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+    "core": "FCEUmm",
+    "entry_va": "0x83c00020",
+    "formats": [
+      "nes"
+    ],
+    "audio": "H1 native PCM 32000 Hz mono",
+    "test_frames": 0,
+    "benchmark": false,
+    "verbose_log": false,
+    "profile": true,
+    "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+    "build_time": "2026-10-13 00:00:00",
+    "optimization": "O2",
+    "lto": false,
+    "jit": true,
+    "experimental": true,
+    "jit_backend": "MIPS32_RUN_V4",
+    "jit_cache_mib": 1,
+    "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031"
+  },
+  "final_jit_case_count": 4274,
+  "jit_differentials": {
+    "opcodes": {
+      "ok": true,
+      "cases": 2809,
+      "supported_opcodes": 87,
+      "native_block_entries": 71192,
+      "bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "cache_wraps": 3,
+      "checks": [
+        "exact CPU/RAM/cycle/timestamp differential",
+        "both branch outcomes and page crossing",
+        "zero-page index wrapping",
+        "later opcode/operand mutation",
+        "PRG page remapping",
+        "mapper hook changes operand page after opcode fetch",
+        "writable PRG and encrypted opcode fallback",
+        "IRQ/NMI entry and CLI delay",
+        "state restore invalidation",
+        "arena reclamation and epoch invalidation",
+        "overclock specialization invalidation",
+        "reset invalidates cache metadata",
+        "allocation failure interpreter fallback",
+        "unload frees cache"
+      ]
+    },
+    "events": {
+      "ok": true,
+      "cases": 232,
+      "native_chain_transitions": 8454,
+      "bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "checks": [
+        "APU frame and DMC deadlines before/at/after instruction boundary",
+        "independent interpreter scheduler deadlines and pending cycle carry",
+        "DMC DMA combined with frame or bit events",
+        "Namco IRQ disabled, threshold, overflow and branch cycle carry",
+        "both native branch targets; target operand mutation; restored chain epoch",
+        "masked IRQ native chains and temporary IRQ clearing",
+        "long 16-op native chains crossing the 15-bit packet boundary",
+        "exact CPU/RAM/timestamps and full serialized state"
+      ]
+    },
+    "addressing": {
+      "ok": true,
+      "cases": 451,
+      "observable_bus_cases": 102,
+      "native_block_entries": 8917,
+      "bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "checks": [
+        "ADC/SBC carry/overflow/decimal-bit preservation",
+        "zero-page index wrapping",
+        "indexed dummy reads at xxFF/FFFF carries",
+        "exact callback-visible CPU/DB/PC/tcount and bus ordering",
+        "IO callback resident-state spill/reload and block termination",
+        "mapper IO remaps next opcode before dispatch",
+        "handler mutation after partial block execution",
+        "RAM mirrors and INC/DEC wrap",
+        "indirect JMP pointer-page wrap",
+        "indirect JMP directly chains to a warm block in another bank"
+      ]
+    },
+    "runs": {
+      "ok": true,
+      "cases": 782,
+      "bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "run_counters": {
+        "compiled_regions": 822,
+        "compiled_ops": 5242,
+        "executed_regions": 633,
+        "rejected_regions": 1915
+      },
+      "checks": [
+        "exact CPU including PC, DB, previous P; RAM; timestamps; full serialized state",
+        "count budget before/at/after instruction boundaries and final overshoot",
+        "APU/DMC deadlines at every region position, pending DMA and incoming carry",
+        "CLI/SEI, pending IRQ/NMI/NMI2/TEMP, and internal branch entry split",
+        "PPU status read region barrier and later read-handler mutation",
+        "Namco enable/threshold/overflow; overclock and timestamp wrap",
+        "both aggregate admission and one-instruction native fallback executed"
+      ]
+    }
+  },
+  "core_differentials": {
+    "sgz2": {
+      "source_report": "build/verification/jit-v4-final-sgz2.json",
+      "frames": 32,
+      "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+      "skip": 0,
+      "baseline_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "current_bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "instructions": {
+        "baseline": 114541862,
+        "current": 87213601,
+        "ratio": 0.7614124607123988,
+        "reduction_percent": 23.858753928760123
+      },
+      "exact_serialized_state_video_pcm_game_and_save_probe": true,
+      "jit_stats": {
+        "compiled": 223,
+        "hits": 34572,
+        "misses": 327,
+        "native_ops": 250374,
+        "deopts": 0,
+        "rejected": 104,
+        "invalidations": 1,
+        "max_words": 1166
+      }
+    },
+    "sprites": {
+      "source_report": "build/verification/jit-v4-final-sprites.json",
+      "frames": 24,
+      "rom_sha256": "65edc3bb66c95dadac9abb8b54b97eabf827ffadf5668c5c399c114df8e220b1",
+      "skip": 2,
+      "baseline_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "current_bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "instructions": {
+        "baseline": 88627045,
+        "current": 62436963,
+        "ratio": 0.7044910839574985,
+        "reduction_percent": 29.55089160425015
+      },
+      "exact_serialized_state_video_pcm_game_and_save_probe": true,
+      "jit_stats": {
+        "compiled": 18,
+        "hits": 17437,
+        "misses": 24,
+        "native_ops": 194158,
+        "deopts": 0,
+        "rejected": 6,
+        "invalidations": 1,
+        "max_words": 343
+      }
+    },
+    "pal": {
+      "source_report": "build/verification/jit-v4-final-pal.json",
+      "frames": 16,
+      "rom_sha256": "7160b72885412e74b35cda9ed4acafd234b6b590a36820854e29480d2bbb76f7",
+      "skip": 0,
+      "baseline_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "current_bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "instructions": {
+        "baseline": 70969504,
+        "current": 51353736,
+        "ratio": 0.723602859053376,
+        "reduction_percent": 27.639714094662406
+      },
+      "exact_serialized_state_video_pcm_game_and_save_probe": true,
+      "jit_stats": {
+        "compiled": 18,
+        "hits": 11290,
+        "misses": 24,
+        "native_ops": 145848,
+        "deopts": 0,
+        "rejected": 6,
+        "invalidations": 1,
+        "max_words": 343
+      }
+    },
+    "dmc": {
+      "source_report": "build/verification/jit-v4-final-dmc.json",
+      "frames": 16,
+      "rom_sha256": "3d286898a0791da8e2980238108d68b83f4f2331a88bffb8d5f986510bf7cf58",
+      "skip": 0,
+      "baseline_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "current_bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "instructions": {
+        "baseline": 69502824,
+        "current": 51528183,
+        "ratio": 0.7413825803682452,
+        "reduction_percent": 25.861741963175476
+      },
+      "exact_serialized_state_video_pcm_game_and_save_probe": true,
+      "jit_stats": {
+        "compiled": 18,
+        "hits": 11440,
+        "misses": 24,
+        "native_ops": 128996,
+        "deopts": 0,
+        "rejected": 6,
+        "invalidations": 1,
+        "max_words": 343
+      }
+    },
+    "dmc-irq": {
+      "source_report": "build/verification/jit-v4-final-dmc-irq.json",
+      "frames": 16,
+      "rom_sha256": "06684ae9fd926814274962d2727102f178295c113930ae3eccc6e16da8e524b9",
+      "skip": 0,
+      "baseline_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "current_bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "instructions": {
+        "baseline": 69826057,
+        "current": 51538491,
+        "ratio": 0.7380982575029261,
+        "reduction_percent": 26.190174249707386
+      },
+      "exact_serialized_state_video_pcm_game_and_save_probe": true,
+      "jit_stats": {
+        "compiled": 18,
+        "hits": 11472,
+        "misses": 24,
+        "native_ops": 129955,
+        "deopts": 0,
+        "rejected": 6,
+        "invalidations": 1,
+        "max_words": 343
+      }
+    },
+    "mapper2": {
+      "source_report": "build/verification/jit-v4-final-mapper2.json",
+      "frames": 16,
+      "rom_sha256": "a950f94fa8d4dec8580e62ffb9a33a1030b12d2dcce83ba9c0d963c31d76a5c4",
+      "skip": 0,
+      "baseline_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "current_bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "instructions": {
+        "baseline": 68036607,
+        "current": 61666090,
+        "ratio": 0.9063663330536162,
+        "reduction_percent": 9.363366694638376
+      },
+      "exact_serialized_state_video_pcm_game_and_save_probe": true,
+      "jit_stats": {
+        "compiled": 0,
+        "hits": 0,
+        "misses": 0,
+        "native_ops": 0,
+        "deopts": 0,
+        "rejected": 0,
+        "invalidations": 0,
+        "max_words": 0
+      }
+    }
+  },
+  "independent_scaler_test": {
+    "scope": "Independent bounded scaler test BDA, not the final release executable",
+    "build": {
+      "title": "H1 NES Emulator",
+      "version": "0.1.6",
+      "sha256": "377482f4df0dcf9bfb573fe48c97b4db9d98147e34636c6e9b330456925d2184",
+      "size": 1055752,
+      "payload_sha256": "bb44652233a388af6e46fae9c62f32154fb48bdad60b7eb067a509c45c287c0e",
+      "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+      "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+      "core": "FCEUmm",
+      "entry_va": "0x83c00020",
+      "formats": [
+        "nes"
+      ],
+      "audio": "H1 native PCM 32000 Hz mono",
+      "test_frames": 18,
+      "benchmark": false,
+      "verbose_log": false,
+      "profile": false,
+      "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+      "build_time": "2026-10-13 00:00:00",
+      "optimization": "O2",
+      "lto": false,
+      "jit": true,
+      "experimental": true,
+      "jit_backend": "MIPS32_CHAIN_V3",
+      "jit_cache_mib": 1,
+      "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031"
+    },
+    "baseline_bda_sha256": "c72395522bb9515c037d26631471fb7690943aed502cc0c68438914ec37eb393",
+    "cases": 102,
+    "modes": {
+      "0": {
+        "cases": 32,
+        "cold": {
+          "baseline": 32577911,
+          "current": 26189313,
+          "ratio": 0.8038978619592889,
+          "reduction_percent": 19.61021380407111
+        },
+        "warm": {
+          "baseline": 32485424,
+          "current": 26096826,
+          "ratio": 0.8033395531485136,
+          "reduction_percent": 19.66604468514864
+        }
+      },
+      "1": {
+        "cases": 32,
+        "cold": {
+          "baseline": 37263340,
+          "current": 29819990,
+          "ratio": 0.8002500580999985,
+          "reduction_percent": 19.97499419000015
+        },
+        "warm": {
+          "baseline": 37166192,
+          "current": 29722842,
+          "ratio": 0.7997279355388359,
+          "reduction_percent": 20.02720644611641
+        }
+      },
+      "2": {
+        "cases": 32,
+        "cold": {
+          "baseline": 56687376,
+          "current": 39733954,
+          "ratio": 0.7009312620150208,
+          "reduction_percent": 29.906873798497923
+        },
+        "warm": {
+          "baseline": 56579696,
+          "current": 39626274,
+          "ratio": 0.7003620874880628,
+          "reduction_percent": 29.963791251193715
+        }
+      },
+      "3": {
+        "cases": 6,
+        "cold": {
+          "baseline": 24443539,
+          "current": 24443539,
+          "ratio": 1.0,
+          "reduction_percent": 0.0
+        },
+        "warm": {
+          "baseline": 24373053,
+          "current": 24373053,
+          "ratio": 1.0,
+          "reduction_percent": 0.0
+        }
+      }
+    },
+    "source_bounds": [
+      {
+        "height": 224,
+        "mode": 0,
+        "source_reads_in_bounds": true,
+        "source_read_count": 57344
+      },
+      {
+        "height": 224,
+        "mode": 1,
+        "source_reads_in_bounds": true,
+        "source_read_count": 57344
+      },
+      {
+        "height": 224,
+        "mode": 2,
+        "source_reads_in_bounds": true,
+        "source_read_count": 57344
+      },
+      {
+        "height": 240,
+        "mode": 0,
+        "source_reads_in_bounds": true,
+        "source_read_count": 61440
+      },
+      {
+        "height": 240,
+        "mode": 1,
+        "source_reads_in_bounds": true,
+        "source_read_count": 61440
+      },
+      {
+        "height": 240,
+        "mode": 2,
+        "source_reads_in_bounds": true,
+        "source_read_count": 61440
+      }
+    ],
+    "limitations": [
+      "MIPS block instruction entries do not model physical H1 cache or timing.",
+      "Linear mode uses the unmodified v3 scaler as its image oracle."
+    ]
+  },
+  "complete_application": {
+    "title_vs_v3": {
+      "source_report": "build/verification/jit-v4-title-final600.json",
+      "comparison": {
+        "schema": 1,
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "frames": 600,
+        "settings": {
+          "scale": 1,
+          "skip": 0,
+          "sound": 1,
+          "volume": 100,
+          "save": "new, empty initial filesystem"
+        },
+        "events": [],
+        "cost_census": true,
+        "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+        "stop": "Escape key-down through firmware queue at final input_frame entry"
+      },
+      "baseline_bda_sha256": "c72395522bb9515c037d26631471fb7690943aed502cc0c68438914ec37eb393",
+      "current_bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "current_elf_sha256": "577f825d966aa0c5dd25f74e7caeac3469f455fb6c82b46c88202fa0b692c487",
+      "whole_application": {
+        "baseline": 2223330763,
+        "current": 1976483225,
+        "ratio": 0.8889739924855257,
+        "reduction_percent": 11.102600751447433
+      },
+      "first_nonzero_pcm_frame": 88,
+      "pcm_frames": 220117,
+      "pcm_nonzero_samples": 362244,
+      "core_pcm_sha256": "08f5a4a00b81b84d5223c6e6beae7497eaff0ed87c4eefbdfbbc786563cb15a7",
+      "observed_ring_pcm_sha256": "358f42557373e743ba7b911229b2e6f3d2839eb5249e7e921e0cde9f87186839",
+      "equal_per_frame_fields": [
+        "lcd",
+        "pcm",
+        "pcm_frames",
+        "cpu_ppu_state"
+      ],
+      "equal_final_fields": [
+        "screen",
+        "exit_save_payloads",
+        "core_pcm",
+        "submitted_ring_pcm",
+        "observed_ring_pcm"
+      ],
+      "scope": "Complete actual release MIPS app from startup to normal Escape exit; firmware mocked",
+      "battle_coverage": false,
+      "function_costs": {
+        "cpu_dispatch_and_generated": {
+          "baseline_functions": [
+            "h1_cpu_run_jit",
+            "[generated MIPS]"
+          ],
+          "current_functions": [
+            "h1_cpu_run_jit",
+            "[generated MIPS]"
+          ],
+          "baseline": 685054309,
+          "current": 661810316,
+          "ratio": 0.9660698535946294,
+          "reduction_percent": 3.393014640537062
+        },
+        "indexed_scaler": {
+          "baseline_functions": [
+            "scale_nes_indexed_rgb32"
+          ],
+          "current_functions": [
+            "scale_nes_indexed_rgb32"
+          ],
+          "baseline": 463821137,
+          "current": 240094937,
+          "ratio": 0.5176455272239997,
+          "reduction_percent": 48.23544727760003
+        },
+        "ppu_two_main_functions": {
+          "baseline_functions": [
+            "RefreshLineBody",
+            "FCEUPPU_Loop"
+          ],
+          "current_functions": [
+            "RefreshLineBody",
+            "FCEUPPU_Loop"
+          ],
+          "baseline": 644574701,
+          "current": 644574701,
+          "ratio": 1.0,
+          "reduction_percent": 0.0
+        }
+      },
+      "function_cost_note": "Own block costs of the named functions; event work can move inline across backends. Whole-application totals determine the overall result.",
+      "title_frames_241_600": {
+        "baseline": 1339113252,
+        "current": 1190407568,
+        "ratio": 0.8889521227738548,
+        "reduction_percent": 11.104787722614518
+      },
+      "scene": "Opening Namcot logo and audible title animation; no campaign or battle input",
+      "state_observation_limit": "Per-frame CPU and selected PPU/RAM memory summary, not full serialized state; the separate core suite checks serialization."
+    },
+    "title_vs_interpreter": {
+      "source_report": "build/verification/jit-v4-title-vs-interpreter600.json",
+      "comparison": {
+        "schema": 1,
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "frames": 600,
+        "settings": {
+          "scale": 1,
+          "skip": 0,
+          "sound": 1,
+          "volume": 100,
+          "save": "new, empty initial filesystem"
+        },
+        "events": [],
+        "cost_census": true,
+        "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+        "stop": "Escape key-down through firmware queue at final input_frame entry"
+      },
+      "baseline_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "current_bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "current_elf_sha256": "577f825d966aa0c5dd25f74e7caeac3469f455fb6c82b46c88202fa0b692c487",
+      "whole_application": {
+        "baseline": 2653630733,
+        "current": 1976483225,
+        "ratio": 0.7448222544383684,
+        "reduction_percent": 25.517774556163165
+      },
+      "first_nonzero_pcm_frame": 88,
+      "pcm_frames": 220117,
+      "pcm_nonzero_samples": 362244,
+      "core_pcm_sha256": "08f5a4a00b81b84d5223c6e6beae7497eaff0ed87c4eefbdfbbc786563cb15a7",
+      "observed_ring_pcm_sha256": "358f42557373e743ba7b911229b2e6f3d2839eb5249e7e921e0cde9f87186839",
+      "equal_per_frame_fields": [
+        "lcd",
+        "pcm",
+        "pcm_frames",
+        "cpu_ppu_state"
+      ],
+      "equal_final_fields": [
+        "screen",
+        "exit_save_payloads",
+        "core_pcm",
+        "submitted_ring_pcm",
+        "observed_ring_pcm"
+      ],
+      "scope": "Complete actual release MIPS app from startup to normal Escape exit; firmware mocked",
+      "battle_coverage": false,
+      "function_costs": {
+        "cpu_dispatch_and_generated": {
+          "baseline_functions": [
+            "X6502_Run"
+          ],
+          "current_functions": [
+            "h1_cpu_run_jit",
+            "[generated MIPS]"
+          ],
+          "baseline": 673881156,
+          "current": 661810316,
+          "ratio": 0.9820875834076594,
+          "reduction_percent": 1.7912416592340552
+        },
+        "indexed_scaler": {
+          "baseline_functions": [
+            "scale_nes_indexed_rgb32"
+          ],
+          "current_functions": [
+            "scale_nes_indexed_rgb32"
+          ],
+          "baseline": 463821137,
+          "current": 240094937,
+          "ratio": 0.5176455272239997,
+          "reduction_percent": 48.23544727760003
+        },
+        "ppu_two_main_functions": {
+          "baseline_functions": [
+            "RefreshLineBody",
+            "FCEUPPU_Loop"
+          ],
+          "current_functions": [
+            "RefreshLineBody",
+            "FCEUPPU_Loop"
+          ],
+          "baseline": 724256847,
+          "current": 644574701,
+          "ratio": 0.88998081781338,
+          "reduction_percent": 11.001918218661999
+        }
+      },
+      "function_cost_note": "Own block costs of the named functions; event work can move inline across backends. Whole-application totals determine the overall result.",
+      "title_frames_241_600": {
+        "baseline": 1600147816,
+        "current": 1190407568,
+        "ratio": 0.7439360014725039,
+        "reduction_percent": 25.606399852749608
+      },
+      "scene": "Opening Namcot logo and audible title animation; no campaign or battle input",
+      "state_observation_limit": "Per-frame CPU and selected PPU/RAM memory summary, not full serialized state; the separate core suite checks serialization."
+    },
+    "city_vs_v3": {
+      "source_report": "build/verification/jit-v4-city-final1800.json",
+      "comparison": {
+        "schema": 1,
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "frames": 1800,
+        "settings": {
+          "scale": 1,
+          "skip": 0,
+          "sound": 1,
+          "volume": 100,
+          "save": "new, empty initial filesystem"
+        },
+        "events": [
+          {
+            "frame": 301,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 305,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 421,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 425,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 541,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 545,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 721,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 725,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 841,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 845,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1201,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1205,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1321,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1325,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1501,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1505,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1621,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1625,
+            "key": 16,
+            "down": false
+          }
+        ],
+        "cost_census": false,
+        "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+        "stop": "Escape key-down through firmware queue at final input_frame entry",
+        "state_observation": "Read-only SFORMAT tables, without save callbacks",
+        "render_policy": "Allow audio catch-up skips; require exact baseline render/catch-up counts"
+      },
+      "baseline_bda_sha256": "c72395522bb9515c037d26631471fb7690943aed502cc0c68438914ec37eb393",
+      "current_bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "current_elf_sha256": "577f825d966aa0c5dd25f74e7caeac3469f455fb6c82b46c88202fa0b692c487",
+      "whole_application": {
+        "baseline": 6926768853,
+        "current": 6185754800,
+        "ratio": 0.893021686052211,
+        "reduction_percent": 10.6978313947789
+      },
+      "first_nonzero_pcm_frame": 88,
+      "pcm_frames": 660352,
+      "pcm_nonzero_samples": 1242560,
+      "core_pcm_sha256": "86eaed09a695c047d2a10a9db398a6cfce45b7f2f0971a6e57de5f715659761a",
+      "observed_ring_pcm_sha256": "85b16df82056ad10ef2662072d541c5c416e083edff56664d40797453105080b",
+      "equal_per_frame_fields": [
+        "lcd",
+        "pcm",
+        "pcm_frames",
+        "cpu_ppu_state",
+        "declared_state"
+      ],
+      "equal_final_fields": [
+        "screen",
+        "exit_save_payloads",
+        "core_pcm",
+        "submitted_ring_pcm",
+        "observed_ring_pcm"
+      ],
+      "scope": "Complete actual release MIPS app from startup to normal Escape exit; firmware mocked",
+      "battle_coverage": false,
+      "rendered_frames": 1790,
+      "audio_catchup_frames": 16,
+      "configured_skip": 0,
+      "scene": "New Liu Bei campaign, nationwide map, Bingzhou city and city command list; no battle",
+      "state_observation_limit": "SFORMAT registered regions read directly without save callbacks, including unrefreshed PPU shadow fields. This is not per-frame full serializer output; the separate core suite checks serialization.",
+      "render_observation_limit": "Render/catch-up counts match over the whole run; per-frame skip flags are not recorded. Each frame LCD image is compared independently.",
+      "successful_running_save_checkpoints": 2,
+      "exit_save_ok": true,
+      "jit_runtime": {
+        "baseline": {
+          "used_bytes_at_exit": 254048,
+          "cache_wraps": 15
+        },
+        "current": {
+          "used_bytes_at_exit": 1039680,
+          "cache_wraps": 13,
+          "runs": {
+            "compiled": 2320,
+            "ops": 10394,
+            "executed": 791788,
+            "rejected": 55050
+          }
+        }
+      },
+      "scene_windows": [
+        {
+          "start_frame": 1,
+          "end_frame": 900,
+          "baseline": 3324961543,
+          "current": 2955162253,
+          "ratio": 0.888780882059062,
+          "reduction_percent": 11.121911794093798
+        },
+        {
+          "start_frame": 901,
+          "end_frame": 1500,
+          "baseline": 2367968665,
+          "current": 2124445304,
+          "ratio": 0.8971593819633589,
+          "reduction_percent": 10.284061803664112
+        },
+        {
+          "start_frame": 1501,
+          "end_frame": 1800,
+          "baseline": 1185888812,
+          "current": 1058192348,
+          "ratio": 0.8923200364925948,
+          "reduction_percent": 10.767996350740516
+        }
+      ],
+      "tail_windows": [
+        {
+          "frames": 600,
+          "start_frame": 1201,
+          "end_frame": 1800,
+          "baseline": 2357973045,
+          "current": 2112289700,
+          "ratio": 0.8958073988500577,
+          "reduction_percent": 10.419260114994234
+        },
+        {
+          "frames": 240,
+          "start_frame": 1561,
+          "end_frame": 1800,
+          "baseline": 945883434,
+          "current": 841636395,
+          "ratio": 0.8897887041332833,
+          "reduction_percent": 11.021129586671673
+        }
+      ],
+      "visual_review": {
+        "ok": true,
+        "bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+        "scenario": "tests/scenarios/sgz2-newgame-city.json",
+        "input_sha256": "bf4964ee7a590263a7d5e24c34e09846134afe293eacbe27704cf91524d94609",
+        "final_candidate_frames_reviewed": [
+          {
+            "frame": 1200,
+            "png_sha256": "ec287d020494faf81f8c4c8ba633a7edfc3255cf312a606812e7d7bdc8a41a68",
+            "observation": "Nationwide map after starting a new Liu Bei campaign"
+          },
+          {
+            "frame": 1560,
+            "png_sha256": "ba04daa4423d3b9e4f260e67c70d2100312c5477c6dccdba1f1e3479cf2d3a02",
+            "observation": "Bingzhou city selection, Liu Bei visible"
+          },
+          {
+            "frame": 1680,
+            "png_sha256": "c68c91588812daa0d005eb7d2cb1ff1e5309a8a2c191696e202aff38f789633e",
+            "observation": "City command list including development, movement, strategy and completion"
+          }
+        ],
+        "scope": "New campaign, map, city selection and command list; no battle coverage",
+        "method": "Root agent inspected actual final candidate capture pixels using view_image"
+      }
+    }
+  },
+  "full_firmware": {
+    "regular": {
+      "source_report": "build/sgz2-jit-v4-final-2/evidence/classic-smoke.json",
+      "bda_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+      "display_frames": 963,
+      "audio": {
+        "sample_rate": 32000,
+        "packets": 240,
+        "frames": 159922,
+        "seconds": 4.9975625,
+        "min": -32383,
+        "max": 19331,
+        "nonzero_samples": 319800
+      },
+      "resumed_audio": {
+        "sample_rate": 32000,
+        "packets": 97,
+        "frames": 64696,
+        "seconds": 2.02175,
+        "min": -32383,
+        "max": 20166,
+        "nonzero_samples": 129368
+      },
+      "audio_close": {
+        "batches": 1021,
+        "submitted": 2,
+        "nonzero": 486961,
+        "dropped": 0,
+        "failures": 0,
+        "underruns": 0
+      },
+      "automatic_audio_catchup_frames": 88,
+      "configured_skip": 0,
+      "profile_tcu_fault": null,
+      "paused_display_stable": true,
+      "app_end_result": 0,
+      "qemu_returncode": 0,
+      "closed_ports": [
+        8865,
+        8866
+      ],
+      "original_dump_files_unchanged": 494,
+      "original_dump_bytes_unchanged": 941764502,
+      "visual_scope": "Title animation and emulator menus only; no battle or campaign claim",
+      "visual_inspection": {
+        "about": "H1 NES Emulator v0.1.6 and HelloClyde visible, no JIT in product name; touch/key captures identical",
+        "resumed": "Three Kingdoms II title animation",
+        "exit": "H1 desktop visible, icon background transparent"
+      },
+      "physical_device_tested": false,
+      "audio_note": "No PCM underruns, dropped samples or API failures observed in this run; automatic audio-driven render skipping still activated. This does not establish physical H1 FPS."
+    },
+    "profile": {
+      "source_report": "build/sgz2-jit-v4-profile-final-2/evidence/classic-smoke.json",
+      "bda_sha256": "09ff2cf078b9d08989ba101f2a2db1f7154c3b994f4b0c20e1969556fb5dab55",
+      "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+      "display_frames": 905,
+      "audio": {
+        "sample_rate": 32000,
+        "packets": 241,
+        "frames": 160746,
+        "seconds": 5.0233125,
+        "min": -32383,
+        "max": 19331,
+        "nonzero_samples": 321438
+      },
+      "resumed_audio": {
+        "sample_rate": 32000,
+        "packets": 97,
+        "frames": 64616,
+        "seconds": 2.01925,
+        "min": -32383,
+        "max": 20154,
+        "nonzero_samples": 129224
+      },
+      "audio_close": {
+        "batches": 963,
+        "submitted": 2,
+        "nonzero": 456084,
+        "dropped": 0,
+        "failures": 0,
+        "underruns": 0
+      },
+      "automatic_audio_catchup_frames": 88,
+      "configured_skip": 0,
+      "profile_tcu_fault": 0,
+      "paused_display_stable": true,
+      "app_end_result": 0,
+      "qemu_returncode": 0,
+      "closed_ports": [
+        8867,
+        8868
+      ],
+      "original_dump_files_unchanged": 494,
+      "original_dump_bytes_unchanged": 941764502,
+      "visual_scope": "Title animation and emulator menus only; no battle or campaign claim",
+      "visual_inspection": {
+        "about": "H1 NES Emulator v0.1.6 and HelloClyde visible, no JIT in product name; touch/key captures identical",
+        "resumed": "Three Kingdoms II title animation",
+        "exit": "H1 desktop visible, icon background transparent"
+      },
+      "physical_device_tested": false,
+      "audio_note": "No PCM underruns, dropped samples or API failures observed in this run; automatic audio-driven render skipping still activated. This does not establish physical H1 FPS."
+    }
+  },
+  "limitations": [
+    "MIPS block instruction entries are structural costs, not physical H1 cycles or FPS.",
+    "Firmware service implementation cost is not measured by the application mock.",
+    "Title and city interaction are covered; battle and physical-device performance are not.",
+    "Configured skip zero does not disable automatic audio catch-up; those counts are reported separately.",
+    "No game ROM, firmware, screenshot, audio or save contents are included."
+  ],
+  "source_reports_sha256": {
+    "dist/H1FC-jit.build.json": "cf7081f04a3e6bf467dff243e9a477efe8122aeabd6f73ade285ed7b0ffb9c1b",
+    "dist/H1FC-jit-profile.build.json": "31055065def611cbbe74863cd396d2d66508458d4b20e4b163ae3057de7cd039",
+    "build/verification/jit-v4-final-opcodes.json": "be32a8bcb7508896dfad3acf60dbaf80ed9ea9d4c260aac54eb4368e5d3f1909",
+    "build/verification/jit-v4-final-events.json": "798864cbf91d41cbae008bf0f7ce66b3f060a3ebeb18e839824bb1a56e206eee",
+    "build/verification/jit-v4-final-addressing.json": "5bc2ff7333e989f378938d73d2926f8dc6226725b8a7665d340193c694d40823",
+    "build/verification/jit-v4-final-runs.json": "e6a23537c108aad4d94e185c063c3bf6cb92acbae454d40de68ec98498e52615",
+    "build/verification/jit-v4-final-sgz2.json": "7ddbfe0df1c8d0b6f1d770ffdbdc65855dd8e911a0dc39dcbd8533223175df4e",
+    "build/verification/jit-v4-final-sprites.json": "5e94adae6ba679fefe3daad1f3cc0022f676e8872a578dcfe5aa22f81a54bdfc",
+    "build/verification/jit-v4-final-pal.json": "df32f110054a77a65d03859d1dec703aa759a18426a68e3959d553dc2c03338c",
+    "build/verification/jit-v4-final-dmc.json": "fce38cc550dbec30d9bf72062f5dac55b58eb576b09f22e47a5bd77887b9cb5a",
+    "build/verification/jit-v4-final-dmc-irq.json": "3db0fbcd6688f4bcb8bd0cd92bf5ea0af1dfb156be63b9db228fc90541ac6e0f",
+    "build/verification/jit-v4-final-mapper2.json": "fa7b7582ef2d34b0e17454ae2e00486b4cfdd9e48e03480e2abdba531342bf03",
+    "build/verification/indexed-scale-v4.json": "a924c8e98df3d2e138ece38422b96e02f95201e0f178e53a2da4c64b26efe320",
+    "build/test-18-jit/H1FC.build.json": "79e2051013a934ae972a9e231fae009527dfcd3e1e1a9f2a304c06b02bf639e0",
+    "build/verification/indexed-scale-v4-source-bounds.json": "b86af0d5fc50361bad5feeb76442dce86ac75f83a10c99901ab893222bccd659",
+    "build/verification/jit-v4-title-final600.json": "187c4073b0c30affd065c8c6d27337d617c11270609d540a10a6e8a29a5c0185",
+    "build/verification/jit-v4-title-vs-interpreter600.json": "7a63a5cdb9529f26072f7d8fa9401b5ed94475b54387eecad25993a0522ea901",
+    "build/sgz2-jit-v4-dump-before.json": "edbbd97e79c9db3427d3de21f4251b5c1ea4a06898097a448f767c01a7a5402e",
+    "build/sgz2-jit-v4-dump-after.json": "edbbd97e79c9db3427d3de21f4251b5c1ea4a06898097a448f767c01a7a5402e",
+    "build/sgz2-jit-v4-final-2/evidence/classic-smoke.json": "299c6a5da6e5c4917cce90e9658207d219971d20d4a054220b3c5f42b39ac633",
+    "build/sgz2-jit-v4-final-2/evidence/visual-resource-review.json": "3a00884503baae655f01a79aab774ac369070e4b9f0b35d14950d0cb930ef8f2",
+    "build/sgz2-jit-v4-final-2/evidence/stopped-status.json": "cf4a1c17bab096c8eef654511a0fa7b58faa3dc20da92eb45e6982c924f10024",
+    "build/sgz2-jit-v4-profile-final-2/evidence/classic-smoke.json": "ff788a672ce621be885e68d078f0854e006ed8b0758190e6063f01d1d1d1378d",
+    "build/sgz2-jit-v4-profile-final-2/evidence/visual-resource-review.json": "3b66b32027db65878c8749420c1be9940c4303c4ecd1f2937842b6d0d5ad64f3",
+    "build/sgz2-jit-v4-profile-final-2/evidence/stopped-status.json": "8b4b18888906fd3c9d87bc3edd35902e3b52ebe13f4760c49b85146779e01160",
+    "build/verification/jit-v4-city-final1800.json": "946892543391033246069efe390f917a989b7d7e6c38d342a9619a6ff1c765bf",
+    "tests/scenarios/sgz2-newgame-city.json": "bf4964ee7a590263a7d5e24c34e09846134afe293eacbe27704cf91524d94609",
+    "build/verification/jit-v4-city-visual-review.json": "b18a8c54fec1b32236530d9d0c6e10d8d2328e246595c623c7c4300051a5b8d8"
+  }
+}

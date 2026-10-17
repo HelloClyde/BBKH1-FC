@@ -197,6 +197,9 @@ def main():
             press_key(server, 36)
             time.sleep(3)
             capture(server, out / "returned-picker.png")
+            # M has returned to the firmware ROM picker. Escape cancels that
+            # picker, whose desktop-return behavior is independent of the
+            # gameplay Escape key that is available for game-button mapping.
             press_key(server, 24)
             time.sleep(3)
             capture(server, out / "exit-desktop.png")

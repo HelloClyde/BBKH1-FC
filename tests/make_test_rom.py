@@ -6,6 +6,8 @@ held, and plays a pulse tone. Battery RAM records observable test results:
 6000=5A, 6001=A5 (A held) / 11 (released), 6002=frame counter,
 6003=42 (program initialized), 6004=1E (rendering enabled),
 6005=C0 (previous 5A loaded from battery RAM) / 00 (fresh cartridge).
+The optional button='b' fixture observes B with the same markers and colors;
+the default A fixture remains byte-for-byte compatible with earlier tests.
 """
 from __future__ import annotations
 
@@ -14,7 +16,9 @@ from pathlib import Path
 import struct
 
 
-def make_rom(*, battery: bool = True, tone: bool = True) -> bytes:
+def make_rom(*, battery: bool = True, tone: bool = True, sprites: bool = False,
+             dmc: bool = False, dmc_irq: bool = False, button: str = 'a') -> bytes:
+    assert button in ('a', 'b')
     code = bytearray()
     labels: dict[str, int] = {}
     fixups: list[tuple[int, str, bool]] = []
@@ -90,6 +94,25 @@ def make_rom(*, battery: bool = True, tone: bool = True) -> bytes:
         for address, value in [(0x4015, 1), (0x4000, 0xBF), (0x4001, 0),
                                (0x4002, 0xFD), (0x4003, 0x08)]:
             store(address, value)
+    if sprites:
+        # Nine overlapping sprites exercise overflow and sprite-zero hit.
+        # Remaining entries sit outside visible scanlines. Alternate flip and
+        # priority attributes, while zero overlaps the solid background tiles.
+        emit(0xA2, 0, 0xA9, 0xF0)
+        label('clear_oam')
+        emit(0x9D, 0x00, 0x02, 0xE8)
+        branch(0xD0, 'clear_oam')
+        for sprite in range(9):
+            for byte,value in enumerate((40,3,(sprite%4)*0x20,40+sprite)):
+                store(0x0200+sprite*4+byte,value)
+        store(0x2003,0)
+        store(0x4014,2)
+    if dmc:
+        # Original PRG bytes serve as a one-byte DMC sample. Repeating DMA
+        # exercises four RdMem/timestamp cycles; IRQ mode stops after one byte.
+        for address,value in ((0x4010,0x8f if dmc_irq else 0x4f),
+                              (0x4012,0),(0x4013,0),(0x4015,17 if tone else 16)):
+            store(address,value)
     store(0x2005, 0)
     store(0x2005, 0)
     store(0x2000, 0)
@@ -97,9 +120,13 @@ def make_rom(*, battery: bool = True, tone: bool = True) -> bytes:
     store(0x6004, 0x1E)
 
     wait_vblank('frame')
+    if sprites:
+        emit(0xAD, 0x02, 0x20, 0x8D, 0x06, 0x60)  # record hit/overflow flags
     store(0x4016, 1)
     store(0x4016, 0)
-    emit(0xAD, 0x16, 0x40, 0x29, 1)  # LDA JOY1; AND #1 (A)
+    if button == 'b':
+        emit(0xAD, 0x16, 0x40)  # Shift out A before reading B.
+    emit(0xAD, 0x16, 0x40, 0x29, 1)  # LDA JOY1; AND #1 (selected button)
     branch(0xF0, 'released')
     store(0x6001, 0xA5)
     emit(0xA2, 0x30)  # white

@@ -1,6 +1,7 @@
 #include "h1_sdk.h"
 #include "platform/frontend.h"
 #include "platform/save.h"
+#include "platform/nes_video.h"
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,6 +9,36 @@
 
 static const char *selected_path;
 static int unterminated;
+static void test_indexed_video(void)
+{
+    static uint8_t indices[264*240],emphasis[264*240];
+    static uint32_t palette[1024],old_frame[480*272],new_frame[480*272];
+    static uint16_t rgb[264*240];
+    uint32_t seed=0x4740;
+    for (unsigned test=0;test<12;++test) {
+        unsigned height=(test%3==0?224:test%3==1?232:240),mask=test&1?63:255;
+        for (unsigned i=0;i<1024;++i) { seed=seed*1664525u+1013904223u;palette[i]=(seed>>8)&65535u; }
+        for (unsigned y=0;y<height;++y) {
+            unsigned e=(y+test)&7u,base=e?256u+(e<<6):0u;
+            for (unsigned x=0;x<264;++x) {
+                seed=seed*1664525u+1013904223u;
+                indices[y*264+x]=(uint8_t)(seed>>24);emphasis[y*264+x]=(uint8_t)e;
+                rgb[y*264+x]=(uint16_t)palette[base+(indices[y*264+x]&(e?63u:mask))];
+            }
+        }
+        h1_nes_video_frame frame={indices,emphasis,palette,256,height,264,mask};
+        for (int scale=0;scale<H1_SCALE_COUNT;++scale) {
+            for (unsigned i=0;i<480*272;++i) old_frame[i]=new_frame[i]=0x12345678u;
+            scale_frame_rgb32(old_frame,rgb,264*2,scale,256,height,1);
+            scale_nes_indexed_rgb32(new_frame,&frame,scale,1);
+            assert(!memcmp(old_frame,new_frame,sizeof old_frame));
+            /* Borders stay intact when the LCD buffer has not changed. */
+            scale_frame_rgb32(old_frame,rgb,264*2,scale,256,height,0);
+            scale_nes_indexed_rgb32(new_frame,&frame,scale,0);
+            assert(!memcmp(old_frame,new_frame,sizeof old_frame));
+        }
+    }
+}
 static uint8_t physical_keys[45];
 static int fake_game_key(unsigned code)
 {
@@ -75,6 +106,7 @@ static uint32_t linear_reference(const uint16_t *src,unsigned sw,unsigned sh,uns
 
 int main(void)
 {
+    test_indexed_video();
     input_state input = {0};
     uint8_t header[8192] = {0}, data[131072], restore[131072];
     uint16_t *frame = calloc(480 * 272, 2), *source = malloc(260 * 240 * 2);
@@ -110,11 +142,23 @@ int main(void)
     input_event(&input,0,H1_KEY_V);input_event(&input,1,H1_KEY_V);assert(input.scale==H1_SCALE_NATIVE);
     input_mapping_defaults(&input);
     assert(input_map_button(&input, RETRO_DEVICE_ID_JOYPAD_A, H1_KEY_Q));
-    assert(!input_map_button(&input, RETRO_DEVICE_ID_JOYPAD_A, H1_KEY_ESCAPE));
+    assert(input_map_button(&input, RETRO_DEVICE_ID_JOYPAD_A, H1_KEY_ESCAPE));
+    assert(input_map_button(&input, RETRO_DEVICE_ID_JOYPAD_A, H1_KEY_Q));
     input_event(&input,1,H1_KEY_Q);assert(input.mask & (1u<<RETRO_DEVICE_ID_JOYPAD_A));
     input_event(&input,0,H1_KEY_Q);input_event(&input,1,H1_KEY_Z);assert(!input.mask);
     input_event(&input,1,31);assert(input.pause_requested);
-    input_event(&input, 1, H1_KEY_ESCAPE); assert(input.exit_requested);
+    input_state exit_keys={0};input_mapping_defaults(&exit_keys);
+    for (unsigned i=0;i<2;++i) {
+        unsigned key=i?H1_KEY_BACK:H1_KEY_ESCAPE;
+        assert(!input_key_reserved(key));
+        input_event(&exit_keys,1,(int)key);
+        assert(exit_keys.mask==(1u<<RETRO_DEVICE_ID_JOYPAD_B));
+        assert(!exit_keys.pause_requested && !exit_keys.exit_requested);
+        input_event(&exit_keys,1,(int)key);
+        assert(exit_keys.mask==(1u<<RETRO_DEVICE_ID_JOYPAD_B));
+        input_event(&exit_keys,0,(int)key);
+        assert(!exit_keys.mask);
+    }
     {
         input_state combo={0};
         assert(input_map_button(&combo,RETRO_DEVICE_ID_JOYPAD_RIGHT,10)); /* D */
@@ -145,7 +189,7 @@ int main(void)
         memset(physical_keys,0,45);input_frame(&aliases);assert(!aliases.mask);
         /* Menus consume their own key-down event. The native query remains
          * held on return, including Confirm's shared Enter/Start scancode. */
-        const unsigned menu_keys[]={H1_KEY_CONFIRM,H1_KEY_ENTER,H1_KEY_Z,31};
+        const unsigned menu_keys[]={H1_KEY_CONFIRM,H1_KEY_ENTER,H1_KEY_Z,31,H1_KEY_ESCAPE,H1_KEY_BACK};
         for (unsigned i=0;i<sizeof(menu_keys)/sizeof(menu_keys[0]);++i) {
             unsigned key=menu_keys[i];
             physical_keys[key]=1;
@@ -153,15 +197,35 @@ int main(void)
             aliases.pause_requested=0;
             for (unsigned frame=0;frame<5;++frame) {
                 input_frame(&aliases);
-                assert(!aliases.mask && !aliases.pause_requested);
+                assert(!aliases.mask && !aliases.pause_requested && !aliases.exit_requested);
             }
             physical_keys[key]=0;input_frame(&aliases);
             physical_keys[key]=1;queued_code=H1_EVENT_KEY_DOWN;queued_key=(int)key;
             input_frame(&aliases);
-            if (key==31) assert(aliases.pause_requested);
-            else assert(aliases.mask==(1u<<(key==H1_KEY_ENTER?RETRO_DEVICE_ID_JOYPAD_START:RETRO_DEVICE_ID_JOYPAD_A)));
+            if (key==31) {
+                assert(aliases.pause_requested && !aliases.exit_requested);
+            } else if (key==H1_KEY_ESCAPE || key==H1_KEY_BACK) {
+                assert(!aliases.pause_requested && !aliases.exit_requested);
+                assert(aliases.mask==(1u<<RETRO_DEVICE_ID_JOYPAD_B));
+                assert(aliases.held[key]);
+                assert(!aliases.held[key==H1_KEY_ESCAPE?H1_KEY_BACK:H1_KEY_ESCAPE]);
+            } else assert(aliases.mask==(1u<<(key==H1_KEY_ENTER?RETRO_DEVICE_ID_JOYPAD_START:RETRO_DEVICE_ID_JOYPAD_A)));
             memset(physical_keys,0,45);input_frame(&aliases);
             aliases.pause_requested=0;
+        }
+        /* The shared firmware scancode must preserve each event's identity
+         * when Escape and Back have different user-selected game bindings. */
+        input_state custom={0};input_mapping_defaults(&custom);
+        assert(input_map_button(&custom,RETRO_DEVICE_ID_JOYPAD_A,H1_KEY_ESCAPE));
+        assert(input_map_button(&custom,RETRO_DEVICE_ID_JOYPAD_B,H1_KEY_BACK));
+        assert(!input_map_button(&custom,RETRO_DEVICE_ID_JOYPAD_A,H1_KEY_P));
+        for (unsigned i=0;i<2;++i) {
+            unsigned key=i?H1_KEY_BACK:H1_KEY_ESCAPE;
+            physical_keys[key]=1;queued_code=H1_EVENT_KEY_DOWN;queued_key=(int)key;
+            input_frame(&custom);
+            assert(custom.mask==(1u<<(i?RETRO_DEVICE_ID_JOYPAD_B:RETRO_DEVICE_ID_JOYPAD_A)));
+            assert(!custom.pause_requested && !custom.exit_requested);
+            memset(physical_keys,0,45);input_frame(&custom);assert(!custom.mask);
         }
         /* A touch return with held controls also waits for release. A later
          * fresh direction+A combination works, with no stale alias owner. */
@@ -253,6 +317,7 @@ int main(void)
     assert(save_load(&reloaded, FC_ROOT "test.nes", restore, sizeof restore)==1);
     file_bytes("test.nes.s0", "bad", 3);
     assert(save_load(&reloaded, FC_ROOT "test.nes", restore, sizeof(restore)) == -1);
+    h1_video_release();
     free(frame); free(source);
     puts("PASS: native selector, cancellation, invalid output, GBK paths, CRC, keys, scaling, A/B save, corruption, short writes");
     return 0;

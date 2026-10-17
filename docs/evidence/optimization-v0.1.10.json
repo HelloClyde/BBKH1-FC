@@ -1,0 +1,1117 @@
+{
+  "ok": true,
+  "version": "0.1.10",
+  "product": "NES",
+  "author": "HelloClyde",
+  "date": "2026-10-15",
+  "physical_device_tested": false,
+  "artifacts": {
+    "normal_bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+    "profile_bda_sha256": "acec402362dc0ef55b98ebcefd3288300d661c8ec315ba161d0122a0e7dff803",
+    "normal_bytes": 1127640,
+    "profile_bytes": 1138536,
+    "independent_rebuilds_identical": true
+  },
+  "default_frameskip": 1,
+  "existing_valid_configuration_preserved": true,
+  "jit_code_cache_bytes": 8388608,
+  "jit_total_allocation_bytes": 9865247,
+  "city_code_used_bytes": 4538880,
+  "city_cache_wraps": 0,
+  "implementation": [
+    "Single budget admission for safe native spans; exact CPU/event prefixes",
+    "Versioned private entries and block links; strict public entries and active arena protection",
+    "Normal displayed-frame PPU tile span batching with observable boundaries preserved",
+    "Combined conservative Mapper/APU/DMC deadline; C fallback still checks once per instruction",
+    "Exact interval accumulation for pulse, triangle, noise and DMC DAC mixing; DMA/IRQ retained"
+  ],
+  "same_settings_complete_application": [
+    {
+      "frames": 1800,
+      "skip": 0,
+      "baseline_bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "current_bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "baseline_instructions": 6014025065,
+      "current_instructions": 5658552312,
+      "reduction_percent": 5.910729489119615,
+      "city_frames": [
+        1501,
+        1800
+      ],
+      "city_baseline_instructions": 1033027437,
+      "city_current_instructions": 978299874,
+      "city_reduction_percent": 5.297784070376055,
+      "pcm_frames": 660352,
+      "rendered_frames": 1740,
+      "audio_catchup_frames": 91,
+      "strict_output_comparison": "pass"
+    },
+    {
+      "frames": 1800,
+      "skip": 1,
+      "baseline_bda_sha256": "12ca8c6d937c3e37cd2061810dc542a1b20849f92d68a6d5afe5e53479ddca1c",
+      "current_bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "baseline_instructions": 4772340422,
+      "current_instructions": 4558758989,
+      "reduction_percent": 4.475402299790088,
+      "city_frames": [
+        1501,
+        1800
+      ],
+      "city_baseline_instructions": 811000120,
+      "city_current_instructions": 781491748,
+      "city_reduction_percent": 3.6385163543502297,
+      "pcm_frames": 660352,
+      "rendered_frames": 886,
+      "audio_catchup_frames": 91,
+      "strict_output_comparison": "pass"
+    }
+  ],
+  "scheduler_only_complete_application": {
+    "frames": 1800,
+    "skip": 1,
+    "baseline_bda_sha256": "9753ff6ad10aa2b7adf0aa751bd467e0fb8a55169efe41c6bd731f2eef95d32a",
+    "current_bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+    "baseline_instructions": 4560814069,
+    "current_instructions": 4558758989,
+    "reduction_percent": 0.045059499661881386,
+    "city_frames": [
+      1501,
+      1800
+    ],
+    "city_baseline_instructions": 781320024,
+    "city_current_instructions": 781491748,
+    "city_reduction_percent": -0.0219787020331097,
+    "pcm_frames": 660352,
+    "rendered_frames": 886,
+    "audio_catchup_frames": 91,
+    "strict_output_comparison": "pass"
+  },
+  "synthetic_dmc_irq_32_frames": {
+    "baseline_instructions": 110159787,
+    "current_instructions": 111436449,
+    "increase_percent": 1.1589183628323507,
+    "complete_serialized_state_video_pcm_equal": true
+  },
+  "coverage": {
+    "opcodes": 87,
+    "opcode_cases": 2809,
+    "addressing": 451,
+    "observable_bus_cases": 102,
+    "run": 782,
+    "run_complete_state": 144,
+    "events": 232,
+    "schedule": 274,
+    "combined_c_clock": 155,
+    "dynamic_frame_scope": 4,
+    "entry_contract": 41,
+    "contract_full_frames": 6,
+    "ppu_contract": 40,
+    "nested_arena": 10,
+    "bank_cache_sizes_mib": [
+      8,
+      4,
+      1
+    ],
+    "bank_cases_per_size": 930,
+    "bank_full_frames_per_size": 32,
+    "active_arena_cases_each_8m_4m": 6,
+    "apu_frontend": {
+      "combined_c_mapper_apu": 155,
+      "apu": 1186,
+      "default_settings": 6,
+      "exit_key": 6,
+      "ntsc_pal_options": 10,
+      "pause_restore_slots": 3,
+      "resampling_source_rates": [
+        22050,
+        32000,
+        48000
+      ],
+      "slow_display_core_frames": 20,
+      "slow_display_presented_frames": 14
+    }
+  },
+  "firmware": {
+    "ok": true,
+    "normal": {
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "report": "build/v0110-firmware-final-normal/evidence/classic-smoke.json"
+    },
+    "profile": {
+      "bda_sha256": "acec402362dc0ef55b98ebcefd3288300d661c8ec315ba161d0122a0e7dff803",
+      "report": "build\\v0110-firmware-final-profile\\evidence\\classic-smoke-recovered.json",
+      "reader_recovery_required": true
+    },
+    "normal_and_profile_visual_inspection": [
+      "NES v0.1.10 and HelloClyde About screen",
+      "Pause stable and resume to SGZ2 title menu with sound",
+      "Exit through emulator menu returns to firmware desktop"
+    ],
+    "original_integrity": "build/verification/v0110-firmware-final-original-integrity.json",
+    "physical_device_tested": false
+  },
+  "scene_visual_inspection": [
+    "frame-1440: city selection",
+    "frame-1560: Bingzhou/Liu Bei city menu",
+    "frame-1680: resources and commands"
+  ],
+  "source_sha256": {
+    "src/platform/nes_jit.c": "32f94c7af9bbf13cdde494e1a65bf08a62ef0ac6add176d7da7e2a29e0f56d00",
+    "src/platform/nes_jit.h": "c733c41696423ffe6067d1853f0c0ee365d5e235e0762c57dbb89679f55d9ab0",
+    "tools/prepare_jit.py": "c84574a4566d62734786a4cb097d51564832074948efac5b0e0b8d5537c68324",
+    "tools/prepare_ppu.py": "fb249a7ea34d37e6e48c983e2b07cfbd43858a0f8b1fbaea223e63db07b12cc0",
+    "tools/prepare_apu.py": "841bdaa7cfa5b16b246d6976d399d812b8dc2df835d446193fb6796bfd6fac56",
+    "tools/build.py": "0b329de20282f930cfaf8cf2fa0535a4dfc8370f24b2a296769e7c6e3b3b6d06"
+  },
+  "local_reports": [
+    {
+      "file": "build/verification/v0110-release-combined-arena-4m.json",
+      "sha256": "1b8679ea19eaa5b20d1737df8074afe4e331b7d1085c924becb0d25682a0c898",
+      "ok": true,
+      "bda_sha256": "64b18a8c1eb023b5d1c038d968aa755d5133a1435a9e702213e011a5461dcf32",
+      "cases": 6
+    },
+    {
+      "file": "build/verification/v0110-release-combined-arena-8m.json",
+      "sha256": "b82b6d4e670c5678be08975aaea9592c5f61818ac0cc90825d34cea927f463cc",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 6
+    },
+    {
+      "file": "build/verification/v0110-release-combined-bank-1m.json",
+      "sha256": "9526ce3a5f8feb9b533bae7c22d1c436be3032a5d4be4c08a9599f16931e92ee",
+      "ok": true,
+      "bda_sha256": "cd3ead30f676f8c930d93500400a0c71541a4fe6dd342bc395c9166a26c7f9bf",
+      "cases": 930
+    },
+    {
+      "file": "build/verification/v0110-release-combined-bank-4m.json",
+      "sha256": "43b681cf9f3997f53664c967fcef05267d9f12d01a6f6fa15abb064628cea7ef",
+      "ok": true,
+      "bda_sha256": "64b18a8c1eb023b5d1c038d968aa755d5133a1435a9e702213e011a5461dcf32",
+      "cases": 930
+    },
+    {
+      "file": "build/verification/v0110-release-combined-bank-8m.json",
+      "sha256": "c9fb847d22e81d15c1593625528a015ba3f1b5cc691848997e77c9d8991de0a2",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 930
+    },
+    {
+      "file": "build/verification/v0110-release-combined-jit_addressing_smoke.json",
+      "sha256": "8559309a7b77937e657ec76bb49fb831267ed9bb5ca13ce84a5c40a87c787e61",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 451
+    },
+    {
+      "file": "build/verification/v0110-release-combined-jit_contract_smoke.json",
+      "sha256": "235eb371161ea046f0ebc741371e5ed3ce8086f7c2cd4c1076c483a6608069e5",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315"
+    },
+    {
+      "file": "build/verification/v0110-release-combined-jit_ppu_contract_smoke.json",
+      "sha256": "175bcaa89895e5e2bf5f95e1c8c6e76872626dd59210e16ee19fe180baf09a39",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315"
+    },
+    {
+      "file": "build/verification/v0110-release-combined-jit_run_smoke.json",
+      "sha256": "ab8a683f616bebefa633f4496bddcdbcd1aa63160b449250a7673a526127ce82",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 782
+    },
+    {
+      "file": "build/verification/v0110-release-combined-jit_smoke.json",
+      "sha256": "408fd43bc70f0608ee415cf6c52c0be90971335395eed5a99ecdede1f4fedf7e",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 2809,
+      "supported_opcodes": 87
+    },
+    {
+      "file": "build/verification/v0110-release-combined-nested-8m.json",
+      "sha256": "ae43df374304a075e8f76adc4bc3bbe5931ed34cb5d772629e8629b82f50e859",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315"
+    },
+    {
+      "file": "build/verification/v0110-release-combined-run-state.json",
+      "sha256": "0c9669a71909c2b20d4bbfc024ecaf072c5163bf433db69d62c19798a0ae4de7",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 144
+    },
+    {
+      "file": "build/verification/jit-combined-clock-r2.json",
+      "sha256": "30cca2fad3345ee42e0b5df11972b2c69a9ede2191432a8d612025d1b1239873",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 155
+    },
+    {
+      "file": "build/verification/apu-lq-final-combined-v0110.json",
+      "sha256": "4c220e97eb12b8660a5fa1a2e82d0b075656ae1431ec1bc480dae52d880081dc",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 1186
+    },
+    {
+      "file": "build/verification/default-skip-final-combined-v0110.json",
+      "sha256": "f87e2169a164f7425e534cd2b7cd69f4a86623590c14ae16b73e0b636009ba42",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": [
+        {
+          "name": "fresh-default",
+          "seconds_host": 2.485,
+          "loaded_skip": 1,
+          "presented_frames": 4,
+          "normal_menu_exit": true
+        },
+        {
+          "name": "v3-preserve-skip0",
+          "seconds_host": 2.156,
+          "loaded_skip": 0,
+          "presented_frames": 5,
+          "normal_menu_exit": true
+        },
+        {
+          "name": "v3-preserve-skip2",
+          "seconds_host": 3.344,
+          "loaded_skip": 2,
+          "presented_frames": 4,
+          "normal_menu_exit": true
+        },
+        {
+          "name": "v2-preserve-skip2",
+          "seconds_host": 2.922,
+          "loaded_skip": 2,
+          "presented_frames": 4,
+          "normal_menu_exit": true
+        },
+        {
+          "name": "restore-default-display",
+          "seconds_host": 3.438,
+          "loaded_skip": 2,
+          "presented_frames": 4,
+          "normal_menu_exit": true
+        },
+        {
+          "name": "reload-restored-display",
+          "seconds_host": 2.453,
+          "loaded_skip": 1,
+          "presented_frames": 4,
+          "normal_menu_exit": true
+        }
+      ]
+    },
+    {
+      "file": "build/verification/pause-menu-smoke-final-combined-v0110.json",
+      "sha256": "46cbf3b3a1912ebfb42233457e5711650790bc01142b2c372fcb8ccf747c40ac",
+      "ok": true
+    },
+    {
+      "file": "build/verification/exit-key-smoke-final-combined-v0110.json",
+      "sha256": "bd7c11240259608c43ea09ebe35eebc4582d399f51d25a8ea5d47d3677997e41",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": {
+        "game-and-menu": {
+          "seconds": 11.72,
+          "frames": 44,
+          "rom_b_observations": [
+            [
+              24,
+              "pressed",
+              165
+            ],
+            [
+              24,
+              "repeat",
+              165
+            ],
+            [
+              24,
+              "released",
+              17
+            ],
+            [
+              41,
+              "pressed",
+              165
+            ],
+            [
+              41,
+              "repeat",
+              165
+            ],
+            [
+              41,
+              "released",
+              17
+            ]
+          ]
+        },
+        "v1-migration": {
+          "seconds": 4.11,
+          "frames": 10
+        },
+        "v2-migration": {
+          "seconds": 4.12,
+          "frames": 10
+        },
+        "v3-migration-reload": {
+          "seconds": 4.09,
+          "frames": 10
+        },
+        "v3-custom": {
+          "seconds": 3.92,
+          "frames": 10
+        },
+        "capture-and-cancel": {
+          "seconds": 4.98,
+          "frames": 10
+        }
+      }
+    },
+    {
+      "file": "build/verification/save-audio-final-combined-v0110.json",
+      "sha256": "389a0cb6571be9e6f03fd307b5b1caceb2b169074838cd26a99c678725e9a3d5",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315"
+    },
+    {
+      "file": "build/verification/audio-final-combined-v0110.json",
+      "sha256": "2e5a76c3386a1a9931bb1e07984e2e1ec40418bac3baf30ae93acf83be7d26b2",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": {
+        "22050": {
+          "exact_samples": 11145,
+          "submissions": 2,
+          "low_water_and_recovery": true,
+          "unread_pcm_preserved": true,
+          "continuous_underrun_recovery": true,
+          "recovery_silence_samples": 512,
+          "storage_cancel_and_refill": true
+        },
+        "32000": {
+          "exact_samples": 7680,
+          "submissions": 2,
+          "low_water_and_recovery": true,
+          "unread_pcm_preserved": true,
+          "continuous_underrun_recovery": true,
+          "recovery_silence_samples": 512,
+          "storage_cancel_and_refill": true
+        },
+        "48000": {
+          "exact_samples": 5120,
+          "submissions": 2,
+          "low_water_and_recovery": true,
+          "unread_pcm_preserved": true,
+          "continuous_underrun_recovery": true,
+          "recovery_silence_samples": 512,
+          "storage_cancel_and_refill": true
+        },
+        "slow_display": {
+          "core_audio_frames": 20,
+          "display_frames": 14,
+          "catchup_frames": 10,
+          "configured_skip_preserved": true,
+          "bda_sha256": "6a338f5d993191c81a3851e8a6daa7dd8f4deb015c79e3a88e65bb03f2c633aa"
+        }
+      }
+    },
+    {
+      "file": "build/verification/options-smoke-final-combined-v0110.json",
+      "sha256": "b430c9354caeca27ef1537d3672c9349d0ae2eca95daab0f2af387491dca095d",
+      "ok": true,
+      "bda_sha256": "6a338f5d993191c81a3851e8a6daa7dd8f4deb015c79e3a88e65bb03f2c633aa",
+      "cases": {
+        "ntsc-skip0": {
+          "seconds": 6.45,
+          "display_frames": 20,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 16639,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 8794,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14661
+          },
+          "battery_restored": false,
+          "save_prefix": "5a1110421e000000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f"
+        },
+        "ntsc-skip1": {
+          "seconds": 6.03,
+          "display_frames": 10,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 16639,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 8794,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14661
+          },
+          "battery_restored": false,
+          "save_prefix": "5a1110421e000000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f"
+        },
+        "ntsc-skip2": {
+          "seconds": 6.08,
+          "display_frames": 7,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 16639,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 8794,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14661
+          },
+          "battery_restored": false,
+          "save_prefix": "5a1110421e000000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f"
+        },
+        "ntsc-skip2-restored": {
+          "seconds": 4.5,
+          "display_frames": 7,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 16639,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 8794,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14661
+          },
+          "battery_restored": true,
+          "save_prefix": "5a1110421ec00000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f"
+        },
+        "ntsc-default": {
+          "seconds": 3.83,
+          "display_frames": 10,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 16639,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 8794,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14661
+          },
+          "battery_restored": false,
+          "save_prefix": "5a1110421e000000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f"
+        },
+        "pal-skip0": {
+          "seconds": 4.28,
+          "display_frames": 20,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 19997,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 10601,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14704
+          },
+          "battery_restored": false,
+          "save_prefix": "5a1110421e000000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "b1c78585b38a1cf8883078a0abf438ef57b91fe84d795f071054972303615628"
+        },
+        "pal-skip1": {
+          "seconds": 3.8,
+          "display_frames": 10,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 19997,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 10601,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14704
+          },
+          "battery_restored": false,
+          "save_prefix": "5a1110421e000000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "b1c78585b38a1cf8883078a0abf438ef57b91fe84d795f071054972303615628"
+        },
+        "pal-skip2": {
+          "seconds": 3.69,
+          "display_frames": 7,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 19997,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 10601,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14704
+          },
+          "battery_restored": false,
+          "save_prefix": "5a1110421e000000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "b1c78585b38a1cf8883078a0abf438ef57b91fe84d795f071054972303615628"
+        },
+        "pal-skip2-restored": {
+          "seconds": 3.84,
+          "display_frames": 7,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 19997,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 10601,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14704
+          },
+          "battery_restored": true,
+          "save_prefix": "5a1110421ec00000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "b1c78585b38a1cf8883078a0abf438ef57b91fe84d795f071054972303615628"
+        },
+        "pal-default": {
+          "seconds": 3.69,
+          "display_frames": 10,
+          "core_frames": 20,
+          "cpu_frame_counter": 16,
+          "frame_us": 19997,
+          "sample_rate": 22050,
+          "audio_nonzero_samples": 10601,
+          "audio_dropped": 0,
+          "audio_failures": 0,
+          "mock_audio_underruns": 0,
+          "pcm": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14704
+          },
+          "battery_restored": false,
+          "save_prefix": "5a1110421e000000",
+          "screen_sha256": "40e65cd7081f5c58e032de2beea42cdad8e7b0fff6ba3c17993497856d185b77",
+          "rom_sha256": "b1c78585b38a1cf8883078a0abf438ef57b91fe84d795f071054972303615628"
+        }
+      }
+    },
+    {
+      "file": "build/verification/v0110-combined-r2-event232.json",
+      "sha256": "30bf0693f7fc6a573ee247aef42f3622d29cadf3c56cfa6a3398d99770544840",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 232
+    },
+    {
+      "file": "build/verification/v0110-combined-r2-schedule274.json",
+      "sha256": "6b5454e6e20a92b5b4e29b04485c79dd61696fa1627852fd4eea5b9985c2aca7",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": 274
+    },
+    {
+      "file": "build/verification/v0110-combined-r2-scope4.json",
+      "sha256": "a9f4b0c5a649a9c9db3f73fddc1c39f9222c33f9cedeff8e1f87bf95836bedc5",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": [
+        {
+          "mapper": 0,
+          "hook": "input",
+          "ok": true,
+          "checks": {
+            "complete_cpu_ram_serialized_pcm_video_match": true,
+            "both_deliver_pcm_and_video": true,
+            "only_c_fallback_executed": true,
+            "installer_was_in_admitted_dirty_scope": true,
+            "real_ppu_callback_executed": true,
+            "deadline_expired_before_ppu_callback": true,
+            "exact_four_dma_reads_at_same_time": true
+          },
+          "packet_differences": [],
+          "reference_trace": {
+            "installs": [
+              {
+                "timestamp": 4,
+                "frame": 0,
+                "dirty": 1
+              }
+            ],
+            "first_hook": [
+              {
+                "timestamp": 2499,
+                "deadline_distance": 0,
+                "frame": 0,
+                "dirty": 1
+              }
+            ],
+            "hook_calls": 1,
+            "dma_reads": [
+              [
+                49152,
+                2504
+              ],
+              [
+                49152,
+                2505
+              ],
+              [
+                49152,
+                2506
+              ],
+              [
+                49152,
+                2507
+              ]
+            ]
+          },
+          "candidate_trace": {
+            "installs": [
+              {
+                "timestamp": 4,
+                "frame": 1,
+                "dirty": 1
+              }
+            ],
+            "first_hook": [
+              {
+                "timestamp": 2499,
+                "deadline_distance": 0,
+                "frame": 1,
+                "dirty": 1
+              }
+            ],
+            "hook_calls": 1,
+            "dma_reads": [
+              [
+                49152,
+                2504
+              ],
+              [
+                49152,
+                2505
+              ],
+              [
+                49152,
+                2506
+              ],
+              [
+                49152,
+                2507
+              ]
+            ]
+          },
+          "pcm_frames": [
+            366,
+            366
+          ]
+        },
+        {
+          "mapper": 0,
+          "hook": "ppu",
+          "ok": true,
+          "checks": {
+            "complete_cpu_ram_serialized_pcm_video_match": true,
+            "both_deliver_pcm_and_video": true,
+            "only_c_fallback_executed": true,
+            "installer_was_in_admitted_dirty_scope": true,
+            "real_ppu_callback_executed": true,
+            "deadline_expired_before_ppu_callback": true,
+            "exact_four_dma_reads_at_same_time": true
+          },
+          "packet_differences": [],
+          "reference_trace": {
+            "installs": [
+              {
+                "timestamp": 4,
+                "frame": 0,
+                "dirty": 1
+              }
+            ],
+            "first_hook": [
+              {
+                "timestamp": 2475,
+                "deadline_distance": 0,
+                "frame": 0,
+                "dirty": 1
+              }
+            ],
+            "hook_calls": 84,
+            "dma_reads": [
+              [
+                49152,
+                2479
+              ],
+              [
+                49152,
+                2480
+              ],
+              [
+                49152,
+                2481
+              ],
+              [
+                49152,
+                2482
+              ]
+            ]
+          },
+          "candidate_trace": {
+            "installs": [
+              {
+                "timestamp": 4,
+                "frame": 1,
+                "dirty": 1
+              }
+            ],
+            "first_hook": [
+              {
+                "timestamp": 2475,
+                "deadline_distance": 0,
+                "frame": 1,
+                "dirty": 1
+              }
+            ],
+            "hook_calls": 84,
+            "dma_reads": [
+              [
+                49152,
+                2479
+              ],
+              [
+                49152,
+                2480
+              ],
+              [
+                49152,
+                2481
+              ],
+              [
+                49152,
+                2482
+              ]
+            ]
+          },
+          "pcm_frames": [
+            366,
+            366
+          ]
+        },
+        {
+          "mapper": 19,
+          "hook": "input",
+          "ok": true,
+          "checks": {
+            "complete_cpu_ram_serialized_pcm_video_match": true,
+            "both_deliver_pcm_and_video": true,
+            "only_c_fallback_executed": true,
+            "installer_was_in_admitted_dirty_scope": true,
+            "real_ppu_callback_executed": true,
+            "deadline_expired_before_ppu_callback": true,
+            "exact_four_dma_reads_at_same_time": true
+          },
+          "packet_differences": [],
+          "reference_trace": {
+            "installs": [
+              {
+                "timestamp": 4,
+                "frame": 0,
+                "dirty": 1
+              }
+            ],
+            "first_hook": [
+              {
+                "timestamp": 2499,
+                "deadline_distance": 0,
+                "frame": 0,
+                "dirty": 1
+              }
+            ],
+            "hook_calls": 1,
+            "dma_reads": [
+              [
+                49152,
+                2504
+              ],
+              [
+                49152,
+                2505
+              ],
+              [
+                49152,
+                2506
+              ],
+              [
+                49152,
+                2507
+              ]
+            ]
+          },
+          "candidate_trace": {
+            "installs": [
+              {
+                "timestamp": 4,
+                "frame": 1,
+                "dirty": 1
+              }
+            ],
+            "first_hook": [
+              {
+                "timestamp": 2499,
+                "deadline_distance": 0,
+                "frame": 1,
+                "dirty": 1
+              }
+            ],
+            "hook_calls": 1,
+            "dma_reads": [
+              [
+                49152,
+                2504
+              ],
+              [
+                49152,
+                2505
+              ],
+              [
+                49152,
+                2506
+              ],
+              [
+                49152,
+                2507
+              ]
+            ]
+          },
+          "pcm_frames": [
+            366,
+            366
+          ]
+        },
+        {
+          "mapper": 19,
+          "hook": "ppu",
+          "ok": true,
+          "checks": {
+            "complete_cpu_ram_serialized_pcm_video_match": true,
+            "both_deliver_pcm_and_video": true,
+            "only_c_fallback_executed": true,
+            "installer_was_in_admitted_dirty_scope": true,
+            "real_ppu_callback_executed": true,
+            "deadline_expired_before_ppu_callback": true,
+            "exact_four_dma_reads_at_same_time": true
+          },
+          "packet_differences": [],
+          "reference_trace": {
+            "installs": [
+              {
+                "timestamp": 4,
+                "frame": 0,
+                "dirty": 1
+              }
+            ],
+            "first_hook": [
+              {
+                "timestamp": 2475,
+                "deadline_distance": 0,
+                "frame": 0,
+                "dirty": 1
+              }
+            ],
+            "hook_calls": 84,
+            "dma_reads": [
+              [
+                49152,
+                2479
+              ],
+              [
+                49152,
+                2480
+              ],
+              [
+                49152,
+                2481
+              ],
+              [
+                49152,
+                2482
+              ]
+            ]
+          },
+          "candidate_trace": {
+            "installs": [
+              {
+                "timestamp": 4,
+                "frame": 1,
+                "dirty": 1
+              }
+            ],
+            "first_hook": [
+              {
+                "timestamp": 2475,
+                "deadline_distance": 0,
+                "frame": 1,
+                "dirty": 1
+              }
+            ],
+            "hook_calls": 84,
+            "dma_reads": [
+              [
+                49152,
+                2479
+              ],
+              [
+                49152,
+                2480
+              ],
+              [
+                49152,
+                2481
+              ],
+              [
+                49152,
+                2482
+              ]
+            ]
+          },
+          "pcm_frames": [
+            366,
+            366
+          ]
+        }
+      ]
+    },
+    {
+      "file": "build/verification/menu-smoke-final-combined-v0110.json",
+      "sha256": "ca027cf8f2ee76e780137aa9a938966e736f54f72c68a83bef6b1385d734a4fb",
+      "ok": true,
+      "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "cases": {
+        "pressed": {
+          "seconds": 3.78,
+          "frames": 10,
+          "colors": [
+            4226,
+            65535,
+            53508,
+            20201
+          ],
+          "audio": {
+            "submissions": 1,
+            "samples": 16384,
+            "peak_to_peak": 14661
+          }
+        },
+        "restored": {
+          "seconds": 3.69,
+          "frames": 10,
+          "colors": [
+            4226,
+            19743,
+            53508,
+            20201
+          ]
+        },
+        "selector-cancel": {
+          "seconds": 1.27,
+          "frames": 0
+        }
+      }
+    },
+    {
+      "file": "build/verification/v0110-final-city-skip0.json",
+      "sha256": "916f5651fef78b12029abf4cce00dde8bc53220969f8e7a300be00c962bcef4a",
+      "ok": true
+    },
+    {
+      "file": "build/verification/v0110-final-city-skip1.json",
+      "sha256": "7a86ca93a2e956ec55e4748d3cb47417029fe1cf4d5a1fefb97f70d1986d18b9",
+      "ok": true
+    },
+    {
+      "file": "build/verification/v0110-combined-city-net-skip1.json",
+      "sha256": "f7cde6be685e625e68053b72dc3801be6f800e77a13ec6aa2336410b8615f5ad",
+      "ok": true
+    },
+    {
+      "file": "build/verification/v0110-final-core-dmc-irq.json",
+      "sha256": "73906846d9054b104d34f3a2b7c12f056eb43c100fa8f82bcb01402f840f47c2",
+      "ok": true
+    },
+    {
+      "file": "build/verification/v0110-reproducible-bda.json",
+      "sha256": "2e6f157111b3f36036098dce30918ca01b6f3282d3b61eacf7db917f2abcbbfe",
+      "ok": true
+    },
+    {
+      "file": "build/verification/v0110-firmware-final.json",
+      "sha256": "48d2543a5552243b225dbace44f1e7fdbae3d53a2d73d384af35acd9a7b1b90b",
+      "ok": true
+    },
+    {
+      "file": "build/verification/v0110-firmware-final-original-integrity.json",
+      "sha256": "0612863fb1af915cca54bdb2152c94c784cefdc8c6da5d89af31a3a0bc759c01",
+      "ok": true
+    }
+  ],
+  "limitations": [
+    "MIPS instruction counts with mocked firmware services are not physical H1 cycles or FPS.",
+    "Actual device audio underruns and long-run stability remain unmeasured.",
+    "Scheduler-only net benefit is tiny; city segment is effectively unchanged.",
+    "The synthetic DMC/IRQ workload regresses slightly; no all-game speedup claim.",
+    "Firmware smoke covers title/audio/menu, while city coverage comes from the complete-application harness.",
+    "Profile offline NAND log reader required read-only recovery of a partially used unit; original evidence retained.",
+    "Local raw reports, private ROM, firmware, screenshots and recordings are excluded from install packages."
+  ]
+}

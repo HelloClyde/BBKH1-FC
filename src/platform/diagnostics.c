@@ -9,7 +9,12 @@ static int active, verbose, writing;
 static unsigned batch_depth;
 static size_t batch_used;
 static char batch[8192];
+#if H1_DIAGNOSTIC
+#define LOG_LIMIT (64u * 1024u * 1024u)
+int h1_diag_active(void) { return active; }
+#else
 #define LOG_LIMIT (512u * 1024u)
+#endif
 #ifndef H1_TRACE
 #define H1_TRACE 0
 #endif

@@ -1,0 +1,840 @@
+{
+  "ok": true,
+  "version": "0.1.12",
+  "product": "NES",
+  "author": "HelloClyde",
+  "date": "2026-10-15",
+  "physical_device_tested": false,
+  "artifacts": {
+    "normal_bda_sha256": "a8f7304365aae6379b343546938da4eb003f1e8255deb7a51eaff4a03e37c615",
+    "profile_bda_sha256": "025a6ddd7727182bc884612a5f34ec3ec4185794dcf1d64417037fae080ae325",
+    "normal_bytes": 1130496,
+    "profile_bytes": 1141416,
+    "independent_rebuilds_identical": true
+  },
+  "default_frameskip": 1,
+  "existing_valid_configuration_preserved": true,
+  "jit_emitter_unchanged": true,
+  "jit_code_cache_bytes": 8388608,
+  "additional_data_memory_bytes": 0,
+  "implementation": [
+    "Aligned memcpy unrolls 64 bytes with exact tails; aligned memcmp skips equal 16-byte spans",
+    "Positive CPU budgets at or below 96 units use the existing C instruction path",
+    "Whole-instruction overshoot and PPU/APU/Mapper observable boundaries are retained"
+  ],
+  "same_settings_complete_application": [
+    {
+      "skip": 0,
+      "frames": 1800,
+      "comparison_identity": {
+        "schema": 1,
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "frames": 1800,
+        "settings": {
+          "scale": 1,
+          "skip": 0,
+          "sound": 1,
+          "volume": 100,
+          "save": "new, empty initial filesystem"
+        },
+        "events": [
+          {
+            "frame": 301,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 305,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 421,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 425,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 541,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 545,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 721,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 725,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 841,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 845,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1201,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1205,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1321,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1325,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1501,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1505,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1621,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1625,
+            "key": 16,
+            "down": false
+          }
+        ],
+        "cost_census": false,
+        "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+        "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+        "state_observation": "Read-only SFORMAT tables, without save callbacks",
+        "render_policy": "Allow audio catch-up skips; require exact baseline render/catch-up counts",
+        "initial_config": "CRC-protected version-2 ROM config, loaded by unmodified application"
+      },
+      "baseline_bda_sha256": "4062e52a9b3881a8e41fda3c831064e1ff28573a8552e0e54283b8d4aee2a302",
+      "current_bda_sha256": "a8f7304365aae6379b343546938da4eb003f1e8255deb7a51eaff4a03e37c615",
+      "baseline_instructions": 4975326376,
+      "current_instructions": 4861653197,
+      "reduction_percent": 2.284738133931019,
+      "city_frames": [
+        1501,
+        1800
+      ],
+      "city_baseline_instructions": 859679959,
+      "city_current_instructions": 840073533,
+      "city_reduction_percent": 2.2806657052709123,
+      "pcm_frames": 660352,
+      "rendered_frames": 1740,
+      "audio_catchup_frames": 91,
+      "strict_output_comparison": "pass",
+      "report": "build/verification/v0112-final-city-skip0.json",
+      "report_sha256": "4945f4ef6c6d9f070bdb57f32d4593fca6726c184610f405692723290b5e9c37"
+    },
+    {
+      "skip": 1,
+      "frames": 1800,
+      "comparison_identity": {
+        "schema": 1,
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "frames": 1800,
+        "settings": {
+          "scale": 1,
+          "skip": 1,
+          "sound": 1,
+          "volume": 100,
+          "save": "new, empty initial filesystem"
+        },
+        "events": [
+          {
+            "frame": 301,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 305,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 421,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 425,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 541,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 545,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 721,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 725,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 841,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 845,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1201,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1205,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1321,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1325,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1501,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1505,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1621,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1625,
+            "key": 16,
+            "down": false
+          }
+        ],
+        "cost_census": false,
+        "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+        "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+        "state_observation": "Read-only SFORMAT tables, without save callbacks",
+        "render_policy": "Allow audio catch-up skips; require exact baseline render/catch-up counts",
+        "initial_config": "CRC-protected version-2 ROM config, loaded by unmodified application"
+      },
+      "baseline_bda_sha256": "4062e52a9b3881a8e41fda3c831064e1ff28573a8552e0e54283b8d4aee2a302",
+      "current_bda_sha256": "a8f7304365aae6379b343546938da4eb003f1e8255deb7a51eaff4a03e37c615",
+      "baseline_instructions": 4213065242,
+      "current_instructions": 4148630576,
+      "reduction_percent": 1.5294010963241567,
+      "city_frames": [
+        1501,
+        1800
+      ],
+      "city_baseline_instructions": 722465598,
+      "city_current_instructions": 711508460,
+      "city_reduction_percent": 1.5166311074648609,
+      "pcm_frames": 660352,
+      "rendered_frames": 886,
+      "audio_catchup_frames": 91,
+      "strict_output_comparison": "pass",
+      "report": "build/verification/v0112-final-city-skip1.json",
+      "report_sha256": "6ef9e75d598d83d102993b370336fe45a98dfef0560ce33c50b5444d660b93d8"
+    }
+  ],
+  "final_bda_tests": {
+    "opcodes": {
+      "ok": true,
+      "report": "build/verification/v0112-final-opcodes.json",
+      "report_sha256": "01f40423981f5fc1d85fa63eb830e8b46d6868dba7033bc6444275f9a48611fe",
+      "cases": 4657,
+      "supported_opcodes": 87,
+      "checks": [
+        "exact CPU/RAM/cycle/timestamp differential",
+        "both branch outcomes and page crossing",
+        "zero-page index wrapping",
+        "later opcode/operand mutation",
+        "PRG page remapping",
+        "mapper hook changes operand page after opcode fetch",
+        "writable PRG and encrypted opcode fallback",
+        "IRQ/NMI entry and CLI delay",
+        "state restore invalidation",
+        "arena reclamation and epoch invalidation",
+        "overclock specialization invalidation",
+        "reset invalidates cache metadata",
+        "allocation failure interpreter fallback",
+        "unload frees cache"
+      ]
+    },
+    "short-slices": {
+      "ok": true,
+      "report": "build/verification/v0112-final-short-slices.json",
+      "report_sha256": "a9080781317a4d3003911e9711fcde3c8eb752134a6c916dc78fa9da778a94bf",
+      "cases": 684,
+      "checks": [
+        "empty and nonempty slice budgets before/at/after 96 units",
+        "PAL/NTSC exact cycle credit and whole-instruction overshoot",
+        "branch/index page crossing, stack, PPU/APU bus operations",
+        "IRQ/NMI, DMC DMA, APU frame and Namco IRQ deadlines",
+        "previous instruction carry and complete serialized state"
+      ]
+    },
+    "events": {
+      "ok": true,
+      "report": "build/verification/v0112-final-events.json",
+      "report_sha256": "d4e8de8a578f8296341e6864631675fedf9c7be815d9f7a6f9c71fa6f768e69c",
+      "cases": 232,
+      "checks": [
+        "APU frame and DMC deadlines before/at/after instruction boundary",
+        "independent interpreter scheduler deadlines and pending cycle carry",
+        "DMC DMA combined with frame or bit events",
+        "Namco IRQ disabled, threshold, overflow and branch cycle carry",
+        "both native branch targets; target operand mutation; restored chain epoch",
+        "masked IRQ native chains and temporary IRQ clearing",
+        "long 16-op native chains crossing the 15-bit packet boundary",
+        "exact CPU/RAM/timestamps and full serialized state"
+      ]
+    },
+    "contract": {
+      "ok": true,
+      "report": "build/verification/v0112-final-contract.json",
+      "report_sha256": "62a961299cdf648c38d393637ea29a46c6bd85b6479ab6cc48182bd8617c22f0"
+    },
+    "memory": {
+      "ok": true,
+      "report": "build/verification/v0112-final-memory.json",
+      "report_sha256": "4d89d32b16f3bca844b37182345c6b04e947c69ca0991fe0b49b1f261d337c64",
+      "cases": {
+        "copy": 624,
+        "compare": 2844,
+        "move": 1701
+      },
+      "observed_reads": 1523161,
+      "checks": [
+        "Exact unsigned byte comparison including first mismatch",
+        "All source/destination alignments and word/64-byte tails",
+        "No reads outside requested input spans; complete destination buffer oracle",
+        "Return pointer, destination sentinels, overlapping memmove"
+      ],
+      "limitation": "Actual MIPS semantics, not physical cache/bus timing. Write hooks fault on baseline branch-delay byte stores; writes checked with full-buffer canaries instead."
+    },
+    "row-cache": {
+      "ok": true,
+      "report": "build/verification/v0112-final-row-cache.json",
+      "report_sha256": "fc237d2f7c1810d392a2e2c7276c41466507d805347911f1210c6137345945f1",
+      "cases": 38,
+      "limitation": "Actual MIPS software execution, not physical H1 timing."
+    },
+    "audio": {
+      "ok": true,
+      "report": "build/verification/v0112-final-audio.json",
+      "report_sha256": "385a06e045410bac61533efad9bd949663aa528ac4aedd49993956477df1c0b6",
+      "cases": {
+        "22050": {
+          "exact_samples": 11145,
+          "submissions": 2,
+          "low_water_and_recovery": true,
+          "unread_pcm_preserved": true,
+          "continuous_underrun_recovery": true,
+          "recovery_silence_samples": 512,
+          "storage_cancel_and_refill": true
+        },
+        "32000": {
+          "exact_samples": 7680,
+          "submissions": 2,
+          "low_water_and_recovery": true,
+          "unread_pcm_preserved": true,
+          "continuous_underrun_recovery": true,
+          "recovery_silence_samples": 512,
+          "storage_cancel_and_refill": true
+        },
+        "48000": {
+          "exact_samples": 5120,
+          "submissions": 2,
+          "low_water_and_recovery": true,
+          "unread_pcm_preserved": true,
+          "continuous_underrun_recovery": true,
+          "recovery_silence_samples": 512,
+          "storage_cancel_and_refill": true
+        },
+        "slow_display": {
+          "core_audio_frames": 20,
+          "display_frames": 14,
+          "catchup_frames": 10,
+          "configured_skip_preserved": true,
+          "bda_sha256": "f84c2a78954924d51550c9c2b4ff300720bfa5f97fa59622c06be33cf9c50a3d"
+        }
+      }
+    },
+    "save-audio": {
+      "ok": true,
+      "report": "build/verification/v0112-final-save-audio.json",
+      "report_sha256": "d65944d6260f300ab583e701e23db680f5840526233d15c16939385052f5c43d",
+      "limitation": "Storage is deliberately silent. This does not remove IO latency or establish physical-device performance."
+    },
+    "default-skip": {
+      "ok": true,
+      "report": "build/verification/v0112-final-default-skip.json",
+      "report_sha256": "331394a9166882ff1f9d6484cc7e325bcefa903ea9b91d2ebcc75a87c24bd061",
+      "cases": 6,
+      "limitation": "Normal mock input and verified settings; not physical firmware timing."
+    },
+    "exit-key": {
+      "ok": true,
+      "report": "build/verification/v0112-final-exit-key.json",
+      "report_sha256": "f712d4646d8334bb5ecef67b59543cacbdff61e51e42bb35a13993c3221d11cd",
+      "cases": {
+        "game-and-menu": {
+          "seconds": 13.2,
+          "frames": 44,
+          "rom_b_observations": [
+            [
+              24,
+              "pressed",
+              165
+            ],
+            [
+              24,
+              "repeat",
+              165
+            ],
+            [
+              24,
+              "released",
+              17
+            ],
+            [
+              41,
+              "pressed",
+              165
+            ],
+            [
+              41,
+              "repeat",
+              165
+            ],
+            [
+              41,
+              "released",
+              17
+            ]
+          ]
+        },
+        "v1-migration": {
+          "seconds": 4.72,
+          "frames": 10
+        },
+        "v2-migration": {
+          "seconds": 4.61,
+          "frames": 10
+        },
+        "v3-migration-reload": {
+          "seconds": 4.5,
+          "frames": 10
+        },
+        "v3-custom": {
+          "seconds": 3.97,
+          "frames": 10
+        },
+        "capture-and-cancel": {
+          "seconds": 4.95,
+          "frames": 10
+        }
+      },
+      "limitation": "Mocked services do not establish physical H1 timing or audio quality."
+    },
+    "pause-menu": {
+      "ok": true,
+      "report": "build/verification/v0112-final-pause-menu.json",
+      "report_sha256": "31caa582c7ff78677633cfff03fa4759adce9dda3b737c12fbf369b59b165df9"
+    }
+  },
+  "cpu_qa": {
+    "ok": true,
+    "bda_sha256": "a8f7304365aae6379b343546938da4eb003f1e8255deb7a51eaff4a03e37c615",
+    "checks": {
+      "opcodes": {
+        "report": "build\\verification\\v0112-final-opcodes.json",
+        "ok": true,
+        "cases": 4657
+      },
+      "short-slices": {
+        "report": "build\\verification\\v0112-final-short-slices.json",
+        "ok": true,
+        "cases": 684
+      },
+      "events": {
+        "report": "build\\verification\\v0112-final-events.json",
+        "ok": true,
+        "cases": 232
+      },
+      "contract": {
+        "report": "build\\verification\\v0112-final-contract.json",
+        "ok": true,
+        "mappers": [
+          0,
+          19
+        ],
+        "dmc_instruction_cases": 6,
+        "fetched_opcode_cases": 8
+      }
+    },
+    "unchanged_native_source": {
+      "src/platform/nes_jit.c": true,
+      "src/platform/nes_jit.h": true
+    },
+    "dispatcher_diff": "--- baseline/tools/prepare_jit.py\n+++ tools/prepare_jit.py\n@@ -254,7 +254,10 @@\n             h1_nes_jit_contract_unknown();\n             b1 = RdMem(pbackus);\n         }\n-        if (h1_jit_modes[b1] && h1_jit_modes[b1] != 3 &&\n+        /* At most 96 count units allow exactly one shortest opcode to start.\n+         * Keep its ordinary C semantics, including any cycle overshoot, but\n+         * avoid entering a native block just to leave at this same boundary. */\n+        if (_count > 96 && h1_jit_modes[b1] && h1_jit_modes[b1] != 3 &&\n             !encryptOpcodes && !X.jammed &&\n             opcode_page && !PRGIsRAM[pbackus >> 11]) {\n             uint32_t page = (uint32_t)opcode_page;\n",
+    "test_fixture_adjustment": "Warm status block uses seven PPU cycles. Pending DMA and already-fetched opcode tests each retain the original one-cycle C-path case and add a seven-cycle native-admission case; callback, CPU, timestamp and serialized-state assertions remain."
+  },
+  "firmware": [
+    {
+      "variant": "normal",
+      "bda_sha256": "a8f7304365aae6379b343546938da4eb003f1e8255deb7a51eaff4a03e37c615",
+      "video_frames": 520,
+      "video_errors": 0,
+      "audio": {
+        "sample_rate": 32000,
+        "packets": 143,
+        "frames": 96107,
+        "seconds": 3.00334375,
+        "min": -32383,
+        "max": 19991,
+        "nonzero_samples": 192186
+      },
+      "resumed_audio": {
+        "sample_rate": 32000,
+        "packets": 96,
+        "frames": 64159,
+        "seconds": 2.00496875,
+        "min": -32383,
+        "max": 18976,
+        "nonzero_samples": 128302
+      },
+      "paused_display_stable": true,
+      "app_end_result": 0,
+      "save_reload_same_private_nand": true,
+      "restart_exit": 0,
+      "original_dump_unchanged": true,
+      "original_dump_files": 494,
+      "scope": "Functional firmware/UI/audio/exit validation",
+      "first_run_limitations": [
+        "Game-specific title/level/action results require visual inspection of screenshots",
+        "Full firmware emulation does not establish physical-device performance"
+      ],
+      "diagnostic_tcu_timing_valid": null,
+      "diagnostic_observation": {
+        "stage": "evidence",
+        "diagnostics_enabled": false,
+        "tcu_faults": [],
+        "profile_faults": [],
+        "rtc_valid_flags": [],
+        "tcu_timing_valid": null,
+        "rtc_run_valid": null,
+        "audio_underruns": 0,
+        "audio_dropped": 0,
+        "audio_submit_failures": 0,
+        "relevant_lines": [
+          "000069 AUDIO_CLOSE_BEGIN batches=1068 submitted=2 nonzero=511989 dropped=0 failures=0 underruns=0"
+        ]
+      },
+      "restart_diagnostic_observation": {
+        "stage": "restart-evidence",
+        "diagnostics_enabled": false,
+        "tcu_faults": [],
+        "profile_faults": [],
+        "rtc_valid_flags": [],
+        "tcu_timing_valid": null,
+        "rtc_run_valid": null,
+        "audio_underruns": 0,
+        "audio_dropped": 0,
+        "audio_submit_failures": 0,
+        "relevant_lines": [
+          "000059 AUDIO_CLOSE_BEGIN batches=507 submitted=1 nonzero=213318 dropped=0 failures=0 underruns=0"
+        ]
+      },
+      "first_report_sha256": "ef6055c92ecb3eb00f3b6f567f4375dd1d40f47a44cb20945d0a292b8f69419f",
+      "restart_report_sha256": "59fc86fe12b3f250212ffd201a311d929b809fdbc6415ff71ac98d717f487b44",
+      "observed_runtime_lines": {
+        "first": [
+          "000069 AUDIO_CLOSE_BEGIN batches=1068 submitted=2 nonzero=511989 dropped=0 failures=0 underruns=0"
+        ],
+        "restart": [
+          "000059 AUDIO_CLOSE_BEGIN batches=507 submitted=1 nonzero=213318 dropped=0 failures=0 underruns=0"
+        ]
+      }
+    },
+    {
+      "variant": "profile",
+      "bda_sha256": "025a6ddd7727182bc884612a5f34ec3ec4185794dcf1d64417037fae080ae325",
+      "video_frames": 452,
+      "video_errors": 0,
+      "audio": {
+        "sample_rate": 32000,
+        "packets": 145,
+        "frames": 96513,
+        "seconds": 3.01603125,
+        "min": -32383,
+        "max": 19618,
+        "nonzero_samples": 193006
+      },
+      "resumed_audio": {
+        "sample_rate": 32000,
+        "packets": 96,
+        "frames": 64003,
+        "seconds": 2.00009375,
+        "min": -32383,
+        "max": 19409,
+        "nonzero_samples": 128000
+      },
+      "paused_display_stable": true,
+      "app_end_result": 0,
+      "save_reload_same_private_nand": true,
+      "restart_exit": 0,
+      "original_dump_unchanged": true,
+      "original_dump_files": 494,
+      "scope": "Functional firmware/UI/audio/exit validation",
+      "first_run_limitations": [
+        "Title/menu/audio scene; not city gameplay.",
+        "Full firmware emulation does not establish physical-device performance.",
+        "Standard extractor rejected one inspected valid partial unit; original failure retained.",
+        "TCU timer fault=2 after resume, profile dump fault=3; affected diagnostic timings are invalid. RTC run counters remain valid."
+      ],
+      "diagnostic_tcu_timing_valid": false,
+      "diagnostic_observation": {
+        "stage": "evidence",
+        "diagnostics_enabled": true,
+        "tcu_faults": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "profile_faults": [
+          0,
+          3,
+          3
+        ],
+        "rtc_valid_flags": [
+          1,
+          1,
+          1
+        ],
+        "tcu_timing_valid": false,
+        "rtc_run_valid": true,
+        "audio_underruns": 1,
+        "audio_dropped": 0,
+        "audio_submit_failures": 0,
+        "relevant_lines": [
+          "000043 PROFILE_TCU_READS stage=calibrated fault=0 retries=62 backwards=0 wraps=0 deferred=0 terminal=0 period=65536 previous=62909 total=62909 max_delta=2411 bad_a=62594 bad_b=62598 bad_previous=62594",
+          "000064 PROFILE_TCU_READS stage=pause fault=0 retries=1097 backwards=2627 wraps=5 deferred=2627 terminal=0 period=65536 previous=2934 total=330614 max_delta=4398 bad_a=2074 bad_b=2076 bad_previous=2074",
+          "000066 PROFILE_RTC_RUN reason=pause frames=602 displayed=298 interval_frames=601 rtc_start=1199176234 rtc_end=1199176244 seconds=10 resolution_seconds=1 valid=1",
+          "000067 PROFILE_BEGIN reason=pause windows=3 omitted=0 hz=32768 fault=0 exclusive=1",
+          "000126 PROFILE_TCU_READS stage=pause fault=2 retries=261 backwards=1 wraps=0 deferred=0 terminal=0 period=65536 previous=65443 total=65443 max_delta=110 bad_a=65443 bad_b=1 bad_previous=65443",
+          "000128 PROFILE_RTC_RUN reason=pause frames=308 displayed=154 interval_frames=307 rtc_start=1199176251 rtc_end=1199176256 seconds=5 resolution_seconds=1 valid=1",
+          "000129 PROFILE_BEGIN reason=pause windows=1 omitted=0 hz=32768 fault=3 exclusive=1",
+          "000151 AUDIO_CLOSE_BEGIN batches=910 submitted=2 nonzero=450794 dropped=0 failures=0 underruns=1",
+          "000158 PROFILE_TCU_READS stage=exit fault=2 retries=261 backwards=1 wraps=0 deferred=0 terminal=0 period=65536 previous=65443 total=65443 max_delta=110 bad_a=65443 bad_b=1 bad_previous=65443",
+          "000160 PROFILE_RTC_RUN reason=exit frames=308 displayed=154 interval_frames=307 rtc_start=1199176251 rtc_end=1199176256 seconds=5 resolution_seconds=1 valid=1",
+          "000161 PROFILE_BEGIN reason=exit windows=0 omitted=0 hz=32768 fault=3 exclusive=1"
+        ]
+      },
+      "restart_diagnostic_observation": {
+        "stage": "restart-evidence",
+        "diagnostics_enabled": true,
+        "tcu_faults": [
+          0,
+          0,
+          0
+        ],
+        "profile_faults": [
+          0,
+          0
+        ],
+        "rtc_valid_flags": [
+          1,
+          1
+        ],
+        "tcu_timing_valid": true,
+        "rtc_run_valid": true,
+        "audio_underruns": 0,
+        "audio_dropped": 0,
+        "audio_submit_failures": 0,
+        "relevant_lines": [
+          "000043 PROFILE_TCU_READS stage=calibrated fault=0 retries=63 backwards=328 wraps=1 deferred=328 terminal=0 period=65536 previous=1976 total=67512 max_delta=2484 bad_a=1038 bad_b=1042 bad_previous=1038",
+          "000063 PROFILE_TCU_READS stage=pause fault=0 retries=838 backwards=2118 wraps=3 deferred=2116 terminal=0 period=65536 previous=13098 total=209706 max_delta=2721 bad_a=12998 bad_b=13006 bad_previous=12996",
+          "000065 PROFILE_RTC_RUN reason=pause frames=385 displayed=179 interval_frames=384 rtc_start=1199176264 rtc_end=1199176271 seconds=7 resolution_seconds=1 valid=1",
+          "000066 PROFILE_BEGIN reason=pause windows=2 omitted=0 hz=32768 fault=0 exclusive=1",
+          "000102 AUDIO_CLOSE_BEGIN batches=385 submitted=1 nonzero=148371 dropped=0 failures=0 underruns=0",
+          "000109 PROFILE_TCU_READS stage=exit fault=0 retries=838 backwards=2118 wraps=3 deferred=2116 terminal=0 period=65536 previous=13098 total=209706 max_delta=2721 bad_a=12998 bad_b=13006 bad_previous=12996",
+          "000111 PROFILE_RTC_RUN reason=exit frames=385 displayed=179 interval_frames=384 rtc_start=1199176264 rtc_end=1199176271 seconds=7 resolution_seconds=1 valid=1",
+          "000112 PROFILE_BEGIN reason=exit windows=0 omitted=0 hz=32768 fault=0 exclusive=1"
+        ]
+      },
+      "first_report_sha256": "6e59ee67bc1daae6d9ade553bb1ea8c070da3daa77cdcd353efe59ad1190b376",
+      "restart_report_sha256": "80730e2bc559ea58de7ff5ce42ac21b87da2cbd63fdb7c83387d2d1241dbbbe1",
+      "observed_runtime_lines": {
+        "first": [
+          "000043 PROFILE_TCU_READS stage=calibrated fault=0 retries=62 backwards=0 wraps=0 deferred=0 terminal=0 period=65536 previous=62909 total=62909 max_delta=2411 bad_a=62594 bad_b=62598 bad_previous=62594",
+          "000064 PROFILE_TCU_READS stage=pause fault=0 retries=1097 backwards=2627 wraps=5 deferred=2627 terminal=0 period=65536 previous=2934 total=330614 max_delta=4398 bad_a=2074 bad_b=2076 bad_previous=2074",
+          "000066 PROFILE_RTC_RUN reason=pause frames=602 displayed=298 interval_frames=601 rtc_start=1199176234 rtc_end=1199176244 seconds=10 resolution_seconds=1 valid=1",
+          "000067 PROFILE_BEGIN reason=pause windows=3 omitted=0 hz=32768 fault=0 exclusive=1",
+          "000126 PROFILE_TCU_READS stage=pause fault=2 retries=261 backwards=1 wraps=0 deferred=0 terminal=0 period=65536 previous=65443 total=65443 max_delta=110 bad_a=65443 bad_b=1 bad_previous=65443",
+          "000128 PROFILE_RTC_RUN reason=pause frames=308 displayed=154 interval_frames=307 rtc_start=1199176251 rtc_end=1199176256 seconds=5 resolution_seconds=1 valid=1",
+          "000129 PROFILE_BEGIN reason=pause windows=1 omitted=0 hz=32768 fault=3 exclusive=1",
+          "000151 AUDIO_CLOSE_BEGIN batches=910 submitted=2 nonzero=450794 dropped=0 failures=0 underruns=1",
+          "000158 PROFILE_TCU_READS stage=exit fault=2 retries=261 backwards=1 wraps=0 deferred=0 terminal=0 period=65536 previous=65443 total=65443 max_delta=110 bad_a=65443 bad_b=1 bad_previous=65443",
+          "000160 PROFILE_RTC_RUN reason=exit frames=308 displayed=154 interval_frames=307 rtc_start=1199176251 rtc_end=1199176256 seconds=5 resolution_seconds=1 valid=1",
+          "000161 PROFILE_BEGIN reason=exit windows=0 omitted=0 hz=32768 fault=3 exclusive=1"
+        ],
+        "restart": [
+          "000043 PROFILE_TCU_READS stage=calibrated fault=0 retries=63 backwards=328 wraps=1 deferred=328 terminal=0 period=65536 previous=1976 total=67512 max_delta=2484 bad_a=1038 bad_b=1042 bad_previous=1038",
+          "000063 PROFILE_TCU_READS stage=pause fault=0 retries=838 backwards=2118 wraps=3 deferred=2116 terminal=0 period=65536 previous=13098 total=209706 max_delta=2721 bad_a=12998 bad_b=13006 bad_previous=12996",
+          "000065 PROFILE_RTC_RUN reason=pause frames=385 displayed=179 interval_frames=384 rtc_start=1199176264 rtc_end=1199176271 seconds=7 resolution_seconds=1 valid=1",
+          "000066 PROFILE_BEGIN reason=pause windows=2 omitted=0 hz=32768 fault=0 exclusive=1",
+          "000102 AUDIO_CLOSE_BEGIN batches=385 submitted=1 nonzero=148371 dropped=0 failures=0 underruns=0",
+          "000109 PROFILE_TCU_READS stage=exit fault=0 retries=838 backwards=2118 wraps=3 deferred=2116 terminal=0 period=65536 previous=13098 total=209706 max_delta=2721 bad_a=12998 bad_b=13006 bad_previous=12996",
+          "000111 PROFILE_RTC_RUN reason=exit frames=385 displayed=179 interval_frames=384 rtc_start=1199176264 rtc_end=1199176271 seconds=7 resolution_seconds=1 valid=1",
+          "000112 PROFILE_BEGIN reason=exit windows=0 omitted=0 hz=32768 fault=0 exclusive=1"
+        ]
+      },
+      "log_extraction_recovery": {
+        "standard_extractor_failed": true,
+        "original_failure_preserved": true,
+        "read_only": true,
+        "inspected_unit_only": true,
+        "recovered_bytes": 12557,
+        "recovered_sha256": "b8c19b9feb8f2f146752db7e19766344c4dd11758b36944b8d28d5f4b760883d",
+        "consecutive_records": 181,
+        "report": "build/v0112-firmware-final-profile/evidence/log-recovery.json",
+        "report_sha256": "ab30ff73e344aa0e2686ad5cd744ce7e42a436ac0fe1a85236ef31276d7d40c6"
+      }
+    }
+  ],
+  "reproducibility": {
+    "ok": true,
+    "independent_output_tree": "build\\v0112-repro-final",
+    "builds": [
+      {
+        "variant": "release-jit",
+        "sha256": "a8f7304365aae6379b343546938da4eb003f1e8255deb7a51eaff4a03e37c615",
+        "bytes": 1130496,
+        "identical": true
+      },
+      {
+        "variant": "release-profile-jit",
+        "sha256": "025a6ddd7727182bc884612a5f34ec3ec4185794dcf1d64417037fae080ae325",
+        "bytes": 1141416,
+        "identical": true
+      }
+    ]
+  },
+  "isolated_short_budget": {
+    "bda_sha256": "2097dbdbc114254b095ff736a79fe51a734378409ce0f807518787f635abb63a",
+    "calls": {
+      "city_frames": [
+        1501,
+        1800
+      ],
+      "total": 289800,
+      "empty": 31733,
+      "single_op_budget": 51536
+    },
+    "performance": {
+      "frames": 1800,
+      "skip": 1,
+      "total_before": 4213065242,
+      "total_after": 4200668639,
+      "total_reduction_percent": 0.2942418948659653,
+      "city_before": 722465598,
+      "city_after": 720255956,
+      "city_reduction_percent": 0.30584736575927085,
+      "exact_outputs": true
+    }
+  },
+  "isolated_memory": {
+    "bda_sha256": "5d0c295e05d62bb0cb90f829b3f371245442cdad16688cd2ecbdb8c839a37425",
+    "total_before": 4213065242,
+    "total_after": 4161011464,
+    "reduction_percent": 1.2355322077872488,
+    "city_before": 722465598,
+    "city_after": 713712613,
+    "city_reduction_percent": 1.2115435010650821
+  },
+  "not_adopted_jit": {
+    "reason": "Only 0.207% whole-application gain and a 0.113% regression in city operations; retain the simpler current dispatcher.",
+    "candidate_bda_sha256": "ffc22e3e6028eaeaf4383989a79e04773b1f656850ee1b26ef02fcc3e4efd357",
+    "whole_application": {
+      "baseline": 4213065242,
+      "current": 4204361704,
+      "reduction_percent": 0.2065844581098486
+    },
+    "city": {
+      "baseline": 722465598,
+      "current": 723285314,
+      "reduction_percent": -0.11346090419657173
+    }
+  },
+  "source_sha256": {
+    "src/libc/freestanding.c": "9509acbb102b55a3bb0b1ad1c04dd3cb88dfd1fdc75b01bad730ba451ad5a699",
+    "tools/prepare_jit.py": "d50ccda43ef1a9aaddd8f51408f610764bec53d5d917badd228d8536804b3eb2",
+    "src/platform/nes_jit.c": "32f94c7af9bbf13cdde494e1a65bf08a62ef0ac6add176d7da7e2a29e0f56d00",
+    "tests/memory_transfer_smoke.py": "b5dd76be90845596114ddb7bee1ec5e1596a25dd4e9a95410e645bac7c7d5fb1",
+    "tests/jit_short_slice_smoke.py": "2bd48008c4e78f05d57e463409c88fbad2e0bbe0b9c40b31b3b700ac60c3a8d9",
+    "tests/jit_smoke.py": "f8206b7b42a79211082ece83e408d90fde78d2defa43838b449ad3185675ad23",
+    "tests/jit_contract_smoke.py": "c66d3b55a642f0dc52aaa8c562ceb8532fe6c024503dfce082c7460ee9e2d763",
+    "tests/jit_app_long_benchmark.py": "02b4a5823141a2ca7225f7ac9f5a481625ddaad02121d3e752de6c62ecffe852"
+  },
+  "limitations": [
+    "MIPS instruction counts are not physical H1 cycles/FPS or proof of underrun-free playback",
+    "Memory bus/cache timing and other game scenes require physical-device measurement",
+    "No wider CPU/PPU time-slice merging or asynchronous storage was implemented",
+    "Profile firmware first run hit a TCU wrap read fault after resume; affected timing is invalid",
+    "Unicorn baseline byte stores fail with global write hooks; full-buffer oracles check writes instead"
+  ]
+}

@@ -39,6 +39,17 @@ def check_tag(tag: str) -> None:
     require(tag == "v" + version(), "Release tag must exactly match v + VERSION")
 
 
+def require_default_build(metadata: dict) -> None:
+    """The public installer must use the unrestricted, optimized C backend."""
+    require(metadata.get("test_frames") == 0 and metadata.get("benchmark") is False and
+            metadata.get("verbose_log") is False and metadata.get("profile") is False and
+            not metadata.get("diagnostic", False), "Expected an unrestricted release build")
+    require(metadata.get("optimized_event_core") is True and metadata.get("native_jit") is False and
+            metadata.get("jit") is False and metadata.get("experimental") is False and
+            metadata.get("cpu_backend") == "optimized_C_with_original_fallback",
+            "Public release must use the default optimized C backend")
+
+
 def evidence_file(name: str) -> Path:
     relative = Path(name)
     require(not relative.is_absolute() and ".." not in relative.parts and "\\" not in name,
@@ -74,8 +85,7 @@ def verify(require_verified: bool = False) -> tuple[dict, dict | None]:
     require(metadata["version"] == version(), "Build version does not match VERSION")
     require(metadata["sha256"] == sha256(ROOT / "dist/H1FC.bda"), "BDA hash differs from metadata")
     require(metadata["size"] == (ROOT / "dist/H1FC.bda").stat().st_size, "BDA size differs from metadata")
-    require(metadata["test_frames"] == 0 and not metadata["benchmark"] and
-            not metadata["verbose_log"] and not metadata["profile"], "Expected an unrestricted release build")
+    require_default_build(metadata)
     require(metadata["compiler"].endswith("15.2.0"), "Expected the pinned GNU MIPS GCC 15.2.0")
     require(metadata["sdk_commit"] == DEPENDENCIES["sdk"], "SDK commit differs from the validated revision")
     require(metadata["fceumm_commit"] == DEPENDENCIES["third_party/fceumm"], "FCEUmm commit differs from validated revision")

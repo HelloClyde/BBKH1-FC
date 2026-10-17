@@ -24,6 +24,7 @@ void *h1_runtime_entry(void *, uint32_t);
 #define H1_KEY_ESCAPE 24
 #define H1_KEY_ENTER 25
 #define H1_KEY_DOWN 27
+#define H1_KEY_P 31
 #define H1_KEY_RIGHT 35
 #define H1_KEY_M 36
 #define H1_KEY_UP 37

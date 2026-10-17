@@ -1,0 +1,402 @@
+{
+  "ok": true,
+  "date": "2026-10-16",
+  "version": "0.1.12",
+  "product": "NES",
+  "profile_layout": "core_detail_v1",
+  "purpose": "Diagnostic core cost attribution, not a new speed optimization",
+  "physical_device_tested": false,
+  "artifacts": {
+    "normal_bda_sha256": "a8f7304365aae6379b343546938da4eb003f1e8255deb7a51eaff4a03e37c615",
+    "normal_identical_to_previous_delivery": true,
+    "profile_bda_sha256": "2a246e5cf3653016c07aece597373acaea0a59bf94c7efd9c79f4cd6bf720893",
+    "profile_bytes": 1149840,
+    "independent_profile_rebuild_identical": true
+  },
+  "sampling": {
+    "period_frames": 31,
+    "rotating_modes": [
+      "control",
+      "coarse",
+      "cpu",
+      "ppu",
+      "sound"
+    ],
+    "cycle_frames": 155,
+    "other_frames": "light",
+    "per_mode_denominators": true,
+    "displayed_and_skipped_classes": true,
+    "detail_totals_survive_window_eviction": true,
+    "exclusive_nested_costs": true,
+    "same_kind_recursive_inclusive_counted_once": true
+  },
+  "host_test": {
+    "passed": true,
+    "command": "python tests/run_profile_tests.py",
+    "compiler": "WinLibs GCC 16.1.0",
+    "coverage": [
+      "Independent call-tree accounting oracle",
+      "930 frames each at display periods 2, 3 and 6",
+      "4650 frames across 16 windows",
+      "Early return and fault tokens",
+      "Pause/restart and counter wrap",
+      "31us quantization",
+      "H1_PROFILE=0 stubs"
+    ]
+  },
+  "active_mips_differential": {
+    "passed": true,
+    "tests": [
+      {
+        "name": "sgz2",
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "skip": 0,
+        "warmup_frames": 8,
+        "modes": [
+          {
+            "mode": "control",
+            "mask": 0,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 94,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "jit_compile": 39
+            }
+          },
+          {
+            "mode": "coarse",
+            "mask": 1,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 7906,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "jit_compile": 77,
+              "cpu": 3864,
+              "ppu_loop": 4
+            }
+          },
+          {
+            "mode": "cpu",
+            "mask": 7,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 17958,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "jit_compile": 14,
+              "cpu": 3864,
+              "native": 3798,
+              "slow_event": 983,
+              "apu_event": 288,
+              "mapper": 20,
+              "ppu_loop": 4
+            }
+          },
+          {
+            "mode": "ppu",
+            "mask": 9,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 26370,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "jit_compile": 162,
+              "cpu": 3864,
+              "ppu_loop": 4,
+              "ppu_bg": 2124,
+              "ppu_sprite": 5103,
+              "ppu_pixel": 1920
+            }
+          },
+          {
+            "mode": "sound",
+            "mask": 21,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 10146,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "jit_compile": 22,
+              "cpu": 3864,
+              "slow_event": 787,
+              "apu_event": 292,
+              "apu_synth": 76,
+              "mapper": 20,
+              "ppu_loop": 4
+            }
+          }
+        ]
+      },
+      {
+        "name": "original-dmc-sprites",
+        "rom_sha256": "3d286898a0791da8e2980238108d68b83f4f2331a88bffb8d5f986510bf7cf58",
+        "skip": 0,
+        "warmup_frames": 8,
+        "modes": [
+          {
+            "mode": "control",
+            "mask": 0,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 44,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "jit_compile": 14
+            }
+          },
+          {
+            "mode": "coarse",
+            "mask": 1,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 7752,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "cpu": 3864,
+              "ppu_loop": 4
+            }
+          },
+          {
+            "mode": "cpu",
+            "mask": 7,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 21816,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "jit_compile": 1,
+              "cpu": 3864,
+              "native": 2687,
+              "slow_event": 1591,
+              "completion": 256,
+              "apu_event": 2497,
+              "ppu_loop": 4
+            }
+          },
+          {
+            "mode": "ppu",
+            "mask": 9,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 73680,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "cpu": 3864,
+              "ppu_loop": 4,
+              "ppu_bg": 14240,
+              "ppu_sprite": 16804,
+              "ppu_pixel": 1920
+            }
+          },
+          {
+            "mode": "sound",
+            "mask": 21,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 21112,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "cpu": 3864,
+              "slow_event": 1622,
+              "completion": 272,
+              "apu_event": 2496,
+              "apu_synth": 2290,
+              "ppu_loop": 4
+            }
+          }
+        ]
+      },
+      {
+        "name": "original-dmc-sprites-skip1",
+        "rom_sha256": "3d286898a0791da8e2980238108d68b83f4f2331a88bffb8d5f986510bf7cf58",
+        "skip": 1,
+        "warmup_frames": 8,
+        "modes": [
+          {
+            "mode": "control",
+            "mask": 0,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 44,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "jit_compile": 14
+            }
+          },
+          {
+            "mode": "coarse",
+            "mask": 1,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 7752,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "cpu": 3864,
+              "ppu_loop": 4
+            }
+          },
+          {
+            "mode": "cpu",
+            "mask": 7,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 21816,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "jit_compile": 1,
+              "cpu": 3864,
+              "native": 2687,
+              "slow_event": 1591,
+              "completion": 256,
+              "apu_event": 2497,
+              "ppu_loop": 4
+            }
+          },
+          {
+            "mode": "ppu",
+            "mask": 9,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 71760,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "cpu": 3864,
+              "ppu_loop": 4,
+              "ppu_bg": 14240,
+              "ppu_sprite": 16324,
+              "ppu_pixel": 1440
+            }
+          },
+          {
+            "mode": "sound",
+            "mask": 21,
+            "frames": 4,
+            "depth": 0,
+            "fault": 0,
+            "clock_reads": 21112,
+            "calls": {
+              "core": 4,
+              "apu_finalize": 4,
+              "cpu": 3864,
+              "slow_event": 1622,
+              "completion": 272,
+              "apu_event": 2496,
+              "apu_synth": 2290,
+              "ppu_loop": 4
+            }
+          }
+        ]
+      }
+    ],
+    "compared": [
+      "Serialized core state",
+      "PCM",
+      "Video",
+      "Battery save"
+    ],
+    "clock_substitution": "Only pc_now hardware-clock reader replaced with a seven-instruction MIPS counter; profiler enabled/frequency/mask initialized by test.",
+    "limitations": [
+      "Synthetic ticks validate scope balance and exclusive/inclusive accounting, not physical time or speed.",
+      "Masks are selected explicitly to exercise every active mode; natural 155-frame rotation is covered separately.",
+      "SGZ2 coverage is boot/intro frames, not the 1800-frame city benchmark.",
+      "Core execution uses frontend callbacks; firmware pacing, TCU MMIO and full application IO are outside this test."
+    ]
+  },
+  "full_firmware": {
+    "passed": true,
+    "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+    "scene": "SGZ2 boot/title short functional test, not city performance benchmark",
+    "frames": 848,
+    "displayed": 411,
+    "pause_resume_audio_and_desktop_exit": true,
+    "app_end_result": 0,
+    "video_errors": 0,
+    "all_tcu_faults_zero": true,
+    "all_rtc_valid": true,
+    "mode_counts": {
+      "light": {
+        "frames": 820,
+        "displayed": 397,
+        "skipped": 423,
+        "clock_reads": 8913961
+      },
+      "control": {
+        "frames": 6,
+        "displayed": 4,
+        "skipped": 2,
+        "clock_reads": 48412
+      },
+      "coarse": {
+        "frames": 6,
+        "displayed": 2,
+        "skipped": 4,
+        "clock_reads": 78184
+      },
+      "cpu": {
+        "frames": 6,
+        "displayed": 4,
+        "skipped": 2,
+        "clock_reads": 93558
+      },
+      "ppu": {
+        "frames": 5,
+        "displayed": 2,
+        "skipped": 3,
+        "clock_reads": 60556
+      },
+      "sound": {
+        "frames": 5,
+        "displayed": 2,
+        "skipped": 3,
+        "clock_reads": 64820
+      }
+    },
+    "original_firmware_files_unchanged": 494
+  },
+  "evidence_sha256": {
+    "build/verification/profile-detail-mips.json": "2a5c5b2ecfd1147ef76d799ef4adb9f86817ae2532533647c239c6e966f28490",
+    "build/verification/profile-detail-firmware.json": "e7b5ab39a1530d57238a8b2ca6e0b48b0f21e1240c7c3ea7b73f93aebf6ae287",
+    "build/verification/profile-detail-reproducible-bda.json": "bbeec6ebfca608c115cc9e0dffe5aa1fbc3d4744325289d197256b01aed7a9b3",
+    "tests/profile_sampling_test.c": "a133716c4507e11241b190a7e3024d9b1ccebebb792678ca62725130b928fd76",
+    "tests/profile_detail_mips.py": "a668b1df79ca2f4c0b1076ceff4bd0c37d44c26785e7474da278dfa98b288124"
+  },
+  "limitations": [
+    "No new physical-device measurements or speedup claims; awaiting a city-scene log from this diagnostic build.",
+    "TCU wall time includes IRQ/OS scheduling, measurement work, and quantization.",
+    "Mode means are not matched-scene probe-overhead corrections. The first control sample includes startup/JIT work.",
+    "clock_reads includes pacing; scope loop totals exclude frame-summary code outside scopes.",
+    "Never add inclusive costs or combine sampled modes with different denominators.",
+    "Coarse/CPU mode costs include PPU work called within CPU when the PPU detail probes are off.",
+    "Unknown native Mapper callbacks remain in native; inline native clock work stays native."
+  ]
+}

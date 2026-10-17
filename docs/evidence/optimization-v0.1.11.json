@@ -1,0 +1,270 @@
+{
+  "ok": true,
+  "version": "0.1.11",
+  "product": "NES",
+  "author": "HelloClyde",
+  "date": "2026-10-15",
+  "physical_device_tested": false,
+  "artifacts": {
+    "normal_bda_sha256": "4062e52a9b3881a8e41fda3c831064e1ff28573a8552e0e54283b8d4aee2a302",
+    "profile_bda_sha256": "0f3a34699b28a69a61e22906f056144d59733e18ccdd7cc06829906dd726f5a9",
+    "normal_bytes": 1129864,
+    "profile_bytes": 1140760,
+    "independent_rebuilds_identical": true
+  },
+  "default_frameskip": 1,
+  "existing_valid_configuration_preserved": true,
+  "jit_unchanged": true,
+  "jit_code_cache_bytes": 8388608,
+  "additional_memory": {
+    "nearest_row_cache_bytes": 592428,
+    "ppu_luts_bytes": 4608
+  },
+  "implementation": [
+    "Fine-X zero background spans use packed two-bit planes and four-pixel palette LUTs",
+    "Exact completed-row comparison reuses nearest scaled RAM rows; LCD is always rewritten",
+    "Allocation failure falls back; palette/emphasis/geometry changes invalidate derived pixels"
+  ],
+  "same_settings_complete_application": [
+    {
+      "skip": 0,
+      "frames": 1800,
+      "baseline_bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "current_bda_sha256": "4062e52a9b3881a8e41fda3c831064e1ff28573a8552e0e54283b8d4aee2a302",
+      "baseline_instructions": 5658552312,
+      "current_instructions": 4975326376,
+      "reduction_percent": 12.074217897590056,
+      "city_frames": [
+        1501,
+        1800
+      ],
+      "city_baseline_instructions": 978299874,
+      "city_current_instructions": 859679959,
+      "city_reduction_percent": 12.125107868510266,
+      "pcm_frames": 660352,
+      "rendered_frames": 1740,
+      "audio_catchup_frames": 91,
+      "strict_output_comparison": "pass"
+    },
+    {
+      "skip": 1,
+      "frames": 1800,
+      "baseline_bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+      "current_bda_sha256": "4062e52a9b3881a8e41fda3c831064e1ff28573a8552e0e54283b8d4aee2a302",
+      "baseline_instructions": 4558758989,
+      "current_instructions": 4213065242,
+      "reduction_percent": 7.583066966999952,
+      "city_frames": [
+        1501,
+        1800
+      ],
+      "city_baseline_instructions": 781491748,
+      "city_current_instructions": 722465598,
+      "city_reduction_percent": 7.553010015916383,
+      "pcm_frames": 660352,
+      "rendered_frames": 886,
+      "audio_catchup_frames": 91,
+      "strict_output_comparison": "pass"
+    }
+  ],
+  "final_bda_tests": {
+    "row_cache": {
+      "ok": true,
+      "report": "build/verification/v0111-combined-indexed-row-cache.json",
+      "report_sha256": "a7364c2b1c29520318074cf2652a4edf62ab6caa1f951372f12f19181579383b",
+      "cases": 38
+    },
+    "audio": {
+      "ok": true,
+      "report": "build/verification/v0111-audio.json",
+      "report_sha256": "3ef6430ae756613e5347f2d50321a89a436c32c89911f21da5bd099ca84aad40"
+    },
+    "save_audio": {
+      "ok": true,
+      "report": "build/verification/v0111-save-audio.json",
+      "report_sha256": "9204dd6053e9fb40f5289d0185e3a6c21cd304ae3874d8a80077c384491cb4eb"
+    },
+    "default_skip": {
+      "ok": true,
+      "report": "build/verification/v0111-default-skip.json",
+      "report_sha256": "07a8805bf178863cfd2aa6aeb62270c076f824fc71845aa967178545cd307db4",
+      "cases": 6
+    },
+    "exit_key": {
+      "ok": true,
+      "report": "build/verification/exit-key-smoke.json",
+      "report_sha256": "612a64b23aab80fbdbd8e7e1d0792401157c4a40dd81e02f5fc192f20656d5ed",
+      "cases": 6
+    },
+    "pause_menu": {
+      "ok": true,
+      "report": "build/verification/pause-menu-smoke.json",
+      "report_sha256": "d8c2f6831e9c2bc785b119c69d53cc51a666082b79d330fedfd2a1bedb4edbe3"
+    }
+  },
+  "final_core_differentials": {
+    "v0111-combined-core-dmc-irq": {
+      "ok": true,
+      "frames": 32,
+      "baseline": 111436449,
+      "current": 110989154,
+      "reduction_percent": 0.40139021299934186
+    },
+    "v0111-combined-core-mapper9": {
+      "ok": true,
+      "frames": 32,
+      "baseline": 152802638,
+      "current": 153020304,
+      "reduction_percent": -0.14244911138248106
+    },
+    "bda_sha256": "4062e52a9b3881a8e41fda3c831064e1ff28573a8552e0e54283b8d4aee2a302",
+    "indexed_cache_cases": 38
+  },
+  "extracted_ppu_cases": {
+    "displayed": 2437120,
+    "skipped": 304640,
+    "tiles": 300000,
+    "colors": 65536
+  },
+  "isolated_scaler": {
+    "cold_warm_cases": 102,
+    "source_bounds_checks": 12,
+    "bda_sha256": "9f8357b172f19642a81bb9c743248dbe8096cc5f551d2dc26452be0701c589ef",
+    "report": "build/verification/v0111-display-all-scaling.json"
+  },
+  "firmware": [
+    {
+      "variant": "normal",
+      "bda_sha256": "4062e52a9b3881a8e41fda3c831064e1ff28573a8552e0e54283b8d4aee2a302",
+      "video_frames": 525,
+      "video_errors": 0,
+      "audio": {
+        "sample_rate": 32000,
+        "packets": 145,
+        "frames": 96607,
+        "seconds": 3.01896875,
+        "min": -32383,
+        "max": 19092,
+        "nonzero_samples": 193178
+      },
+      "resumed_audio": {
+        "sample_rate": 32000,
+        "packets": 96,
+        "frames": 64332,
+        "seconds": 2.010375,
+        "min": -32383,
+        "max": 18929,
+        "nonzero_samples": 128632
+      },
+      "paused_display_stable": true,
+      "app_end_result": 0,
+      "save_reload_same_private_nand": true,
+      "restart_exit": 0,
+      "original_dump_unchanged": true,
+      "original_dump_files": 494
+    },
+    {
+      "variant": "profile",
+      "bda_sha256": "0f3a34699b28a69a61e22906f056144d59733e18ccdd7cc06829906dd726f5a9",
+      "video_frames": 475,
+      "video_errors": 0,
+      "audio": {
+        "sample_rate": 32000,
+        "packets": 144,
+        "frames": 96110,
+        "seconds": 3.0034375,
+        "min": -32383,
+        "max": 20273,
+        "nonzero_samples": 192200
+      },
+      "resumed_audio": {
+        "sample_rate": 32000,
+        "packets": 97,
+        "frames": 64553,
+        "seconds": 2.01728125,
+        "min": -32383,
+        "max": 19573,
+        "nonzero_samples": 129100
+      },
+      "paused_display_stable": true,
+      "app_end_result": 0,
+      "save_reload_same_private_nand": true,
+      "restart_exit": 0,
+      "original_dump_unchanged": true,
+      "original_dump_files": 494,
+      "log_extraction_recovery": {
+        "standard_extractor_failed": true,
+        "original_failure_preserved": true,
+        "read_only": true,
+        "inspected_unit_only": true,
+        "recovered_bytes": 13851,
+        "recovered_sha256": "af72f6d8736e68399321d08a23730bd0508022f25afa1ed7745d5cfe5946cbab",
+        "consecutive_records": 195,
+        "report": "build/v0111-firmware-final-profile/evidence/log-recovery.json",
+        "report_sha256": "ecca8140542bac06c09303bb579590860419d5c563af73bbac86ad28f8ec67d5"
+      }
+    }
+  ],
+  "reproducibility": {
+    "ok": true,
+    "independent_output_tree": "build\\v0111-repro-final",
+    "builds": [
+      {
+        "variant": "release-jit",
+        "sha256": "4062e52a9b3881a8e41fda3c831064e1ff28573a8552e0e54283b8d4aee2a302",
+        "bytes": 1129864,
+        "identical": true
+      },
+      {
+        "variant": "release-profile-jit",
+        "sha256": "0f3a34699b28a69a61e22906f056144d59733e18ccdd7cc06829906dd726f5a9",
+        "bytes": 1140760,
+        "identical": true
+      }
+    ]
+  },
+  "not_adopted_jit": {
+    "reason": "Both exact candidates improve the full application by less than 0.2%; added compiler/cache complexity does not meet the performance-first adoption threshold.",
+    "candidates": [
+      {
+        "name": "stack-and-call",
+        "source_tree": "build/v0111-jit-r1",
+        "patch": "build\\v0111-jit-r1.patch",
+        "bda_sha256": "863c82d5dd96884f9c73d5b52ac9e24b2ebd4890c42890069d6101b15aa929d8",
+        "strict_complete_application_pass": true,
+        "report": "build/verification/v0111-jit-city-skip1.json",
+        "total_instructions": 4551617249,
+        "whole_application_reduction_percent": 0.15665974045200315,
+        "city_instructions": 778975129,
+        "city_reduction_percent": 0.3220275846086085
+      },
+      {
+        "name": "single-op-link-targets",
+        "source_tree": "build/v0111-jit",
+        "patch": "build\\v0111-jit.patch",
+        "bda_sha256": "dfa1a5edd19f81f527af01fd7e321cf0efc860e57f7ee08b5697bd3854467c4a",
+        "strict_complete_application_pass": true,
+        "report": "build/verification/v0111-jit-r2-city-skip1.json",
+        "total_instructions": 4552603547,
+        "whole_application_reduction_percent": 0.13502451028564177,
+        "city_instructions": 777744273,
+        "city_reduction_percent": 0.4795284159545554
+      }
+    ]
+  },
+  "source_sha256": {
+    "tools/prepare_ppu.py": "14a184152a5b46897fe2a4d852e88accc5a7457015be2f86dd09610e7881818d",
+    "src/platform/frontend.c": "bfd14b2bb9812679e5c922cba4e5edaac4b45c0a61a98cf076557bbc6f6bf0f1",
+    "src/platform/nes_jit.c": "32f94c7af9bbf13cdde494e1a65bf08a62ef0ac6add176d7da7e2a29e0f56d00",
+    "tools/prepare_jit.py": "c84574a4566d62734786a4cb097d51564832074948efac5b0e0b8d5537c68324",
+    "tests/ppu_plain_span.py": "ad039097ecb4911792d783d40e15d274994301595e799e9f4f7554916078a4c2",
+    "tests/indexed_scale_v4.py": "32347d4158806c80400089d1314fc23b9c24650edca97856eb561505c0467805",
+    "tests/indexed_row_cache_smoke.py": "b60fe7342c277d071d8bfd972d7f2092f63cac31ff7f3cbb740ddfa9d9384a78"
+  },
+  "limitations": [
+    "MIPS instruction counts are not physical H1 cycles/FPS or proof of underrun-free playback",
+    "Cold allocation and changing rows add cost; static city gains are not universal",
+    "Mapper9 hook fixture costs 0.14245% more; exact outputs preserved",
+    "Frequent palette updates or nonzero fine-X need separate performance measurements"
+  ]
+}

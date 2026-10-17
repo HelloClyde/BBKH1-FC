@@ -108,9 +108,21 @@ void *realloc(void *pointer, size_t size)
 
 void *memcpy(void *destination, const void *source, size_t count)
 {
+    typedef uint32_t copy_word __attribute__((may_alias));
     uint8_t *out = (uint8_t *)destination;
     const uint8_t *in = (const uint8_t *)source;
     if ((((uintptr_t)out | (uintptr_t)in) & 3u) == 0u) {
+        /* LCD rows and completed-frame caches use aligned ordinary words.
+         * Amortize loop control without reading beyond the requested span. */
+        while (count >= 64u) {
+            copy_word *d = (copy_word *)out;
+            const copy_word *s = (const copy_word *)in;
+            d[0]=s[0];d[1]=s[1];d[2]=s[2];d[3]=s[3];
+            d[4]=s[4];d[5]=s[5];d[6]=s[6];d[7]=s[7];
+            d[8]=s[8];d[9]=s[9];d[10]=s[10];d[11]=s[11];
+            d[12]=s[12];d[13]=s[13];d[14]=s[14];d[15]=s[15];
+            out+=64;in+=64;count-=64u;
+        }
         while (count >= 16u) {
             ((uint32_t *)out)[0] = ((const uint32_t *)in)[0];
             ((uint32_t *)out)[1] = ((const uint32_t *)in)[1];
@@ -178,8 +190,19 @@ void *memset(void *destination, int value, size_t count)
 
 int memcmp(const void *left, const void *right, size_t count)
 {
+    typedef uint32_t compare_word __attribute__((may_alias));
     const uint8_t *a = (const uint8_t *)left;
     const uint8_t *b = (const uint8_t *)right;
+    if ((((uintptr_t)a | (uintptr_t)b) & 3u) == 0u) {
+        /* Equality is common for frame palettes. Locate any differing word,
+         * then retain the original unsigned-byte order and return value. */
+        while (count >= 16u) {
+            const compare_word *x=(const compare_word *)a;
+            const compare_word *y=(const compare_word *)b;
+            if ((x[0]^y[0])|(x[1]^y[1])|(x[2]^y[2])|(x[3]^y[3])) break;
+            a+=16;b+=16;count-=16u;
+        }
+    }
     while (count-- != 0u) {
         if (*a != *b) {
             return (int)*a - (int)*b;

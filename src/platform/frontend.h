@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #define FC_ROOT "A:\\FC\\"
+#define H1_DEFAULT_FRAMESKIP 1
 enum { H1_SCALE_NATIVE, H1_SCALE_ASPECT, H1_SCALE_STRETCH, H1_SCALE_LINEAR, H1_SCALE_COUNT };
 typedef struct {
     uint8_t held[45], mapping[45];
@@ -24,4 +25,5 @@ void input_discard_held(input_state *);
 void scale_frame(uint16_t *, const void *, size_t pitch, int scale);
 void scale_frame_dimensions(uint16_t *, const void *, size_t pitch, int scale, unsigned width, unsigned height);
 void scale_frame_rgb32(uint32_t *, const void *, size_t pitch, int scale, unsigned width, unsigned height, int clear);
+void h1_video_release(void);
 #endif

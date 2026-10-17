@@ -1,0 +1,124 @@
+{
+  "version": "0.1.5",
+  "bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+  "bda_bytes": 975272,
+  "profile_bda_sha256": "dfe796745dbc68dcf7e404e8f85807a22f5348bc00b53dc2626b261d3d3a44b2",
+  "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+  "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+  "optimization": "O2",
+  "lto": false,
+  "jit_enabled": false,
+  "tests": {
+    "menu-smoke": {
+      "ok": true,
+      "tested_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "report_sha256": "fa52b85f25305e52ed48898da130e3f24b83c24ffb6184db7d3a186e64c67565"
+    },
+    "pause-menu-smoke": {
+      "ok": true,
+      "tested_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "report_sha256": "5359ea2ea85f8e765e8dac32e18ba73b7e11b5e475ec5f04d67cf20213d5ccab"
+    },
+    "options-smoke": {
+      "ok": true,
+      "tested_bda_sha256": "ae9dfe0621fced580071ab12cb95951a5885d1841281b7f2878f8b27cbe43d88",
+      "report_sha256": "71695759c513c226df38a1dde8387b126abbb3cfb6bc97657b3fbcf925ee1102"
+    },
+    "audio-smoke": {
+      "ok": true,
+      "tested_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "report_sha256": "a2809967bf8688bd58a079d00f9313d7a81be577354b6432ff06323bce6933e0"
+    },
+    "indexed-video-mips": {
+      "ok": true,
+      "tested_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "report_sha256": "ea3e5c987b3a337286a365776157bd77ca8432e70f7c9f4312fbcf46d3307384"
+    },
+    "ppu-skip-smoke": {
+      "ok": true,
+      "tested_bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "report_sha256": "b2ce90c908eed8377d981c15f3017f9365f4c64e83ec3bb4cf709cf2cec2d129"
+    }
+  },
+  "core_differential": {
+    "sgz2": {
+      "frames": 32,
+      "skip": 5,
+      "strict_equivalence": true,
+      "baseline_block_instructions": 92373678,
+      "current_block_instructions": 89728606
+    },
+    "sprites": {
+      "frames": 32,
+      "skip": 2,
+      "strict_equivalence": true,
+      "baseline_block_instructions": 123255975,
+      "current_block_instructions": 120454027
+    }
+  },
+  "firmware": {
+    "normal": {
+      "bda_sha256": "51d805b05c6cb834a5ca4a6b6c6eda2efe2257e8e1deb56acecbfbb3cc1a13e5",
+      "core_frames": 1502,
+      "submissions": 2,
+      "dropped": 0,
+      "failures": 0,
+      "underruns": 0,
+      "display_frames": 1496,
+      "video_errors": 0,
+      "audio_capture_seconds": 12.00953125,
+      "pause_resume": true,
+      "clean_exit": true,
+      "physical_device_tested": false,
+      "original_dump_modified": false
+    },
+    "profile": {
+      "bda_sha256": "dfe796745dbc68dcf7e404e8f85807a22f5348bc00b53dc2626b261d3d3a44b2",
+      "core_frames": 1378,
+      "submissions": 2,
+      "dropped": 0,
+      "failures": 0,
+      "underruns": 0,
+      "display_frames": 1372,
+      "video_errors": 0,
+      "audio_capture_seconds": 12.00484375,
+      "pause_resume": true,
+      "clean_exit": true,
+      "physical_device_tested": false,
+      "original_dump_modified": false
+    }
+  },
+  "memory": {
+    "heap_is_not_limited_to_4_mib": true,
+    "rgb565_cache_heap_bytes": 262144,
+    "allocation_failure_fallback_tested": true,
+    "cache_release_tested": true
+  },
+  "compiler_experiments": {
+    "O2_LTO": {
+      "built": true,
+      "test_frames": 20,
+      "bda_sha256": "30f6a781c48d8b15dbb33d941930b888db30fe93c6e4af22ef954dc2e56fe7cb",
+      "core_frames_compared": 24,
+      "strict_core_equivalence": true,
+      "baseline_block_instructions": 84520029,
+      "current_block_instructions": 87200335,
+      "default": false
+    },
+    "O3_LTO": {
+      "built": true,
+      "test_frames": 20,
+      "bda_sha256": "713a4ac48948140bd8b98b19e16521bb57dcf6355191cab748612aedea37de4f",
+      "core_frames_compared": 24,
+      "strict_core_equivalence": true,
+      "baseline_block_instructions": 84520029,
+      "current_block_instructions": 80529468,
+      "default": false
+    }
+  },
+  "limitations": [
+    "No physical H1 performance or audio-quality measurement.",
+    "The supplied game was checked in title/menu/intro scenes, not a complete battle.",
+    "Block instruction counts do not model physical caches or frequency."
+  ]
+}

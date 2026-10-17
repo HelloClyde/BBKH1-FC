@@ -39,6 +39,8 @@ jobs:
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Build and package
         run: |
+          python tests/release_contract_smoke.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
           python tools/build.py --toolchain .tools/toolchain/bin
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           python tools/package.py
@@ -50,6 +52,16 @@ jobs:
           python tests/mips_smoke.py --bda dist/H1FC.bda --menu
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           python tests/pause_menu_smoke.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/default_skip_smoke.py --bda dist/H1FC.bda
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tools/build.py --test-frames 20 --toolchain .tools/toolchain/bin
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/audio_smoke.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/ppu_skip_smoke.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/options_smoke.py
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           python tests/check_icon.py --zip dist/H1FC-install.zip --output build/verification/icon-verification.json
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
@@ -63,6 +75,68 @@ jobs:
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           if ((Get-FileHash dist/H1FC.bda -Algorithm SHA256).Hash -ne $firstBda) { throw 'BDA is not reproducible' }
           if ((Get-FileHash dist/H1FC-install.zip -Algorithm SHA256).Hash -ne $firstZip) { throw 'Install ZIP is not reproducible' }
+      - name: Validate JIT backend independently
+        run: |
+          python tools/build.py --native-jit --toolchain .tools/toolchain/bin
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_backoff_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_event_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_schedule_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --output build/verification/jit-schedule.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_schedule_scope_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --output build/verification/jit-schedule-scope.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_combined_clock_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --output build/verification/jit-combined-clock.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_addressing_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_run_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_run_state_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_contract_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --output build/verification/jit-contract.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_nested_contract_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --output build/verification/jit-nested-contract.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_arena_nested_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --cache-mib 8 --output build/verification/jit-arena-nested.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_ppu_contract_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --output build/verification/jit-ppu-contract.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_bank_cache_smoke.py --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --expect-cache-mib 8 --output build/verification/jit-bank-8m.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tools/build.py --native-jit --jit-cache-mib 4 --no-dist --toolchain .tools/toolchain/bin
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_bank_cache_smoke.py --bda build/release-jit-4m/H1FC.bda --elf build/release-jit-4m/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --expect-cache-mib 4 --output build/verification/jit-bank-4m.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_arena_nested_smoke.py --bda build/release-jit-4m/H1FC.bda --elf build/release-jit-4m/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --cache-mib 4 --output build/verification/jit-arena-nested-4m.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tools/build.py --native-jit --jit-cache-mib 1 --no-dist --toolchain .tools/toolchain/bin
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_bank_cache_smoke.py --bda build/release-jit-1m/H1FC.bda --elf build/release-jit-1m/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --expect-cache-mib 1 --output build/verification/jit-bank-1m.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/core_equivalence.py --baseline-bda dist/H1FC.bda --baseline-elf build/release/H1FC.elf --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --frames 24 --sprites --require-jit --cost-census --output build/verification/jit-ci-equivalence.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/mips_smoke.py --bda dist/H1FC-jit.bda --menu --quick --output-dir build/verification/native
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/default_skip_smoke.py --bda dist/H1FC-jit.bda --output build/verification/default-skip-jit.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/exit_key_smoke.py --bda dist/H1FC-jit.bda --map build/release-jit/H1FC.map
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/save_audio_smoke.py --bda dist/H1FC-jit.bda --map build/release-jit/H1FC.map
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_app_storage_policy_smoke.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/core_equivalence.py --baseline-bda dist/H1FC.bda --baseline-elf build/release/H1FC.elf --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --frames 16 --sprites --dmc --require-jit --output build/verification/jit-dmc-ci.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tools/build.py --native-jit --test-frames 20 --toolchain .tools/toolchain/bin
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tests/jit_app_benchmark.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python tools/package.py --jit
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Package installer, complete source and checksums
         env:
           BUILD_REF: ${{ github.ref }}
@@ -112,4 +186,4 @@ jobs:
           RELEASE_COMMIT: ${{ github.sha }}
         run: |
           python tools/package_release.py --verify --tag "$RELEASE_TAG" --commit "$RELEASE_COMMIT"
-          gh release create "$RELEASE_TAG" dist/release/* --verify-tag --prerelease --title "H1 FC $RELEASE_TAG" --notes-file dist/release/RELEASE-NOTES.md
+          gh release create "$RELEASE_TAG" dist/release/* --verify-tag --prerelease --title "NES $RELEASE_TAG" --notes-file dist/release/RELEASE-NOTES.md

@@ -1,0 +1,658 @@
+{
+  "ok": true,
+  "version": "0.1.10",
+  "bda_sha256": "ecb0e11debb7f16df9b7b191c27e427e6f7b2a59563eea9121244a1572884315",
+  "elf_sha256": "772673d6373ec27d337aaddd6e7a32c4d93996c09f49d21d352543cd2c0b36c7",
+  "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+  "scope": "Final release, same SGZ2 city script, frames 1501..1800 only; final menu/exit excluded",
+  "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+  "method": "Read-only instruction block hook installed at frame 1501 plus Unicorn host TB flush; first 1500 frames replay without block hook",
+  "skip": 1,
+  "scale": 1,
+  "block_instructions": 781491748,
+  "checked_frames": 1800,
+  "correctness": "All 1800 per-frame state/PCM/LCD/presentation observations match cached normal run; all 300 counted frame costs match exactly; final source PCM/playback PCM/screen/saves exact",
+  "limitations": [
+    "MIPS block instruction entries, not H1 cycles/FPS.",
+    "Function costs are exclusive and omit unknown firmware device time.",
+    "No instruction-by-instruction JIT fallback reason instrumentation was added."
+  ],
+  "counted_frames": [
+    1501,
+    1800
+  ],
+  "presented_frames": 150,
+  "pcm_frames": 110059,
+  "function_costs": [
+    {
+      "function": "[generated MIPS]",
+      "instructions": 174113077,
+      "percent": 22.279579719887202
+    },
+    {
+      "function": "h1_cpu_run_jit",
+      "instructions": 141983830,
+      "percent": 18.1683082851951
+    },
+    {
+      "function": "RefreshLineBody",
+      "instructions": 128582020,
+      "percent": 16.453407259778256
+    },
+    {
+      "function": "FCEUPPU_Loop",
+      "instructions": 81261705,
+      "percent": 10.398280622663721
+    },
+    {
+      "function": "scale_nes_indexed_rgb32",
+      "instructions": 60020250,
+      "percent": 7.68021545379133
+    },
+    {
+      "function": "memcpy",
+      "instructions": 34743961,
+      "percent": 4.445851295156606
+    },
+    {
+      "function": "RdMemNorm",
+      "instructions": 22791298,
+      "percent": 2.916383705692053
+    },
+    {
+      "function": "RDoTriangleNoisePCMLQ",
+      "instructions": 19490177,
+      "percent": 2.493970928020599
+    },
+    {
+      "function": "memset",
+      "instructions": 10821196,
+      "percent": 1.3846846147376082
+    },
+    {
+      "function": "setprg8r",
+      "instructions": 10205680,
+      "percent": 1.305922938549058
+    },
+    {
+      "function": "SexyFilter",
+      "instructions": 9259956,
+      "percent": 1.184907713190594
+    },
+    {
+      "function": "h1_cpu_clock_slow",
+      "instructions": 8347637,
+      "percent": 1.068167005136438
+    },
+    {
+      "function": "setchr1",
+      "instructions": 8287488,
+      "percent": 1.0604703147805983
+    },
+    {
+      "function": "gba_audio_write",
+      "instructions": 7135615,
+      "percent": 0.9130761800443221
+    },
+    {
+      "function": "X6502_Run",
+      "instructions": 6246645,
+      "percent": 0.7993232194692349
+    },
+    {
+      "function": "RDoSQLQ",
+      "instructions": 5989302,
+      "percent": 0.766393505155732
+    },
+    {
+      "function": "output",
+      "instructions": 4791528,
+      "percent": 0.6131258599035136
+    },
+    {
+      "function": "DoNamcoSound",
+      "instructions": 4624279,
+      "percent": 0.5917246102514188
+    },
+    {
+      "function": "X6502_DMW",
+      "instructions": 4147200,
+      "percent": 0.530677388547422
+    },
+    {
+      "function": "FCEUPPU_LineUpdate",
+      "instructions": 3741778,
+      "percent": 0.4787994255314901
+    },
+    {
+      "function": "frame_allowed",
+      "instructions": 3298640,
+      "percent": 0.42209530790848476
+    },
+    {
+      "function": "X6502_DMR",
+      "instructions": 2995200,
+      "percent": 0.3832670028398048
+    },
+    {
+      "function": "FixCRR",
+      "instructions": 2893596,
+      "percent": 0.37026571392536317
+    },
+    {
+      "function": "memcmp",
+      "instructions": 2765550,
+      "percent": 0.3538808960014764
+    },
+    {
+      "function": "ResetRL",
+      "instructions": 2736000,
+      "percent": 0.3500996660555909
+    },
+    {
+      "function": "Mapper19_write",
+      "instructions": 2530801,
+      "percent": 0.32384231906182587
+    },
+    {
+      "function": "FCEU_SoundCPUHook",
+      "instructions": 1570045,
+      "percent": 0.2009035929065242
+    },
+    {
+      "function": "B2004",
+      "instructions": 1531200,
+      "percent": 0.19593297100304122
+    },
+    {
+      "function": "h1_cpu_jit_raml",
+      "instructions": 1370515,
+      "percent": 0.17537165344450956
+    },
+    {
+      "function": "CheckSpriteHit",
+      "instructions": 1329169,
+      "percent": 0.1700810025699721
+    },
+    {
+      "function": "h1_nes_jit_contract_refresh",
+      "instructions": 1150324,
+      "percent": 0.1471959240700773
+    },
+    {
+      "function": "h1_nes_jit_compile",
+      "instructions": 1099723,
+      "percent": 0.14072099965411278
+    },
+    {
+      "function": "Fixit1",
+      "instructions": 1061100,
+      "percent": 0.13577878496037554
+    },
+    {
+      "function": "stereo_filter_apply_null",
+      "instructions": 771913,
+      "percent": 0.09877429953361452
+    },
+    {
+      "function": "h1_cpu_jit_ram_write_l",
+      "instructions": 763010,
+      "percent": 0.09763506805448699
+    },
+    {
+      "function": "setprg8",
+      "instructions": 703840,
+      "percent": 0.0900636509344178
+    },
+    {
+      "function": "h1_nes_jit_bind",
+      "instructions": 633205,
+      "percent": 0.08102516777950673
+    },
+    {
+      "function": "A2002",
+      "instructions": 632672,
+      "percent": 0.08095696488403611
+    },
+    {
+      "function": "instruction",
+      "instructions": 631031,
+      "percent": 0.08074698186064531
+    },
+    {
+      "function": "B4014",
+      "instructions": 617400,
+      "percent": 0.07900275359017611
+    },
+    {
+      "function": "retire",
+      "instructions": 395638,
+      "percent": 0.05062599842065127
+    },
+    {
+      "function": "input_frame",
+      "instructions": 303320,
+      "percent": 0.0388129498201688
+    },
+    {
+      "function": "B2007",
+      "instructions": 294912,
+      "percent": 0.037737058741150006
+    },
+    {
+      "function": "GetExpOutput",
+      "instructions": 268177,
+      "percent": 0.03431603733325665
+    },
+    {
+      "function": "gba_audio_wait",
+      "instructions": 209367,
+      "percent": 0.02679068595872109
+    },
+    {
+      "function": "input_poll",
+      "instructions": 189200,
+      "percent": 0.024210108486007968
+    },
+    {
+      "function": "FrameSoundUpdate",
+      "instructions": 136777,
+      "percent": 0.017502040213481562
+    },
+    {
+      "function": "JPRead",
+      "instructions": 127776,
+      "percent": 0.016350268614736544
+    },
+    {
+      "function": "run_commit",
+      "instructions": 127458,
+      "percent": 0.016309577206181838
+    },
+    {
+      "function": "h1_cpu_jit_namco_wram",
+      "instructions": 126975,
+      "percent": 0.016247772330924216
+    },
+    {
+      "function": "run_prefix_guard",
+      "instructions": 121764,
+      "percent": 0.015580970664324916
+    },
+    {
+      "function": "poll",
+      "instructions": 88825,
+      "percent": 0.011366082908401996
+    },
+    {
+      "function": "retro_run",
+      "instructions": 85950,
+      "percent": 0.010998196746154253
+    },
+    {
+      "function": "load_global",
+      "instructions": 83398,
+      "percent": 0.010671641794482519
+    },
+    {
+      "function": "h1_app_main",
+      "instructions": 82942,
+      "percent": 0.01061329185013992
+    },
+    {
+      "function": "native_prologue",
+      "instructions": 81446,
+      "percent": 0.010421863085366833
+    },
+    {
+      "function": "irq_guard",
+      "instructions": 70692,
+      "percent": 0.009045776897953887
+    },
+    {
+      "function": "setntamem",
+      "instructions": 67500,
+      "percent": 0.008637327287555696
+    },
+    {
+      "function": "nz",
+      "instructions": 67048,
+      "percent": 0.008579489184830138
+    },
+    {
+      "function": "Write_PSG",
+      "instructions": 59618,
+      "percent": 0.007628743381177711
+    },
+    {
+      "function": "B2006",
+      "instructions": 57232,
+      "percent": 0.00732342985661315
+    },
+    {
+      "function": "ReadGP",
+      "instructions": 53184,
+      "percent": 0.006805446140168328
+    },
+    {
+      "function": "Mapper19C0D8_write",
+      "instructions": 45900,
+      "percent": 0.005873382555537873
+    },
+    {
+      "function": "schedule_count",
+      "instructions": 37860,
+      "percent": 0.004844580905286795
+    },
+    {
+      "function": "X6502_IRQEnd",
+      "instructions": 36169,
+      "percent": 0.004628199861682993
+    },
+    {
+      "function": "NamcoIRQHook",
+      "instructions": 36000,
+      "percent": 0.004606574553363038
+    },
+    {
+      "function": "B2005",
+      "instructions": 35400,
+      "percent": 0.004529798310806988
+    },
+    {
+      "function": "B4016",
+      "instructions": 32028,
+      "percent": 0.004098315827641983
+    },
+    {
+      "function": "FixCache",
+      "instructions": 31592,
+      "percent": 0.0040425250913845865
+    },
+    {
+      "function": "FlushEmulateSound",
+      "instructions": 31472,
+      "percent": 0.004027169842873376
+    },
+    {
+      "function": "cpu_load",
+      "instructions": 29789,
+      "percent": 0.003811812482503654
+    },
+    {
+      "function": "cycles",
+      "instructions": 29432,
+      "percent": 0.003766130618182804
+    },
+    {
+      "function": "[firmware stubs]",
+      "instructions": 28016,
+      "percent": 0.0035849386857505243
+    },
+    {
+      "function": "operand",
+      "instructions": 27677,
+      "percent": 0.0035415601087063556
+    },
+    {
+      "function": "min_event_budget",
+      "instructions": 24528,
+      "percent": 0.00313861279569135
+    },
+    {
+      "function": "cpu_store",
+      "instructions": 22469,
+      "percent": 0.0028751423233198364
+    },
+    {
+      "function": "register_offset",
+      "instructions": 22032,
+      "percent": 0.0028192236266581794
+    },
+    {
+      "function": "absolute_operand",
+      "instructions": 18508,
+      "percent": 0.002368291162045642
+    },
+    {
+      "function": "link_candidate",
+      "instructions": 16657,
+      "percent": 0.0021314364537602256
+    },
+    {
+      "function": "FCEUI_Emulate",
+      "instructions": 16050,
+      "percent": 0.0020537644883743544
+    },
+    {
+      "function": "is_immediate",
+      "instructions": 15558,
+      "percent": 0.0019908079694783932
+    },
+    {
+      "function": "branch_constant_cycles",
+      "instructions": 15151,
+      "percent": 0.0019387280849445386
+    },
+    {
+      "function": "pure_bus_read",
+      "instructions": 14003,
+      "percent": 0.0017918295408539619
+    },
+    {
+      "function": "FCEU_UpdateInput",
+      "instructions": 13500,
+      "percent": 0.0017274654575111393
+    },
+    {
+      "function": "indexed_video",
+      "instructions": 13050,
+      "percent": 0.0016698832755941014
+    },
+    {
+      "function": "B2000",
+      "instructions": 11880,
+      "percent": 0.0015201696026098026
+    },
+    {
+      "function": "gba_audio_render_skip",
+      "instructions": 9580,
+      "percent": 0.0012258606728116086
+    },
+    {
+      "function": "X6502_IRQBegin",
+      "instructions": 9000,
+      "percent": 0.0011516436383407595
+    },
+    {
+      "function": "buttons",
+      "instructions": 8988,
+      "percent": 0.0011501081134896386
+    },
+    {
+      "function": "NamcoSound",
+      "instructions": 8700,
+      "percent": 0.0011132555170627343
+    },
+    {
+      "function": "SetNESDeemph",
+      "instructions": 8400,
+      "percent": 0.001074867395784709
+    },
+    {
+      "function": "environment",
+      "instructions": 6900,
+      "percent": 0.0008829267893945823
+    },
+    {
+      "function": "Namco_Read5800",
+      "instructions": 6000,
+      "percent": 0.0007677624255605064
+    },
+    {
+      "function": "ANull",
+      "instructions": 4995,
+      "percent": 0.0006391622192791215
+    },
+    {
+      "function": "terminal_io.part.0",
+      "instructions": 4918,
+      "percent": 0.0006293092681510951
+    },
+    {
+      "function": "h1_nes_jit_frame_begin",
+      "instructions": 4800,
+      "percent": 0.0006142099404484051
+    },
+    {
+      "function": "StatusWrite",
+      "instructions": 4623,
+      "percent": 0.0005915609488943702
+    },
+    {
+      "function": "FCEU_PutImage",
+      "instructions": 4500,
+      "percent": 0.0005758218191703798
+    },
+    {
+      "function": "B2001",
+      "instructions": 3600,
+      "percent": 0.0004606574553363038
+    },
+    {
+      "function": "gba_audio_pacing",
+      "instructions": 3300,
+      "percent": 0.0004222693340582785
+    },
+    {
+      "function": "h1_nes_skip_frame",
+      "instructions": 3000,
+      "percent": 0.0003838812127802532
+    },
+    {
+      "function": "h1_nes_set_frameskip",
+      "instructions": 2700,
+      "percent": 0.0003454930915022279
+    },
+    {
+      "function": "h1_nes_jit_frame_end",
+      "instructions": 2700,
+      "percent": 0.0003454930915022279
+    },
+    {
+      "function": "UpdateGP",
+      "instructions": 2400,
+      "percent": 0.00030710497022420257
+    },
+    {
+      "function": "B2003",
+      "instructions": 2400,
+      "percent": 0.00030710497022420257
+    },
+    {
+      "function": "dynamic_read_guard.constprop.0",
+      "instructions": 2332,
+      "percent": 0.0002984036627345168
+    },
+    {
+      "function": "generic_bus_write",
+      "instructions": 2080,
+      "percent": 0.00026615764086097555
+    },
+    {
+      "function": "FCEU_ApplyPeriodicCheats",
+      "instructions": 1800,
+      "percent": 0.0002303287276681519
+    },
+    {
+      "function": "TriggerNMI",
+      "instructions": 1800,
+      "percent": 0.0002303287276681519
+    },
+    {
+      "function": "h1_nes_present_indexed",
+      "instructions": 1800,
+      "percent": 0.0002303287276681519
+    },
+    {
+      "function": "unknown_contract",
+      "instructions": 1520,
+      "percent": 0.00019449981447532827
+    },
+    {
+      "function": "StrobeGP",
+      "instructions": 1500,
+      "percent": 0.0001919406063901266
+    },
+    {
+      "function": "pure_ppu_write",
+      "instructions": 1492,
+      "percent": 0.00019091692315604592
+    },
+    {
+      "function": "input_event.part.0",
+      "instructions": 1479,
+      "percent": 0.00018925343790066482
+    },
+    {
+      "function": "audio",
+      "instructions": 600,
+      "percent": 7.677624255605064e-05
+    },
+    {
+      "function": "__udivdi3",
+      "instructions": 296,
+      "percent": 3.7876279660984984e-05
+    },
+    {
+      "function": "extra_read_cycle",
+      "instructions": 55,
+      "percent": 7.037822234304642e-06
+    },
+    {
+      "function": "memmove",
+      "instructions": 10,
+      "percent": 1.279604042600844e-06
+    },
+    {
+      "function": "gba_audio_pause",
+      "instructions": 4,
+      "percent": 5.118416170403376e-07
+    }
+  ],
+  "selected_exclusive_subtotals": {
+    "cpu_main_and_generated": {
+      "functions": [
+        "h1_cpu_run_jit",
+        "[generated MIPS]"
+      ],
+      "instructions": 316096907,
+      "percent": 40.4478880050823
+    },
+    "ppu_background_and_main": {
+      "functions": [
+        "RefreshLineBody",
+        "FCEUPPU_Loop"
+      ],
+      "instructions": 209843725,
+      "percent": 26.85168788244198
+    },
+    "base_apu_waveform_generators": {
+      "functions": [
+        "RDoSQLQ",
+        "RDoTriangleNoisePCMLQ"
+      ],
+      "instructions": 25479479,
+      "percent": 3.260364433176331
+    }
+  },
+  "linear_mxu_city_instructions": 0,
+  "jit_cache_wraps_during_city": 0,
+  "function_boundary_audit": "3952 sized text symbols; only three same-size soft-float aliases. Two non-executed 4-byte MXU marker gaps. JIT code arena 0x811acd40..0x819acd40 is inside generated-code range.",
+  "counter_interpretation": "Function percentages are exclusive MIPS instruction counts, not physical H1 cycle shares. h1_cpu_run_jit includes interpreter work; memcpy has multiple callers. Selected subtotals are not complete subsystem totals.",
+  "raw_report": {
+    "file": "build/verification/v0110-current-city-census-skip1.json",
+    "sha256": "79c84796731a48925ee4bbe982bb709876c4c52334b17c40d0f415f671881833"
+  },
+  "collector_sha256": "e65115ed85bba677f299ab59feb0245164d38b4d4a18f36f5262283f8c6c68b6"
+}

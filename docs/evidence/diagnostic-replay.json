@@ -1,0 +1,57 @@
+{
+  "diagnostic_revision": 1,
+  "application": "NES-D",
+  "version": "0.1.15",
+  "bda_sha256": "b1a9c01d2950b3351f33322c91ca38bcaa03c03dd1d2f23eaa65c4247a26aa5b",
+  "ordinary_binary_identical_to_frozen_0115": true,
+  "ordinary_install_zip_unchanged": true,
+  "complete_replay_frames": 28500,
+  "complete_groups": 15,
+  "per_group_frames": 1800,
+  "warmup_frames": 300,
+  "final_application_cases": 9,
+  "final_core_comparison_frames": 72,
+  "final_hle_wait_cases": 16,
+  "coverage_note": "The 15-group full-firmware pass used 888e2575. Final b1a9 differs only in GUI-restore failure and terminal-log failure reporting; it passed all nine application cases, repeated core-mode equivalence, and full-firmware cancellation after 1800 + 555 measured-group frames.",
+  "physical_device_tested": false,
+  "hardware_performance_or_root_cause_established": false,
+  "fine_timing_note": "QEMU fine timing was rejected. Independent RTC data is retained solely as protocol evidence, not physical performance.",
+  "scenario": "Canonical SGZ2-CN, deterministic city entry and stationary city interface, SRAM and configuration IO disabled.",
+  "evidence": {
+    "full_replay_before_final_error_handling": {
+      "path": "build/diagnostic-firmware-final-v2/evidence/report.json",
+      "sha256": "94df779a337286bac69403d7aac8e214ec432d9f4f5b2e9214f11411975774d1",
+      "bda_sha256": "888e257540601f26d2c7eab38a879491f6924a67f474c9b42036c3409074f8bf"
+    },
+    "final_firmware_measured_group_abort": {
+      "path": "build/diagnostic-firmware-final-abort/evidence/report.json",
+      "sha256": "c9dc32c34651de9af9f99939129e09bf66c2b157f0c0e383cf85681283938bcf",
+      "bda_sha256": "b1a9c01d2950b3351f33322c91ca38bcaa03c03dd1d2f23eaa65c4247a26aa5b"
+    },
+    "final_app_cases": {
+      "path": "build/verification/diagnostic-app-smoke/final-report.json",
+      "sha256": "916e87eac8ce79876143b0077d7d8961581583c4a0a6259357c5dd8d065cdc6a",
+      "bda_sha256": "b1a9c01d2950b3351f33322c91ca38bcaa03c03dd1d2f23eaa65c4247a26aa5b"
+    },
+    "final_core_modes": {
+      "path": "build/verification/diagnostic-core-mips-final.json",
+      "sha256": "6759cb85674eabfe7b9335872fe58e41a62e91ed598a838901a9cc8192635e34",
+      "bda_sha256": "b1a9c01d2950b3351f33322c91ca38bcaa03c03dd1d2f23eaa65c4247a26aa5b"
+    },
+    "clock_register_model": {
+      "path": "build/verification/diagnostic-clock/report.json",
+      "sha256": "0fe54a57fff9ea0e8aabf4cc28c5c0d5168c2b9143d8092b27aab56ebf5fa406",
+      "bda_sha256": null
+    }
+  },
+  "limits": [
+    "No direct hardware CPU/cache/memory-stall counters.",
+    "Diagnostic builds retain instrumentation branches and RAM tracing even in RTC-only.",
+    "Fine frame interval excludes telemetry bookkeeping; RTC spans intermediate frame bookkeeping.",
+    "This test does not reproduce sustained city-menu operations or battery-save stalls."
+  ],
+  "analyzer_sha256": "94d3ad6efb5e4a5c28ca5e508f476ef079ec06895882d7800a092b80a47efe6a",
+  "analyzer_tests": 20,
+  "analyzer_complete_log_protocol_verified": true,
+  "analyzer_aborted_log_excluded_from_comparisons": true
+}

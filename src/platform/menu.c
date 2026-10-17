@@ -8,25 +8,31 @@
 #include <string.h>
 #include <stdio.h>
 
-/* Keep the v1 payload size: volume occupies a formerly reserved byte. */
+/* Keep the v1 payload size. v3 releases Escape/Back for game bindings. */
 typedef struct { uint32_t magic,version,scale,skip,sound; uint8_t mapping[45],volume,padding[2]; } config_data;
 static void config_pack(config_data *d,const h1_config *c,const input_state *s)
 {
-    memset(d,0,sizeof *d);d->magic=0x31474643;d->version=2;d->volume=c->volume;
+    memset(d,0,sizeof *d);d->magic=0x31474643;d->version=3;d->volume=c->volume;
     d->scale=s->scale;d->skip=s->skip;d->sound=c->sound;memcpy(d->mapping,s->mapping,45);
 }
 void h1_config_load(h1_config *c,input_state *s,const char *rom)
 {
     config_data d;
-    s->scale=1;s->skip=0;input_mapping_defaults(s);c->sound=1;c->volume=100;
+    s->scale=1;s->skip=H1_DEFAULT_FRAMESKIP;input_mapping_defaults(s);c->sound=1;c->volume=100;
     config_pack(&d,c,s);
     int result=save_load_aux(&c->store,rom,&d,sizeof d,".cfg");
     c->enabled=result>=0;
     if (result==1) {
-        int valid=d.magic==0x31474643 && (d.version==1 || d.version==2) &&
+        int valid=d.magic==0x31474643 && d.version>=1 && d.version<=3 &&
             (d.version==1 || d.volume<=100) && d.scale<H1_SCALE_COUNT && d.skip<3 && d.sound<2 && !d.mapping[0];
         for (unsigned k=1;k<=44;++k) if (d.mapping[k]>16 || (input_key_reserved(k)&&d.mapping[k])) valid=0;
-        if (valid) { s->scale=d.scale;s->skip=d.skip;c->sound=d.sound;c->volume=d.version==1?100:d.volume;memcpy(s->mapping,d.mapping,45); }
+        if (valid) {
+            s->scale=d.scale;s->skip=d.skip;c->sound=d.sound;c->volume=d.version==1?100:d.volume;
+            memcpy(s->mapping,d.mapping,45);
+            /* These keys were reserved in old configs, so existing installs
+             * must receive the new B bindings without resetting other keys. */
+            if (d.version<3) s->mapping[H1_KEY_ESCAPE]=s->mapping[H1_KEY_BACK]=RETRO_DEVICE_ID_JOYPAD_B+1;
+        }
         else c->enabled=0;
     }
     s->scale_changed=s->skip_changed=1;
@@ -90,7 +96,7 @@ static int hit(int page,int x,int y)
 }
 static void draw(int page,int cursor,int capture,const char *status,const input_state *s,const h1_config *c)
 {
-    static const char *titles[]={"游戏已暂停","按键映射","即时存档","即时读档","显示设置","关于 H1 FC","声音设置"};
+    static const char *titles[]={"游戏已暂停","按键映射","即时存档","即时读档","显示设置","关于 NES","声音设置"};
     static const char *root[]={"继续游戏","按键映射","即时存档","即时读档","显示设置","","更换游戏","退出游戏","关于"};
     static const char *modes[]={"原始大小","保持比例","全屏拉伸","保持比例（线性平滑）"};
     char label[96];
@@ -98,9 +104,10 @@ static void draw(int page,int cursor,int capture,const char *status,const input_
     if (page==6 && !(status&&*status)) {
         snprintf(label,sizeof label,"音量：%u%%  左右键调节",c->volume);text(label,18,32,0xbdf7);
         rect(38,226,404,12,0x2128);rect(38,226,(int)(404*c->volume/100),12,0x05b4);
-    } else text(page==5?"确认／返回回到暂停菜单":capture>=0?"请按实体键，返回取消":status&&*status?status:"触摸选择，方向键／确认，返回继续",18,32,0xbdf7);
+    } else text(page==5?"确认／返回回到暂停菜单":capture>=0?"请按实体键，P取消":status&&*status?status:"触摸选择，方向键／确认，返回继续",18,32,0xbdf7);
     if (page==5) {
-        text("H1 FC  v0.1.2",38,56,0xffff);
+        text("NES",38,56,0xffff);
+        text("v0.1.16",350,56,0xffff);
         text("作者：HelloClyde",38,80,0xffff);
         text("核心：FC / NES: FCEUmm",38,104,0xbdf7);
         text("Thanks:",38,128,0xbdf7);
@@ -163,7 +170,7 @@ int h1_pause_menu(input_state *s,h1_config *c,const h1_core *core,const char *ro
             held[key]=1;
             back=key==H1_KEY_ESCAPE || key==H1_KEY_BACK || key==H1_KEY_P;
             if (capture>=0) {
-                if (back) { capture=-1;status="已取消"; }
+                if (key==H1_KEY_P) { capture=-1;status="已取消"; }
                 else if (input_map_button(s,logical[capture],key)) { capture=-1;status="按键已修改"; }
                 else status="此键用于菜单，请选择其他键";
                 dirty=1;continue;
@@ -209,7 +216,7 @@ int h1_pause_menu(input_state *s,h1_config *c,const h1_core *core,const char *ro
         else {
             if (cursor==0) s->scale=(s->scale+1)%H1_SCALE_COUNT;
             if (cursor==1) s->skip=(s->skip+1)%3;
-            if (cursor==2) { s->scale=1;s->skip=0; }
+            if (cursor==2) { s->scale=1;s->skip=H1_DEFAULT_FRAMESKIP; }
             if (cursor==3) { page=0;cursor=4; }
             s->scale_changed=s->skip_changed=1;
         }

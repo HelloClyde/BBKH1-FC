@@ -1,0 +1,721 @@
+{
+  "version": "0.1.8",
+  "title": "NES",
+  "author": "HelloClyde",
+  "baseline_sha256": "b0717816846c04994ac377c2e56f1770cbf2b529e03a38fd76cdbb092c2fce86",
+  "normal": {
+    "title": "NES",
+    "version": "0.1.8",
+    "sha256": "8037e35ab543be51005d06fb8e548ac6e61317e23c893d24b811dfb786827ca4",
+    "size": 1058440,
+    "payload_sha256": "793eb5b41540b7b1dd3f08f073cc0dda16889b2fc43bde95dd16c3b25260d337",
+    "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+    "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+    "core": "FCEUmm",
+    "entry_va": "0x83c00020",
+    "formats": [
+      "nes"
+    ],
+    "audio": "H1 native PCM 32000 Hz mono",
+    "log_path": "A:\\FC\\h1fc.log",
+    "test_frames": 0,
+    "benchmark": false,
+    "verbose_log": false,
+    "profile": false,
+    "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+    "build_time": "2026-10-13 00:00:00",
+    "optimization": "O2",
+    "lto": false,
+    "jit": true,
+    "experimental": true,
+    "jit_backend": "MIPS32_RUN_V4",
+    "jit_cache_mib": 1,
+    "icon": "assets/fc-icon.png",
+    "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031"
+  },
+  "profile": {
+    "title": "NES",
+    "version": "0.1.8",
+    "sha256": "96931ca423c0b3715b0f369ddb479335c402bdd363bb161869bbfe60ffbfe060",
+    "size": 1069416,
+    "payload_sha256": "96f3b68204acc5255e2046fd77455f6558d8c61e88217a6a45434c8b026fd6ee",
+    "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+    "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+    "core": "FCEUmm",
+    "entry_va": "0x83c00020",
+    "formats": [
+      "nes"
+    ],
+    "audio": "H1 native PCM 32000 Hz mono",
+    "log_path": "A:\\FC\\h1fc.log",
+    "test_frames": 0,
+    "benchmark": false,
+    "verbose_log": false,
+    "profile": true,
+    "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+    "build_time": "2026-10-13 00:00:00",
+    "optimization": "O2",
+    "lto": false,
+    "jit": true,
+    "experimental": true,
+    "jit_backend": "MIPS32_RUN_V4",
+    "jit_cache_mib": 1,
+    "icon": "assets/fc-icon.png",
+    "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031"
+  },
+  "core_skip5": {
+    "report": "build/verification/v018-final-ppu-sgz2-skip5-128.json",
+    "report_sha256": "4712f362e0b01646b72e4ece75fa0ff1ab0496bc1f5838a936716e0e2484b492",
+    "frames": 128,
+    "skip": 5,
+    "baseline_instructions": 282634210,
+    "current_instructions": 238228247,
+    "reduction_percent": 15.711460760535678,
+    "full_serialized_state_pcm_video_game_state_exact": true,
+    "ppu_background": {
+      "before": 76878324,
+      "after": 32898260,
+      "reduction_percent": 57.20736575891014
+    }
+  },
+  "sprites_dmc_irq_skip5": {
+    "report": "build/verification/v018-final-ppu-sprites-dmc-irq-skip5.json",
+    "report_sha256": "b3e326c2328ddf5c6c59ab42b570478f0219ff2df76444a8691f005c171a9151",
+    "frames": 32,
+    "skip": 5,
+    "baseline_instructions": 84443150,
+    "current_instructions": 84094197,
+    "reduction_percent": 0.4132401503259886,
+    "full_serialized_state_pcm_video_game_state_exact": true
+  },
+  "complete_application_title600": {
+    "report": "build/verification/audio-v018-title-comparison.json",
+    "report_sha256": "98b084f066ba08dfed95a5909ec23d8bdd6c31a1b6e6274032e30402d36550fc",
+    "frames": 600,
+    "baseline_instructions": 1982253797,
+    "current_instructions": 1973455795,
+    "reduction_percent": 0.44383832248500177,
+    "comparison": {
+      "schema": 1,
+      "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+      "frames": 600,
+      "settings": {
+        "scale": 1,
+        "skip": 0,
+        "sound": 1,
+        "volume": 100,
+        "save": "new, empty initial filesystem"
+      },
+      "events": [],
+      "cost_census": false,
+      "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+      "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+      "state_observation": "Read-only SFORMAT tables, without save callbacks"
+    },
+    "output_comparison": "Compare gameplay LCD/core/PCM and PCM ring observations through first audio pause/close, plus persisted save payloads. Actual final menu LCD and audio teardown are recorded separately",
+    "rendered_frames": {
+      "baseline": 600,
+      "current": 600
+    },
+    "catchup_frames": {
+      "baseline": 0,
+      "current": 0
+    },
+    "scope": "Complete actual release MIPS app, including P to open the menu and confirmation of Exit; firmware mocked. Total-cost comparison includes exit UI costs",
+    "limitation": "MIPS block instruction entries and host time do not establish physical H1 cycles/FPS. Scene coverage requires inspecting saved screenshots."
+  },
+  "complete_application_city1800": {
+    "report": "build/verification/audio-v018-city-comparison.json",
+    "report_sha256": "440cec7468af6462c56950698c1b280b2de471d69374c4a71b60eda8fcd5522a",
+    "frames": 1800,
+    "baseline_instructions": 6191078113,
+    "current_instructions": 6086409214,
+    "reduction_percent": 1.6906409043719983,
+    "comparison": {
+      "schema": 1,
+      "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+      "frames": 1800,
+      "settings": {
+        "scale": 1,
+        "skip": 0,
+        "sound": 1,
+        "volume": 100,
+        "save": "new, empty initial filesystem"
+      },
+      "events": [
+        {
+          "frame": 301,
+          "key": 25,
+          "down": true
+        },
+        {
+          "frame": 305,
+          "key": 25,
+          "down": false
+        },
+        {
+          "frame": 421,
+          "key": 25,
+          "down": true
+        },
+        {
+          "frame": 425,
+          "key": 25,
+          "down": false
+        },
+        {
+          "frame": 541,
+          "key": 25,
+          "down": true
+        },
+        {
+          "frame": 545,
+          "key": 25,
+          "down": false
+        },
+        {
+          "frame": 721,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 725,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 841,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 845,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 1201,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 1205,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 1321,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 1325,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 1501,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 1505,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 1621,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 1625,
+          "key": 16,
+          "down": false
+        }
+      ],
+      "cost_census": false,
+      "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+      "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+      "state_observation": "Read-only SFORMAT tables, without save callbacks",
+      "render_policy": "Allow audio catch-up skips; require exact baseline render/catch-up counts"
+    },
+    "output_comparison": {
+      "ok": true,
+      "policy": "storage-audio-v1",
+      "failures": [],
+      "lcd_differences": [
+        {
+          "frame": 636,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": true,
+          "current_presented": false,
+          "baseline_lcd": "415f15232a42e22d76ab1340ec285c707e92e3b091cd4a3345753a09e69967d6",
+          "current_lcd": "e097d38bbb67b48d8c90bfbf1ac72e4a0d0ead63be3560a68bfc158bf0b5f6e1"
+        },
+        {
+          "frame": 1217,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": false,
+          "current_presented": true,
+          "baseline_lcd": "b82861d60f7c6b2894b8565ee5cfa104edbbc1916234424db549f414e6912ae6",
+          "current_lcd": "fbff22f65589e657f72a1ab4e1758b53d3b5fbff92b815913e8efa323c5a599a"
+        },
+        {
+          "frame": 1218,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": false,
+          "current_presented": true,
+          "baseline_lcd": "b82861d60f7c6b2894b8565ee5cfa104edbbc1916234424db549f414e6912ae6",
+          "current_lcd": "ff33bb83606568c734f64b2d613e471758e44c73bc136b91dbfee31b99965f8e"
+        },
+        {
+          "frame": 1224,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "feb838f5e885037495beb4b6c4e7d447874198f932e0bcea3acd2ba1223a13be",
+          "current_lcd": "fbff22f65589e657f72a1ab4e1758b53d3b5fbff92b815913e8efa323c5a599a"
+        },
+        {
+          "frame": 1229,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "9a52d5ac34bbcd7a1f2173a3f355fe5d4f47fde280a6d4723f62b27808bab769",
+          "current_lcd": "fbff22f65589e657f72a1ab4e1758b53d3b5fbff92b815913e8efa323c5a599a"
+        },
+        {
+          "frame": 1230,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "9a52d5ac34bbcd7a1f2173a3f355fe5d4f47fde280a6d4723f62b27808bab769",
+          "current_lcd": "fbff22f65589e657f72a1ab4e1758b53d3b5fbff92b815913e8efa323c5a599a"
+        },
+        {
+          "frame": 1247,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "8d1f401280d391bf8cc47c52f63a9678b892c13de3107406933ab0ce7c18aef5",
+          "current_lcd": "083e043760abeb9e982d8688d7ac3e319965184654d64d53ed80bf467461e0a3"
+        },
+        {
+          "frame": 1248,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "8d1f401280d391bf8cc47c52f63a9678b892c13de3107406933ab0ce7c18aef5",
+          "current_lcd": "083e043760abeb9e982d8688d7ac3e319965184654d64d53ed80bf467461e0a3"
+        },
+        {
+          "frame": 1250,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "345f29f05faec3e8eea411484ed0b7b2f0cf8e91552534d03d70cdb46d46649b",
+          "current_lcd": "cbf688875f9f65072f7bfc28b066dbad380ef4b021d546b2dcb4bb9a18180fa0"
+        },
+        {
+          "frame": 1251,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "ac3c85438d53f2024cd12f19e1b46318ebacb99313bd29a1ce556e649f1cdc74",
+          "current_lcd": "cbf688875f9f65072f7bfc28b066dbad380ef4b021d546b2dcb4bb9a18180fa0"
+        },
+        {
+          "frame": 1256,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "ac3c85438d53f2024cd12f19e1b46318ebacb99313bd29a1ce556e649f1cdc74",
+          "current_lcd": "cbf688875f9f65072f7bfc28b066dbad380ef4b021d546b2dcb4bb9a18180fa0"
+        },
+        {
+          "frame": 1269,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "4d5de7a43444d6dbe85a56d002431d4b241752c5a618a23c2fbc6f067b0e9dfd",
+          "current_lcd": "669ab964358934060ed4d086a746abf0a1aa41b313e1e49ad0d8e4dc12f2f136"
+        },
+        {
+          "frame": 1274,
+          "kind": "observed_display_cadence_difference",
+          "baseline_presented": null,
+          "current_presented": false,
+          "baseline_lcd": "2a0cb7cfac870da68fab2f68e74d93a1a6313297c02552a055028e2655dd1b38",
+          "current_lcd": "4d5de7a43444d6dbe85a56d002431d4b241752c5a618a23c2fbc6f067b0e9dfd"
+        }
+      ],
+      "differences": {
+        "save_payloads": {
+          "baseline": {
+            "A:\\FC\\BENCH.nes.s0": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+            "A:\\FC\\BENCH.nes.s1": "d0758fe5c8444aaa9e4c331e4592448f759532b052f98f7ffe091cec1d4f7491"
+          },
+          "current": {
+            "A:\\FC\\BENCH.nes.s0": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+            "A:\\FC\\BENCH.nes.s1": "e7912bc7bea3e9e76c3d44f4396581000d21e1dbcd8e4e6665c3f3f5c852f148"
+          }
+        },
+        "rendered_frames": {
+          "baseline": 1790,
+          "current": 1740
+        },
+        "audio_catchup_frames": {
+          "baseline": 16,
+          "current": 91
+        },
+        "submitted_ring_pcm": {
+          "baseline": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479",
+          "current": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8"
+        },
+        "observed_ring_pcm": {
+          "baseline": "85b16df82056ad10ef2662072d541c5c416e083edff56664d40797453105080b",
+          "current": "cb3bcf7e051fbc026c6167eb814b89e495892e0d2cdb35aaffe417f15ad04ad6"
+        },
+        "gameplay_submitted_ring_pcm": {
+          "baseline": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479",
+          "current": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8"
+        },
+        "gameplay_observed_ring_pcm": {
+          "baseline": "65e7a2a467d137630be697e867bb7d075cc4abe6e1d9576328dc3d8e6981eb5a",
+          "current": "cd1e6a6170e5589950e5ed7113c52daed9b9d71b05cb205baadb9e1f1b8d8fb1"
+        }
+      },
+      "latest_save": {
+        "baseline": {
+          "path": "A:\\FC\\BENCH.nes.s0",
+          "generation": 3,
+          "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "evidence": "schema-1 cache: complete verified-write log and alternating slots"
+        },
+        "current": {
+          "path": "A:\\FC\\BENCH.nes.s0",
+          "generation": 3,
+          "rom_id": 556327497,
+          "bytes": 8320,
+          "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "evidence": "validated slot headers"
+        }
+      },
+      "core_observations_exact": true,
+      "cost_scope": "Complete app costs include changes in display cadence, playback/ring handling, save timing and teardown; this is not a fixed-work CPU speedup.",
+      "display_limit": "Unchanged legacy LCD hashes prove identical observed output, not presentation. Different hashes require observed holds or exact shared-frame presentation; unknown presentation status is a failed, unresolved visual comparison."
+    },
+    "rendered_frames": {
+      "baseline": 1790,
+      "current": 1740
+    },
+    "catchup_frames": {
+      "baseline": 16,
+      "current": 91
+    },
+    "scope": "Complete actual release MIPS app, including P to open the menu and confirmation of Exit; firmware mocked. Total-cost comparison includes exit UI costs",
+    "limitation": "MIPS block instruction entries and host time do not establish physical H1 cycles/FPS. Scene coverage requires inspecting saved screenshots."
+  },
+  "baseline_presentation_supplement": {
+    "source_cache_sha256": "ca84f781a929d29d959930d696ae4811035a2ae230ace6002439560747e2009b",
+    "report": "audio-v018-baseline-prefix-observation.json",
+    "report_sha256": "268517ca094b1dbb5b5f98c9d34e745cc8e443b506a9dbac17a45ad19d5afbef",
+    "start_frame": 1,
+    "end_frame": 1219,
+    "added_fields": [
+      "presented",
+      "video_count"
+    ],
+    "cost_statistics_collected": false,
+    "original_costs_preserved": true,
+    "proof": "Every replayed prefix LCD, source PCM, PCM length, CPU/PPU and declared state matches the original counted cache frame by frame; final replay exit frame excluded."
+  },
+  "regressions": {
+    "save_audio": {
+      "report": "build/verification/v018-save-audio-final.json",
+      "report_sha256": "cd8898db55783e27b5dfe854f9884f86a9aae529eae0c1330048f11f4be53b67",
+      "ok": true,
+      "details": {
+        "ok": true,
+        "kind": "Actual MIPS functions, mocked blocking/faulting firmware services",
+        "bda_sha256": "8037e35ab543be51005d06fb8e548ac6e61317e23c893d24b811dfb786827ca4",
+        "audio": [
+          {
+            "source_rate": 22050,
+            "preserved_resampler_phase": true,
+            "fresh_pcm_samples": 8916,
+            "stalled_ring_laps": 4,
+            "old_pcm_replayed_during_storage": false,
+            "fade_samples": 128,
+            "no_recovery_log_io": true,
+            "menu_pause_preserved": true
+          },
+          {
+            "source_rate": 32000,
+            "preserved_resampler_phase": true,
+            "fresh_pcm_samples": 6144,
+            "stalled_ring_laps": 4,
+            "old_pcm_replayed_during_storage": false,
+            "fade_samples": 128,
+            "no_recovery_log_io": true,
+            "menu_pause_preserved": true
+          },
+          {
+            "source_rate": 48000,
+            "preserved_resampler_phase": true,
+            "fresh_pcm_samples": 4096,
+            "stalled_ring_laps": 4,
+            "old_pcm_replayed_during_storage": false,
+            "fade_samples": 128,
+            "no_recovery_log_io": true,
+            "menu_pause_preserved": true
+          },
+          {
+            "restart_failure": true,
+            "device_and_descriptors_closed": true,
+            "original_volume_restored": true
+          }
+        ],
+        "save": {
+          "unchanged_no_io": true,
+          "payload_bytes": 8320,
+          "mapper_iram_bytes": 128,
+          "combined_write_bytes": 8348,
+          "format_and_crc_unchanged": true,
+          "faults": [
+            {
+              "fault": "short_write",
+              "verified_slot_preserved": true,
+              "generation_unchanged": true,
+              "previous_slot_reload": true
+            },
+            {
+              "fault": "close_failure",
+              "verified_slot_preserved": true,
+              "generation_unchanged": true,
+              "previous_slot_reload": true
+            },
+            {
+              "fault": "corrupt_readback",
+              "verified_slot_preserved": true,
+              "generation_unchanged": true,
+              "previous_slot_reload": true
+            }
+          ]
+        },
+        "application": {
+          "actual_app_periodic_save": true,
+          "periodic_writes": 1,
+          "log_writes_with_live_ring": 0,
+          "deferred_after_audio_stops": true,
+          "successful_exit": true
+        },
+        "limitation": "Storage is deliberately silent. This does not remove IO latency or establish physical-device performance."
+      }
+    },
+    "pcm": {
+      "report": "build/verification/v018-audio-final.json",
+      "report_sha256": "6d976bba09c96899656ce81b2231f2c0fbdc5951b639921aba902cb3c5bcf437",
+      "ok": true
+    },
+    "native_return": {
+      "report": "build/verification/v018-jit-run-state-final.json",
+      "report_sha256": "976d9dc38d33290073feb0d3535dfd93f5d2ef995ade148c023af4abe8fe8051",
+      "ok": true,
+      "cases": 144
+    },
+    "application_smoke": {
+      "report": "build/verification/menu-smoke.json",
+      "report_sha256": "d821041019a5965fd03ec242a28a19639a097cbe49c35f45ab4c6df950785ca1",
+      "ok": true
+    },
+    "pause_menu": {
+      "report": "build/verification/pause-menu-smoke.json",
+      "report_sha256": "eccf040b1e39f56f5c0ea3c36e372d088ac2cd13ee7153a03a46f18be37e10de",
+      "ok": true
+    },
+    "exit_key": {
+      "report": "build/verification/exit-key-smoke.json",
+      "report_sha256": "a15baa605bddbd97d61240ab8c154b256989d2fa2ce7ff3c5c94e8d17ba76c13",
+      "ok": true
+    },
+    "ppu_fetch_boundaries": {
+      "ok": true,
+      "cases": 304640,
+      "prepared_ppu_sha256": "6dfff0164ef899ac9a7e56d194755fa7a16a5ecf50a2645b78ca404293d2c404",
+      "scope": "Extracted actual skip-span code and tile fetches; all tile/coarse-X/attribute boundaries",
+      "limitation": "Hosted arithmetic check; whole-core MIPS state/audio/video differential is separate."
+    },
+    "profile_host": {
+      "frames": 620,
+      "detail_frames": 20,
+      "light_frames": 600,
+      "six_frame_cadence_detail_displayed": 4,
+      "checks": [
+        "exclusive accounting",
+        "cross-window cadence",
+        "restart",
+        "clock fault",
+        "stack fault"
+      ],
+      "command": "python tests/run_profile_tests.py",
+      "source_sha256": "d89243b9208f1bf6a92ecab83e84d9648a88ac4b211c4f553ce99e1a6e9f9787"
+    }
+  },
+  "firmware": {
+    "ok": true,
+    "physical_device_tested": false,
+    "original_dump_unchanged": true,
+    "dump_files": 494,
+    "dump_bytes": 941764502,
+    "owned_ports_released": [
+      8865,
+      8866,
+      8867,
+      8868
+    ],
+    "tests": {
+      "normal": {
+        "report": "build/audio-v018-firmware-normal-2/evidence/classic-smoke.json",
+        "bda_sha256": "8037e35ab543be51005d06fb8e548ac6e61317e23c893d24b811dfb786827ca4",
+        "video_frames": 881,
+        "audio": {
+          "sample_rate": 32000,
+          "packets": 145,
+          "frames": 96556,
+          "seconds": 3.017375,
+          "min": -32383,
+          "max": 19331,
+          "nonzero_samples": 193090
+        },
+        "resumed_audio": {
+          "sample_rate": 32000,
+          "packets": 97,
+          "frames": 64762,
+          "seconds": 2.0238125,
+          "min": -32383,
+          "max": 20166,
+          "nonzero_samples": 129518
+        },
+        "close": [
+          "AUDIO_CLOSE_BEGIN batches=939 submitted=2 nonzero=443309 dropped=0 failures=0 underruns=0"
+        ],
+        "storage": [
+          "AUDIO_STORAGE pauses=0 raw_ticks=0 max_raw_ticks=0"
+        ],
+        "checkpoints": [],
+        "catchup": [
+          "AUDIO_CATCHUP frames=88 max_skip=5 config_skip=0"
+        ],
+        "normal_exit": true,
+        "source_dump_modified": false,
+        "physical_device_tested": false
+      },
+      "profile": {
+        "report": "build/audio-v018-firmware-profile/evidence/classic-smoke.json",
+        "bda_sha256": "96931ca423c0b3715b0f369ddb479335c402bdd363bb161869bbfe60ffbfe060",
+        "video_frames": 1024,
+        "audio": {
+          "sample_rate": 32000,
+          "packets": 145,
+          "frames": 96577,
+          "seconds": 3.01803125,
+          "min": -32383,
+          "max": 19416,
+          "nonzero_samples": 193132
+        },
+        "resumed_audio": {
+          "sample_rate": 32000,
+          "packets": 97,
+          "frames": 64472,
+          "seconds": 2.01475,
+          "min": -32383,
+          "max": 19930,
+          "nonzero_samples": 128928
+        },
+        "close": [
+          "AUDIO_CLOSE_BEGIN batches=1082 submitted=2 nonzero=519440 dropped=0 failures=0 underruns=0"
+        ],
+        "storage": [
+          "AUDIO_STORAGE pauses=0 raw_ticks=0 max_raw_ticks=0"
+        ],
+        "checkpoints": [],
+        "catchup": [
+          "AUDIO_CATCHUP frames=88 max_skip=5 config_skip=0"
+        ],
+        "normal_exit": true,
+        "source_dump_modified": false,
+        "physical_device_tested": false,
+        "ppu_sampling": [
+          "PROFILE_SAMPLING window=0 detail_frames=5 detail_displayed=3 detail_core_mean_us=4089 light_frames=120 light_displayed=64 light_core_mean_us=4150",
+          "PROFILE_SAMPLING window=0 detail_frames=10 detail_displayed=10 detail_core_mean_us=3479 light_frames=281 light_displayed=281 light_core_mean_us=2746"
+        ],
+        "profile_faults_and_windows": [
+          "PROFILE_TCU_READS stage=calibrated fault=0 retries=55 backwards=34 wraps=1 deferred=34 terminal=0 period=65536 previous=2367 total=67903 max_delta=4266 bad_a=584 bad_b=590 bad_previous=584",
+          "PROFILE_TCU_READS stage=pause fault=2 retries=212 backwards=1 wraps=0 deferred=0 terminal=0 period=65536 previous=65467 total=65467 max_delta=293 bad_a=65467 bad_b=3 bad_previous=65467",
+          "PROFILE_BEGIN reason=pause windows=1 omitted=0 hz=32768 fault=3 exclusive=1",
+          "PROFILE_WINDOW index=0 frames=125 displayed=67 elapsed_us=1996032 core_mean_us=4150 core_max_us=46234 core_p95_bin_ms=12 over_16_743ms=3 loop_under_2ms=2 loop_over_25ms=52",
+          "PROFILE_TCU_READS stage=pause fault=0 retries=639 backwards=439 wraps=2 deferred=438 terminal=0 period=65536 previous=24275 total=155347 max_delta=130 bad_a=23995 bad_b=23997 bad_previous=23995",
+          "PROFILE_BEGIN reason=pause windows=1 omitted=0 hz=32768 fault=0 exclusive=1",
+          "PROFILE_WINDOW index=0 frames=291 displayed=291 elapsed_us=4737426 core_mean_us=2777 core_max_us=4516 core_p95_bin_ms=3 over_16_743ms=0 loop_under_2ms=0 loop_over_25ms=149",
+          "PROFILE_TCU_READS stage=exit fault=0 retries=639 backwards=439 wraps=2 deferred=438 terminal=0 period=65536 previous=24275 total=155347 max_delta=130 bad_a=23995 bad_b=23997 bad_previous=23995",
+          "PROFILE_BEGIN reason=exit windows=0 omitted=0 hz=32768 fault=0 exclusive=1"
+        ],
+        "timing_caveat": "First segment rejected near a TCU wrap (previous=65467, new=3, FULL not yet visible); only its initial 125 frames have fine timing, with fault=3 reported. The resumed 291-frame segment has fault=0, detail=10, light=281. Neither segment establishes physical-device performance."
+      },
+      "normal_storage": {
+        "report": "build/audio-v018-firmware-normal-storage/evidence/classic-smoke.json",
+        "bda_sha256": "8037e35ab543be51005d06fb8e548ac6e61317e23c893d24b811dfb786827ca4",
+        "video_frames": 2037,
+        "audio": {
+          "sample_rate": 32000,
+          "packets": 144,
+          "frames": 96303,
+          "seconds": 3.00946875,
+          "min": -27247,
+          "max": 13152,
+          "nonzero_samples": 192574
+        },
+        "resumed_audio": {
+          "sample_rate": 32000,
+          "packets": 97,
+          "frames": 64851,
+          "seconds": 2.02659375,
+          "min": -27976,
+          "max": 14221,
+          "nonzero_samples": 129676
+        },
+        "close": [
+          "AUDIO_CLOSE_BEGIN batches=2752 submitted=4 nonzero=1408491 dropped=0 failures=0 underruns=0"
+        ],
+        "storage": [
+          "AUDIO_STORAGE pauses=2 raw_ticks=3 max_raw_ticks=2"
+        ],
+        "checkpoints": [
+          "SAVE_CHECKPOINT_DUMP count=2 omitted=0 unchanged=0",
+          "SAVE_CHECKPOINT_END status=1 frame=869 raw_ticks=1 deferred=1",
+          "SAVE_CHECKPOINT_END status=1 frame=1744 raw_ticks=2 deferred=1"
+        ],
+        "catchup": [
+          "AUDIO_CATCHUP frames=1074 max_skip=5 config_skip=0"
+        ],
+        "normal_exit": true,
+        "source_dump_modified": false,
+        "physical_device_tested": false
+      }
+    },
+    "preserved_failed_attempt": {
+      "directory": "build/audio-v018-firmware-normal",
+      "reason": "Final synthetic confirm was missed under concurrent load; final screenshot stayed on Exit cursor 7. No APP_END was observed. Own frontend/QEMU were stopped."
+    }
+  },
+  "limitations": [
+    "Not tested on a physical H1 after this change.",
+    "Instruction counts are not physical cycles or FPS.",
+    "Synchronous save stalls and deliberate storage silence remain.",
+    "Profile PPU cost is sampled, residual core includes unsampled PPU.",
+    "A profile firmware segment rejected a TCU wrap read; it is not valid complete timing."
+  ],
+  "private_media_in_package": false
+}

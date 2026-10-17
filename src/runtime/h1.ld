@@ -21,7 +21,7 @@ SECTIONS {
     __app_stack_top = .;
     __bss_end = .;
   }
-  ASSERT(__bss_end <= 0x83ff0000, "H1 application exceeds 4 MiB loading window")
+  ASSERT(__bss_end <= 0x83ff0000, "H1 static image/stack exceeds reserved application range; use heap for large buffers")
   ASSERT(h1_bda_main == 0x83c00020, "H1 BDA entry moved by input alignment")
   /DISCARD/ : { *(.comment*) *(.note*) *(.MIPS.abiflags*) *(.reginfo*) *(.eh_frame*) }
 }

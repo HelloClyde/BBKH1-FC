@@ -1,0 +1,159 @@
+{
+  "version": "0.1.3",
+  "hardware_tested": false,
+  "rom_distributed": false,
+  "firmware": "H1 V1.41 / QEMU bbkh1",
+  "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+  "runs": {
+    "baseline": {
+      "bda_sha256": "59764fe57437b78396946581b406e40046e95b1f28482764aebe0afe3e27e49a",
+      "kind": "profile",
+      "ok": true,
+      "core_frames": 1818,
+      "submissions": 3,
+      "nonzero": 911305,
+      "dropped": 0,
+      "failures": 0,
+      "underruns": 1,
+      "successful_autosave_writes": 1,
+      "pause_resume_clean_exit": true,
+      "captures": {
+        "game-audio.wav": {
+          "seconds": 20.00053125,
+          "longest_zero_ms": 43.59375,
+          "nonzero_fraction": 0.9977156856770992,
+          "sha256": "324dc9cdfd4e43d34545876be46f147337148990b4755c5bdbeff1e51e568163"
+        },
+        "resumed-audio.wav": {
+          "seconds": 2.015875,
+          "longest_zero_ms": 0.09375,
+          "nonzero_fraction": 0.9997674707013083,
+          "sha256": "d4dae3e4db1d099d6cbb2634bfb7f13e36ae70fe3de7e0b66d63bd83399d776e"
+        }
+      },
+      "profile_core_mean_us": 4974
+    },
+    "optimized_profile": {
+      "bda_sha256": "bbaabaf290cd1942c1ffa7638353bda804150291d885eb05048b1451981412d2",
+      "kind": "profile",
+      "ok": true,
+      "core_frames": 1822,
+      "submissions": 2,
+      "nonzero": 913434,
+      "dropped": 0,
+      "failures": 0,
+      "underruns": 0,
+      "successful_autosave_writes": 1,
+      "pause_resume_clean_exit": true,
+      "captures": {
+        "game-audio.wav": {
+          "seconds": 20.01209375,
+          "longest_zero_ms": 0.21875,
+          "nonzero_fraction": 0.9998953757649671,
+          "sha256": "9428eaed31aab63ddf26cecd884da096ceebd28852745713276514a5e28c63b3"
+        },
+        "resumed-audio.wav": {
+          "seconds": 2.01053125,
+          "longest_zero_ms": 0.09375,
+          "nonzero_fraction": 0.9997668526664283,
+          "sha256": "c05529c09958c78d40077ccd8f49cf69893aeacfe9d13050f8c578644d0037c0"
+        }
+      },
+      "profile_core_mean_us": 4648,
+      "automatic_catchup_frames": 49
+    },
+    "before_checkpoint_reserve": {
+      "bda_sha256": "9cf60ace8b70b3c5562a66c8477f20b1c7f0629d1fd4b85e3ea6c3ec86e4b5e3",
+      "kind": "release",
+      "ok": true,
+      "core_frames": 1904,
+      "submissions": 3,
+      "nonzero": 957089,
+      "dropped": 0,
+      "failures": 0,
+      "underruns": 1,
+      "successful_autosave_writes": 1,
+      "pause_resume_clean_exit": true,
+      "captures": {
+        "game-audio.wav": {
+          "seconds": 20.01634375,
+          "longest_zero_ms": 64.0,
+          "nonzero_fraction": 0.9967011332926374,
+          "sha256": "ad9bfccde2b0301d7e6f48695fc548898c2d61516957823c6e023b7960c1787d"
+        },
+        "resumed-audio.wav": {
+          "seconds": 2.0041875,
+          "longest_zero_ms": 0.03125,
+          "nonzero_fraction": 0.9998908535254312,
+          "sha256": "25fd0c55be738237069aedf0f4a43e17cf3c9a0fc70a0ab3308abd0911f15b4a"
+        }
+      },
+      "automatic_catchup_frames": 404
+    },
+    "final": {
+      "bda_sha256": "0950798a4dea6d040e032a21d1b83a89538401ee354a87a4674e23e65c6ed56f",
+      "kind": "release",
+      "ok": true,
+      "core_frames": 1919,
+      "submissions": 2,
+      "nonzero": 965075,
+      "dropped": 0,
+      "failures": 0,
+      "underruns": 0,
+      "successful_autosave_writes": 1,
+      "pause_resume_clean_exit": true,
+      "captures": {
+        "game-audio.wav": {
+          "seconds": 20.0020625,
+          "longest_zero_ms": 0.21875,
+          "nonzero_fraction": 0.9998921986170176,
+          "sha256": "2a314657e206e48fd1cbf74f6825ce8066e0aab25114d19a14ab981e9a81b816"
+        },
+        "resumed-audio.wav": {
+          "seconds": 2.010375,
+          "longest_zero_ms": 0.03125,
+          "nonzero_fraction": 0.9998911894547037,
+          "sha256": "b3a4d75214c3733098ed716598f4f986671872fa74acf42e411de5aec5c5e90b"
+        }
+      },
+      "automatic_catchup_frames": 12
+    }
+  },
+  "limitations": [
+    "Full firmware emulation does not measure physical H1 performance.",
+    "Zero-sample runs alone are not a listening assessment.",
+    "Baseline and optimized-profile runs use profiling BDA; final run uses the exact release BDA.",
+    "Captures cover this ROM opening sequence and pause/resume, not every gameplay scene."
+  ],
+  "regressions": {
+    "audio-smoke.json": {
+      "ok": true,
+      "bda_sha256": "0950798a4dea6d040e032a21d1b83a89538401ee354a87a4674e23e65c6ed56f"
+    },
+    "menu-smoke.json": {
+      "ok": true,
+      "bda_sha256": "0950798a4dea6d040e032a21d1b83a89538401ee354a87a4674e23e65c6ed56f"
+    },
+    "pause-menu-smoke.json": {
+      "ok": true,
+      "bda_sha256": "0950798a4dea6d040e032a21d1b83a89538401ee354a87a4674e23e65c6ed56f"
+    },
+    "options-smoke.json": {
+      "ok": true,
+      "bda_sha256": "3b12e3a2bbe3f49cec7bc97ff6c731c347f05da0aa856c024061858e85d55c63"
+    }
+  },
+  "n163_mix": {
+    "ok": true,
+    "cases": 24200,
+    "sample_frames": 2901800,
+    "reference_host_ms": 111.0,
+    "optimized_host_ms": 19.0,
+    "kind": "Native differential test, pinned upstream versus prepared mixer",
+    "assertions": [
+      "Exact PCM including guard samples",
+      "Exact phase counters and wavetable indices",
+      "1..8 channels, all rates, zero frequency, inc overflow, split callbacks"
+    ]
+  }
+}

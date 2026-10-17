@@ -52,12 +52,14 @@ def main() -> None:
     output.mkdir(parents=True, exist_ok=True)
     cases = {}
 
-    def run(region: str, skip: int, restore_files=None):
-        name = f'{region.lower()}-skip{skip}' + ('-restored' if restore_files else '')
+    def run(region: str, skip: int | None, restore_files=None):
+        name = f'{region.lower()}-' + ('default' if skip is None else f'skip{skip}') + ('-restored' if restore_files else '')
         path = f'A:\\FC\\OPTIONS-{region}.nes'
         rom = cartridge(region)
-        files = dict(restore_files) if restore_files else {
-            path: rom, path + '.cfg.s0': config_slot(rom, skip)}
+        files = dict(restore_files) if restore_files else {path: rom}
+        if skip is not None and not restore_files:
+            files[path + '.cfg.s0'] = config_slot(rom, skip)
+        expected_skip = 1 if skip is None else skip
         machine = Machine(args.bda, files=files, path=path)
         print('RUN:', name, flush=True)
         try:
@@ -65,13 +67,13 @@ def main() -> None:
         finally:
             (output / ('options-' + name + '.log')).write_bytes(machine.files.get(LOG, b''))
         log = machine.files[LOG].decode('gbk')
-        assert f'CONFIG_LOAD status=1 enabled=1 scale=1 skip={skip} sound=1 volume=100' in log
-        assert machine.blits == (FRAMES + skip) // (skip + 1), (name, machine.blits)
+        assert f'CONFIG_LOAD status={int(skip is not None)} enabled=1 scale=1 skip={expected_skip} sound=1 volume=100' in log
+        assert machine.blits == (FRAMES + expected_skip) // (expected_skip + 1), (name, machine.blits)
         assert f'STOP video={machine.blits} errors=0' in log
         timing = re.search(r'NES_TIMING frame_us=(\d+) rate=(\d+)', log)
         assert timing, 'No core AV timing advertised'
         frame_us, rate = map(int, timing.groups())
-        assert rate == 32000
+        assert rate == 22050
         expected_us = 20000 if region == 'PAL' else 16639
         assert abs(frame_us - expected_us) < 20, (name, frame_us)
         close = re.search(r'AUDIO_CLOSE_BEGIN batches=(\d+) submitted=(\d+) nonzero=(\d+) '
@@ -110,11 +112,15 @@ def main() -> None:
                 assert cases[f'{region.lower()}-skip{skip}']['audio_nonzero_samples'] == baseline[2]['audio_nonzero_samples'], \
                     'Display skipping changed core audio generation'
         run(region, 2, machine.files)
+        default, saved = run(region, None)
+        assert saved == baseline[0] and default.screen == baseline[1]
+        assert cases[f'{region.lower()}-default']['audio_nonzero_samples'] == baseline[2]['audio_nonzero_samples']
 
     report = {'ok': True, 'kind': 'Actual test-20 MIPS BDA with mocked H1 firmware',
               'bda_sha256': hashlib.sha256(args.bda.read_bytes()).hexdigest(),
               'cases': cases,
               'assertions': ['NES 2.0 PAL header selects approximately 50 Hz core timing',
+                             'Absent settings default to skip 1: 10 displays and 20 CPU/APU frames',
                              'NTSC remains approximately 60.1 Hz',
                              'Skip 0/1/2 displays exactly 20/10/7 of 20 core frames',
                              'Every skipped output frame still runs CPU and generates APU audio',

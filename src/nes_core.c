@@ -1,6 +1,9 @@
 /* H1 cartridge adapter for the pinned GPL FCEUmm libretro core. */
 #include "platform/core.h"
+#include "platform/save.h"
+#include "platform/save_policy.h"
 #include "platform/diagnostics.h"
+#include "platform/nes_video.h"
 #include <stdlib.h>
 #include <string.h>
 #include <streams/file_stream.h>
@@ -8,6 +11,9 @@
 #include "cart.h"
 #include "ines.h"
 #include "unif.h"
+#if H1_NES_JIT
+#include "platform/nes_jit.h"
+#endif
 
 extern CartInfo iNESCart, UNIFCart;
 
@@ -19,6 +25,20 @@ static size_t save_bytes;
 static CartInfo *save_cart;
 static unsigned skip_count, skip_phase;
 static bool loaded;
+static bool sgz2_save_header_match;
+#if H1_DIAGNOSTIC
+static int diagnostic_header_match;
+#endif
+static h1_nes_indexed_callback indexed_video;
+
+void h1_nes_set_indexed_video(h1_nes_indexed_callback callback)
+{ indexed_video = callback; }
+int h1_nes_present_indexed(const h1_nes_video_frame *frame)
+{
+    if (!indexed_video) return 0;
+    indexed_video(frame);
+    return 1;
+}
 
 /* Validate sizes before the upstream loader makes mapper allocations. The
  * NES 2.0 exponent form can otherwise describe gigabytes in a tiny file. */
@@ -68,6 +88,34 @@ int h1_nes_skip_frame(void)
     return skip;
 }
 
+/* Exact-file header and payload identity, independent of native/HLE
+ * selection. No guessed platform address participates in this query. */
+static int save_range_overlap(const void *a,size_t an,const void *b,size_t bn)
+{
+    uintptr_t ap=(uintptr_t)a,bp=(uintptr_t)b;
+    return !ap || !bp || ap>UINTPTR_MAX-an || bp>UINTPTR_MAX-bn ||
+        (ap<bp+bn && bp<ap+an);
+}
+int h1_nes_sgz2_save_identity(const void *data,size_t n,h1_save_identity *id)
+{
+    static const uint8_t md5[16]={0xde,0x31,0x9a,0x7a,0x80,0x99,0xc3,0x88,
+        0x81,0x0c,0x59,0xcb,0x03,0x8e,0x8c,0x9d};
+    if(!loaded || !sgz2_save_header_match || !id || n!=8320u ||
+       data!=save_buffer || save_bytes!=8320u || save_cart!=&iNESCart ||
+       iNESCart.mapper!=19 || iNESCart.battery!=1 ||
+       iNESCart.PRGRomSize!=0x40000 || iNESCart.CHRRomSize!=0x40000 ||
+       memcmp(iNESCart.MD5,md5,sizeof(md5)) || !PRGptr[0])return 0;
+    if(!save_cart->SaveGame[0] || !save_cart->SaveGame[1] ||
+       save_cart->SaveGameLen[0]!=8192u || save_cart->SaveGameLen[1]!=128u ||
+       save_cart->SaveGame[2] || save_cart->SaveGame[3] ||
+       save_cart->SaveGameLen[2] || save_cart->SaveGameLen[3])return 0;
+    if(save_range_overlap(data,n,save_cart->SaveGame[0],8192u) ||
+       save_range_overlap(data,n,save_cart->SaveGame[1],128u) ||
+       save_range_overlap(save_cart->SaveGame[0],8192u,save_cart->SaveGame[1],128u))return 0;
+    id->prg=PRGptr[0];id->wram=save_cart->SaveGame[0];id->iram=save_cart->SaveGame[1];
+    return 1;
+}
+
 static void sync_save(void)
 {
     unsigned i;
@@ -84,6 +132,7 @@ static void sync_save(void)
 
 static void save_loaded(void)
 {
+    save_policy_reset();
     unsigned i;
     size_t offset = 0;
     if (!save_cart || !save_buffer) return;
@@ -98,8 +147,15 @@ static void save_loaded(void)
 
 static void unload(void)
 {
+    save_policy_reset();sgz2_save_header_match=false;
+#if H1_NES_JIT
+    h1_nes_jit_close();
+#endif
     if (loaded) retro_unload_game();
     loaded = false;
+#if H1_DIAGNOSTIC
+    diagnostic_header_match=0;
+#endif
     free(save_buffer);
     save_buffer = NULL; save_cart = NULL; save_bytes = 0;
     skip_phase = 0;
@@ -131,6 +187,17 @@ static bool load(const struct retro_game_info *game)
     }
     if (!retro_load_game(game)) return false;
     loaded = true;
+    static const uint8_t save_header[16]={0x4e,0x45,0x53,0x1a,
+        0x10,0x20,0x32,0x10,0,0,0,0,0,0,0,0};
+    sgz2_save_header_match=length==524304 && !memcmp(header,save_header,sizeof(header));
+#if H1_DIAGNOSTIC
+    /* Pair the content MD5 below with the original complete iNES header and
+     * file length: a different region/trainer/header must not reuse a replay. */
+    static const uint8_t diagnostic_header[16]={0x4e,0x45,0x53,0x1a,
+        0x10,0x20,0x32,0x10,0,0,0,0,0,0,0,0};
+    diagnostic_header_match=length==524304 &&
+        !memcmp(header,diagnostic_header,sizeof header);
+#endif
     /* Lock the local input to a standard pad rather than selecting a Zapper
      * or keyboard based on the database. The H1 has one physical controller. */
     retro_set_controller_port_device(0, RETRO_DEVICE_SUBCLASS(RETRO_DEVICE_JOYPAD, 1));
@@ -152,6 +219,9 @@ static bool load(const struct retro_game_info *game)
             sync_save();
         }
     }
+#if H1_NES_JIT
+    h1_nes_jit_open((unsigned)iNESCart.mapper);
+#endif
     h1_diag("FC_CORE_READY mapper=%d save_bytes=%u", iNESCart.mapper, (unsigned)save_bytes);
     return true;
 }
@@ -166,6 +236,42 @@ static size_t memory_size(unsigned id)
     return id == RETRO_MEMORY_SAVE_RAM ? save_bytes : retro_get_memory_size(id);
 }
 
+#if H1_NES_JIT
+static bool state_load(const void *data, size_t size)
+{
+    bool ok=retro_unserialize(data,size);
+    if (ok) h1_nes_jit_invalidate();
+    return ok;
+}
+#endif
+#if H1_DIAGNOSTIC
+int h1_nes_diag_identity(void)
+{
+    static const uint8_t md5[16]={0xde,0x31,0x9a,0x7a,0x80,0x99,0xc3,0x88,
+        0x81,0x0c,0x59,0xcb,0x03,0x8e,0x8c,0x9d};
+    return loaded && diagnostic_header_match && iNESCart.mapper==19 && iNESCart.PRGRomSize==0x40000 &&
+        iNESCart.CHRRomSize==0x40000 && !memcmp(iNESCart.MD5,md5,sizeof md5);
+}
+int h1_nes_diag_mode(unsigned mode)
+{
+    if (!h1_nes_diag_identity() || mode>2) return 0;
+    h1_nes_jit_close();
+    if (mode) {
+        h1_nes_jit_open(19);
+        if (!h1_jit_entries || !h1_hle_sgz2_enabled) return 0;
+        if (mode==1) h1_hle_sgz2_enabled=0;
+    } else {
+        memset(h1_jit_stats,0,sizeof h1_jit_stats);
+        memset(h1_hle_stats,0,sizeof h1_hle_stats);
+        memset(h1_jit_run_stats,0,sizeof h1_jit_run_stats);
+        memset(h1_jit_schedule_stats,0,sizeof h1_jit_schedule_stats);
+        memset(h1_jit_bank_stats,0,sizeof h1_jit_bank_stats);
+        h1_jit_links=0;
+    }
+    return 1;
+}
+void h1_nes_diag_video_reset(void) { skip_phase=0;skip_count=1; }
+#endif
 const h1_core h1_nes_core = {
     .name = "FCEUmm",
     .environment = retro_set_environment,
@@ -185,5 +291,9 @@ const h1_core h1_nes_core = {
     .save_sync = sync_save,
     .state_size = retro_serialize_size,
     .state_save = retro_serialize,
+#if H1_NES_JIT
+    .state_load = state_load,
+#else
     .state_load = retro_unserialize,
+#endif
 };

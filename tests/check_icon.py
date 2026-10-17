@@ -96,10 +96,15 @@ def check(icon: Path, bda: Path, archive_path: Path | None) -> dict:
     if archive_path:
         with ZipFile(archive_path) as archive:
             require(archive.testzip() is None, "Install ZIP integrity check failed")
-            require(archive.read("应用/程序/H1FC.bda") == data, "Install ZIP contains an outdated BDA")
-            require(json.loads(archive.read("H1FC.build.json")) == metadata,
+            installed = [name for name in archive.namelist()
+                         if name.startswith("应用/程序/") and name.lower().endswith('.bda')]
+            require(len(installed) == 1, "Install ZIP must contain one application BDA")
+            require(archive.read(installed[0]) == data, "Install ZIP contains an outdated BDA")
+            filename = Path(installed[0]).name
+            stem = Path(filename).stem
+            require(json.loads(archive.read(stem + ".build.json")) == metadata,
                     "Install ZIP contains outdated build metadata")
-            require(archive.read("H1FC.bda.sha256").decode("ascii").split() == [digest, "H1FC.bda"],
+            require(archive.read(filename + ".sha256").decode("ascii").split() == [digest, filename],
                     "Install ZIP contains an outdated BDA checksum")
         archive_digest = sha256(archive_path.read_bytes())
         require(archive_path.with_suffix(".zip.sha256").read_text().split() ==

@@ -59,6 +59,9 @@ class Machine:
         self.events = []
         self.injected = False
         self.menu = menu
+        self.exit_menu_started = False
+        self.exit_menu_actions = [(10, 31), (9, 37), (10, 37), (9, 39)]
+        self.gameplay_screen = None
         self.finished = False
         self.write(0x83c00020, bda.read_bytes()[PAYLOAD_OFFSET:])
         from mxu_model import install
@@ -117,7 +120,7 @@ class Machine:
     def pcm_init(self, descriptor, *a):
         assert descriptor % 32 == 0
         pcm, size = struct.unpack('<2I', self.read(descriptor, 8))
-        assert pcm % 32 == 0 and size in (8192,16384)
+        assert pcm % 32 == 0 and size in (8192,16384,32768)
         self.audio_samples = size//2
         self.audio_initialized.add(descriptor)
         return 1
@@ -253,8 +256,21 @@ class Machine:
             self.injected = True
         if self.menu and self.switch and self.blits >= 10 and not self.switched:
             self.events.append((9, 36)); self.switched = True
-        if self.menu and self.blits >= (20 if self.switch else 10) and not any(e[1] == 24 for e in self.events):
-            self.events.append((9, 24))
+        if self.menu and self.blits >= (20 if self.switch else 10):
+            log = self.files.get('A:\\FC\\h1fc.log', b'')
+            paused = log.rfind(b'PAUSE_MENU_BEGIN') > log.rfind(b'PAUSE_MENU_END')
+            if not self.exit_menu_started:
+                # Keep the final gameplay frame for graphics assertions. The
+                # real LCD correctly ends on the menu before returning home.
+                self.capture_game_buffer()
+                self.gameplay_screen = self.screen
+                self.events.append((9, 31))
+                self.exit_menu_started = True
+            elif paused:
+                # P opens the menu. Wait for it before releasing the
+                # key, moving up to Exit (cursor 7), and confirming normally.
+                assert self.exit_menu_actions, 'Exit menu did not close'
+                self.events.append(self.exit_menu_actions.pop(0))
         event = self.events.pop(0) if self.events else (-1, -1)
         self.word(code, event[0]); self.word(key, event[1]); return 0
     def clock(self, *a):

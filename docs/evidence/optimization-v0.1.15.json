@@ -1,0 +1,432 @@
+{
+  "schema": 1,
+  "version": "0.1.15",
+  "ok": true,
+  "ordinary_release_ok": true,
+  "physical_device_tested": false,
+  "baseline": {
+    "version": "0.1.14",
+    "sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235"
+  },
+  "artifact": {
+    "title": "NES",
+    "version": "0.1.15",
+    "sha256": "b5cbff7b03f5b0a0980ccf422669279030ce907cd7944c36d914821bec3a1dd9",
+    "size": 1137672,
+    "payload_sha256": "4d620f32743bd9600d568f3c283990cd769fa4b186cf8ab1c5e5f14ca31408c3",
+    "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+    "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+    "core": "FCEUmm",
+    "entry_va": "0x83c00020",
+    "formats": [
+      "nes"
+    ],
+    "audio": "H1 native PCM 32000 Hz mono",
+    "log_path": "A:\\FC\\h1fc.log",
+    "test_frames": 0,
+    "benchmark": false,
+    "verbose_log": false,
+    "profile": false,
+    "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+    "build_time": "2026-10-13 00:00:00",
+    "optimization": "O2",
+    "lto": false,
+    "jit": true,
+    "experimental": true,
+    "jit_backend": "MIPS32_EVENT_V6",
+    "jit_cache_mib": 8,
+    "icon": "assets/fc-icon.png",
+    "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031"
+  },
+  "reproducibility": {
+    "ok": true,
+    "frozen_and_canonical_bda_equal": true,
+    "frozen_and_canonical_elf_equal": true,
+    "runtime_sources_match_frozen_snapshot": true,
+    "source_snapshot": {
+      "path": "build/v0115-hle-routed-final/source-snapshot.json",
+      "sha256": "23cf9ea440a675729808bb7ceda6b201deeb191ac12adfbf383fa83130311fbb",
+      "bytes": 10128
+    }
+  },
+  "profile": {
+    "scope": "Exact SGZ2-CN ROM wait loop; not mapper-wide HLE",
+    "cpu_pc": "FB28",
+    "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+    "prg_chr_md5": "de319a7a8099c388810c59cb038e8c9d",
+    "events": "Original CPU slice, APU frame/DMC and Mapper IRQ boundaries retained",
+    "complete_run_hle": {
+      "batches": 262142,
+      "pairs": 1998929,
+      "cycles": 11993574
+    }
+  },
+  "full_application": [
+    {
+      "ok": true,
+      "candidate_sha256": "b5cbff7b03f5b0a0980ccf422669279030ce907cd7944c36d914821bec3a1dd9",
+      "skip": 1,
+      "total_before": 3873307353,
+      "total_after": 3661620585,
+      "total_reduction_percent": 5.465271632421365,
+      "city_before": 661217984,
+      "city_after": 635466079,
+      "city_reduction_percent": 3.8946165444889047,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0115-final-city-skip1.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "evidence": {
+        "path": "build/verification/v0115-final-city-skip1.json",
+        "sha256": "1faf312864958249c59e77dbf3fb9f09cfd8036286ef4dbc4840344217e0d816",
+        "bytes": 2048789
+      }
+    },
+    {
+      "ok": true,
+      "candidate_sha256": "b5cbff7b03f5b0a0980ccf422669279030ce907cd7944c36d914821bec3a1dd9",
+      "skip": 0,
+      "total_before": 4561187512,
+      "total_after": 4349500744,
+      "total_reduction_percent": 4.641045066511184,
+      "city_before": 782621430,
+      "city_after": 756869525,
+      "city_reduction_percent": 3.290467653051621,
+      "strict_state_lcd_pcm_saves": true,
+      "report": "build/verification/v0115-final-city-skip0.json",
+      "limitation": "Executed MIPS instructions; not physical H1 cycles/FPS/audio continuity",
+      "evidence": {
+        "path": "build/verification/v0115-final-city-skip0.json",
+        "sha256": "c4ef8199476418c1f19ea6e7544cc99f0b100025cbf3018b08ff953404578e99",
+        "bytes": 2048871
+      }
+    }
+  ],
+  "tests": [
+    {
+      "evidence": {
+        "path": "build/verification/v0115-final-hle.json",
+        "sha256": "2b32a9f3a6b2ad1fb17846e5ac2a5e97f38049f9e5179cdd718fd1a184996aaf",
+        "bytes": 1285
+      },
+      "result": {
+        "ok": true,
+        "cases": 505,
+        "positive_hle_cases": 150,
+        "negative_hle_cases": 111,
+        "suites": {
+          "cpu": {
+            "cases": 210,
+            "positive": 137,
+            "negative": 72
+          },
+          "events": {
+            "cases": 258,
+            "positive": 0,
+            "negative": 15
+          },
+          "admission": {
+            "cases": 23,
+            "positive": 2,
+            "negative": 21
+          },
+          "observables": {
+            "cases": 9,
+            "positive": 9,
+            "negative": 0
+          },
+          "lifecycle": {
+            "cases": 5,
+            "positive": 2,
+            "negative": 3
+          }
+        },
+        "bda_sha256": "b5cbff7b03f5b0a0980ccf422669279030ce907cd7944c36d914821bec3a1dd9",
+        "baseline_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "reference": "Frozen ordinary BDA with JIT closed, actual pinned MIPS interpreter",
+        "checks": [
+          "exact CPU/RAM/timestamp/APU/Namco/Wave/serialized state",
+          "HLE counters assert accepted and rejected paths",
+          "short CPU budgets and original slice boundaries",
+          "real APU/DMC/IRQ/NMI/reset semantic paths",
+          "unknown callbacks and mutable code/mapping/handler guards",
+          "real ROM identity and save/load/reset lifecycle"
+        ]
+      }
+    },
+    {
+      "evidence": {
+        "path": "build/verification/v0115-final-hle-routing-reusable.json",
+        "sha256": "7f12c1407e662883c7135eb169bdd7bacaad220aa0eaec050a141f771e066888",
+        "bytes": 1657
+      },
+      "result": {
+        "ok": true,
+        "cases": 18,
+        "positive_hle_cases": 10,
+        "negative_hle_cases": 7,
+        "route_cases": [
+          {
+            "path": "fall-through",
+            "flag": 0,
+            "source_ops": 4
+          },
+          {
+            "path": "fall-through",
+            "flag": 128,
+            "source_ops": 4
+          },
+          {
+            "path": "jump",
+            "flag": 0,
+            "source_ops": 2
+          },
+          {
+            "path": "jump",
+            "flag": 128,
+            "source_ops": 2
+          },
+          {
+            "path": "call",
+            "flag": 0,
+            "source_ops": 2
+          },
+          {
+            "path": "call",
+            "flag": 128,
+            "source_ops": 2
+          },
+          {
+            "path": "taken branch",
+            "flag": 0,
+            "source_ops": 2
+          },
+          {
+            "path": "taken branch",
+            "flag": 128,
+            "source_ops": 2
+          },
+          {
+            "path": "indirect jump",
+            "flag": 0,
+            "source_ops": 2
+          },
+          {
+            "path": "indirect jump",
+            "flag": 128,
+            "source_ops": 2
+          },
+          {
+            "path": "return",
+            "flag": 0,
+            "source_ops": 2
+          },
+          {
+            "path": "return",
+            "flag": 128,
+            "source_ops": 2
+          }
+        ],
+        "unknown_rom_native_path_preserved": true,
+        "bda_sha256": "b5cbff7b03f5b0a0980ccf422669279030ce907cd7944c36d914821bec3a1dd9",
+        "baseline_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+        "checks": [
+          "native fall-through/JMP/JSR/branch/indirect/RTS to HLE",
+          "zero flag follows original execution",
+          "public direct native packet and intermediate PC ABI",
+          "actual post-native HLE APU callback-visible CPU state",
+          "unrelated mapper19 retains native compilation"
+        ]
+      }
+    },
+    {
+      "evidence": {
+        "path": "build/verification/v0115-hle-quotients.json",
+        "sha256": "b5b27d8787a0b725826b547ff069ea0eccc9c8d18de53bd04318c2b917a2ceb7",
+        "bytes": 1420
+      },
+      "result": {
+        "ok": true,
+        "proofs": [
+          {
+            "divisor": 48,
+            "shift": 4,
+            "odd_divisor": 3,
+            "multiplier": "0xaaaaaaab",
+            "reduced_max": 268435455,
+            "covered_unsigned_inputs": 4294967296,
+            "residual_upper_bound_strictly_below_one": true,
+            "independently_divided_boundary_and_random_samples": 723356
+          },
+          {
+            "divisor": 288,
+            "shift": 5,
+            "odd_divisor": 9,
+            "multiplier": "0x38e38e39",
+            "reduced_max": 134217727,
+            "covered_unsigned_inputs": 4294967296,
+            "residual_upper_bound_strictly_below_one": true,
+            "independently_divided_boundary_and_random_samples": 724831
+          },
+          {
+            "divisor": 6,
+            "shift": 1,
+            "odd_divisor": 3,
+            "multiplier": "0xaaaaaaab",
+            "reduced_max": 2147483647,
+            "covered_unsigned_inputs": 4294967296,
+            "residual_upper_bound_strictly_below_one": true,
+            "independently_divided_boundary_and_random_samples": 695016
+          }
+        ],
+        "independently_checked_samples": 2143203,
+        "full_domain_proved": true,
+        "domain": "all uint32_t x for each of /48, /288, /6",
+        "source_sha256": "29cee0d2343bdd797b76cfb13d7dbc1cbc3611dc4ef12697a450364262f3a7d4",
+        "source": "src/platform/nes_jit.c",
+        "proof": "M*d=2^33+1; reduced y<2^33; for y=q*d+r, residual r/d+y/(d*2^33)<1",
+        "oracle": "Python exact integer division; no candidate C/MIPS quotient reused"
+      }
+    },
+    {
+      "evidence": {
+        "path": "build/verification/v0115-hle-multiply-high-codegen.json",
+        "sha256": "26cc1d271edec0b63a14564abd8be8864dc4a07e56b2074a02493b4eba34b502",
+        "bytes": 598
+      },
+      "result": {
+        "ok": true,
+        "bda_sha256": "b5cbff7b03f5b0a0980ccf422669279030ce907cd7944c36d914821bec3a1dd9",
+        "elf_sha256": "e2f2de1c7507b637d1cec8463c78ad40cb076049c849d895911abe6462f6f43c",
+        "source_sha256": "29cee0d2343bdd797b76cfb13d7dbc1cbc3611dc4ef12697a450364262f3a7d4",
+        "counts": {
+          "multu": 3,
+          "mfhi": 3,
+          "div": 0,
+          "divu": 0,
+          "jal": 0,
+          "jalr": 0
+        },
+        "disassembly_sha256": "455b30db3103d02a35fb0a7fee73f829950df604eebee43e7dff2a59118197ef",
+        "scope": "Read-only actual MIPS h1_nes_hle_wait symbol confirms three MULTU/MFHI sequences and no DIV/DIVU"
+      }
+    }
+  ],
+  "firmware": {
+    "ok": true,
+    "first_video_frames": 522,
+    "first_video_errors": 0,
+    "first_app_end_result": 0,
+    "audio_rate": 32000,
+    "initial_and_resumed_audio_nonzero": true,
+    "same_private_nand_restart": {
+      "ok": true,
+      "bda_sha256": "b5cbff7b03f5b0a0980ccf422669279030ce907cd7944c36d914821bec3a1dd9",
+      "same_private_nand": true,
+      "version": "0.1.15",
+      "original_dump_unchanged": true,
+      "original_8793_instance_accessed": false,
+      "hle": {
+        "identity_admitted": true,
+        "batches": 121913,
+        "pairs": 935105,
+        "cycles": 5610630,
+        "active_during_firmware_smoke": true
+      },
+      "private_nand_before_sha256": "7219ba5c7de9e89507c5d3e573633addbc7f6e1d711336c79c72185b69060d7f",
+      "private_nand_after_sha256": "42fe02f26ef0b72caf322c64a3fa15c5d33ae93c0f613750034d50b842bd1bd2",
+      "physical_device_tested": false,
+      "save_loaded": true,
+      "save_on_exit": true,
+      "app_end_result": 0,
+      "audio": {
+        "sample_rate": 32000,
+        "packets": 144,
+        "frames": 96619,
+        "seconds": 3.01934375,
+        "min": -32383,
+        "max": 19090,
+        "nonzero_samples": 193188
+      },
+      "save_load_lines": [
+        "000035 SAVE_LOAD_BEGIN ptr=0x8255c7c8 bytes=8320",
+        "000036 SAVE_LOAD_END status=1 slot=0 generation=1"
+      ],
+      "screenshots": {
+        "exit-desktop.png": "6ee0ece2cec126ac899587957269b4141ea7a6872fd34c06f067aac5fdac915b",
+        "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+        "menu.png": "c057b6433234e953429e65261b7d05a3cb1ebf2b41bc9d8c3ce44ba150d61374",
+        "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+        "reloaded-game.png": "eee90f1adc4621073ee417a9e6c3f5f7c509d465a25094e966d9e9faab3fd52a"
+      }
+    },
+    "first_hle": {
+      "identity_admitted": true,
+      "batches": 198656,
+      "pairs": 1525698,
+      "cycles": 9154188,
+      "active_during_firmware_smoke": true
+    },
+    "evidence": [
+      {
+        "path": "build/v0115-firmware-normal/evidence/classic-smoke.json",
+        "sha256": "0811d55e8c380cf7d1fbd52737729c8b9eabd80fe8823aa97b9fc2a31828df62",
+        "bytes": 2571
+      },
+      {
+        "path": "build/v0115-firmware-normal/v0115-firmware-verification.json",
+        "sha256": "121972a80b542fb52fd9ad056466024771f3941b80789075737fc8e99b39c9fa",
+        "bytes": 692
+      },
+      {
+        "path": "build/v0115-firmware-normal/original-dump-integrity.json",
+        "sha256": "19b0b663a7e98532e7defe4603e9b0fa6022454b6428902960b2fd23b6dd86e3",
+        "bytes": 184
+      },
+      {
+        "path": "build/v0115-firmware-normal/restart-evidence/restart-smoke.json",
+        "sha256": "8140ca851a62a32e117be93088c51bec6be53ed4c84c10448d02a754692b9f26",
+        "bytes": 1516
+      },
+      {
+        "path": "build/v0115-firmware-normal/visual-review.json",
+        "sha256": "50bbe6bdecee4dc8a8722bb15b8c31d4d5f16c1349ba1fc468f6851e19e3b696",
+        "bytes": 820
+      }
+    ]
+  },
+  "contra_control": {
+    "path": "docs/evidence/contra-mapper2-control.json",
+    "sha256": "e9c318a7f306ca613f089df382b0bf70474b4c55270ddec88025d20f72f9067b",
+    "bytes": 6539
+  },
+  "test_sources": [
+    {
+      "path": "tests/hle_wait_smoke.py",
+      "sha256": "379493d01a5811162f06ac1baa5be6cb17c59db06f701b7e0e9e8d72121babcb",
+      "bytes": 21937
+    },
+    {
+      "path": "tests/hle_routing_smoke.py",
+      "sha256": "aa3116db4997bcdf98c954bb9767acee3c4e6f0bf4668288563b176f027d0d21",
+      "bytes": 6630
+    },
+    {
+      "path": "tests/jit_app_long_benchmark.py",
+      "sha256": "02b4a5823141a2ca7225f7ac9f5a481625ddaad02121d3e752de6c62ecffe852",
+      "bytes": 33576
+    },
+    {
+      "path": "tests/native_block_counter.py",
+      "sha256": "4fd063f4f6a0cdcc4dd46aa428498ab2be7ff26e83f80f76ac8541f905362391",
+      "bytes": 3395
+    }
+  ],
+  "limitations": [
+    "Executed MIPS instructions are not physical H1 cycles, FPS or audio-continuity measurements.",
+    "Full-application firmware services are mocked; full firmware validation checks application lifecycle separately.",
+    "The Contra/SGZ2 comparison does not isolate mapper, workload or CPU execution path.",
+    "Cache locality is an unconfirmed hypothesis requiring device measurements.",
+    "This release packages only the ordinary build; the previous diagnostic timing issue is not claimed fixed."
+  ]
+}

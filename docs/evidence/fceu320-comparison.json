@@ -1,0 +1,875 @@
+{
+  "ok": true,
+  "schema": 1,
+  "date": "2026-10-16",
+  "purpose": "Same H1 frontend: current FCEUmm JIT vs pinned FCEU320 interpretation and optional approximate skipped-frame PPU",
+  "core_commit": "6e4da0b45fbff14fc374c5da38a84463cdabe634",
+  "outcome": "FCEU320 requires more executed MIPS instructions in all measured comparisons; keep current production core",
+  "production": {
+    "files_checked": 60,
+    "changed": [],
+    "version": "0.1.13",
+    "distribution_replaced": false,
+    "physical_device_tested": false
+  },
+  "scenario": "SGZ2 1800 frames, city1501-1800, same ROM/events/empty save/settings",
+  "groups": {
+    "1": [
+      {
+        "label": "v0113-jit",
+        "bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "elf_sha256": "da455eec29a5c6ae20974310a78b4d90d7c1f23795ccb2f6fd3fd910a879a591",
+        "whole": {
+          "block_instructions": 4066529729,
+          "core_emulate_instructions": 3618985399,
+          "outside_core_instructions": 447544330
+        },
+        "city_1501_1800": {
+          "block_instructions": 692412446,
+          "core_emulate_instructions": 626136227,
+          "outside_core_instructions": 66276219,
+          "pcm_frames": 110059,
+          "pcm_nonzero_samples": 220078
+        },
+        "source_rate": 22050,
+        "rendered_frames": 886,
+        "pcm_frames": 660352,
+        "audio_catchup_frames": 91,
+        "latest_battery_save": {
+          "path": "A:\\FC\\BENCH.nes.s0",
+          "generation": 3,
+          "rom_id": 556327497,
+          "bytes": 8320,
+          "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "evidence": "validated slot headers"
+        },
+        "screenshot": "build\\verification\\fceu320-baseline-jit-skip1\\frame-1800.png"
+      },
+      {
+        "label": "fceu320-conservative",
+        "bda_sha256": "d8d86edce5f648d4d893271323d7b22fd6ee9505a54536b0840fbeea7b86b404",
+        "elf_sha256": "5093216018d0e500f1f891aad3fe2c83cce71e156ad0235333807f45849c0ed1",
+        "whole": {
+          "block_instructions": 6646282486,
+          "core_emulate_instructions": 6201274535,
+          "outside_core_instructions": 445007951
+        },
+        "city_1501_1800": {
+          "block_instructions": 1101507516,
+          "core_emulate_instructions": 1034696536,
+          "outside_core_instructions": 66810980,
+          "pcm_frames": 110059,
+          "pcm_nonzero_samples": 220072
+        },
+        "source_rate": 22050,
+        "rendered_frames": 886,
+        "pcm_frames": 660352,
+        "audio_catchup_frames": 91,
+        "latest_battery_save": {
+          "path": "A:\\FC\\BENCH.nes.s0",
+          "generation": 3,
+          "rom_id": 556327497,
+          "bytes": 8320,
+          "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "evidence": "validated slot headers"
+        },
+        "screenshot": "build\\verification\\fceu320-conservative-city-skip1\\frame-1800.png",
+        "reductions_percent": {
+          "whole": {
+            "block_instructions": -63.43867938804881,
+            "core_emulate_instructions": -71.3539528707007,
+            "outside_core_instructions": 0.566732462011077
+          },
+          "gameplay": {
+            "block_instructions": -64.43712073663971,
+            "core_emulate_instructions": -71.3539528707007,
+            "outside_core_instructions": -0.817297172863074
+          },
+          "city_1501_1800": {
+            "block_instructions": -59.08257027488497,
+            "core_emulate_instructions": -65.2510254769207,
+            "outside_core_instructions": -0.806867090592478
+          }
+        }
+      },
+      {
+        "label": "fceu320-fast",
+        "bda_sha256": "2ab67eae7dd25edb36490069fda8bd63f5d33ec1bdd75912ced8c14d02c3d95b",
+        "elf_sha256": "9f38f1dd3faade9fadf8bcc006ccd140999902bdb57c43e7e007382ceb54cdad",
+        "whole": {
+          "block_instructions": 5273075465,
+          "core_emulate_instructions": 4828067493,
+          "outside_core_instructions": 445007972
+        },
+        "city_1501_1800": {
+          "block_instructions": 870661339,
+          "core_emulate_instructions": 803850343,
+          "outside_core_instructions": 66810996,
+          "pcm_frames": 110059,
+          "pcm_nonzero_samples": 220076
+        },
+        "source_rate": 22050,
+        "rendered_frames": 886,
+        "pcm_frames": 660352,
+        "audio_catchup_frames": 91,
+        "latest_battery_save": {
+          "path": "A:\\FC\\BENCH.nes.s0",
+          "generation": 3,
+          "rom_id": 556327497,
+          "bytes": 8320,
+          "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "evidence": "validated slot headers"
+        },
+        "screenshot": "build\\verification\\fceu320-fast-city-skip1\\frame-1800.png",
+        "reductions_percent": {
+          "whole": {
+            "block_instructions": -29.6701565316406,
+            "core_emulate_instructions": -33.40942172173711,
+            "outside_core_instructions": 0.5667277697384732
+          },
+          "gameplay": {
+            "block_instructions": -30.213434964925124,
+            "core_emulate_instructions": -33.40942172173711,
+            "outside_core_instructions": -0.8173025101148257
+          },
+          "city_1501_1800": {
+            "block_instructions": -25.743167100725394,
+            "core_emulate_instructions": -28.382659928731456,
+            "outside_core_instructions": -0.8068912319817212
+          }
+        }
+      }
+    ],
+    "0": [
+      {
+        "label": "v0113-jit",
+        "bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "elf_sha256": "da455eec29a5c6ae20974310a78b4d90d7c1f23795ccb2f6fd3fd910a879a591",
+        "whole": {
+          "block_instructions": 4754409888,
+          "core_emulate_instructions": 4019432154,
+          "outside_core_instructions": 734977734
+        },
+        "city_1501_1800": {
+          "block_instructions": 813815892,
+          "core_emulate_instructions": 697019419,
+          "outside_core_instructions": 116796473,
+          "pcm_frames": 110059,
+          "pcm_nonzero_samples": 220078
+        },
+        "source_rate": 22050,
+        "rendered_frames": 1740,
+        "pcm_frames": 660352,
+        "audio_catchup_frames": 91,
+        "latest_battery_save": {
+          "path": "A:\\FC\\BENCH.nes.s0",
+          "generation": 3,
+          "rom_id": 556327497,
+          "bytes": 8320,
+          "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "evidence": "validated slot headers"
+        },
+        "screenshot": "build\\verification\\fceu320-baseline-jit-skip0\\frame-1800.png"
+      },
+      {
+        "label": "fceu320-conservative",
+        "bda_sha256": "d8d86edce5f648d4d893271323d7b22fd6ee9505a54536b0840fbeea7b86b404",
+        "elf_sha256": "5093216018d0e500f1f891aad3fe2c83cce71e156ad0235333807f45849c0ed1",
+        "whole": {
+          "block_instructions": 6933675752,
+          "core_emulate_instructions": 6201274535,
+          "outside_core_instructions": 732401217
+        },
+        "city_1501_1800": {
+          "block_instructions": 1152020720,
+          "core_emulate_instructions": 1034696536,
+          "outside_core_instructions": 117324184,
+          "pcm_frames": 110059,
+          "pcm_nonzero_samples": 220072
+        },
+        "source_rate": 22050,
+        "rendered_frames": 1740,
+        "pcm_frames": 660352,
+        "audio_catchup_frames": 91,
+        "latest_battery_save": {
+          "path": "A:\\FC\\BENCH.nes.s0",
+          "generation": 3,
+          "rom_id": 556327497,
+          "bytes": 8320,
+          "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "evidence": "validated slot headers"
+        },
+        "screenshot": "build\\verification\\fceu320-conservative-city-skip0\\frame-1800.png",
+        "reductions_percent": {
+          "whole": {
+            "block_instructions": -45.83672664614817,
+            "core_emulate_instructions": -54.28235376056059,
+            "outside_core_instructions": 0.35055715034763013
+          },
+          "gameplay": {
+            "block_instructions": -46.4865245809152,
+            "core_emulate_instructions": -54.28235376056059,
+            "outside_core_instructions": -0.4663882864234692
+          },
+          "city_1501_1800": {
+            "block_instructions": -41.557904106399526,
+            "core_emulate_instructions": -48.445869339545624,
+            "outside_core_instructions": -0.45182100661549374
+          }
+        }
+      },
+      {
+        "label": "fceu320-fast",
+        "bda_sha256": "2ab67eae7dd25edb36490069fda8bd63f5d33ec1bdd75912ced8c14d02c3d95b",
+        "elf_sha256": "9f38f1dd3faade9fadf8bcc006ccd140999902bdb57c43e7e007382ceb54cdad",
+        "whole": {
+          "block_instructions": 6841972125,
+          "core_emulate_instructions": 6109570908,
+          "outside_core_instructions": 732401217
+        },
+        "city_1501_1800": {
+          "block_instructions": 1152021920,
+          "core_emulate_instructions": 1034697736,
+          "outside_core_instructions": 117324184,
+          "pcm_frames": 110059,
+          "pcm_nonzero_samples": 220072
+        },
+        "source_rate": 22050,
+        "rendered_frames": 1740,
+        "pcm_frames": 660352,
+        "audio_catchup_frames": 91,
+        "latest_battery_save": {
+          "path": "A:\\FC\\BENCH.nes.s0",
+          "generation": 3,
+          "rom_id": 556327497,
+          "bytes": 8320,
+          "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "evidence": "validated slot headers"
+        },
+        "screenshot": "build\\verification\\fceu320-fast-city-skip0\\frame-1800.png",
+        "reductions_percent": {
+          "whole": {
+            "block_instructions": -43.90791467662369,
+            "core_emulate_instructions": -52.000846734531045,
+            "outside_core_instructions": 0.35055715034763013
+          },
+          "gameplay": {
+            "block_instructions": -44.535518715468484,
+            "core_emulate_instructions": -52.000846734531045,
+            "outside_core_instructions": -0.4663882864234692
+          },
+          "city_1501_1800": {
+            "block_instructions": -41.558051559897535,
+            "core_emulate_instructions": -48.446041501176595,
+            "outside_core_instructions": -0.45182100661549374
+          }
+        }
+      }
+    ]
+  },
+  "same_core_control": {
+    "ok": true,
+    "scenario": {
+      "schema": 1,
+      "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+      "frames": 1800,
+      "settings": {
+        "scale": 1,
+        "skip": 1,
+        "sound": 1,
+        "volume": 100,
+        "save": "new, empty initial filesystem"
+      },
+      "events": [
+        {
+          "frame": 301,
+          "key": 25,
+          "down": true
+        },
+        {
+          "frame": 305,
+          "key": 25,
+          "down": false
+        },
+        {
+          "frame": 421,
+          "key": 25,
+          "down": true
+        },
+        {
+          "frame": 425,
+          "key": 25,
+          "down": false
+        },
+        {
+          "frame": 541,
+          "key": 25,
+          "down": true
+        },
+        {
+          "frame": 545,
+          "key": 25,
+          "down": false
+        },
+        {
+          "frame": 721,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 725,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 841,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 845,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 1201,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 1205,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 1321,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 1325,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 1501,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 1505,
+          "key": 16,
+          "down": false
+        },
+        {
+          "frame": 1621,
+          "key": 16,
+          "down": true
+        },
+        {
+          "frame": 1625,
+          "key": 16,
+          "down": false
+        }
+      ],
+      "cost_census": false,
+      "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+      "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+      "render_policy": "Allow audio catch-up skips; require exact LCD/PCM/render/catch-up observations for this same-core control",
+      "initial_config": "CRC-protected version-2 ROM config, loaded by unmodified application"
+    },
+    "baseline": {
+      "label": "v0113-interpreter",
+      "report": "build\\verification\\fceu320-control-interpreter-skip1.json",
+      "bda_sha256": "7659244bacd98529916d940a0839b2f529042ffa5d13efe94fd38d1922b752c1",
+      "elf_sha256": "4b6710bc22694728e06b7e34b7af7065119af056b9451d1307928f3a09c78d7a",
+      "whole": {
+        "block_instructions": 4797999145,
+        "core_emulate_instructions": 4351356652,
+        "outside_core_instructions": 446642493
+      },
+      "gameplay": {
+        "block_instructions": 4744817575,
+        "core_emulate_instructions": 4351356652,
+        "outside_core_instructions": 393460923,
+        "pcm_frames": 660352,
+        "pcm_nonzero_samples": 1242560
+      },
+      "city_1501_1800": {
+        "block_instructions": 794386147,
+        "core_emulate_instructions": 728109928,
+        "outside_core_instructions": 66276219,
+        "pcm_frames": 110059,
+        "pcm_nonzero_samples": 220078
+      },
+      "source_rate": 22050,
+      "frame_us": 16639,
+      "rendered_frames": 886,
+      "audio_catchup_frames": 91,
+      "pcm_frames": 660352,
+      "pcm_nonzero_samples": 1242560,
+      "latest_battery_save": {
+        "path": "A:\\FC\\BENCH.nes.s0",
+        "generation": 3,
+        "rom_id": 556327497,
+        "bytes": 8320,
+        "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+        "evidence": "validated slot headers"
+      },
+      "screenshot": "build\\verification\\fceu320-control-interpreter-skip1\\frame-1800.png"
+    },
+    "candidates": [
+      {
+        "label": "v0113-jit",
+        "report": "build\\verification\\fceu320-baseline-jit-skip1.json",
+        "bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "elf_sha256": "da455eec29a5c6ae20974310a78b4d90d7c1f23795ccb2f6fd3fd910a879a591",
+        "whole": {
+          "block_instructions": 4066529729,
+          "core_emulate_instructions": 3618985399,
+          "outside_core_instructions": 447544330
+        },
+        "gameplay": {
+          "block_instructions": 4012446322,
+          "core_emulate_instructions": 3618985399,
+          "outside_core_instructions": 393460923,
+          "pcm_frames": 660352,
+          "pcm_nonzero_samples": 1242560
+        },
+        "city_1501_1800": {
+          "block_instructions": 692412446,
+          "core_emulate_instructions": 626136227,
+          "outside_core_instructions": 66276219,
+          "pcm_frames": 110059,
+          "pcm_nonzero_samples": 220078
+        },
+        "source_rate": 22050,
+        "frame_us": 16639,
+        "rendered_frames": 886,
+        "audio_catchup_frames": 91,
+        "pcm_frames": 660352,
+        "pcm_nonzero_samples": 1242560,
+        "latest_battery_save": {
+          "path": "A:\\FC\\BENCH.nes.s0",
+          "generation": 3,
+          "rom_id": 556327497,
+          "bytes": 8320,
+          "payload": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "evidence": "validated slot headers"
+        },
+        "screenshot": "build\\verification\\fceu320-baseline-jit-skip1\\frame-1800.png",
+        "strict_observations": {
+          "ok": true,
+          "scope": "All 1800 per-frame LCD/source PCM/presentations plus final gameplay PCM ring and battery/config saves; internal core state layout not observed"
+        },
+        "reductions_percent": {
+          "whole": {
+            "block_instructions": 15.245301091023855,
+            "core_emulate_instructions": 16.830871646969747,
+            "outside_core_instructions": -0.20191473362567436
+          },
+          "gameplay": {
+            "block_instructions": 15.435182521216317,
+            "core_emulate_instructions": 16.830871646969747,
+            "outside_core_instructions": 0.0
+          },
+          "city_1501_1800": {
+            "block_instructions": 12.836792457308544,
+            "core_emulate_instructions": 14.00526171646982,
+            "outside_core_instructions": 0.0
+          }
+        },
+        "output_observations": {
+          "screen": {
+            "equal": true,
+            "baseline": "548cc74035b38dc4d82c04e12bcaef15d521cc272def4440b137a297a40cd698",
+            "candidate": "548cc74035b38dc4d82c04e12bcaef15d521cc272def4440b137a297a40cd698"
+          },
+          "core_pcm": {
+            "equal": true,
+            "baseline": "86eaed09a695c047d2a10a9db398a6cfce45b7f2f0971a6e57de5f715659761a",
+            "candidate": "86eaed09a695c047d2a10a9db398a6cfce45b7f2f0971a6e57de5f715659761a"
+          },
+          "pcm_frames": {
+            "equal": true,
+            "baseline": 660352,
+            "candidate": 660352
+          },
+          "rendered_frames": {
+            "equal": true,
+            "baseline": 886,
+            "candidate": 886
+          },
+          "audio_catchup_frames": {
+            "equal": true,
+            "baseline": 91,
+            "candidate": 91
+          },
+          "gameplay_submitted_ring_pcm": {
+            "equal": true,
+            "baseline": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8",
+            "candidate": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8"
+          },
+          "gameplay_observed_ring_pcm": {
+            "equal": true,
+            "baseline": "cd1e6a6170e5589950e5ed7113c52daed9b9d71b05cb205baadb9e1f1b8d8fb1",
+            "candidate": "cd1e6a6170e5589950e5ed7113c52daed9b9d71b05cb205baadb9e1f1b8d8fb1"
+          },
+          "latest_battery_payload_equal": true,
+          "matching_lcd_frames": 1800,
+          "matching_source_pcm_frames": 1800
+        }
+      }
+    ],
+    "partition": "FCEUI_Emulate entry-to-return is CPU/PPU/APU/mapper emulation; outside is all other app work including startup, adapter, input, display, PCM queue, pacing, saves, menu and teardown. Gameplay/city use frame-boundary subsets.",
+    "interpretation": "Positive reduction is fewer executed MIPS instructions. Cross-core differences are retained; identical inputs do not prove identical scene or emulation semantics. Inspect screenshots and distinguish conservative/fast skipped-frame policies.",
+    "limitation": "Not physical H1 clocks/FPS or real audio dropout proof. Different displayed counts mean different presentation work, not a fixed-work CPU speedup."
+  },
+  "visual_inspection": {
+    "build\\verification\\fceu320-baseline-jit-skip1\\frame-1800.png": {
+      "sha256": "d96c3cc3022c5b6bf738b7f2fdc34df1922e8dca4fad36badc7dd3ca89ceaecc",
+      "scene": "189\u5e741\u6708\u57ce\u5e02\u547d\u4ee4\u83dc\u5355\uff0c\u91d1190/\u7c73280/\u519c\u4e1a30/\u5546\u4e1a75/\u4eba\u53e321000/\u9632\u707e40/\u6b66\u5c063/\u5175\u58eb2100",
+      "checked": true
+    },
+    "build\\verification\\fceu320-conservative-city-skip1\\frame-1800.png": {
+      "sha256": "e57be0042dc47cc4351a08abefc9ec39b3c9008fe3e14af1a03ed66dd944d4c5",
+      "scene": "189\u5e741\u6708\u57ce\u5e02\u547d\u4ee4\u83dc\u5355\uff0c\u91d1190/\u7c73280/\u519c\u4e1a30/\u5546\u4e1a75/\u4eba\u53e321000/\u9632\u707e40/\u6b66\u5c063/\u5175\u58eb2100",
+      "checked": true
+    },
+    "build\\verification\\fceu320-fast-city-skip1\\frame-1800.png": {
+      "sha256": "e57be0042dc47cc4351a08abefc9ec39b3c9008fe3e14af1a03ed66dd944d4c5",
+      "scene": "189\u5e741\u6708\u57ce\u5e02\u547d\u4ee4\u83dc\u5355\uff0c\u91d1190/\u7c73280/\u519c\u4e1a30/\u5546\u4e1a75/\u4eba\u53e321000/\u9632\u707e40/\u6b66\u5c063/\u5175\u58eb2100",
+      "checked": true
+    },
+    "build\\verification\\fceu320-baseline-jit-skip0\\frame-1800.png": {
+      "sha256": "86804ac76dce85715c2bae2073d44363a6d2b5421278b9d7ce2ed63b2b36a479",
+      "scene": "189\u5e741\u6708\u57ce\u5e02\u547d\u4ee4\u83dc\u5355\uff0c\u91d1190/\u7c73280/\u519c\u4e1a30/\u5546\u4e1a75/\u4eba\u53e321000/\u9632\u707e40/\u6b66\u5c063/\u5175\u58eb2100",
+      "checked": true
+    },
+    "build\\verification\\fceu320-conservative-city-skip0\\frame-1800.png": {
+      "sha256": "049f620da4d0f557a4cb6f837ffa34215808473faaf4e30c93b0600434d9f094",
+      "scene": "189\u5e741\u6708\u57ce\u5e02\u547d\u4ee4\u83dc\u5355\uff0c\u91d1190/\u7c73280/\u519c\u4e1a30/\u5546\u4e1a75/\u4eba\u53e321000/\u9632\u707e40/\u6b66\u5c063/\u5175\u58eb2100",
+      "checked": true
+    },
+    "build\\verification\\fceu320-fast-city-skip0\\frame-1800.png": {
+      "sha256": "049f620da4d0f557a4cb6f837ffa34215808473faaf4e30c93b0600434d9f094",
+      "scene": "189\u5e741\u6708\u57ce\u5e02\u547d\u4ee4\u83dc\u5355\uff0c\u91d1190/\u7c73280/\u519c\u4e1a30/\u5546\u4e1a75/\u4eba\u53e321000/\u9632\u707e40/\u6b66\u5c063/\u5175\u58eb2100",
+      "checked": true
+    }
+  },
+  "firmware": {
+    "conservative": {
+      "first": {
+        "ok": true,
+        "game": "SGZ2 FCEU320 comparison conservative",
+        "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+        "physical_device_tested": false,
+        "original_dump_modified": false,
+        "bda_sha256": "d8d86edce5f648d4d893271323d7b22fd6ee9505a54536b0840fbeea7b86b404",
+        "kernel_sha256": "d05786e442f9aad62a8d0a0cb4f6d786bdc7c2fa353a7a2b152c9ed9f01b40ef",
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "rom_bytes": 524304,
+        "mapper": 19,
+        "video_frames": 513,
+        "video_errors": 0,
+        "audio": {
+          "sample_rate": 32000,
+          "packets": 144,
+          "frames": 96009,
+          "seconds": 3.00028125,
+          "min": -32383,
+          "max": 19021,
+          "nonzero_samples": 191972
+        },
+        "resumed_audio": {
+          "sample_rate": 32000,
+          "packets": 97,
+          "frames": 64758,
+          "seconds": 2.0236875,
+          "min": -32383,
+          "max": 19510,
+          "nonzero_samples": 129476
+        },
+        "resumed_gameplay_changed": null,
+        "paused_display_stable": true,
+        "app_end_result": 0,
+        "qemu_returncode": 0,
+        "exit_protocol": "p-menu-escape-return-confirm-exit",
+        "screenshots": {
+          "about-key.png": "2e9c7bc6e8b361393a3365680b06f206057fb64c6596541566ae597f3fe0eb6f",
+          "about-touch.png": "2e9c7bc6e8b361393a3365680b06f206057fb64c6596541566ae597f3fe0eb6f",
+          "exit-desktop.png": "9bf1bf2c7ad09f97bcb9270ffa85a60be5ed9e762f6f7effa40908007a0b22b1",
+          "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+          "level-after.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "level-before.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "menu.png": "ca3675c6c11840ba3fe9ae48a88c62174b874d29eec85e1678d71cd4d9eeb40e",
+          "pause-stable.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+          "pause.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+          "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+          "resume-check.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "resumed.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "right-and-a.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "title.png": "7d640a301776dc0629811f80dbd213513c756cfe0a1d0e79f8b662d02f9bf52c"
+        },
+        "limitations": [
+          "Game-specific title/level/action results require visual inspection of screenshots",
+          "Full firmware emulation does not establish physical-device performance"
+        ]
+      },
+      "restart": {
+        "ok": true,
+        "bda_sha256": "d8d86edce5f648d4d893271323d7b22fd6ee9505a54536b0840fbeea7b86b404",
+        "same_private_nand": true,
+        "physical_device_tested": false,
+        "save_loaded": true,
+        "save_on_exit": true,
+        "app_end_result": 0,
+        "audio": {
+          "sample_rate": 32000,
+          "packets": 145,
+          "frames": 96729,
+          "seconds": 3.02278125,
+          "min": -32383,
+          "max": 18807,
+          "nonzero_samples": 193396
+        },
+        "save_load_lines": [
+          "000031 SAVE_LOAD_BEGIN ptr=0x8255c7c8 bytes=8320",
+          "000032 SAVE_LOAD_END status=1 slot=0 generation=1"
+        ],
+        "screenshots": {
+          "exit-desktop.png": "9bf1bf2c7ad09f97bcb9270ffa85a60be5ed9e762f6f7effa40908007a0b22b1",
+          "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+          "menu.png": "ca3675c6c11840ba3fe9ae48a88c62174b874d29eec85e1678d71cd4d9eeb40e",
+          "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+          "reloaded-game.png": "ab2898b997fb0c1a26e0c19647d14af1e88dd45b688ca4bc4793a9e594c5474f"
+        }
+      },
+      "source_dump": {
+        "ok": true,
+        "files": 494,
+        "bytes": 941764502,
+        "original_dump_unchanged": true,
+        "bda_sha256": "d8d86edce5f648d4d893271323d7b22fd6ee9505a54536b0840fbeea7b86b404"
+      },
+      "scenario": "Title, audio, pause/resume, About, exit; city is covered by separate application benchmark"
+    },
+    "fast": {
+      "first": {
+        "ok": true,
+        "game": "SGZ2 FCEU320 comparison fast",
+        "environment": "Full H1 V1.41 firmware/QEMU bbkh1",
+        "physical_device_tested": false,
+        "original_dump_modified": false,
+        "bda_sha256": "2ab67eae7dd25edb36490069fda8bd63f5d33ec1bdd75912ced8c14d02c3d95b",
+        "kernel_sha256": "d05786e442f9aad62a8d0a0cb4f6d786bdc7c2fa353a7a2b152c9ed9f01b40ef",
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "rom_bytes": 524304,
+        "mapper": 19,
+        "video_frames": 517,
+        "video_errors": 0,
+        "audio": {
+          "sample_rate": 32000,
+          "packets": 144,
+          "frames": 95830,
+          "seconds": 2.9946875,
+          "min": -32383,
+          "max": 18933,
+          "nonzero_samples": 191642
+        },
+        "resumed_audio": {
+          "sample_rate": 32000,
+          "packets": 97,
+          "frames": 64943,
+          "seconds": 2.02946875,
+          "min": -32383,
+          "max": 18946,
+          "nonzero_samples": 129874
+        },
+        "resumed_gameplay_changed": null,
+        "paused_display_stable": true,
+        "app_end_result": 0,
+        "qemu_returncode": 0,
+        "exit_protocol": "p-menu-escape-return-confirm-exit",
+        "screenshots": {
+          "about-key.png": "2e9c7bc6e8b361393a3365680b06f206057fb64c6596541566ae597f3fe0eb6f",
+          "about-touch.png": "2e9c7bc6e8b361393a3365680b06f206057fb64c6596541566ae597f3fe0eb6f",
+          "exit-desktop.png": "aed92e5ee458c863cd05a4f9dd588bb24ec7b2b6828f4fab12aaead99d66f5dc",
+          "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+          "level-after.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "level-before.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "menu.png": "7ec200b060d6cc4651ba09ad64049a8862cf7c9b72db8e968024c62032e78d4a",
+          "pause-stable.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+          "pause.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+          "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+          "resume-check.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "resumed.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "right-and-a.png": "ab2083f426d67ddd96335ce0a97c4401d3f6897f5de463eecad8be3e885d0b24",
+          "title.png": "7d640a301776dc0629811f80dbd213513c756cfe0a1d0e79f8b662d02f9bf52c"
+        },
+        "limitations": [
+          "Game-specific title/level/action results require visual inspection of screenshots",
+          "Full firmware emulation does not establish physical-device performance"
+        ]
+      },
+      "restart": {
+        "ok": true,
+        "bda_sha256": "2ab67eae7dd25edb36490069fda8bd63f5d33ec1bdd75912ced8c14d02c3d95b",
+        "same_private_nand": true,
+        "physical_device_tested": false,
+        "save_loaded": true,
+        "save_on_exit": true,
+        "app_end_result": 0,
+        "audio": {
+          "sample_rate": 32000,
+          "packets": 144,
+          "frames": 96298,
+          "seconds": 3.0093125,
+          "min": -32383,
+          "max": 18885,
+          "nonzero_samples": 192554
+        },
+        "save_load_lines": [
+          "000031 SAVE_LOAD_BEGIN ptr=0x8255c7c8 bytes=8320",
+          "000032 SAVE_LOAD_END status=1 slot=0 generation=1"
+        ],
+        "screenshots": {
+          "exit-desktop.png": "9bf1bf2c7ad09f97bcb9270ffa85a60be5ed9e762f6f7effa40908007a0b22b1",
+          "exit-menu.png": "35b33e1736d0fdd919e6cf683aeb0f7087008c908054e3afcc07aea4cd386355",
+          "menu.png": "ca3675c6c11840ba3fe9ae48a88c62174b874d29eec85e1678d71cd4d9eeb40e",
+          "picker.png": "666fb3cd78ea46fbf9e11ed8fe2f442b6ff70c35baf96549d3587fadba109c68",
+          "reloaded-game.png": "ab2898b997fb0c1a26e0c19647d14af1e88dd45b688ca4bc4793a9e594c5474f"
+        }
+      },
+      "source_dump": {
+        "ok": true,
+        "files": 494,
+        "bytes": 941764502,
+        "original_dump_unchanged": true,
+        "bda_sha256": "2ab67eae7dd25edb36490069fda8bd63f5d33ec1bdd75912ced8c14d02c3d95b"
+      },
+      "scenario": "Title, audio, pause/resume, About, exit; city is covered by separate application benchmark"
+    }
+  },
+  "reproduction_commands": [
+    "python tests/fceu320_app_benchmark.py --bda build/fceu320-baseline-v0113/H1FC.bda --elf build/fceu320-baseline-v0113/H1FC.elf --label v0113-jit --skip 1 --frames 1800 --rom build/audio-baseline/sgz2-cn.nes --input-script tests/scenarios/sgz2-newgame-city.json --parity-cache build/verification/v0113-final-v2-city-skip1.json --output build/verification/fceu320-reproduce-baseline-jit-skip1.json",
+    "python tests/fceu320_app_benchmark.py --bda build/fceu320-baseline-v0113/H1FC.bda --elf build/fceu320-baseline-v0113/H1FC.elf --label v0113-jit --skip 0 --frames 1800 --rom build/audio-baseline/sgz2-cn.nes --input-script tests/scenarios/sgz2-newgame-city.json --parity-cache build/verification/v0113-final-v2-city-skip0.json --output build/verification/fceu320-reproduce-baseline-jit-skip0.json",
+    "python tests/fceu320_app_benchmark.py --bda build/fceu320-control-interpreter/build/release/H1FC.bda --elf build/fceu320-control-interpreter/build/release/H1FC.elf --label v0113-interpreter --skip 1 --frames 1800 --rom build/audio-baseline/sgz2-cn.nes --input-script tests/scenarios/sgz2-newgame-city.json --output build/verification/fceu320-reproduce-interpreter-skip1.json",
+    "python tests/fceu320_app_benchmark.py --bda build/fceu320-frozen/conservative/H1FC.bda --elf build/fceu320-frozen/conservative/H1FC.elf --label fceu320-conservative --skip 1 --frames 1800 --rom build/audio-baseline/sgz2-cn.nes --input-script tests/scenarios/sgz2-newgame-city.json --output build/verification/fceu320-reproduce-conservative-skip1.json",
+    "python tests/fceu320_app_benchmark.py --bda build/fceu320-frozen/fast/H1FC.bda --elf build/fceu320-frozen/fast/H1FC.elf --label fceu320-fast --skip 1 --frames 1800 --rom build/audio-baseline/sgz2-cn.nes --input-script tests/scenarios/sgz2-newgame-city.json --output build/verification/fceu320-reproduce-fast-skip1.json",
+    "python tests/fceu320_app_benchmark.py --bda build/fceu320-frozen/conservative/H1FC.bda --elf build/fceu320-frozen/conservative/H1FC.elf --label fceu320-conservative --skip 0 --frames 1800 --rom build/audio-baseline/sgz2-cn.nes --input-script tests/scenarios/sgz2-newgame-city.json --output build/verification/fceu320-reproduce-conservative-skip0.json",
+    "python tests/fceu320_app_benchmark.py --bda build/fceu320-frozen/fast/H1FC.bda --elf build/fceu320-frozen/fast/H1FC.elf --label fceu320-fast --skip 0 --frames 1800 --rom build/audio-baseline/sgz2-cn.nes --input-script tests/scenarios/sgz2-newgame-city.json --output build/verification/fceu320-reproduce-fast-skip0.json"
+  ],
+  "comparison_commands": [
+    "python tests/fceu320_compare.py --baseline build/verification/fceu320-reproduce-baseline-jit-skip1.json --candidate build/verification/fceu320-reproduce-conservative-skip1.json --candidate build/verification/fceu320-reproduce-fast-skip1.json --output build/verification/fceu320-reproduce-summary-skip1.json",
+    "python tests/fceu320_compare.py --baseline build/verification/fceu320-reproduce-baseline-jit-skip0.json --candidate build/verification/fceu320-reproduce-conservative-skip0.json --candidate build/verification/fceu320-reproduce-fast-skip0.json --output build/verification/fceu320-reproduce-summary-skip0.json",
+    "python tests/fceu320_compare.py --baseline build/verification/fceu320-reproduce-interpreter-skip1.json --candidate build/verification/fceu320-reproduce-baseline-jit-skip1.json --strict-observations --output build/verification/fceu320-reproduce-jit-control-summary.json"
+  ],
+  "evidence": [
+    {
+      "path": "build/verification/fceu320-complete-app-summary.json",
+      "bytes": 65413,
+      "sha256": "d6dab91afc938fe259764cc8584e7bbd0d3b8c4a74637199953dfdf8ea3e512d"
+    },
+    {
+      "path": "build/verification/fceu320-production-before.json",
+      "bytes": 10026,
+      "sha256": "5067c18c93a583be9a25ed2634c4cd4a264fd72120ac760b9970826db1f7bc67"
+    },
+    {
+      "path": "build/verification/fceu320-port-source-audit.json",
+      "bytes": 19132,
+      "sha256": "4e4a8834f356fffac3a29dce86f996324c3af882e11fbc45936248e9e6934a07"
+    },
+    {
+      "path": "build/verification/fceu320-cxx-lifecycle.json",
+      "bytes": 1727,
+      "sha256": "3f50a7762f5b988055c83a2a39c3ed554eae0a53772f6eb626f6c3fb57b6163b"
+    },
+    {
+      "path": "build/verification/fceu320-reproducible-builds.json",
+      "bytes": 898,
+      "sha256": "2e1450115a955a76077a411821ffe19e2aa8490a03718c04ae952b703ae5d7c3"
+    },
+    {
+      "path": "build/verification/fceu320-palette.json",
+      "bytes": 1238,
+      "sha256": "ca3bcb6b3d33146e1792cf605b9f1725a794148c2853fb04ad5382952f4b9add"
+    },
+    {
+      "path": "build/verification/fceu320-opll-table-equivalence.json",
+      "bytes": 3399,
+      "sha256": "727b260b6a67d2c2ef15a029df248c7b5e13b5006ac26d946ad59111c118b40c"
+    },
+    {
+      "path": "build/verification/fceu320-crc-equivalence.json",
+      "bytes": 2189,
+      "sha256": "892a4a0c2ef5456c1d02491b38e4503ee902008999b092572503d22768f25a70"
+    },
+    {
+      "path": "tools/build_fceu320_compare.py",
+      "bytes": 12293,
+      "sha256": "6b0cf766e0f21c727944d9746fe5f61d519e012280785998550b446045e9f8f0"
+    },
+    {
+      "path": "tests/fceu320_app_benchmark.py",
+      "bytes": 16235,
+      "sha256": "1656df8e455275f74310fb1f3546a962b6ab994c31041842b956f4b8a6a68e44"
+    },
+    {
+      "path": "tests/fceu320_compare.py",
+      "bytes": 6034,
+      "sha256": "187a2312ee9903cbdc8c3bc4458a2a596f6cf1eef20d59fc6d537a21d8e21582"
+    },
+    {
+      "path": "build/fceu320-firmware-conservative/evidence/classic-smoke.json",
+      "bytes": 2581,
+      "sha256": "2626cb5d5ca830286409f2f839b3e03f614ce4f8048e7718d9466e680783d2c7"
+    },
+    {
+      "path": "build/fceu320-firmware-conservative/evidence/h1fc.log",
+      "bytes": 3188,
+      "sha256": "f570529623d81f6a42d8d1296d317f8b7b59d9367d51a4d0bd57448905345d81"
+    },
+    {
+      "path": "build/fceu320-firmware-conservative/restart-evidence/restart-smoke.json",
+      "bytes": 1048,
+      "sha256": "6bf97d2ceba4f59f7b9870109563a00e5ec98320374d4545945a273e09f20245"
+    },
+    {
+      "path": "build/fceu320-firmware-conservative/restart-evidence/h1fc.log",
+      "bytes": 2764,
+      "sha256": "0d254592cfac49d067a0f9d3ccfe888597b437b5a901f6af6b5d65f167428be0"
+    },
+    {
+      "path": "build/fceu320-firmware-fast/evidence/classic-smoke.json",
+      "bytes": 2573,
+      "sha256": "dc35464c3109742b0dd649bed2f8bf648c7826979f6169745e19bc1da1b38d55"
+    },
+    {
+      "path": "build/fceu320-firmware-fast/evidence/h1fc.log",
+      "bytes": 3188,
+      "sha256": "1ce947b98ab44e218562049d61e6fbfb2aff57be4e1971cf5e0992c908fa5454"
+    },
+    {
+      "path": "build/fceu320-firmware-fast/restart-evidence/restart-smoke.json",
+      "bytes": 1047,
+      "sha256": "e407f223ebb027c71291a9bece931351f2b7cc3890c884d58d726da8f3e2fa1d"
+    },
+    {
+      "path": "build/fceu320-firmware-fast/restart-evidence/h1fc.log",
+      "bytes": 2763,
+      "sha256": "84dfb723fec7efbeb791338f9d2af267334c297ace8f500105cbc5fd2ff254f8"
+    }
+  ],
+  "limitations": [
+    "MIPS instruction entries, not physical H1 cycles/FPS/audio continuity",
+    "Old core default CPU RAM powerup differs; same initial battery save is empty",
+    "Cross-core PCM/LCD are not equivalent; final battery payload and output counts match",
+    "Fast frameskip changes PPU semantics; current production build is unchanged",
+    "Core partition includes CPU/PPU/APU/mapper; not separate CPU-only attribution",
+    "Experimental About version line says FCEU320 test, but inherited core/thanks text still contains FCEUmm; actual identity is tied to build manifest, SHA256 and core=FCEU320_compare log",
+    "Whole-application cost includes build-time palette/OPLL table precomputation differences; city runtime does not include palette initialization",
+    "Full-firmware tests cover title/menu; the separate complete-application runner covers city gameplay"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "version": "0.1.6",
+  "display_name": "NES",
+  "installed_filename": "H1NES.bda",
+  "scope": "BDA desktop title and About text shortened; emulator implementation unchanged",
+  "variants": {
+    "release-jit": {
+      "old_sha256": "eefbd4c4a169155215aff2fad5132ff0b1510e022c172ee2aeeb90f351a7a9fe",
+      "sha256": "587c6ad3b60880653d63b8e8b08805b8161d3e99e55ee8cc31d50af161025696",
+      "bytes": 1057232,
+      "header_title": "NES",
+      "object_count": 494,
+      "changed_objects": [
+        "010-menu.o"
+      ]
+    },
+    "release-profile-jit": {
+      "old_sha256": "09ff2cf078b9d08989ba101f2a2db1f7154c3b994f4b0c20e1969556fb5dab55",
+      "sha256": "0449bf232885f10e521eaaf562b5efb2549af92a59f68d1103e945d5306f7162",
+      "bytes": 1067280,
+      "header_title": "NES",
+      "object_count": 494,
+      "changed_objects": [
+        "010-menu.o"
+      ]
+    }
+  },
+  "about": {
+    "ok": true,
+    "bda_sha256": "587c6ad3b60880653d63b8e8b08805b8161d3e99e55ee8cc31d50af161025696",
+    "flow": "P -> About -> Back -> Exit",
+    "app_end_result": 0,
+    "visual_review": "Inspected actual MIPS-rendered screenshot: About NES, NES, v0.1.6 and HelloClyde visible without clipping",
+    "png_sha256": "49c7d23e729f1dd8ba4d70b4f45632f2ba27826e9ca50b0ecdda9f17c9fe9b19"
+  },
+  "smoke": {
+    "ok": true,
+    "bda_sha256": "587c6ad3b60880653d63b8e8b08805b8161d3e99e55ee8cc31d50af161025696",
+    "case_names": [
+      "pressed",
+      "restored",
+      "selector-cancel"
+    ],
+    "assertions": [
+      "MIPS ABI and resource cleanup",
+      "256x240 background and aspect scaling",
+      "A press and release",
+      "APU pulse PCM",
+      "8 KiB battery save with CRC",
+      "battery RAM restored across launches",
+      "native selector and cancel"
+    ]
+  },
+  "limitations": [
+    "UI rename check uses actual MIPS application with mocked firmware services; no new full-firmware or physical-device measurement",
+    "Previous optimization evidence remains bound to its original BDA hashes; no repeated long performance benchmark for this text-only change"
+  ]
+}

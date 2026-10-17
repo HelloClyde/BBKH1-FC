@@ -1,0 +1,1353 @@
+{
+  "ok": true,
+  "version": "0.1.13",
+  "product": "NES",
+  "author": "HelloClyde",
+  "date": "2026-10-16",
+  "physical_device_tested": false,
+  "artifacts": {
+    "normal": {
+      "title": "NES",
+      "version": "0.1.13",
+      "sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+      "size": 1133616,
+      "payload_sha256": "68fe3072a693d357b07091f5ac400b746e2447d3b3ffb6f04c11ffac190f4fcc",
+      "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+      "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+      "core": "FCEUmm",
+      "entry_va": "0x83c00020",
+      "formats": [
+        "nes"
+      ],
+      "audio": "H1 native PCM 32000 Hz mono",
+      "log_path": "A:\\FC\\h1fc.log",
+      "test_frames": 0,
+      "benchmark": false,
+      "verbose_log": false,
+      "profile": false,
+      "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+      "build_time": "2026-10-13 00:00:00",
+      "optimization": "O2",
+      "lto": false,
+      "jit": true,
+      "experimental": true,
+      "jit_backend": "MIPS32_EVENT_V6",
+      "jit_cache_mib": 8,
+      "icon": "assets/fc-icon.png",
+      "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031"
+    },
+    "profile": {
+      "title": "NES",
+      "version": "0.1.13",
+      "sha256": "38588b0dc4d00c4f328f9fc6ebe3fa00e426a98ecfb7be44d9ae798e3891701f",
+      "size": 1152912,
+      "payload_sha256": "d1eb4b1902bb1d87775d62af2ff53125832c36aa1d0a0e2d87bdc6d296c2d1ae",
+      "sdk_commit": "067fe072477861dfc8949d7b1a55279fb92d2548",
+      "fceumm_commit": "ac0d00a7fc01166f84c7bac01d1084ebfd2b865e",
+      "core": "FCEUmm",
+      "entry_va": "0x83c00020",
+      "formats": [
+        "nes"
+      ],
+      "audio": "H1 native PCM 32000 Hz mono",
+      "log_path": "A:\\FC\\h1fc.log",
+      "test_frames": 0,
+      "benchmark": false,
+      "verbose_log": false,
+      "profile": true,
+      "compiler": "mipsel-none-elf-gcc.exe (GCC) 15.2.0",
+      "build_time": "2026-10-13 00:00:00",
+      "optimization": "O2",
+      "lto": false,
+      "jit": true,
+      "experimental": true,
+      "jit_backend": "MIPS32_EVENT_V6",
+      "jit_cache_mib": 8,
+      "icon": "assets/fc-icon.png",
+      "icon_sha256": "9736c6ba5f40707345b687476a07d360d56923311895978ef35c54e1b611b031",
+      "profile_layout": "core_detail_v1"
+    }
+  },
+  "default_frameskip": 1,
+  "existing_valid_configuration_preserved": true,
+  "jit_code_cache_bytes": 8388608,
+  "static_bss_added_bytes": 2192,
+  "text_added_bytes": 3120,
+  "same_settings_complete_application": [
+    {
+      "skip": 1,
+      "ordinary_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+      "total_before": 4148630576,
+      "total_after": 4066529729,
+      "total_reduction_percent": 1.9789866920172816,
+      "city_before": 711508460,
+      "city_after": 692412446,
+      "city_reduction_percent": 2.683877293602388,
+      "report": "build/verification/v0113-final-v2-city-skip1.json",
+      "comparison_identity": {
+        "schema": 1,
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "frames": 1800,
+        "settings": {
+          "scale": 1,
+          "skip": 1,
+          "sound": 1,
+          "volume": 100,
+          "save": "new, empty initial filesystem"
+        },
+        "events": [
+          {
+            "frame": 301,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 305,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 421,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 425,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 541,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 545,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 721,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 725,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 841,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 845,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1201,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1205,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1321,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1325,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1501,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1505,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1621,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1625,
+            "key": 16,
+            "down": false
+          }
+        ],
+        "cost_census": false,
+        "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+        "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+        "state_observation": "Read-only SFORMAT tables, without save callbacks",
+        "render_policy": "Allow audio catch-up skips; require exact baseline render/catch-up counts",
+        "initial_config": "CRC-protected version-2 ROM config, loaded by unmodified application"
+      },
+      "strict_outputs_equal": true,
+      "source_report": {
+        "path": "build/verification/v0113-final-v2-city-skip1.json",
+        "sha256": "60f0ac60bf0226f4b25cd67e701531e491d11a57155ec2bf2622a490af70a3ca"
+      },
+      "output_hashes": {
+        "screen": "548cc74035b38dc4d82c04e12bcaef15d521cc272def4440b137a297a40cd698",
+        "save_payloads": {
+          "A:\\FC\\BENCH.nes.cfg.s0": "1d74a3fa8f00d133f34814f535d904d5a1e296104d2c8f2f9a044383d7b44834",
+          "A:\\FC\\BENCH.nes.s0": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "A:\\FC\\BENCH.nes.s1": "e7912bc7bea3e9e76c3d44f4396581000d21e1dbcd8e4e6665c3f3f5c852f148",
+          "A:\\FC\\BENCH.nes.cfg.s1": "f9b74e3138802ef818608f6eb50ec3169e4974ed7e21cb80f3d38fb28c5bb3d0"
+        },
+        "core_pcm": "86eaed09a695c047d2a10a9db398a6cfce45b7f2f0971a6e57de5f715659761a",
+        "pcm_frames": 660352,
+        "gameplay_submitted_ring_pcm": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8",
+        "gameplay_observed_ring_pcm": "cd1e6a6170e5589950e5ed7113c52daed9b9d71b05cb205baadb9e1f1b8d8fb1",
+        "rendered_frames": 886,
+        "audio_catchup_frames": 91
+      },
+      "screenshot": {
+        "path": "build/verification/v0113-final-v2-city-skip1/current/frame-1800.png",
+        "sha256": "d96c3cc3022c5b6bf738b7f2fdc34df1922e8dca4fad36badc7dd3ca89ceaecc"
+      }
+    },
+    {
+      "skip": 0,
+      "ordinary_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+      "total_before": 4861653197,
+      "total_after": 4754409888,
+      "total_reduction_percent": 2.2059020801026508,
+      "city_before": 840073533,
+      "city_after": 813815892,
+      "city_reduction_percent": 3.1256360269119488,
+      "report": "build/verification/v0113-final-v2-city-skip0.json",
+      "comparison_identity": {
+        "schema": 1,
+        "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+        "frames": 1800,
+        "settings": {
+          "scale": 1,
+          "skip": 0,
+          "sound": 1,
+          "volume": 100,
+          "save": "new, empty initial filesystem"
+        },
+        "events": [
+          {
+            "frame": 301,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 305,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 421,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 425,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 541,
+            "key": 25,
+            "down": true
+          },
+          {
+            "frame": 545,
+            "key": 25,
+            "down": false
+          },
+          {
+            "frame": 721,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 725,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 841,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 845,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1201,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1205,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1321,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1325,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1501,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1505,
+            "key": 16,
+            "down": false
+          },
+          {
+            "frame": 1621,
+            "key": 16,
+            "down": true
+          },
+          {
+            "frame": 1625,
+            "key": 16,
+            "down": false
+          }
+        ],
+        "cost_census": false,
+        "clock": "Mock firmware milliseconds: 32 PCM samples consumed per timer query",
+        "stop": "P key-down at final input_frame; confirm Exit in the pause menu. Freeze final gameplay observation at first audio pause/close; total cost includes actual menu/exit, teardown reported separately",
+        "state_observation": "Read-only SFORMAT tables, without save callbacks",
+        "render_policy": "Allow audio catch-up skips; require exact baseline render/catch-up counts",
+        "initial_config": "CRC-protected version-2 ROM config, loaded by unmodified application"
+      },
+      "strict_outputs_equal": true,
+      "source_report": {
+        "path": "build/verification/v0113-final-v2-city-skip0.json",
+        "sha256": "c324d7e29cf75635ad7992c81dbcc54ee1b6ce3997ba1cbd57711235a409f298"
+      },
+      "output_hashes": {
+        "screen": "279923f2d8953c91db2673f9cce570ff15a2dbbc3e5c6ef8676ab50fb4125926",
+        "save_payloads": {
+          "A:\\FC\\BENCH.nes.cfg.s0": "5771c25c5a77ca3bd30559c9ed23f881f2076c9fdc20be60d214140fb0745a9c",
+          "A:\\FC\\BENCH.nes.s0": "d7d9f66484db32d721172fa56915d0450c78fdf93f86932e1cc57a9e35913709",
+          "A:\\FC\\BENCH.nes.s1": "e7912bc7bea3e9e76c3d44f4396581000d21e1dbcd8e4e6665c3f3f5c852f148",
+          "A:\\FC\\BENCH.nes.cfg.s1": "e47da1cbac1f0175404372377aa833b623462129f67cf4f33ec09c86a94087ea"
+        },
+        "core_pcm": "86eaed09a695c047d2a10a9db398a6cfce45b7f2f0971a6e57de5f715659761a",
+        "pcm_frames": 660352,
+        "gameplay_submitted_ring_pcm": "8e4bba109ad2b9d7ff33dd60eb0f85391466ec2490786b36d7140e2eaacbffa8",
+        "gameplay_observed_ring_pcm": "cd1e6a6170e5589950e5ed7113c52daed9b9d71b05cb205baadb9e1f1b8d8fb1",
+        "rendered_frames": 1740,
+        "audio_catchup_frames": 91
+      },
+      "screenshot": {
+        "path": "build/verification/v0113-final-v2-city-skip0/current/frame-1800.png",
+        "sha256": "86804ac76dce85715c2bae2073d44363a6d2b5421278b9d7ce2ed63b2b36a479"
+      }
+    }
+  ],
+  "independent_jit_candidates": {
+    "selected": "tail-only",
+    "baseline_sha256": "a8f7304365aae6379b343546938da4eb003f1e8255deb7a51eaff4a03e37c615",
+    "baseline_whole_instructions": 4148630576,
+    "baseline_city_instructions": 711508460,
+    "scope": "actual normal release BDA; 1800 SGZ2 new-game/city frames; final 300 city; skip=1; mock firmware services",
+    "limitation": "MIPS block instruction entries, not physical H1 time/FPS",
+    "candidates": [
+      {
+        "candidate": "subroutine",
+        "artifact_sha256": "33b7adb65235251c2bb7833ac43c4629c8a5eb00dc415773afa9796b84da6625",
+        "report": "build\\verification\\v0113-jit-subroutine-city-skip1.json",
+        "strict_outputs_equal": true,
+        "whole_instructions": 4138884020,
+        "whole_reduction_percent": 0.2349342950993094,
+        "city_instructions": 708247423,
+        "city_reduction_percent": 0.4583272277605799
+      },
+      {
+        "candidate": "resident",
+        "artifact_sha256": "45fc3bc5537e87c4cc3f4db6c488d03a6a3839821efd709b50fb015adbbf551f",
+        "report": "build\\verification\\v0113-jit-resident-city-skip1.json",
+        "strict_outputs_equal": true,
+        "whole_instructions": 4138206481,
+        "whole_reduction_percent": 0.2512659252020155,
+        "city_instructions": 708131762,
+        "city_reduction_percent": 0.47458297263254234
+      },
+      {
+        "candidate": "control-tail",
+        "artifact_sha256": "c1200cfe6edc2dbb0acc6d229a186faa5b2390ffd2385361c2fa321b73b4a608",
+        "report": "build\\verification\\v0113-jit-control-tail-city-skip1.json",
+        "strict_outputs_equal": true,
+        "whole_instructions": 4131426090,
+        "whole_reduction_percent": 0.41470277203106143,
+        "city_instructions": 706208523,
+        "city_reduction_percent": 0.744887418485507
+      },
+      {
+        "candidate": "tail-only",
+        "artifact_sha256": "2c8577de5401fc9bc2a23b73278c29457a02753eede95053d3b584a060d28467",
+        "report": "build\\verification\\v0113-jit-tail-only-city-skip1.json",
+        "strict_outputs_equal": true,
+        "whole_instructions": 4132306958,
+        "whole_reduction_percent": 0.39347003067549124,
+        "city_instructions": 706349806,
+        "city_reduction_percent": 0.7250305920466493
+      },
+      {
+        "candidate": "tail-admission",
+        "artifact_sha256": "b6d57d0ecec2080005962471763db4259fcea487b033ad14d1c0279a42920312",
+        "report": "build\\verification\\v0113-jit-tail-admission-city-skip1.json",
+        "strict_outputs_equal": true,
+        "whole_instructions": 4138921487,
+        "whole_reduction_percent": 0.23403117781003457,
+        "city_instructions": 707205459,
+        "city_reduction_percent": 0.6047715862717906
+      },
+      {
+        "candidate": "admission-only",
+        "artifact_sha256": "9db3d72f91f8aa89bc6e7e583171166e760dbf0b5dec67d3d9179379b24545d6",
+        "report": "build\\verification\\v0113-jit-admission-only-city-skip1.json",
+        "strict_outputs_equal": true,
+        "whole_instructions": 4157422659,
+        "whole_reduction_percent": -0.21192735383244177,
+        "city_instructions": 712903068,
+        "city_reduction_percent": -0.19600722667443282
+      }
+    ],
+    "decisions": [
+      "Retain PHA/PLA/JSR/RTS coverage and committed pure control-tail regions.",
+      "Reject resident-only chain entry: +196480 code-cache bytes for only 0.02123 percentage points whole-app improvement over selected.",
+      "Reject opcode-cost admission: both standalone and combined measurements lose to their matching base."
+    ],
+    "selected_source_sha256": "cf5c5a5b76a3b127fb8b599b541c0ae67a9f1e0a229f411b50779c69ed8c1fc1"
+  },
+  "independent_ppu_candidate": {
+    "ok": true,
+    "baseline_bda_sha256": "a8f7304365aae6379b343546938da4eb003f1e8255deb7a51eaff4a03e37c615",
+    "candidate_bda_sha256": "c040d522520fc279d2f94c4102d36bb0f021e166d3851d3067c4c3a7f5758c75",
+    "design": [
+      "Preserve all CPU/PPU and Mapper synchronization boundaries.",
+      "Batch four sprite/background decisions with byte masks; retain full sprite buffer and sprite-zero/overflow behavior.",
+      "Track the sprite row coverage alongside the sprite row and use original spork consumption.",
+      "Use a content+height checked OAM row index only after two successive fetches agree; dynamic OAM takes the original linear scan."
+    ],
+    "performance": {
+      "frames": 1800,
+      "skip": 1,
+      "whole_before": 4148630576,
+      "whole_after": 4082853347,
+      "whole_reduction_percent": 1.5855166613417904,
+      "city_before": 711508460,
+      "city_after": 697571100,
+      "strict_all_outputs_equal": true
+    },
+    "validation": {
+      "sprite_batch_host_cases": 315536,
+      "sprite_fetch_host_cases": 100000,
+      "state_restore_mips_frames": 29,
+      "state_restores": 4,
+      "dynamic_oam_mips_frames": 32,
+      "dynamic_oam_steady_ratio": 1.0109808963294533,
+      "unprotected_dynamic_oam_steady_ratio": 1.3166997583608966
+    },
+    "reports": [
+      "build/verification/v0113-ppu-stable-city-skip1.json",
+      "build/verification/v0113-ppu-sprite-batch/result.json",
+      "build/verification/v0113-ppu-sprite-fetch-index/result.json",
+      "build/verification/v0113-ppu-stable-cache-restore.json",
+      "build/verification/v0113-ppu-stable-dynamic-oam.json",
+      "build/verification/v0113-ppu-oam-dynamic-oam.json"
+    ],
+    "files": [
+      {
+        "path": "tools/prepare_ppu.py",
+        "sha256": "bb94102366e0710b94eb4a34ef9c849646dfa1f6ebc74f9d4423a758908da92c"
+      },
+      {
+        "path": "tests/ppu_sprite_batch.py",
+        "sha256": "6ec34d82d66657e8c2f5eef99e86f9239cc3d4834a90d4df0f6ad87cf998ea7e"
+      },
+      {
+        "path": "tests/ppu_sprite_fetch_index.py",
+        "sha256": "3f1748af3cde0100e2fa8947ef1478b330ac1b1e7be175e77a6c54be01735e45"
+      },
+      {
+        "path": "tests/ppu_cache_restore.py",
+        "sha256": "5b82bb78428e6a371cace488e0f1b0c7eb5e392bc6c685a1a1bb164e440142d2"
+      },
+      {
+        "path": "tests/ppu_dynamic_oam.py",
+        "sha256": "d633f86a6a78cc60794ac1fe69ab1be10559ec192bd383d53204918f5c8522ed"
+      }
+    ],
+    "rejected": [
+      {
+        "change": "restrict output pointer on displayed tile span",
+        "reason": "Core64 cost increased; not adopted",
+        "report": "build/verification/v0113-ppu-restrict-core64.json"
+      },
+      {
+        "change": "OAM cache rebuild immediately on every change",
+        "reason": "Adversarial dynamic OAM increased 31.67%; replaced by stability-confirmation and linear fallback",
+        "report": "build/verification/v0113-ppu-oam-dynamic-oam.json"
+      }
+    ],
+    "limitations": [
+      "MIPS block instruction entries are not physical H1 cycles or FPS.",
+      "Final combined BDA must be revalidated; this is the isolated PPU candidate.",
+      "Dynamic OAM stress still costs 1.10% more than original scan in this fixture; no claim of zero regression for every workload."
+    ]
+  },
+  "cpu_validation": {
+    "ok": true,
+    "final_bda": "build/v0113-final-v2/build/release-jit/H1FC.bda",
+    "final_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+    "final_elf_sha256": "da455eec29a5c6ae20974310a78b4d90d7c1f23795ccb2f6fd3fd910a879a591",
+    "summary": "Ten distinct suites pass: seven actually ran on final-v2, three use preserved pre-version results and a verified version-text-only binary equivalence bridge. Events/contract also passed on the pre-version artifact but are represented here by their later final-v2 runs.",
+    "pre_version_artifact": "build/v0113-pre-version-artifacts/release-jit/H1FC.bda",
+    "pre_version_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+    "equivalence": {
+      "report": "build/verification/v0113-version-text-equivalence.json",
+      "sha256": "5460ef352671478def8aca79ac55aa150d559d55dc2a0d2d8e90ebf840c252d9",
+      "independently_rechecked_changed_offsets": [
+        860606,
+        862823
+      ],
+      "all_other_bda_bytes_identical": true,
+      "changed_values": "Two read-only version strings 0.1.12 -> 0.1.13",
+      "transfer_scope": "CPU core evidence only; does not claim the three bridged suites actually executed the final BDA."
+    },
+    "suites": [
+      {
+        "suite": "opcodes",
+        "ok": true,
+        "report": "build/verification/v0113-pre-version-opcodes.json",
+        "report_sha256": "a48834eb37dfa2537cef504fcb31b6936b76410a37d0fcad7a240372c50d453e",
+        "actual_tested_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+        "executed_on_final_bda": false,
+        "evidence_kind": "pre-version run with independently rechecked exact two-byte version-string equivalence",
+        "counts": {
+          "cases": 4833,
+          "supported_opcodes": 91
+        }
+      },
+      {
+        "suite": "short-slices",
+        "ok": true,
+        "report": "build/verification/v0113-pre-version-short-slices.json",
+        "report_sha256": "1fbea699dcf53947bc3e3ecd9da8e24ec25833342106389242a26622369cf80e",
+        "actual_tested_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+        "executed_on_final_bda": false,
+        "evidence_kind": "pre-version run with independently rechecked exact two-byte version-string equivalence",
+        "counts": {
+          "cases": 964
+        }
+      },
+      {
+        "suite": "subroutine",
+        "ok": true,
+        "report": "build/verification/v0113-pre-version-subroutine.json",
+        "report_sha256": "29180a9ad2110eed4e7833cb31b7b58cc94602a2892302d7e647050b678cca80",
+        "actual_tested_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+        "executed_on_final_bda": false,
+        "evidence_kind": "pre-version run with independently rechecked exact two-byte version-string equivalence",
+        "counts": {
+          "cases": 1260,
+          "groups": {
+            "boundaries": 600,
+            "events": 144,
+            "control_regions": 504,
+            "chains": 10,
+            "opaque_order": 2
+          }
+        }
+      },
+      {
+        "suite": "events",
+        "ok": true,
+        "report": "build/verification/v0113-final-v2-events.json",
+        "report_sha256": "e135a0bc17652f79dd95c6ed9349fcf8e529c88512405a550ce6df65d9fdba94",
+        "actual_tested_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "executed_on_final_bda": true,
+        "evidence_kind": "actual final-v2 run",
+        "counts": {
+          "cases": 232
+        }
+      },
+      {
+        "suite": "contract",
+        "ok": true,
+        "report": "build/verification/v0113-final-v2-contract.json",
+        "report_sha256": "14d9a307c60c7b30238dd6eefe8b99dc3ae11e2a6dc0fb311e3fd60a425052a2",
+        "actual_tested_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "executed_on_final_bda": true,
+        "evidence_kind": "actual final-v2 run",
+        "counts": {
+          "differential_cases": 47,
+          "frontend_frames": 6
+        }
+      },
+      {
+        "suite": "combined-clock",
+        "ok": true,
+        "report": "build/verification/v0113-final-v2-combined-clock.json",
+        "report_sha256": "fc271735fc3c1a335e8c72f2e1bdb1c2a5b33cde08d3243669efceace39b34da",
+        "actual_tested_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "executed_on_final_bda": true,
+        "evidence_kind": "actual final-v2 run",
+        "counts": {
+          "cases": 155,
+          "groups": {
+            "pending_mapper_dma": 8,
+            "namco": 131,
+            "simultaneous": 4,
+            "unknown_mapper": 8,
+            "dynamic_frames": 4
+          }
+        }
+      },
+      {
+        "suite": "ppu-contract",
+        "ok": true,
+        "report": "build/verification/v0113-final-v2-retry-ppu-contract.json",
+        "report_sha256": "19b206eb625df840405fa2c8787cc91e90063f2909063e246d9ee7ef1365d2cb",
+        "actual_tested_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "executed_on_final_bda": true,
+        "evidence_kind": "actual final-v2 run",
+        "counts": {
+          "differential_cases": 40
+        }
+      },
+      {
+        "suite": "nested-contract",
+        "ok": true,
+        "report": "build/verification/v0113-final-v2-nested-contract.json",
+        "report_sha256": "5e5e3226ac2c875ed5abf4ca5dbbc02c3a1c233b3161e6d44869eda489ae4560",
+        "actual_tested_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "executed_on_final_bda": true,
+        "evidence_kind": "actual final-v2 run",
+        "counts": {
+          "differential_cases": 10
+        }
+      },
+      {
+        "suite": "arena-nested",
+        "ok": true,
+        "report": "build/verification/v0113-final-v2-arena-nested.json",
+        "report_sha256": "364db72d339459e6980de6eb2aa2912f02831dec07ad650aada170cd6bb6275e",
+        "actual_tested_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "executed_on_final_bda": true,
+        "evidence_kind": "actual final-v2 run",
+        "counts": {
+          "cases": 6
+        }
+      },
+      {
+        "suite": "bank-cache",
+        "ok": true,
+        "report": "build/verification/v0113-final-v2-bank-cache.json",
+        "report_sha256": "5cc9bf353698a400ce6ade315e83ca6f654735a8dc55dfa23100c728353f25d2",
+        "actual_tested_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "executed_on_final_bda": true,
+        "evidence_kind": "actual final-v2 run",
+        "counts": {
+          "cases": 932,
+          "frames": [
+            {
+              "mapper": 0,
+              "frames": 16,
+              "pcm_bytes": 23476,
+              "pcm_sha256": "a75bf0d5e5c5dca136a92eeac466d08b5131c5a0ff2af5b864b0079025b2f7cc",
+              "native_block_entries": 1204761,
+              "checks": [
+                "Every frame: exact serialized state, video and nonzero source PCM vs interpreter"
+              ]
+            },
+            {
+              "mapper": 19,
+              "frames": 16,
+              "pcm_bytes": 23476,
+              "pcm_sha256": "a75bf0d5e5c5dca136a92eeac466d08b5131c5a0ff2af5b864b0079025b2f7cc",
+              "native_block_entries": 1329949,
+              "checks": [
+                "Every frame: exact serialized state, video and nonzero source PCM vs interpreter"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "resolved_fixture_failures": [
+      {
+        "suite": "ppu-contract",
+        "old_failure_log": "build/verification/v0113-final-v2-ppu-contract.txt",
+        "baseline_reproduction": "build/verification/v0113-ppu-fixture-baseline-reproduction.json",
+        "resolution": "The old fixture demanded native credential after 6 PPU cycles (96 units), which never crosses the preexisting >96 admission gate. Preserved that C path with explicit no-native and exact state assertions, then added 7 cycles plus actual native entry assertion before all original DMW/credential/state checks."
+      },
+      {
+        "suite": "bank-cache",
+        "old_failure_log": "build/verification/v0113-final-v2-bank-cache.txt",
+        "resolution": "The old warm-up used only 1 PPU cycle and could never heat a block. Default warm-up now uses 7 cycles; a separate 1-cycle case verifies no native entry, no counter/heat change and exact state. Original compile/reuse/invalidation assertions retained."
+      }
+    ],
+    "product_cpu_changes_for_fixture_fixes": false
+  },
+  "pre_version_additional_checks": [
+    {
+      "name": "ppu-restore",
+      "source_report": {
+        "path": "build/verification/v0113-final-ppu-restore.json",
+        "sha256": "47183d9d76d5c0c4f365f87081a0296e2dbc92beff84144b62b7bbd3e1971f68"
+      },
+      "tested_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+      "final_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+      "applicability": "Version-string-only binary equivalence; not claimed as a final-SHA execution"
+    },
+    {
+      "name": "ppu-dynamic",
+      "source_report": {
+        "path": "build/verification/v0113-final-ppu-dynamic.json",
+        "sha256": "f2e690190514aaefe9c06db77887f8be54efdb803217a9ada40b82dc07bddb40"
+      },
+      "tested_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+      "final_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+      "applicability": "Version-string-only binary equivalence; not claimed as a final-SHA execution"
+    },
+    {
+      "name": "profile-detail",
+      "source_report": {
+        "path": "build/verification/v0113-final-profile-detail.json",
+        "sha256": "2e79f3b458e6eceeac8e434956aa243b9712ca7fee0d22b71d05ce91758e8bdd"
+      },
+      "tested_bda_sha256": "671649b8ef61683cce857d5a78dc4b7cc9e3e2b6406af25a3f9b37c3d9b3c02a",
+      "final_bda_sha256": "38588b0dc4d00c4f328f9fc6ebe3fa00e426a98ecfb7be44d9ae798e3891701f",
+      "applicability": "Version-string-only binary equivalence; not claimed as a final-SHA execution"
+    },
+    {
+      "name": "defaults",
+      "source_report": {
+        "path": "build/verification/v0113-final-defaults.json",
+        "sha256": "a2b8c0e543f8b7a93ba7861e39ae98df12fb1c043f2a0e1e77ae0cb870fe9f56"
+      },
+      "tested_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+      "final_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+      "applicability": "Version-string-only binary equivalence; not claimed as a final-SHA execution"
+    }
+  ],
+  "version_equivalence": {
+    "ok": true,
+    "variants": [
+      {
+        "variant": "release-jit",
+        "files": [
+          {
+            "extension": "elf",
+            "bytes": 1398664,
+            "before_sha256": "34303651f069dcbf0cd8c43eb9939977f3ee19c337e37fbb4225b75cde859740",
+            "after_sha256": "da455eec29a5c6ae20974310a78b4d90d7c1f23795ccb2f6fd3fd910a879a591",
+            "changed_offsets": [
+              833922,
+              836139
+            ],
+            "before_values": [
+              50,
+              50
+            ],
+            "after_values": [
+              51,
+              51
+            ],
+            "section_layout_identical": true,
+            "changes": [
+              {
+                "offset": 833922,
+                "section": ".rodata",
+                "section_flags": 2,
+                "address": 2211228034,
+                "before_string": "v0.1.12",
+                "after_string": "v0.1.13"
+              },
+              {
+                "offset": 836139,
+                "section": ".rodata",
+                "section_flags": 2,
+                "address": 2211230251,
+                "before_string": "APP_BEGIN version=0.1.12 core=FCEUmm audio=PCM input=GUI_9D8 profile=%u",
+                "after_string": "APP_BEGIN version=0.1.13 core=FCEUmm audio=PCM input=GUI_9D8 profile=%u"
+              }
+            ],
+            "all_executable_and_writable_sections_byte_identical": true
+          },
+          {
+            "extension": "bin",
+            "bytes": 1102804,
+            "before_sha256": "3a6862e31b551e6d419a68cda2d402795434249b7329fdf71f9b0872de8a45a4",
+            "after_sha256": "68fe3072a693d357b07091f5ac400b746e2447d3b3ffb6f04c11ffac190f4fcc",
+            "changed_offsets": [
+              829794,
+              832011
+            ],
+            "before_values": [
+              50,
+              50
+            ],
+            "after_values": [
+              51,
+              51
+            ]
+          },
+          {
+            "extension": "bda",
+            "bytes": 1133616,
+            "before_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+            "after_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+            "changed_offsets": [
+              860606,
+              862823
+            ],
+            "before_values": [
+              50,
+              50
+            ],
+            "after_values": [
+              51,
+              51
+            ]
+          }
+        ],
+        "complete_defined_symbol_listing_identical": true,
+        "defined_symbol_entries": 6345,
+        "symbol_listing_sha256": "02b5976f7adbe705b10d2e28fa1736428855e009bb2919ba037fe8778ee43c85"
+      },
+      {
+        "variant": "release-profile-jit",
+        "files": [
+          {
+            "extension": "elf",
+            "bytes": 1420196,
+            "before_sha256": "7c0cf4c62fb43e58b1613eba963ba16536c7f96120e4b64279245cbded7a9b93",
+            "after_sha256": "7555b14bf4a5d51786e6fd14bd03687fb19ae2d55f27dc4fdda1e4c35c3ec1dc",
+            "changed_offsets": [
+              849150,
+              854223
+            ],
+            "before_values": [
+              50,
+              50
+            ],
+            "after_values": [
+              51,
+              51
+            ],
+            "section_layout_identical": true,
+            "changes": [
+              {
+                "offset": 849150,
+                "section": ".rodata",
+                "section_flags": 2,
+                "address": 2211243262,
+                "before_string": "v0.1.12",
+                "after_string": "v0.1.13"
+              },
+              {
+                "offset": 854223,
+                "section": ".rodata",
+                "section_flags": 2,
+                "address": 2211248335,
+                "before_string": "APP_BEGIN version=0.1.12 core=FCEUmm audio=PCM input=GUI_9D8 profile=%u",
+                "after_string": "APP_BEGIN version=0.1.13 core=FCEUmm audio=PCM input=GUI_9D8 profile=%u"
+              }
+            ],
+            "all_executable_and_writable_sections_byte_identical": true
+          },
+          {
+            "extension": "bin",
+            "bytes": 1122100,
+            "before_sha256": "1c10261452175beb89a033dc1d7605021035385e5c73d26620c015ed86d1c60c",
+            "after_sha256": "d1eb4b1902bb1d87775d62af2ff53125832c36aa1d0a0e2d87bdc6d296c2d1ae",
+            "changed_offsets": [
+              845022,
+              850095
+            ],
+            "before_values": [
+              50,
+              50
+            ],
+            "after_values": [
+              51,
+              51
+            ]
+          },
+          {
+            "extension": "bda",
+            "bytes": 1152912,
+            "before_sha256": "671649b8ef61683cce857d5a78dc4b7cc9e3e2b6406af25a3f9b37c3d9b3c02a",
+            "after_sha256": "38588b0dc4d00c4f328f9fc6ebe3fa00e426a98ecfb7be44d9ae798e3891701f",
+            "changed_offsets": [
+              875834,
+              880907
+            ],
+            "before_values": [
+              50,
+              50
+            ],
+            "after_values": [
+              51,
+              51
+            ]
+          }
+        ],
+        "complete_defined_symbol_listing_identical": true,
+        "defined_symbol_entries": 6424,
+        "symbol_listing_sha256": "7a31105403368500c686d15f6da5dfd2eebcabb354fc7fd67aafa444e896af8f"
+      }
+    ],
+    "pre_version_cpu_evidence": [
+      {
+        "report": "build\\verification\\v0113-final-opcodes.json",
+        "cases": 4833,
+        "actually_executed_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+        "equivalent_v2_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "bridge": "Exact executable/mutable data and all symbol addresses unchanged; only two read-only user-facing version ASCII digits differ. This is retained pre-version execution evidence, not a v2 rerun."
+      },
+      {
+        "report": "build\\verification\\v0113-final-short-slices.json",
+        "cases": 964,
+        "actually_executed_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+        "equivalent_v2_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "bridge": "Exact executable/mutable data and all symbol addresses unchanged; only two read-only user-facing version ASCII digits differ. This is retained pre-version execution evidence, not a v2 rerun."
+      },
+      {
+        "report": "build\\verification\\v0113-final-subroutine.json",
+        "cases": 1260,
+        "actually_executed_bda_sha256": "31267a1e68d660543dfad53b44bc4ae92e243529b4ea7304f1ae84adbb27b57f",
+        "equivalent_v2_bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "bridge": "Exact executable/mutable data and all symbol addresses unchanged; only two read-only user-facing version ASCII digits differ. This is retained pre-version execution evidence, not a v2 rerun."
+      }
+    ],
+    "reproducibility_report": "build/verification/v0113-v2-reproducible-bda.json"
+  },
+  "reproducibility": {
+    "ok": true,
+    "independent_output_tree": "build\\v0113-repro-final-v2",
+    "builds": [
+      {
+        "variant": "release-jit",
+        "sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "bytes": 1133616,
+        "identical": true
+      },
+      {
+        "variant": "release-profile-jit",
+        "sha256": "38588b0dc4d00c4f328f9fc6ebe3fa00e426a98ecfb7be44d9ae798e3891701f",
+        "bytes": 1152912,
+        "identical": true
+      }
+    ]
+  },
+  "full_firmware": {
+    "ok": true,
+    "physical_device_tested": false,
+    "source_dump_unchanged": true,
+    "source_dump_files": 494,
+    "source_dump_bytes": 941764502,
+    "owned_ports_released": [
+      8865,
+      8866
+    ],
+    "tests": {
+      "normal": {
+        "bda_sha256": "c4f7c7efe035e25752c8ac6fbb13d0775a16d459cb97c7555eed4768c1f9fc1c",
+        "work_dir": "build\\v0113-firmware-normal-v2",
+        "same_private_nand_restarted": true,
+        "persistent_save_loaded": true,
+        "desktop_exit_visually_checked": true,
+        "first_report": "build\\v0113-firmware-normal-v2\\evidence\\classic-smoke.json",
+        "restart_report": "build\\v0113-firmware-normal-v2\\restart-evidence\\restart-smoke.json",
+        "video_frames": 522,
+        "audio": {
+          "sample_rate": 32000,
+          "packets": 145,
+          "frames": 96454,
+          "seconds": 3.0141875,
+          "min": -32383,
+          "max": 19868,
+          "nonzero_samples": 192890
+        },
+        "resumed_audio": {
+          "sample_rate": 32000,
+          "packets": 96,
+          "frames": 64268,
+          "seconds": 2.008375,
+          "min": -32383,
+          "max": 19488,
+          "nonzero_samples": 128518
+        },
+        "restart_audio": {
+          "sample_rate": 32000,
+          "packets": 146,
+          "frames": 96959,
+          "seconds": 3.02996875,
+          "min": -32383,
+          "max": 19090,
+          "nonzero_samples": 193866
+        },
+        "stages": [
+          {
+            "stage": "evidence",
+            "log": "build\\v0113-firmware-normal-v2\\evidence\\h1fc.log",
+            "log_extraction": "standard NAND reader directly succeeded",
+            "log_sha256": "cf31eee64dcea2bdc87e6b4ebd3adc8bae92a8381a203bf8e179abd4b658c14d",
+            "continuous_lines": 91,
+            "app_end_result": 0,
+            "video_errors": 0,
+            "audio_close": {
+              "batches": 1073,
+              "submitted": 2,
+              "nonzero": 514653,
+              "dropped": 0,
+              "failures": 0,
+              "underruns": 0
+            },
+            "save_load_lines": [
+              "000035 SAVE_LOAD_END status=0 slot=-1 generation=0"
+            ],
+            "save_exit_status": 1,
+            "profile_tcu_faults": [],
+            "profile_faults": [],
+            "tcu_timing_valid": null,
+            "rtc_valid_flags": [],
+            "rtc_valid": null,
+            "detail_modes": [],
+            "detail_lines": []
+          },
+          {
+            "stage": "restart-evidence",
+            "log": "build\\v0113-firmware-normal-v2\\restart-evidence\\h1fc.log",
+            "log_extraction": "standard NAND reader directly succeeded",
+            "log_sha256": "c1ca5822e2221aee2e0ca18f01c02d305fe94bc790efff54e83c735bf3357326",
+            "continuous_lines": 81,
+            "app_end_result": 0,
+            "video_errors": 0,
+            "audio_close": {
+              "batches": 513,
+              "submitted": 1,
+              "nonzero": 216512,
+              "dropped": 0,
+              "failures": 0,
+              "underruns": 0
+            },
+            "save_load_lines": [
+              "000035 SAVE_LOAD_END status=1 slot=0 generation=1"
+            ],
+            "save_exit_status": 1,
+            "profile_tcu_faults": [],
+            "profile_faults": [],
+            "tcu_timing_valid": null,
+            "rtc_valid_flags": [],
+            "rtc_valid": null,
+            "detail_modes": [],
+            "detail_lines": []
+          }
+        ],
+        "original_dump_integrity": {
+          "ok": true,
+          "files": 494,
+          "bytes": 941764502,
+          "original_dump_unchanged": true,
+          "frontend_sha256": "38da879afc84fe6f53d2a911aaa36d024b919130cc54b9d58de88fba0a8c7155"
+        },
+        "about": {
+          "visually_checked": true,
+          "application": "NES",
+          "version": "0.1.13",
+          "author": "HelloClyde",
+          "key_image": "build\\v0113-firmware-normal-v2\\evidence\\about-key.png",
+          "touch_image": "build\\v0113-firmware-normal-v2\\evidence\\about-touch.png"
+        },
+        "scene": "SGZ2 title menu, emulator pause/about/resume, desktop and same-private-NAND SRAM reload; city performance measured separately by ordinary complete-application harness"
+      },
+      "profile": {
+        "bda_sha256": "38588b0dc4d00c4f328f9fc6ebe3fa00e426a98ecfb7be44d9ae798e3891701f",
+        "work_dir": "build\\v0113-firmware-profile-v2",
+        "same_private_nand_restarted": true,
+        "persistent_save_loaded": true,
+        "desktop_exit_visually_checked": true,
+        "first_report": "build\\v0113-firmware-profile-v2\\evidence\\classic-smoke.json",
+        "restart_report": "build\\v0113-firmware-profile-v2\\restart-evidence\\restart-smoke.json",
+        "video_frames": 460,
+        "audio": {
+          "sample_rate": 32000,
+          "packets": 145,
+          "frames": 96641,
+          "seconds": 3.02003125,
+          "min": -32383,
+          "max": 19268,
+          "nonzero_samples": 193256
+        },
+        "resumed_audio": {
+          "sample_rate": 32000,
+          "packets": 96,
+          "frames": 64012,
+          "seconds": 2.000375,
+          "min": -32383,
+          "max": 19148,
+          "nonzero_samples": 127990
+        },
+        "restart_audio": {
+          "sample_rate": 32000,
+          "packets": 145,
+          "frames": 96579,
+          "seconds": 3.01809375,
+          "min": -17811,
+          "max": 6796,
+          "nonzero_samples": 192930
+        },
+        "stages": [
+          {
+            "stage": "evidence",
+            "log": "build\\v0113-firmware-profile-v2\\evidence\\h1fc.log",
+            "log_extraction": "standard NAND reader directly succeeded",
+            "log_sha256": "dd9980af9bf46119b351735b8f406c438a2cf5c133684dce2bfac99a4d64fb8e",
+            "continuous_lines": 414,
+            "app_end_result": 0,
+            "video_errors": 0,
+            "audio_close": {
+              "batches": 928,
+              "submitted": 2,
+              "nonzero": 448133,
+              "dropped": 0,
+              "failures": 0,
+              "underruns": 1
+            },
+            "save_load_lines": [
+              "000035 SAVE_LOAD_END status=0 slot=-1 generation=0"
+            ],
+            "save_exit_status": 1,
+            "profile_tcu_faults": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "profile_faults": [
+              0,
+              0,
+              0
+            ],
+            "tcu_timing_valid": true,
+            "rtc_valid_flags": [
+              1,
+              1,
+              1
+            ],
+            "rtc_valid": true,
+            "detail_modes": [
+              "coarse",
+              "control",
+              "cpu",
+              "light",
+              "ppu",
+              "sound"
+            ],
+            "detail_lines": [
+              "000144 PROFILE_DETAIL mode=light frames=601 displayed=295 clock_reads=6688567 valid=1 whole_run=1 exclusive=1 core_mean_us=3967 loop_mean_us=16479",
+              "000155 PROFILE_DETAIL mode=control frames=5 displayed=3 clock_reads=44811 valid=1 whole_run=1 exclusive=1 core_mean_us=26977 loop_mean_us=37445",
+              "000166 PROFILE_DETAIL mode=coarse frames=4 displayed=3 clock_reads=45277 valid=1 whole_run=1 exclusive=1 core_mean_us=5554 loop_mean_us=16326",
+              "000179 PROFILE_DETAIL mode=cpu frames=4 displayed=2 clock_reads=48510 valid=1 whole_run=1 exclusive=1 core_mean_us=8728 loop_mean_us=17089",
+              "000196 PROFILE_DETAIL mode=ppu frames=4 displayed=2 clock_reads=47980 valid=1 whole_run=1 exclusive=1 core_mean_us=10345 loop_mean_us=17669",
+              "000212 PROFILE_DETAIL mode=sound frames=4 displayed=2 clock_reads=53518 valid=1 whole_run=1 exclusive=1 core_mean_us=4852 loop_mean_us=16906",
+              "000298 PROFILE_DETAIL mode=light frames=296 displayed=148 clock_reads=3645040 valid=1 whole_run=1 exclusive=1 core_mean_us=2685 loop_mean_us=16265",
+              "000309 PROFILE_DETAIL mode=control frames=2 displayed=1 clock_reads=37 valid=1 whole_run=1 exclusive=1 core_mean_us=3112 loop_mean_us=3906",
+              "000319 PROFILE_DETAIL mode=coarse frames=2 displayed=1 clock_reads=26885 valid=1 whole_run=1 exclusive=1 core_mean_us=4547 loop_mean_us=17028",
+              "000331 PROFILE_DETAIL mode=cpu frames=2 displayed=1 clock_reads=30321 valid=1 whole_run=1 exclusive=1 core_mean_us=7110 loop_mean_us=18188",
+              "000347 PROFILE_DETAIL mode=ppu frames=2 displayed=1 clock_reads=28469 valid=1 whole_run=1 exclusive=1 core_mean_us=8392 loop_mean_us=18829",
+              "000362 PROFILE_DETAIL mode=sound frames=2 displayed=1 clock_reads=27937 valid=1 whole_run=1 exclusive=1 core_mean_us=5554 loop_mean_us=18188"
+            ]
+          },
+          {
+            "stage": "restart-evidence",
+            "log": "build\\v0113-firmware-profile-v2\\restart-evidence\\h1fc.log",
+            "log_extraction": "standard NAND reader directly succeeded",
+            "log_sha256": "02475aa37211be5162102c5c35bc48f3c916bd73397122b6bf8e8dff1f0fc169",
+            "continuous_lines": 240,
+            "app_end_result": 0,
+            "video_errors": 0,
+            "audio_close": {
+              "batches": 374,
+              "submitted": 1,
+              "nonzero": 142516,
+              "dropped": 0,
+              "failures": 0,
+              "underruns": 1
+            },
+            "save_load_lines": [
+              "000035 SAVE_LOAD_END status=1 slot=0 generation=1"
+            ],
+            "save_exit_status": 1,
+            "profile_tcu_faults": [
+              0,
+              0,
+              0
+            ],
+            "profile_faults": [
+              0,
+              0
+            ],
+            "tcu_timing_valid": true,
+            "rtc_valid_flags": [
+              1,
+              1
+            ],
+            "rtc_valid": true,
+            "detail_modes": [
+              "coarse",
+              "control",
+              "cpu",
+              "light",
+              "ppu",
+              "sound"
+            ],
+            "detail_lines": [
+              "000119 PROFILE_DETAIL mode=light frames=361 displayed=176 clock_reads=4428876 valid=1 whole_run=1 exclusive=1 core_mean_us=3936 loop_mean_us=16418",
+              "000130 PROFILE_DETAIL mode=control frames=3 displayed=2 clock_reads=26722 valid=1 whole_run=1 exclusive=1 core_mean_us=41992 loop_mean_us=51422",
+              "000141 PROFILE_DETAIL mode=coarse frames=3 displayed=2 clock_reads=30044 valid=1 whole_run=1 exclusive=1 core_mean_us=4730 loop_mean_us=13336",
+              "000154 PROFILE_DETAIL mode=cpu frames=3 displayed=2 clock_reads=48698 valid=1 whole_run=1 exclusive=1 core_mean_us=7354 loop_mean_us=19561",
+              "000171 PROFILE_DETAIL mode=ppu frames=2 displayed=1 clock_reads=28737 valid=1 whole_run=1 exclusive=1 core_mean_us=9307 loop_mean_us=18188",
+              "000187 PROFILE_DETAIL mode=sound frames=2 displayed=1 clock_reads=22919 valid=1 whole_run=1 exclusive=1 core_mean_us=6011 loop_mean_us=15808"
+            ]
+          }
+        ],
+        "original_dump_integrity": {
+          "ok": true,
+          "files": 494,
+          "bytes": 941764502,
+          "original_dump_unchanged": true,
+          "frontend_sha256": "38da879afc84fe6f53d2a911aaa36d024b919130cc54b9d58de88fba0a8c7155"
+        },
+        "about": {
+          "visually_checked": true,
+          "application": "NES",
+          "version": "0.1.13",
+          "author": "HelloClyde",
+          "key_image": "build\\v0113-firmware-profile-v2\\evidence\\about-key.png",
+          "touch_image": "build\\v0113-firmware-profile-v2\\evidence\\about-touch.png"
+        },
+        "scene": "SGZ2 title menu, emulator pause/about/resume, desktop and same-private-NAND SRAM reload; city performance measured separately by ordinary complete-application harness"
+      }
+    },
+    "retained_pre_version_failure": "build/v0113-firmware-normal/pre-version-summary.json",
+    "limitations": [
+      "Full firmware emulation verifies functional behavior and persistence, not physical H1 FPS/cycles.",
+      "Firmware gameplay coverage is the SGZ2 title menu; city-stage performance is a separate normal-BDA complete-application comparison."
+    ]
+  },
+  "combined_dynamic_oam": {
+    "steady_frames": [
+      9,
+      32
+    ],
+    "baseline_instructions": 73420236,
+    "current_instructions": 74222536,
+    "ratio": 1.010927505054601,
+    "scope": "Test-owned ROM writes OAM continuously; all MIPS core bytes unchanged; full state/PCM/video exact",
+    "applicability": "Measured before the two version-string bytes changed; executable and writable sections unchanged"
+  },
+  "source_files": [
+    {
+      "path": "VERSION",
+      "sha256": "976e7492a0ab4e0e742f1c8af5c345fde0d450bfb22c01b0e40c4cf80a42cd10"
+    },
+    {
+      "path": "src/app.c",
+      "sha256": "0f6d8fd21066d558d56dda68ecbd3248e62f41dba17377fc8f802b454388e27e"
+    },
+    {
+      "path": "src/platform/menu.c",
+      "sha256": "8b55359f260156cec46e6b6afcff2beae2666b6339b2c0ea3b01f11770bcd682"
+    },
+    {
+      "path": "src/platform/nes_jit.c",
+      "sha256": "cf5c5a5b76a3b127fb8b599b541c0ae67a9f1e0a229f411b50779c69ed8c1fc1"
+    },
+    {
+      "path": "tools/build.py",
+      "sha256": "bf23a754c1c85aaadfa5d0c0d1636eb6dc478faf242786a2edbdb3853a54341f"
+    },
+    {
+      "path": "tools/prepare_jit.py",
+      "sha256": "d50ccda43ef1a9aaddd8f51408f610764bec53d5d917badd228d8536804b3eb2"
+    },
+    {
+      "path": "tools/prepare_ppu.py",
+      "sha256": "bb94102366e0710b94eb4a34ef9c849646dfa1f6ebc74f9d4423a758908da92c"
+    },
+    {
+      "path": "tests/jit_smoke.py",
+      "sha256": "484432c3f8840629a8d6c355de52aefd9c12242dbc7b698cb1b2396b1f5d9304"
+    },
+    {
+      "path": "tests/jit_subroutine_smoke.py",
+      "sha256": "0e9c77cb53b18d1c6d8f0be845cd8c051240301ec0c03b7924b526582ddacb3a"
+    },
+    {
+      "path": "tests/jit_short_slice_smoke.py",
+      "sha256": "03b6bebfc7976ab15d28126d1eeeab87af20d06aa72c2cc6a4a7895cdbcabd14"
+    },
+    {
+      "path": "tests/jit_contract_smoke.py",
+      "sha256": "1d4de14f0a96629f9a41cb1ba2bd9444d6b9e92af2f1ecda0c16836e5c69401e"
+    },
+    {
+      "path": "tests/jit_ppu_contract_smoke.py",
+      "sha256": "e90f9049f814855c8dc3d29411f127682416ef3fd4961b8ba3f752fbb8e73442"
+    },
+    {
+      "path": "tests/jit_bank_cache_smoke.py",
+      "sha256": "09dba286e899971595fec4c01f5f0ccdff2439e7ae44036fa6ed988e91ad5f56"
+    },
+    {
+      "path": "tests/ppu_sprite_batch.py",
+      "sha256": "6ec34d82d66657e8c2f5eef99e86f9239cc3d4834a90d4df0f6ad87cf998ea7e"
+    },
+    {
+      "path": "tests/ppu_sprite_fetch_index.py",
+      "sha256": "3f1748af3cde0100e2fa8947ef1478b330ac1b1e7be175e77a6c54be01735e45"
+    },
+    {
+      "path": "tests/ppu_cache_restore.py",
+      "sha256": "5b82bb78428e6a371cace488e0f1b0c7eb5e392bc6c685a1a1bb164e440142d2"
+    },
+    {
+      "path": "tests/ppu_dynamic_oam.py",
+      "sha256": "d633f86a6a78cc60794ac1fe69ab1be10559ec192bd383d53204918f5c8522ed"
+    }
+  ],
+  "limitations": [
+    "Executed MIPS instruction counts do not measure physical H1 cycles, FPS or audio quality.",
+    "Complete-application firmware services are mocked; full firmware coverage is the title/menu/reload flow.",
+    "Dynamic OAM stress retains about 1.09 percent extra core cost; no universal game speedup claim.",
+    "The diagnostic firmware runs each reported one underrun; these separate runs are not performance comparisons.",
+    "Commercial ROM, firmware dump, NAND and audio remain local and are excluded from install packages."
+  ]
+}

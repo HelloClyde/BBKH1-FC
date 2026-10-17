@@ -1,0 +1,121 @@
+{
+  "version": "0.1.4",
+  "device_retested": false,
+  "limitations": [
+    "User environment has not yet been confirmed.",
+    "QEMU results do not establish physical H1 performance.",
+    "Profile timing includes diagnostic overhead."
+  ],
+  "user_v013": {
+    "log_sha256": "2fbbfdd0e9a5153f3e948feb7ca367a12d55c41ba5cc2b362915ccb8789e8291",
+    "core_frames": 1086,
+    "underruns": 54,
+    "catchup_frames": 1064,
+    "displayed": 377,
+    "failures": 0
+  },
+  "builds": {
+    "normal": {
+      "bda_sha256": "9065eddde742c8daed1cdcb93226d8a945de59e52ac30e53a5ed16a2c9286d51",
+      "bytes": 971544,
+      "profile": false,
+      "full_firmware_ok": true,
+      "core_frames": 1431,
+      "submissions": 2,
+      "nonzero": 705239,
+      "dropped": 0,
+      "failures": 0,
+      "underruns": 0,
+      "audio_seconds": 12.01596875,
+      "native_log_sha256": "55efd49f422942e980ac04929090fabb1c7891e463597e0094e43c780611e737"
+    },
+    "profile": {
+      "bda_sha256": "ac440fc549d179917c300deab975dcaa25259b47c1b4e0d692e1af7c0724ec44",
+      "bytes": 981392,
+      "profile": true,
+      "full_firmware_ok": true,
+      "core_frames": 1320,
+      "submissions": 2,
+      "nonzero": 646147,
+      "dropped": 0,
+      "failures": 0,
+      "underruns": 0,
+      "audio_seconds": 12.00365625,
+      "native_log_sha256": "2a70ae9c5b3a39d482bf91ca1d3538dbc2101465100063830710dcc37b3e95d3",
+      "core_profile_scopes_verified": true
+    }
+  },
+  "differential": {
+    "core-equivalence-sgz2.json": {
+      "ok": true,
+      "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+      "frames": 24,
+      "game_only": false,
+      "baseline_bda": "0950798a4dea6d040e032a21d1b83a89538401ee354a87a4674e23e65c6ed56f",
+      "current_bda": "d513654ce9caa3a609e0bb7fa083d2830501ef69ebb014df9ab966e2f8f423e2",
+      "baseline_block_instructions": 83865563,
+      "current_block_instructions": 71836581
+    },
+    "core-equivalence-sgz2-22k.json": {
+      "ok": true,
+      "rom_sha256": "7b4fcd1c0be33e69943dcf9c81cca67bac634a9de2881aa2f3d8f9b6a3864117",
+      "frames": 24,
+      "game_only": true,
+      "baseline_bda": "0950798a4dea6d040e032a21d1b83a89538401ee354a87a4674e23e65c6ed56f",
+      "current_bda": "9065eddde742c8daed1cdcb93226d8a945de59e52ac30e53a5ed16a2c9286d51",
+      "baseline_block_instructions": 83865563,
+      "current_block_instructions": 70965313
+    },
+    "core-equivalence-test-22k.json": {
+      "ok": true,
+      "rom_sha256": "cc8ff8d946b1cbe139e88877f661a551a6d0fac9d77884dcf3d3b3a882e3431f",
+      "frames": 20,
+      "game_only": true,
+      "baseline_bda": "0950798a4dea6d040e032a21d1b83a89538401ee354a87a4674e23e65c6ed56f",
+      "current_bda": "9065eddde742c8daed1cdcb93226d8a945de59e52ac30e53a5ed16a2c9286d51",
+      "baseline_block_instructions": 247015264,
+      "current_block_instructions": 85685087
+    }
+  },
+  "regressions": {
+    "audio-smoke.json": {
+      "ok": true,
+      "bda_sha256": "9065eddde742c8daed1cdcb93226d8a945de59e52ac30e53a5ed16a2c9286d51"
+    },
+    "menu-smoke.json": {
+      "ok": true,
+      "bda_sha256": "9065eddde742c8daed1cdcb93226d8a945de59e52ac30e53a5ed16a2c9286d51"
+    },
+    "pause-menu-smoke.json": {
+      "ok": true,
+      "bda_sha256": "9065eddde742c8daed1cdcb93226d8a945de59e52ac30e53a5ed16a2c9286d51"
+    },
+    "options-smoke.json": {
+      "ok": true,
+      "bda_sha256": "a68850df9562d8855a6990ebf8edd6a653f2523ff700b38e05bfbe39802d3ce1"
+    },
+    "n163": {
+      "ok": true,
+      "cases": 24200,
+      "sample_frames": 2901800,
+      "reference_host_ms": 107.0,
+      "optimized_host_ms": 19.0,
+      "kind": "Native differential test, pinned upstream versus prepared mixer",
+      "assertions": [
+        "Exact PCM including guard samples",
+        "Exact phase counters and wavetable indices",
+        "1..8 channels, all rates, zero frequency, inc overflow, split callbacks"
+      ]
+    },
+    "hotpaths": {
+      "ok": true,
+      "palette_states": 30000,
+      "read_accesses": 300000,
+      "endians": [
+        "little",
+        "big"
+      ],
+      "kind": "Extracted upstream versus prepared C functions"
+    }
+  }
+}

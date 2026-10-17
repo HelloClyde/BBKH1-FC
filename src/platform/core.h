@@ -20,4 +20,9 @@ typedef struct {
 } h1_core;
 extern const h1_core h1_nes_core;
 void h1_nes_set_frameskip(unsigned);
+#if H1_DIAGNOSTIC
+int h1_nes_diag_identity(void);
+int h1_nes_diag_mode(unsigned mode);
+void h1_nes_diag_video_reset(void);
+#endif
 #endif

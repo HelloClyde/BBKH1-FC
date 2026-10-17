@@ -40,6 +40,18 @@ static uint16_t pc_saved[4];
  * before extending a backwards sample: one bad read must not invent ~2 s. */
 static unsigned pc_fault, pc_retries, pc_backwards, pc_wraps, pc_deferred, pc_terminal;
 static uint32_t pc_bad_a, pc_bad_b, pc_bad_previous, pc_max_delta;
+#if H1_DIAGNOSTIC
+/* The diagnostic clock also reads the independent RTC seconds register. Its
+ * period is 32768 TCU ticks; a counter period is twice that. An RTC-bracketed
+ * TCNT sample therefore determines one extension even when FULL is absent.
+ * Keep the possible RTC phase interval, rather than guessing a near-wrap
+ * threshold. The ordinary profiling build retains its original strategy. */
+extern uint32_t h1_wall_clock(void);
+#define PC_RTC_HZ 32768u
+static uint32_t pc_rtc_previous, pc_rtc_anchor;
+static int32_t pc_phase_lo, pc_phase_hi;
+static unsigned pc_epoch_ready, pc_missing_full, pc_flag_only, pc_rtc_retries;
+#endif
 static int pc_start(void)
 {
     if (pc_owned) return 1;
@@ -66,6 +78,11 @@ static int pc_start(void)
     pc_total=pc_previous=0;
     pc_fault=pc_retries=pc_backwards=pc_wraps=pc_deferred=pc_terminal=0;
     pc_bad_a=pc_bad_b=pc_bad_previous=pc_max_delta=0;
+#if H1_DIAGNOSTIC
+    pc_rtc_previous=pc_rtc_anchor=h1_wall_clock();
+    pc_phase_lo=0;pc_phase_hi=PC_RTC_HZ-1;
+    pc_epoch_ready=pc_missing_full=pc_flag_only=pc_rtc_retries=0;
+#endif
     pc_owned=1;
     pc_write(0x14,PC_BIT,1);
     return 1;
@@ -83,6 +100,69 @@ static int pc_sample(uint32_t *value)
     }
     pc_fault=1;return 0;
 }
+#if H1_DIAGNOSTIC
+/* Faults: 1=unstable TCNT, 2=RTC/TCNT phase inconsistency,
+ * 3=unavailable/backwards RTC, 4=unobserved >=2 RTC seconds,
+ * 5=RTC never stable across a bounded snapshot. Nothing is extrapolated. */
+static int pc_rtc_sample(uint32_t *value, uint32_t *rtc)
+{
+    for (unsigned i=0;i<8;++i) {
+        uint32_t a=h1_wall_clock();
+        if (!pc_sample(value)) return 0;
+        uint32_t b=h1_wall_clock();
+        if (!a || !b || b<a) { pc_fault=3;return 0; }
+        if (a==b) { *rtc=b;return 1; }
+        ++pc_rtc_retries;
+    }
+    pc_fault=5;return 0;
+}
+static uint32_t pc_now(void)
+{
+    if (!pc_owned) return 0;
+    if (pc_fault) return pc_total;
+    uint32_t value=0, rtc=0, delta=0;
+    int32_t lo=0, hi=0;
+    for (unsigned attempt=0;attempt<2;++attempt) {
+        if (!pc_rtc_sample(&value,&rtc)) return pc_total;
+        if (!pc_rtc_previous || rtc<pc_rtc_previous) { pc_fault=3;return pc_total; }
+        uint32_t seconds=rtc-pc_rtc_previous;
+        /* A latched FULL bit cannot count multiple periods. Reject a long
+         * observation gap, including one hidden inside a profiler scope. */
+        if (seconds>=2u) { pc_fault=4;return pc_total; }
+        if (!pc_epoch_ready) {
+            /* The start-to-first-sample gap is <2 seconds, so the freshly
+             * zeroed counter cannot have completed a full period. Establish
+             * the unknown RTC phase at this coherent initial snapshot. */
+            delta=value;lo=0;hi=PC_RTC_HZ-1;
+            break;
+        }
+        delta=(value-pc_previous)&PC_TOP;
+        int32_t shift=(int32_t)delta-(int32_t)(seconds*PC_RTC_HZ);
+        lo=pc_phase_lo+shift;hi=pc_phase_hi+shift;
+        if (lo<0) lo=0;
+        if (hi>=(int32_t)PC_RTC_HZ) hi=PC_RTC_HZ-1;
+        if (lo<=hi) break;
+        ++pc_backwards;
+        pc_bad_a=pc_previous;pc_bad_b=value;pc_bad_previous=pc_previous;
+        /* A repeated stale pair may recover. Retry without committing any
+         * phase/timestamp state; persistent inconsistency disables timing. */
+        if (attempt) { pc_fault=2;return pc_total; }
+    }
+    unsigned wrapped=pc_epoch_ready && value<pc_previous;
+    uint32_t full=pc_read(0x20,4)&PC_BIT;
+    if (wrapped) { ++pc_wraps;if (!full) ++pc_missing_full; }
+    else if (full) ++pc_flag_only;
+    /* FULL is now evidence only. Clearing early/late flags cannot add a
+     * counter period; the RTC phase proof above determines all elapsed time. */
+    if (full) pc_write(0x28,PC_BIT,4);
+    if (value==PC_TOP) ++pc_terminal;
+    if (delta>pc_max_delta) pc_max_delta=delta;
+    pc_total+=delta;pc_previous=value;pc_rtc_previous=rtc;
+    pc_phase_lo=lo;pc_phase_hi=hi;
+    if (!pc_epoch_ready) { pc_rtc_anchor=rtc;pc_epoch_ready=1; }
+    return pc_total;
+}
+#else
 static uint32_t pc_now(void)
 {
     if (!pc_owned) return 0;
@@ -124,6 +204,7 @@ static uint32_t pc_now(void)
     pc_total+=delta;pc_previous=value;
     return pc_total;
 }
+#endif
 static void pc_stop(void)
 {
     if (!pc_owned) return;

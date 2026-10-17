@@ -2,7 +2,7 @@
 
 Requires Python, unicorn and Pillow. ROMs and H1 files are generated in memory;
 the test never mounts or writes an H1 device. Use a --test-frames 20 build, or
-pass --menu for a release build (the mock presses Escape to exit each game).
+pass --menu for a release build (P opens the menu, then Exit is selected).
 This verifies machine code and integration, not physical H1 timing or sound.
 """
 from __future__ import annotations
@@ -34,7 +34,7 @@ def save_data(machine: Machine, path: str) -> bytes:
 
 
 def check_screen(machine: Machine, pressed: bool, destination: Path) -> list[int]:
-    pixels = struct.unpack('<130560H', machine.screen)
+    pixels = struct.unpack('<130560H', machine.gameplay_screen or machine.screen)
     image = Image.new('RGB', (480, 272))
     image.putdata([((p >> 11) * 255 // 31, ((p >> 5) & 63) * 255 // 63,
                     (p & 31) * 255 // 31) for p in pixels])
@@ -89,10 +89,12 @@ class RejectedROM(Machine):
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--bda', type=Path, default=ROOT / 'build/test-20/H1FC.bda')
-    parser.add_argument('--menu', action='store_true', help='Exit release builds using Escape')
+    parser.add_argument('--menu', action='store_true', help='Exit release builds through the pause menu')
     parser.add_argument('--quick', action='store_true', help='Only graphics, keys, audio, persistence and cancel')
+    parser.add_argument('--output-dir', type=Path, default=ROOT / 'build/verification',
+                        help='Keep reports for different BDA builds in separate directories')
     args = parser.parse_args()
-    out = ROOT / 'build/verification'
+    out = args.output_dir
     out.mkdir(parents=True, exist_ok=True)
     cases: dict = {}
 
@@ -107,7 +109,10 @@ def main() -> None:
     first = Machine(args.bda, press_a=True, menu=args.menu)
     run('pressed', first)
     data = save_data(first, ROM)
-    assert data[0:2] == b'\x5a\xa5' and data[3:6] == b'\x42\x1e\0', data[:8].hex()
+    # The pending pause suppresses gameplay input for its final core frame;
+    # the pre-menu white stripe below still verifies that held A was sampled.
+    expected_button = 0x11 if args.menu else 0xA5
+    assert data[0:2] == bytes([0x5A, expected_button]) and data[3:6] == b'\x42\x1e\0', data[:8].hex()
     assert data[2] >= 4, ('6502 did not complete enough frames', data[:8].hex())
     cases['pressed']['colors'] = check_screen(first, True, out / 'fc-pressed.png')
     cases['pressed']['audio'] = check_audio(first)
@@ -124,6 +129,14 @@ def main() -> None:
     run('selector-cancel', cancelled)
     assert cancelled.blits == 0 and len(cancelled.select_calls) == 1
     assert not any(name.endswith(('.s0', '.s1')) for name in cancelled.files)
+    assert b'APP_END result=0' in cancelled.files[LOG]
+    assert not cancelled.menu_frames and b'CORE_INIT_BEGIN' not in cancelled.files[LOG]
+
+    if args.menu:
+        for machine in (first, second):
+            assert b'PAUSE_MENU_BEGIN' in machine.files[LOG]
+            assert b'PAUSE_MENU_END action=2' in machine.files[LOG]
+            assert b'SAVE_EXIT_END status=1' in machine.files[LOG]
 
     if not args.quick:
         path = 'A:\\游戏\\原创测试.nes'

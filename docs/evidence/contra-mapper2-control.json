@@ -1,0 +1,210 @@
+{
+  "ok": true,
+  "date": "2026-10-16",
+  "version": "0.1.14",
+  "product": "NES",
+  "physical_device_tested": false,
+  "purpose": "Ordinary full-application Contra first-level workload control; not a mapper-isolated or physical-speed experiment.",
+  "artifacts": {
+    "normal_bda_sha256": "ad8989bc948052b2fe8c452c201188ba6cf9903c287c6321417a61a4290f2235",
+    "normal_elf_sha256": "f8db4f97994ccfb56987e49b4229c3845cd1974ecc0034701b7c0bf9f3f47924",
+    "rom_sha256": "26541a5550ee22deeb3d5484e4a96130219b58cff74d068fb1eb6567fa5e5519",
+    "rom_mapper": 2,
+    "prg_rom_bytes": 131072,
+    "chr_rom_bytes": 0,
+    "chr_ram": true
+  },
+  "settings": {
+    "skip": 1,
+    "scale": 1,
+    "sound": 1,
+    "volume": 100
+  },
+  "execution": {
+    "application_frames": 1200,
+    "start_button_frame": 301,
+    "gameplay_range": [
+      901,
+      1200
+    ],
+    "gameplay_frames": 300,
+    "scenario_sha256": "a5aca02326684503b9f8b652a830466ac9c9e1d27ad34bff46b97056ef2dcad3",
+    "scene": "Contra stage 1 JUNGLE",
+    "visual_confirmation_frames": [
+      900,
+      960,
+      1140,
+      1200
+    ],
+    "controls": "Start through firmware queue, then movement, shooting and jumping.",
+    "jit_policy": "JIT_OPEN ready=0 reason=mapper_policy mapper=2 fallback=interpreter",
+    "native_ops": 0,
+    "jit_counter_deltas": {
+      "h1_jit_stats": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "h1_jit_bank_stats": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "h1_jit_run_stats": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "h1_jit_links": [
+        0
+      ],
+      "h1_jit_wraps": [
+        0
+      ]
+    },
+    "exit_method": "p-menu-confirm",
+    "firmware_services": "mocked"
+  },
+  "correctness": {
+    "independent_ordinary_and_read_only_census_replays": true,
+    "all_1200_frames_exact": [
+      "LCD",
+      "source PCM",
+      "CPU/PPU state",
+      "all declared state",
+      "presentation markers",
+      "MIPS instruction counts"
+    ],
+    "whole_run_exact": [
+      "source PCM digest",
+      "submitted playback ring PCM",
+      "observed playback ring PCM",
+      "final gameplay screen",
+      "complete application log"
+    ],
+    "normal_return": true,
+    "audio_api_failures": 0,
+    "audio_underruns": 0,
+    "not_physical_audio_continuity_proof": true
+  },
+  "costs": {
+    "unit": "executed MIPS basic-block instruction entries, size/4",
+    "complete_application_instructions": 3248230694,
+    "gameplay_instructions": 828823378,
+    "gameplay_instructions_per_frame": 2762744.5933333333,
+    "displayed_gameplay_frames": 150,
+    "source_pcm_gameplay_frames": 110059,
+    "major_exclusive_functions": [
+      {
+        "name": "h1_cpu_run_interpreter",
+        "instructions": 279911157,
+        "percent_of_gameplay_instructions": 33.77211169832616
+      },
+      {
+        "name": "FCEU_SoundCPUHook",
+        "instructions": 166009653,
+        "percent_of_gameplay_instructions": 20.029557250254108
+      },
+      {
+        "name": "RefreshLineBody",
+        "instructions": 108379783,
+        "percent_of_gameplay_instructions": 13.076342424308404
+      },
+      {
+        "name": "RdMemNorm",
+        "instructions": 67696953,
+        "percent_of_gameplay_instructions": 8.16783826288259
+      },
+      {
+        "name": "FCEUPPU_Loop",
+        "instructions": 39028102,
+        "percent_of_gameplay_instructions": 4.7088563179983085
+      },
+      {
+        "name": "RDoTriangleNoisePCMLQ",
+        "instructions": 35409854,
+        "percent_of_gameplay_instructions": 4.272303960036224
+      },
+      {
+        "name": "scale_nes_indexed_rgb32",
+        "instructions": 35294780,
+        "percent_of_gameplay_instructions": 4.258419940466496
+      },
+      {
+        "name": "memcpy",
+        "instructions": 29687713,
+        "percent_of_gameplay_instructions": 3.581910668547769
+      },
+      {
+        "name": "SexyFilter",
+        "instructions": 9259956,
+        "percent_of_gameplay_instructions": 1.117241169324256
+      },
+      {
+        "name": "RDoSQLQ",
+        "instructions": 6965874,
+        "percent_of_gameplay_instructions": 0.8404533685824678
+      }
+    ],
+    "sound_cpu_hook_scope": "CPU clock advancement and APU/DMC event checks/processing; its exclusive cost is not all waveform synthesis."
+  },
+  "sgz2_comparison": {
+    "same_bda": true,
+    "same_settings": true,
+    "range": [
+      1501,
+      1800
+    ],
+    "frames": 300,
+    "instructions": 661217984,
+    "instructions_per_frame": 2204059.946666667,
+    "execution_path": "JIT plus interpreter fallback",
+    "contra_instruction_ratio": 1.2534797873858192,
+    "contra_instruction_increase_percent": 25.347978738581922
+  },
+  "local_evidence": [
+    {
+      "path": "build/verification/v0115-contra-control-v3.json",
+      "sha256": "92c1b5ece687db64fa6ea340a029610044f93c7a85352e9c5f0eae18e1a65ca3"
+    },
+    {
+      "path": "build/verification/v0115-contra-control-v3-ordinary.json",
+      "sha256": "0c76606745508adf0611ea251fc1c8f142d464550681a6343fd5c6bf9c1290f3"
+    },
+    {
+      "path": "build/verification/v0115-city-rom-census-v2.json",
+      "sha256": "d892918045677bfe5ff05098a31436f1eb9c9d8cea1636ccb989f19796c4f418"
+    }
+  ],
+  "reproduction": {
+    "script": "build/run-v0115-contra-control-v3.py",
+    "script_sha256": "2efce2c3f2fbcc5ece52d589b5c541abb23fbd85e1ee01280e185432046042e6",
+    "command": "python build/run-v0115-contra-control-v3.py",
+    "attempt_history": "build/v0115-contra-control/attempts.json",
+    "earlier_title_and_stage_transition_attempts_excluded": true
+  },
+  "limitations": [
+    "Different games/scenes and interpreter/JIT paths do not isolate mapper as a causal factor.",
+    "MIPS instruction counts are not physical H1 cycles or FPS.",
+    "Caches, branches, memory latency and actual firmware-service costs were not measured.",
+    "Code-locality/cache effects remain hypotheses, not demonstrated bottlenecks.",
+    "Follow-up requires same-device actual cycle or wall-clock measurements with fixed settings/scenes and audio/display observations."
+  ],
+  "distribution": {
+    "commercial_rom_included": false,
+    "screenshots_included": false,
+    "pcm_included": false,
+    "private_detail_directory": "build/"
+  }
+}
