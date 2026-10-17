@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import copy
+import ast
 import json
 from pathlib import Path
+import shlex
 import sys
 import tempfile
 import unittest
@@ -13,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import package_release
 import verify_release
+from resolve_release_ref import resolve
 
 
 class ReleaseContract(unittest.TestCase):
@@ -74,6 +77,76 @@ class ReleaseContract(unittest.TestCase):
             with self.subTest(name=name), self.assertRaises(ValueError):
                 package_release.source_allowed(name)
         package_release.source_allowed("src/platform/jit_backoff.inc")
+
+    def test_workflow_passes_required_test_arguments(self):
+        workflow = (ROOT / ".github/workflows/build-release.yml").read_text(encoding="utf-8")
+        for line in workflow.splitlines():
+            if not line.strip().startswith("python tests/"):
+                continue
+            args = shlex.split(line.strip())
+            tree = ast.parse((ROOT / args[1]).read_text(encoding="utf-8"))
+            for node in ast.walk(tree):
+                if not (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and
+                        node.func.attr == "add_argument" and node.args):
+                    continue
+                required = any(k.arg == "required" and isinstance(k.value, ast.Constant) and
+                               k.value.value is True for k in node.keywords)
+                name = node.args[0]
+                if required and isinstance(name, ast.Constant) and str(name.value).startswith("--"):
+                    with self.subTest(command=args[1], argument=name.value):
+                        self.assertIn(name.value, args)
+
+
+class ReleaseTarget(unittest.TestCase):
+    commit = "a" * 40
+
+    def fake_git(self, *args):
+        self.calls.append(args)
+        if args == ("show", self.commit + ":VERSION"):
+            return "0.1.16"
+        if args in (("rev-parse", "--verify", "HEAD"),
+                    ("rev-parse", "--verify", "refs/tags/v0.1.16^{commit}")):
+            return self.commit
+        raise RuntimeError("Tag does not exist")
+
+    def setUp(self):
+        self.calls = []
+
+    def test_main_pr_and_empty_manual_never_release(self):
+        for event, ref in (("push", "refs/heads/main"), ("pull_request", "refs/pull/1/merge"),
+                           ("workflow_dispatch", "refs/heads/main")):
+            self.assertEqual(resolve(event, ref, "", self.fake_git),
+                             dict(commit=self.commit, release_tag=""))
+        self.assertNotIn(("show", self.commit + ":VERSION"), self.calls)
+
+    def test_manual_and_tag_push_resolve_existing_target_version(self):
+        for event, ref, requested in (("workflow_dispatch", "refs/heads/main", "v0.1.16"),
+                                      ("push", "refs/tags/v0.1.16", "")):
+            self.assertEqual(resolve(event, ref, requested, self.fake_git),
+                             dict(commit=self.commit, release_tag="v0.1.16"))
+        self.assertIn(("show", self.commit + ":VERSION"), self.calls)
+
+    def test_malformed_input_rejected_before_git(self):
+        for tag in ("main", "v0.1.16\ncommit=bad", "v0.1.16;echo x", " v0.1.16", "v01.1.16",
+                    "v0.1.16^{commit}", "v0.1.16/other"):
+            with self.subTest(tag=tag), self.assertRaises(ValueError):
+                resolve("workflow_dispatch", "refs/heads/main", tag, self.fake_git)
+        self.assertEqual(self.calls, [])
+
+    def test_missing_tag_refused(self):
+        with self.assertRaises(RuntimeError):
+            resolve("workflow_dispatch", "refs/heads/main", "v0.1.17", self.fake_git)
+
+    def test_version_mismatch_refused(self):
+        def mismatched(*args):
+            return "0.1.17" if args[0] == "show" else self.commit
+        with self.assertRaises(ValueError):
+            resolve("workflow_dispatch", "refs/heads/main", "v0.1.16", mismatched)
+
+    def test_invalid_commit_output_refused(self):
+        for value in ("main", "a" * 39, self.commit + "\nrelease_tag=v0.1.16"):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                resolve("workflow_dispatch", "refs/heads/main", "v0.1.16", lambda *args: value)
 
 
 if __name__ == "__main__":

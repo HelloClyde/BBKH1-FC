@@ -41,6 +41,8 @@ main、PR 和手动运行使用 `contents: read`，安装固定工具链和 Pyth
 
 标签构建另行核对 VERSION 和维护者保存的最终 BDA 固件验证记录。只有构建成功后，独立的发布 job 才取得 `contents: write`。它下载同一次构建的普通 artifact ZIP 并解压，逐文件核对 `SHA256SUMS.txt`、源码清单、安装包中的 BDA、版本与 Git 提交，最后创建 prerelease，不覆盖已有 Release 资产。
 
+如果已公开标签的流水线因工作流参数错误而失败，可修正主干工作流后，从 `main` 手动运行并填写 `release_tag`。这会重新检出该既有标签的确切提交，完整执行构建、测试和固件证据门禁；发布前再次核对远端标签与实际构建提交一致，不移动标签、不覆盖已有 Release。应用源码或版本需要修改时应创建新版本标签，不能用这个入口替换旧标签的产品文件。`release_tag` 留空时只构建，不发布。
+
 最终资产位于 `dist/release/`：`H1FC.bda`、`H1FC.build.json`、版本化安装 ZIP、包含子模块的完整源码 ZIP、发布说明、验证 manifest 和 `SHA256SUMS.txt`。GitHub 自动生成的 Source code ZIP 不展开子模块；使用我们提供的 `BBKH1-FC-v<版本>-source.zip` 可直接取得对应源码。
 
 工作流于 2026-10-13 查询官方 Release 与 `action.yml` 后固定提交：

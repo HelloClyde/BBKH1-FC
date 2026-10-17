@@ -83,6 +83,13 @@ python tests/ppu_data_smoke.py
 python tests/core_equivalence.py --baseline-bda dist/H1FC.bda --baseline-elf build/release/H1FC.elf --bda dist/H1FC-jit.bda --elf build/release-jit/H1FC.elf --nm .tools/toolchain/bin/mipsel-none-elf-nm.exe --frames 24 --sprites --require-jit --cost-census
 ```
 
+`tests/jit_run_state_smoke.py` 是手动历史比较工具：它要求通过
+`--baseline-bda` / `--baseline-elf` 提供独立的旧原生 JIT 构建，与当前原生构建
+比较原生返回包。默认优化 C 版没有对应的原生编译入口，不能作为该工具的基线；
+同一构建与自身比较也不能代替历史回归。因此自动 CI 不调用此工具，仍运行
+`jit_smoke.py` 的指令语义测试、`jit_run_smoke.py` 的 C/native CPU 与序列化状态
+差分及其余适用检查，不将这些结果声称为独立的历史原生返回 ABI 比较。
+
 默认代码池 8 MiB，入口表另占 1 MiB，bank 索引另占 162 KiB，版本验证表另占 256 KiB；
 `--jit-cache-mib 1/2/4/8/10` 可选择代码池容量。非默认容量附带目录后缀，例如
 `build/release-jit-1m`；对照构建应加 `--no-dist`，避免替换安装文件。
